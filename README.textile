@@ -1,0 +1,1 @@
+This repo contains the sources for the "Lobid GitHub page":http://lobid.github.com
