@@ -1,0 +1,194 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.culturegraph</groupId>
+	<artifactId>mediawiki</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Culturegraph Mediawiki Analyzer</name>
+
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<targetJdk>1.6</targetJdk>
+		<junit.version>4.8.2</junit.version>
+	</properties>
+ 
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.culturegraph</groupId>
+			<artifactId>metastream</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.sweble.wikitext</groupId>
+			<artifactId>swc-engine</artifactId>
+			<version>1.1.0</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>log4j</artifactId>
+					<groupId>log4j</groupId>
+				</exclusion>
+				<exclusion>
+					<!-- Conflicts with newer version used here -->
+					<artifactId>junit</artifactId>
+					<groupId>junit</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>de.fau.cs.osr.ptk</groupId>
+			<artifactId>ptk-json-tools</artifactId>
+			<version>1.1.0</version>
+			<exclusions>
+				<exclusion>
+					<!-- Conflicts with newer version used here -->
+					<artifactId>commons-lang</artifactId>
+					<groupId>commons-lang</groupId>
+				</exclusion>
+				<exclusion>
+					<!-- Conflicts with newer version used here -->
+					<artifactId>junit</artifactId>
+					<groupId>junit</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>lobid-snapshots</id>
+            <url>file:///${basedir}/../lobid.github.com/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+	<build>
+		<testResources>
+			<testResource>
+				<directory>src/test/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+		</testResources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${targetJdk}</source>
+					<target>${targetJdk}</target>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>hudson</id>
+			<activation>
+				<property>
+					<name>BUILD_NUMBER</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-checkstyle-plugin</artifactId>
+						<version>2.6</version>
+						<configuration>
+							<configLocation>${basedir}/quality_assurance/checkstyle_rules.xml</configLocation>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>checkstyle</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>cobertura-maven-plugin</artifactId>
+						<version>2.5.1</version>
+						<configuration>
+							<formats>
+								<format>xml</format>
+							</formats>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>cobertura</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>findbugs-maven-plugin</artifactId>
+						<version>2.3.2</version>
+						<configuration>
+							<threshold>High</threshold>
+							<failOnError>false</failOnError>
+							<findbugsXmlOutput>true</findbugsXmlOutput>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-pmd-plugin</artifactId>
+						<version>2.5</version>
+						<configuration>
+							<linkXRef>true</linkXRef>
+							<rulesets>
+								<ruleset>${basedir}/quality_assurance/pmd_rules.xml</ruleset>
+							</rulesets>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>pmd</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<description>Provides Metastream modules and auxiliary classes for processing wiki pages from MediaWikis such as Wikipedia.</description>
+	<url>http://culturegraph.org/</url>
+	<organization>
+		<name>Deutsche Nationalbibliothek</name>
+		<url>http://dnb.de/</url>
+	</organization>
+</project>
