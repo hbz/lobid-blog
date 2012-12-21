@@ -1,8 +1,9 @@
 #!/bin/bash
 
-for DIR in $(find ./snapshots -type d); do
+for DIR in $(find ./snapshots ./releases -type d); do
   (
-    echo "<html>\n<body>\n<h1>Lobid Snapshots</h1>\n<hr/>\n<pre>"
+    STRIPPED=`echo $DIR | cut -c 2-`
+    echo "<html>\n<body>\n<h1>Index of lobid.github.com"$STRIPPED "</h1>\n<hr/>\n<pre>"
     ls -1pa "${DIR}" | grep -v "^\./$" | grep -v "^index\.html$" | awk '{ printf "<a href=\"%s\">%s</a>\n",$1,$1 }'
     echo "</pre>\n</body>\n</html>"
   ) > "${DIR}/index.html"
