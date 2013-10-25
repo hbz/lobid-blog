@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>org.culturegraph</groupId>
+  <artifactId>metafacture-core</artifactId>
+  <version>2.0.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20131025.091713</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20131025091713</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>2.0.0-20131025.091713-1</value>
+        <updated>20131025091713</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>2.0.0-20131025.091713-1</value>
+        <updated>20131025091713</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <classifier>bin</classifier>
+        <extension>tar.gz</extension>
+        <value>2.0.0-20131025.091713-1</value>
+        <updated>20131025091713</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <classifier>bin</classifier>
+        <extension>zip</extension>
+        <value>2.0.0-20131025.091713-1</value>
+        <updated>20131025091713</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>

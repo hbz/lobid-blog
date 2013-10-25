@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.github.jsonld-java</groupId>
+  <artifactId>jsonld-java</artifactId>
+  <version>0.3-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20131025.094001</timestamp>
+      <buildNumber>2</buildNumber>
+    </snapshot>
+    <lastUpdated>20131025094001</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>0.3-20131025.094001-2</value>
+        <updated>20131025094001</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>0.3-20131025.094001-2</value>
+        <updated>20131025094001</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <classifier>tests</classifier>
+        <extension>jar</extension>
+        <value>0.3-20131025.094001-2</value>
+        <updated>20131025094001</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
