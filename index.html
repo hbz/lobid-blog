@@ -1,9 +1,10 @@
 ---
 layout: default
-title: lobid.org
+title: Lobid Blog
 ---
-<h1>&#x221e; Lobid <small>&mdash; linking open bibliographic data</small></h1>
-
-<p>Lobid is the linked open data service provided by <a href="https://www.hbz-nrw.de">Hochschulbibliothekszentrum NRW (hbz)</a>.</p>
-<p>It provides API access to <a href="https://lobid.org/resources/search?q=*">bibliographic information</a> 
-and <a href="https://lobid.org/organisations">cultural institutions</a>.</p>
+<h1>&#x221e; {{ page.title }}</h1>
+<ul class="posts">
+	{% for post in site.posts %}
+		<li><span>{{ post.date | date_to_string }}</span>, {{ post.author }} » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+	{% endfor %}
+</ul>
