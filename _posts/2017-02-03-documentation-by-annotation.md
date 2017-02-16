@@ -10,13 +10,15 @@ What is being documented?
 - the data set (e.g. by indicating coverage of a specific information/field in the data set)
 - the API
 
-The relaunch of the lobid-resources and lobid-organisations API is near. This is an ideal possibility to improve our way of documentation – be it the functions of the API or the structure and fields of the data retrieved via the API. We serve JSON(-LD) via our API so the different JSON fields and their type of content (URIs, uncontrolled text, controlled values etc.) has to somehow be documented.
+The relaunch of the lobid-resources and lobid-organisations API is near. This is an ideal possibility to improve our documentation – be it the for functions of the API or the structure and fields of the data retrieved via the API. We serve JSON(-LD) via our API so the different JSON fields and their type of content (URIs, uncontrolled text, controlled values etc.) have to be somehow documented so that possible API users get a basic understanding quickly.
 
-Common practice of documenting your data, a metadata schema, an application profile is using tables, often contained within a PDF. See for example the ... 
 
-When I try to get an understanding of a schema and how it is used, I am soon looking out for example records . But examples are often secondary, if given at all. schema.org tries to have examples every – but often even there example are missing --> add example: https://schema.org/publication & https://schema.org/PublicationEvent
+Common practice of documenting your data, a metadata schema, an application profile is using llists and tables, often contained within a PDF. Examples:  
 
-Given that examples are a very important and long tables listing elements of a metadata schema, their descriptions and values are rather annoying, we started about turning it around and put the example in the center of documentation. Phrasing it more provocative. [All documentation should be built around examples](https://twitter.com/acka47/status/791271448245637120).
+When I try to get an understanding of a schema and how it is used, I am soon looking out for example records . But examples are often secondary, if given at all. schema.org highly values examples in their documntation  – but often even there example are missing, for example it is hard to learn about how to use https://schema.org/publication & https://schema.org/PublicationEvent.
+
+
+Short, examples are a very important and long tables listing elements of a metadata schema, their descriptions and values are rather annoying. So we started to turn this around by putting the example in the center of documentation. Or, phrasing it more provocative: [All documentation should be built around examples](https://twitter.com/acka47/status/791271448245637120).
 
 So we did this: using production examples of our JSON data and annotating them with hypothes.is.
 
