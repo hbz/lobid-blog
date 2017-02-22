@@ -20,8 +20,8 @@ Approaching the first question, let's first take a closer look at the lobid API,
 
 lobid serves JSON-LD and HTML, depending on the client. You can choose the format by using content negotiation or by setting a `format` parameter. For now, we are relaunching these two endpoints:
 
-1. lobid-organisations: The [/organisations](https://lobid.org/organisations/) endpoint serves information about German-speaking organisations (mainly libraries, archives and museums). Data sources are the German ISIL registry and the core data of the German Library Statistics (Deutsche Bibliotheksstatistik, DBS) 
-2. lobid-resources: The [/resources](https://lobid.org/resources/) endpoint provides data from the hbz union catalog (approximately 20 M records) as Linked Data. 
+1. lobid-organisations: The [/organisations](https://lobid.org/organisations) endpoint serves information about German-speaking organisations (mainly libraries, archives and museums). Data sources are the German ISIL registry and the core data of the German Library Statistics (Deutsche Bibliotheksstatistik, DBS) 
+2. lobid-resources: The [/resources](https://lobid.org/resources) endpoint provides data from the hbz union catalog (approximately 20 M records) as Linked Data. 
 
 This means, lobid is serving data that is created and curated in other systems. For _transforming_ the data from different sources we use [Metafacture](https://github.com/culturegraph/metafacture-core). The concrete technology is not relevant for documentation but it is relevant where the data comes from and that it is altered for presentation via the lobid API.
 
@@ -35,12 +35,12 @@ As underlying technology, lobid uses [Elasticsearch](https://www.elastic.co/prod
 
 Following from the description above, there are different aspects of the API and the data it provides that may be worthy of documentation. These are:
 
-- With a focus on the _API_ itself and the JSON it serves (without the "LD"):
+1. With a focus on the _API_ itself and the JSON it serves (without the "LD"):
   - the different endpoints, the types of resources they describe and their API parameters
   - the Lucene query syntax
   - the query results: 
     - the structure of a result
     - the JSON keys used for a specific resource type and their type of content (URIs, uncontrolled text, controlled values etc.) and whether a key can hold multiple values or only holds one
-- With regard to _provenance_ of the data: People – especially librarians – might want to know from which field in the source data a specific information is derived. This would mean providing documentation of the mappings.
-- With regard to the data being _Linked Data_: people might be interested in the RDF vocabularies and properties/classes we use. 
-- Last, people might be interested in the coverage of specific information over the whole data set, e.g.: How many bibliographic resources actually have information about the publication date?
+2. With regard to _provenance_ of the data: People – especially librarians – might want to know from which field in the source data a specific information is derived. This would mean providing documentation of the mappings.
+3. With regard to the data being _Linked Data_: Some people will be interested in the RDF vocabularies and properties/classes we use. 
+4. Also, people might be interested in the coverage of specific information over the whole data set, e.g.: How many bibliographic resources actually have information about the publication date?
