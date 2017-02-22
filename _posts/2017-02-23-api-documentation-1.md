@@ -41,6 +41,6 @@ Following from the description above, there are different aspects of the API and
   - the query results: 
     - the structure of a result
     - the JSON keys used for a specific resource type and their type of content (URIs, uncontrolled text, controlled values etc.) and whether a key can hold multiple values or only holds one
-2. With regard to _provenance_ of the data: People – especially librarians – might want to know from which field in the source data a specific information is derived. This would mean providing documentation of the mappings.
-3. With regard to the data being _Linked Data_: Some people will be interested in the RDF vocabularies and properties/classes we use. 
-4. Also, people might be interested in the coverage of specific information over the whole data set, e.g.: How many bibliographic resources actually have information about the publication date?
+2. With regard to the data being _Linked Data_: Some people will be interested in the RDF vocabularies and properties/classes we use. 
+3. People might be interested in the _coverage_ of specific information over the whole data set, e.g.: How many bibliographic resources actually have information about the publication date?
+4. With regard to _provenance_ of the data: People – especially librarians – might want to know from which field in the source data a specific information is derived. This would mean providing documentation of the mappings.
