@@ -33,11 +33,11 @@ As underlying technology, lobid uses [Elasticsearch](https://www.elastic.co/prod
 
 # What to document?
 
-Following from the description above, there are different aspects of the API and the data it provides that may be worthy of documentation. Let's take a look at them.
+Following from the description above, there are different aspects of the API and the data it provides that may be worthy of documentation. Let's take a look at them, from the most to the least prioritized part of the documentation.
 
 ## The API itself
 
-With a focus on the _API_ itself and the JSON it serves (without the "LD") a documentation is needed for:
+To enable potentially users to make use of the lobid API, it is of greatest importance to document the API itself as the interface they interact with. Focussing on the API itself and the JSON it serves (without the "LD") a documentation is needed for:
 
 1. the different endpoints, the types of resources they describe and their API parameters
 2. the Lucene query syntax
@@ -47,7 +47,7 @@ The most work definitely has to be put into 3.) while 2.) can be covered by refe
 
 ## Data set quality and coverage 
 
-People might want to get a quick overview over the data set itself, like: How many resources are described? How many of each type? Which specific information is available for how many resources? For example: _How many libraries and how many museums are described in lobid-organisations?_ or _How many bibliographic resources actually have information about the publication date?_ or _How many organisations have geo coordinates associated with them?_
+It is also important for people getting to know an API to quickly assess whether the data provided by the API is actually of interest to them. To get a quick overview over the data set itself, you need to answer questions like: How up-to-date is the data? How many resources are described? How many of each type? Which specific information is available for how many resources? (For example _How many bibliographic resources actually have information about the publication date?_ or _How many organisations have geo coordinates associated with them?_)
 
 ## RDF vocabularies, properties & classes
 
@@ -56,3 +56,6 @@ With regard to the data being Linked Data, some people will be interested in the
 ## Provenance information
 
 Beyond the identification of the data sources, some people want to know from which field in the source data a specific information is derived. This is especially of interest for information professionals who are familiar with the source data sets and want to assess the lobid data . For this, some documentation of the mappings and the transformation process is needed.
+
+
+In the upcoming post we will take a look at how we plan to provide documentation for the different aspects of the lobid API.
