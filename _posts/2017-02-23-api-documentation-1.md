@@ -31,16 +31,25 @@ So, we have two API endpoints to document. These endpoints currently are read-on
 
 As underlying technology, lobid uses [Elasticsearch](https://www.elastic.co/products/elasticsearch), a Lucene-based search engine. The JSON-LD resulting from the transformation process is indexed in Elasticsearch and can be queried by anybody using the [Lucene query syntax](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html). Additionally, we are offering additional parameters – implemented with the [Play framework](https://www.playframework.com/) – to simplify specific kinds of searches.
 
-# Documenting what?
+# What to document?
 
-Following from the description above, there are different aspects of the API and the data it provides that may be worthy of documentation. These are:
+Following from the description above, there are different aspects of the API and the data it provides that may be worthy of documentation. Let's take a look at them.
 
-1. With a focus on the _API_ itself and the JSON it serves (without the "LD"):
-  - the different endpoints, the types of resources they describe and their API parameters
-  - the Lucene query syntax
-  - the query results: 
-    - the structure of a result
-    - the JSON keys used for a specific resource type and their type of content (URIs, uncontrolled text, controlled values etc.) and whether a key can hold multiple values or only holds one
-2. With regard to the data being _Linked Data_: Some people will be interested in the RDF vocabularies and properties/classes we use. 
-3. People might be interested in the _coverage_ of specific information over the whole data set, e.g.: How many bibliographic resources actually have information about the publication date?
-4. With regard to _provenance_ of the data: People – especially librarians – might want to know from which field in the source data a specific information is derived. This would mean providing documentation of the mappings.
+## The API itself
+
+With a focus on the _API_ itself and the JSON it serves (without the "LD") a documentation is needed for:
+- the different endpoints, the types of resources they describe and their API parameters
+- the Lucene query syntax
+- the query results, i.e. their structure as well as the JSON keys used for a specific resource type and their type of content (URIs, uncontrolled text, controlled values etc.) and whether a key can hold multiple values or only holds one
+
+## Data set quality and coverage 
+
+People might want to get a quick overview over the data set itself, like: How many resources are described? How many of each type? Which specific information is available for how many resources? For example: _How many bibliographic resources actually have information about the publication date?_ or _How many organisations have geo coordinates associated with them?_ or _How many libraries and how many museums are described in lobid-organisations?_
+
+## RDF vocabularies, properties & classes
+
+With regard to the data being Linked Data, some people will be interested in the RDF vocabularies and properties/classes we use. Here, a reference to the JSON-LD context document can help (see the contexts for [lobid-organisations](http://lobid.org/organisations/context.jsonld) and [lobid-resources](http://lobid.org/resources/context.jsonld)). The question is whether this suffices as documentation of the RDF properties and classes used.
+
+## Provenance information
+
+Beyond the identification of the data sources, some people want to know from which field in the source data a specific information is derived. This is especially of interest for information professionals who are familiar with the source data sets and want to assess the lobid data . For this, some documentation of the mappings and the transformation process is needed.
