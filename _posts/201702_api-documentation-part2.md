@@ -1,17 +1,9 @@
 ---
 layout: post
-title: "Documenting data by annotating examples"
+title: "API documentation, part II: How to document?"
 date: 2017-02-03
 author: Adrian Pohl
 ---
-
-What is being documented?
-- the data structure / data model
-- the data set (e.g. by indicating coverage of a specific information/field in the data set)
-- the API
-
-The relaunch of the lobid-resources and lobid-organisations API is near. This is an ideal possibility to improve our documentation – be it the for functions of the API or the structure and fields of the data retrieved via the API. We serve JSON(-LD) via our API so the different JSON fields and their type of content (URIs, uncontrolled text, controlled values etc.) have to be somehow documented so that possible API users get a basic understanding quickly.
-
 
 Common practice of documenting your data, a metadata schema, an application profile is using llists and tables, often contained within a PDF. Examples:  
 
@@ -38,4 +30,5 @@ From https://www.programmableweb.com/news/web-api-documentation-best-practices/2
 Questions:
 
 - Should we add "type" information to the annotations in lobid?
+- Add the corresponding URI to each field?
 - Should we add a query template to each field annotation, e.g. for contribution.agent.id: https://lobid.org/resources/search?q=contribution.agent.id:{GND-ID}
