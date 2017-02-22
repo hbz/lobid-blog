@@ -1,20 +1,18 @@
 ---
 layout: post
-title: "API documentation, part I: What to document?"
+title: "Documenting the lobid API, part I: What to document?"
 date: 2017-02-03
 author: Adrian Pohl
 ---
 
-The relaunch of the lobid-resources and lobid-organisations API is scheduled for the end of March. This is an ideal possibility to improve our documentation. In a series of two post  The basic questions that came up in the process of creating and thinking about documentation are:
+The relaunch of the lobid-resources and lobid-organisations API is scheduled for the end of March. This is an ideal possibility to improve our documentation. In a series of two blog posts we will examine the basic questions that came up in the process of creating and thinking about documentation for a search API:
 
 1. What should be we write documentation about?
 2. How should we provide documentation? 
 
-We will address each question in a blog post.
-
 # The API
 
-Approaching the first question, let's first take a closer look at the lobid API, what it offers and how.
+Approaching the first question, let's start with a closer look at the lobid API, what it offers and how.
 
 ## The data
 
