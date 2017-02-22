@@ -38,13 +38,16 @@ Following from the description above, there are different aspects of the API and
 ## The API itself
 
 With a focus on the _API_ itself and the JSON it serves (without the "LD") a documentation is needed for:
-- the different endpoints, the types of resources they describe and their API parameters
-- the Lucene query syntax
-- the query results, i.e. their structure as well as the JSON keys used for a specific resource type and their type of content (URIs, uncontrolled text, controlled values etc.) and whether a key can hold multiple values or only holds one
+
+1. the different endpoints, the types of resources they describe and their API parameters
+2. the Lucene query syntax
+3. the query results, i.e. their structure as well as the JSON keys used for a specific resource type and their type of content (URIs, uncontrolled text, controlled values etc.) and whether a key can hold multiple values or only holds one
+
+The most work definitely has to be put into 3.) while 2.) can be covered by referring to the official documentation.
 
 ## Data set quality and coverage 
 
-People might want to get a quick overview over the data set itself, like: How many resources are described? How many of each type? Which specific information is available for how many resources? For example: _How many bibliographic resources actually have information about the publication date?_ or _How many organisations have geo coordinates associated with them?_ or _How many libraries and how many museums are described in lobid-organisations?_
+People might want to get a quick overview over the data set itself, like: How many resources are described? How many of each type? Which specific information is available for how many resources? For example: _How many libraries and how many museums are described in lobid-organisations?_ or _How many bibliographic resources actually have information about the publication date?_ or _How many organisations have geo coordinates associated with them?_
 
 ## RDF vocabularies, properties & classes
 
