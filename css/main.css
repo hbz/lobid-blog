@@ -19,7 +19,7 @@ h1 {
 	font-size: 3em;
 }
 
-p {
+p, li {
 	font-size: 1.5em;
 	line-height: 1.4em;
 	color: #333;
@@ -33,7 +33,6 @@ footer {
 ul.posts {
 	margin: 20px auto 40px;
 	padding-left: 0px;
-	font-size: 1.5em;
 }
 
 ul.posts li {
