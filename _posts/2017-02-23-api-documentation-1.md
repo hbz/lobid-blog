@@ -56,7 +56,3 @@ With regard to the data being Linked Data, some people will be interested in the
 Beyond the identification of the data sources, some people want to know from which concrete field in the source data a specific information is derived and what kind of post-processing is done. This is especially of interest for information professionals who are familiar with the source data sets and want to assess the lobid data. For this, some documentation of the mappings and the transformation process is needed.
 
 In the upcoming post we will take a look at how we plan to provide documentation for the different aspects of the lobid API.
-
-*Comments? Feedback? Just add an annotation with [hypothes.is](https://hypothes.is/).*
-
-<script src="https://hypothes.is/embed.js" async></script>
