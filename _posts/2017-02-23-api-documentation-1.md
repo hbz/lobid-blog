@@ -57,6 +57,6 @@ Beyond the identification of the data sources, some people want to know from whi
 
 In the upcoming post we will take a look at how we plan to provide documentation for the different aspects of the lobid API.
 
-*Comments? Feedback? Please use annotate with [hypothes.is](https://hypothes.is/).*
+*Comments? Feedback? Just add an annotation with [hypothes.is](https://hypothes.is/).*
 
 <script src="https://hypothes.is/embed.js" async></script>
