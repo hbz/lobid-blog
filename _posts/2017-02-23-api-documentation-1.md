@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Documenting the lobid API, part I: What to document?"
-date: 2017-02-03
+date: 2017-02-23
 author: Adrian Pohl
 ---
 
