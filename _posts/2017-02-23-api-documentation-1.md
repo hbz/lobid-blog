@@ -5,7 +5,7 @@ date: 2017-02-23
 author: Adrian Pohl
 ---
 
-The relaunch of the lobid-resources and lobid-organisations API is scheduled for the end of March. This is an ideal opportunity to improve our documentation. In a series of two blog posts we will examine the basic questions that came up in the process of creating and thinking about documentation for a search API:
+The relaunch of lobid-resources and lobid-organisations is scheduled for the end of March. This is an ideal opportunity to improve our documentation. In a series of two blog posts we will examine the basic questions that came up in the process of creating and thinking about documentation for a search API:
 
 1. What should we write documentation about?
 2. How should we provide documentation? 
