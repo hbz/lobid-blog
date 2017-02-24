@@ -4,7 +4,13 @@ title: Lobid Blog
 ---
 <h1>&#x221e; {{ page.title }}</h1>
 <ul class="posts">
+	<table>
 	{% for post in site.posts %}
-		<li><span>{{ post.date | date_to_string }}</span>, {{ post.author }} » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+		<tr>
+			<td>{{ post.date | date_to_string }}, </td>
+			<td>{{ post.author }}</td>
+			<td>» <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></td>
+		</tr>
 	{% endfor %}
+	</table>
 </ul>
