@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Documentation by annotation"
+title: "Documenting the lobid API, part I: What to document?"
 date: 2017-02-03
 author: Adrian Pohl
 ---
@@ -8,31 +8,40 @@ As outlined in the [previous post](http://blog.lobid.org/2017/02/23/api-document
 
 # High-level documentation of the dataset
 
-To give persons (as well as machines) a quick overview over the dataset that is provided via the API, we mostly followed the W3C's [Data on the Web Best Practices recommendation](https://www.w3.org/TR/dwbp/#metadata). The result is a [JSON-LD file](http://lobid.org/organisations/dataset.jsonld) as well as a human-readable [HTML version](http://lobid.org/organisations/dataset) of the same information describing the dataset. You may notice that we decided to use schema.org properties and classes where possible instead of DC Terms and  [DCAT](http://www.w3.org/ns/dcat) vocabulary as suggested in the W3C recommendation.
+To give persons (as well as machines) a quick overview over the dataset that is provided via the API, we mostly followed the W3C's [Data on the Web Best Practices recommendation](https://www.w3.org/TR/dwbp/#metadata). The result is a [JSON-LD file](http://lobid.org/organisations/dataset.jsonld) as well as a human-readable [HTML version](http://lobid.org/organisations/dataset) of the same information describing the dataset. Note that we decided to use schema.org properties and classes where possible instead of DC Terms and  [DCAT](http://www.w3.org/ns/dcat) vocabulary as suggested in the W3C recommendation.
 
+# Documenting API & application profile
 
+Common practice of documenting a vocabulary or an application profile is using lists and tables, often contained within a PDF. Examples:  
 
-In Common practice of documenting your data, a metadata schema, an application profile is using llists and tables, often contained within a PDF. Examples:  
+When I try to get an understanding of a schema and how it is used, I quickly find myself looking out for example records. But examples are often secondary parts of documentations, if given at all. schema.org for example in contrast to other vocabularies highly values examples – but often even there examples are missing. (E.g. it is hard to learn about how to use [the `publication` property](https://schema.org/publication) & the [publication event class](https://schema.org/PublicationEvent).)
 
-When I try to get an understanding of a schema and how it is used, I am soon looking out for example records . But examples are often secondary, if given at all. schema.org highly values examples in their documntation  – but often even there example are missing, for example it is hard to learn about how to use https://schema.org/publication & https://schema.org/PublicationEvent.
+I believe that examples should be an integral part of documentation while I deem page-long tables listing elements of a metadata schema as rather annoying. So we started to turn this around by putting the example in the center of documentation following the bold claim that ""[All documentation should be built around examples](https://twitter.com/acka47/status/791271448245637120)".
 
+A [post on API documentation from 2010](https://www.programmableweb.com/news/web-api-documentation-best-practices/2010/08/12) claims:
 
-Short, examples are a very important and long tables listing elements of a metadata schema, their descriptions and values are rather annoying. So we started to turn this around by putting the example in the center of documentation. Or, phrasing it more provocative: [All documentation should be built around examples](https://twitter.com/acka47/status/791271448245637120).
+> In addition to sample code, having HTTP, XML, and JSON samples of your request and response is important. However, samples only are not sufficient. In addition, you need a description that explains the purpose of the call and you need a table that explains each element. We recommend a table with columns for Name, Type, Description, and Remarks.
 
-So we did this: using production examples of our JSON data and annotating them with hypothes.is.
+With web annotation you can now have both: examples and a structured annotation of specific parts of it. So we did this: using production examples of our JSON data and annotating them with hypothes.is.
+
+We chose to annotate each JSON key with the following information:
+
+- Name
+- Description
+- Coverage
+- Use cases
+- (URI)
 
 What are the requirements for such an approach:
 - The examples taken for documentation should at best be live data from production. Thus, if something changes on the data side, the example – and with it the documentation – automatically updates.
 
-See e.g. the documentation for the – still officially to be launched – lobid-organisations service: http://lobid.org/organisations/api/de (The German version is more comprehensive but I also added some annotations on the [English documentation page](http://lobid.org/organisations/api/en).)
+See e.g. the documentation for the – still officially to be launched – lobid-organisations service: http://lobid.org/organisations/api/en
 
 
 
 ----
 
-From https://www.programmableweb.com/news/web-api-documentation-best-practices/2010/08/12:
 
-> In addition to sample code, having HTTP, XML, and JSON samples of your request and response is important. However, samples only are not sufficient. In addition, you need a description that explains the purpose of the call and you need a table that explains each element. We recommend a table with columns for Name, Type, Description, and Remarks.
 
 Questions:
 
