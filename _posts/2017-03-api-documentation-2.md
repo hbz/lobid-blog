@@ -4,17 +4,16 @@ title: "Documenting the lobid API, part I: What to document?"
 date: 2017-02-03
 author: Adrian Pohl
 ---
-As outlined in the [previous post](http://blog.lobid.org/2017/02/23/api-documentation-1.html), there are different aspects of your API you need to take into account when working on the documentation. In this post I want to share how we carried out the documentation of the lobid API.
+As outlined in the [previous post](http://blog.lobid.org/2017/02/23/api-documentation-1.html), there are different aspects of an API you need to take into account when working on the documentation. In this post I want to share how we carried out the documentation of the lobid API.
 
 # High-level documentation of the dataset
 
-To give persons (as well as machines) a quick overview over the dataset that is provided via the API, we mostly followed the W3C's [Data on the Web Best Practices recommendation](https://www.w3.org/TR/dwbp/#metadata). The result is a [JSON-LD file](http://lobid.org/organisations/dataset.jsonld) as well as a human-readable [HTML version](http://lobid.org/organisations/dataset) of the same information describing the dataset. Note that we decided to use schema.org properties and classes where possible instead of DC Terms and  [DCAT](http://www.w3.org/ns/dcat) vocabulary as suggested in the W3C recommendation.
+To give persons (as well as machines) a quick overview over the dataset that is provided via the API, we mostly followed the W3C's [Data on the Web Best Practices recommendation](https://www.w3.org/TR/dwbp/#metadata). The result is a [JSON-LD file](http://lobid.org/organisations/dataset.jsonld) describing the dataset as well as a human-readable [HTML version](http://lobid.org/organisations/dataset) of the same information. Note that we decided to use schema.org properties and classes where possible instead of DC Terms and  [DCAT](http://www.w3.org/ns/dcat) vocabulary as suggested in the W3C recommendation.
 
-# Documenting API & application profile
+# Documenting API, data structure & application profile
 
-Common practice of documenting a vocabulary or an application profile is using lists and tables, often contained within a PDF. Examples:  
-
-When I try to get an understanding of a schema and how it is used, I quickly find myself looking out for example records. But examples are often secondary parts of documentations, if given at all. schema.org for example in contrast to other vocabularies highly values examples – but often even there examples are missing. (E.g. it is hard to learn about how to use [the `publication` property](https://schema.org/publication) & the [publication event class](https://schema.org/PublicationEvent).)
+When I try to get an understanding of a schema and how it is used, I quickly find myself looking out for example records. But examples are often secondary parts of documentations, if given at all. Common practice of documenting a vocabulary or an application profile is using lists and tables, often contained within a PDF.
+schema.org for example in contrast to other vocabularies highly values examples – but often even there examples are missing. (E.g. it is hard to learn about how to use [the `publication` property](https://schema.org/publication) & the [publication event class](https://schema.org/PublicationEvent).)
 
 I believe that examples should be an integral part of documentation while I deem page-long tables listing elements of a metadata schema as rather annoying. So we started to turn this around by putting the example in the center of documentation following the bold claim that ""[All documentation should be built around examples](https://twitter.com/acka47/status/791271448245637120)".
 
@@ -30,6 +29,7 @@ We chose to annotate each JSON key with the following information:
 - Description
 - Coverage
 - Use cases
+- (Provenance)
 - (URI)
 
 What are the requirements for such an approach:
