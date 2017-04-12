@@ -2,7 +2,7 @@
 layout: post
 title: "Which vocabularies to use for bibliographic descriptions?"
 date: 2017-04-05
-author: Christoph Ewertowski
+author: Christoph Ewertowski, Adrian Pohl
 ---
 
 Every Linked Data application builds upon vocabularies. But which ones contain the properties and classes needed for bibliographic descriptions? The topic of this blog post is how we choose specific vocabularies, properties and classes for [lobid-resources](http://lobid.org/resources), what patterns stand behind our choices and the reasons for them.
