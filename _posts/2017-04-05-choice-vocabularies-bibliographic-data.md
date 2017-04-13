@@ -41,7 +41,7 @@ Though we rely on Schema.org as base vocabulary in [lobid-organisations](http://
 
 In specific cases we draw properties/classes from other sources, for example using MADS for representing [complex subjects](https://github.com/hbz/lobid-resources/issues/187) or Music Ontology for typing sheet music. 
 
-Finally, we create properties and classes in our own _lobid vocab_ if other relevant vocabularies don't resolve properly, aren't available in RDF or if there is no existing vocabulary providing the necessary means at all. This was the case for 11 classes and 18 properties, e.g. when associating isPartOf relations of a resource to a series or multi-volume work with the volume number (https://github.com/hbz/lobid-vocabs/issues/39) or when expressing dataset-specific information like the internal identifier. lobid-vocab can be found at http://purl.org/lobid/lv and is maintained on [GitHub](https://github.com/hbz/lobid-vocabs/blob/master/lobid-vocab.ttl). For convenience it is written in Turtle.
+Finally, we create properties and classes in our own _lobid vocab_ if other relevant vocabularies don't resolve properly, aren't available in RDF or if there is no existing vocabulary providing the necessary means at all. This was the case for 11 classes and 18 properties, e.g. when associating isPartOf relations of a resource to a series or multi-volume work with the volume number (see  [this issue](https://github.com/hbz/lobid-vocabs/issues/39)) or when expressing dataset-specific information like the internal identifier. lobid-vocab can be found at http://purl.org/lobid/lv and is maintained on [GitHub](https://github.com/hbz/lobid-vocabs/blob/master/lobid-vocab.ttl). For convenience it is written in Turtle.
 
 # The result
 
@@ -66,9 +66,13 @@ Here is an overview over all vocabularies we currently use and how much classes/
 | [WDRS](http://www.w3.org/2007/05/powder-s) | 1 | - |
 | [ArchivesHub vocab](http://data.archiveshub.ac.uk/def/) | - | 1 |
 
+If you want to know which concrete properties and classes we use, take a look at our [JSON-LD context](http://lobid.org/resources/context.jsonld)<sup3</sup> or check out the [documentation](http://lobid.org/resources/api#jsonld) (in German).
+
 If you have comments or suggestions for improvement, we would be interested to hear them. 
 
 ------
 <sup>1</sup> This benefit hasn't manifested itself yet, although we also have contributed to the [Gruppe Titeldaten der DINI-AG KIM](https://wiki.dnb.de/display/DINIAGKIM/Titeldaten+Gruppe)'s work on defining a common application profile for Linked Library Data in German-speaking countries.
 
-<sup>2</sup> Such an approach was taken developing the [ls.ext](https://github.com/digibib/ls.ext) library system for Deichman Library, Oslo. Rurik Greenall has promoted this strategy a lot, e.g. in his [ELAG2015 talk](https://github.com/brinxmat/presentations/blob/master/2015/ELAG2015.pdf). 
+<sup>2</sup> Such an approach was taken developing the [ls.ext](https://github.com/digibib/ls.ext) library system for Deichman Library, Oslo. Rurik Greenall has promoted this strategy a lot, e.g. in his [ELAG2015 talk](https://github.com/brinxmat/presentations/blob/master/2015/ELAG2015.pdf).
+
+<sup>3</sup> To get a simple list run `curl http://lobid.org/resources/context.jsonld | grep '"@id" : "http'| sort -u`.
