@@ -63,7 +63,7 @@ Here is an overview over all vocabularies we currently use and how much classes/
 | [OWL](http://www.w3.org/2002/07/owl) | 1 | - |
 | [SKOS](http://www.w3.org/2004/02/skos/core) | 1 | - |
 | [UMBEL](http://umbel.org/umbel) | 1 | - |
-| [ [WDRS](http://www.w3.org/2007/05/powder-s) | 1 | - |
+| [WDRS](http://www.w3.org/2007/05/powder-s) | 1 | - |
 | [ArchivesHub vocab](http://data.archiveshub.ac.uk/def/) | - | 1 |
 
 If you have comments or suggestions for improvement, we would be interested to hear them. 
