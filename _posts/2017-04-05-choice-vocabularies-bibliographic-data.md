@@ -16,9 +16,8 @@ For six years our used properties and classes developed rather organically and t
 # How we find and choose RDF properties/classes 
 
 For adding labels and variant names of a resource, we chose the `rdfs:label` and `skos:altLabel` as RDFS and SKOS are two widely-used base vocabularies. Typing of linked entities from the Integrated Authority File (GND) is done using the [GND Ontology](http://d-nb.info/standards/elementset/gnd).
-Dealing with the question which properties to use for other data elements, we wrote down the following ranking of vocabularies to help with our choice:
 
-The workflow for finding the right thing to reuse goes as follows: We first look for fitting properties and classes mostly using [Linked Open Vocabularies](http://lov.okfn.org/) as search tool and identify which vocabularies provide things specific enough for our purposes. If multiple vocabs have fitting properties/classes we apply the following ranking to make our choice.
+The workflow for finding the right thing to reuse regarding the other data elements goes as follows: We first look for fitting properties and classes mostly using [Linked Open Vocabularies](http://lov.okfn.org/) as search tool and identify which vocabularies provide things specific enough for our purposes. If multiple vocabs have fitting properties/classes we apply the following ranking to make our choice.
 
 1. [DC Terms](http://purl.org/dc/terms)
 2. [Bibframe 2.0](http://id.loc.gov/ontologies/bibframe)
@@ -28,7 +27,7 @@ The workflow for finding the right thing to reuse goes as follows: We first look
 6. Several other vocabularies (MADS, Music Ontology, DC Elements, FOAF,...) for individual elements
 6. [Our own vocabulary](http://purl.org/lobid/lv)
 
-The ranking takes into account different aspects of vocabularies, like: How mature is the vocabulary? Is it well known and does it have a considerable user group? How stable is a vocabulary? Criteria for exclusion are whether vocabulary URIs actually resolve and deliver RDF.  The question how user-friendly a vocabulary interface is doesn't weigh much, though, as actually most vocabularies currently have a suboptimal UI (including and especially our own vocab which is served as plain Turtle)? 
+The ranking takes into account different aspects of vocabularies, like: How mature is the vocabulary? Is it well known and does it have a considerable user group? How stable is a vocabulary? Criteria for exclusion are whether vocabulary URIs actually resolve and deliver RDF.  The question how user-friendly a vocabulary interface is doesn't weigh much, though, as actually most vocabularies currently have a suboptimal UI (including and especially our own vocab which is served as plain Turtle).
 
 # Some examples
 
@@ -42,7 +41,7 @@ Though we rely on Schema.org as base vocabulary in [lobid-organisations](http://
 
 In specific cases we draw properties/classes from other sources, for example using MADS for representing [complex subjects](https://github.com/hbz/lobid-resources/issues/187) or Music Ontology for typing sheet music. 
 
-Finally, we create properties and classes in our own _lobid-vocab_ if other relevant vocabularies don't resolve properly or aren't available in RDF or if there is no existing vocabulary providing the necessary means at all. This was the case for 11 classes and 18 properties, e.g. when associating isPartOf relations of a resource to a series or multi-volume work with the volume number (https://github.com/hbz/lobid-vocabs/issues/39) or when expressing dataset-specific information like the internal identifier. lobid-vocab can be found at http://purl.org/lobid/lv and is maintained on [GitHub](https://github.com/hbz/lobid-vocabs/blob/master/lobid-vocab.ttl). For convenience it is written in turtle.
+Finally, we create properties and classes in our own _lobid-vocab_ if other relevant vocabularies don't resolve properly, aren't available in RDF or if there is no existing vocabulary providing the necessary means at all. This was the case for 11 classes and 18 properties, e.g. when associating isPartOf relations of a resource to a series or multi-volume work with the volume number (https://github.com/hbz/lobid-vocabs/issues/39) or when expressing dataset-specific information like the internal identifier. lobid-vocab can be found at http://purl.org/lobid/lv and is maintained on [GitHub](https://github.com/hbz/lobid-vocabs/blob/master/lobid-vocab.ttl). For convenience it is written in turtle.
 
 If you have comments or suggestions for improvement, we would be interested to hear them. 
 
