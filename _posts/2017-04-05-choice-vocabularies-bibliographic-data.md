@@ -13,7 +13,7 @@ In the very beginning of lobid (i.e. 2010) one specific bibliographic RDFS vocab
 
 For six years our used properties and classes developed rather organically and there was no well thought-out, documented strategy for chosing our properties and classes. This changed when we worked on the relaunch of the lobid API. We had to add and replace a lot of properties and finally assessed all properties and classes used in lobid in order to make our application profile as consistent as possible.
 
-# How we find and choose RDF properties/classes 
+# Finding & choosing RDF properties/classes
 
 For adding labels and variant names of a resource, we chose the `rdfs:label` and `skos:altLabel` as RDFS and SKOS are two widely-used base vocabularies. Typing of linked entities from the Integrated Authority File (GND) is done using the [GND Ontology](http://d-nb.info/standards/elementset/gnd).
 
@@ -27,9 +27,25 @@ The workflow for finding the right thing to reuse regarding the other data eleme
 6. Several other vocabularies (MADS, Music Ontology, DC Elements,...) for individual elements
 6. [Our own vocabulary](http://purl.org/lobid/lv)
 
-The ranking takes into account different aspects of vocabularies, like: How mature is the vocabulary? Is it well known and does it have a considerable user group? How stable is a vocabulary? Criteria for exclusion are whether vocabulary URIs actually resolve and deliver RDF.  The question how user-friendly a vocabulary interface is doesn't weigh much, though, as actually most vocabularies currently have a suboptimal UI (including and especially our own vocab which is served as plain Turtle).
+The ranking takes into account different aspects of vocabularies, like: How mature is the vocabulary? Is it well known and does it have a considerable user group? How stable is a vocabulary? Criteria for exclusion are whether vocabulary URIs actually resolve and deliver RDF.
 
-Here is an overview over all vocabularies we use and how much classes/properties are taken from them:
+# Some examples
+
+To get into more detail: DC is at the first place, simply because it’s a widely adopted standard for basic information about resources.
+
+Since Bibframe is still in development, changes will happen, making it rather unstable for now. However, we are optimistic that the current version 2.0 is stable enough and – on the plus side –  we are able to propose changes and improvements as needed. As there is quite a lot interest in Bibframe we also just wanted to get a little bit familiar with it. It already turned out to be quite valuable, for example giving us the opportunity to replace some FRBR-relicts from our data and to model contributions and roles the way we needed, see [this comment](https://github.com/hbz/lobid-resources/issues/38#issuecomment-259084607)).
+
+When the information to be expressed in RDF gets more and more library-specific the RDA Unconstrained Properties can often help out. We currently use eight RDA unconstrained properties, e.g. for things like [thesis information](http://rdaregistry.info/Elements/u/P60489), [title of subseries](http://rdaregistry.info/Elements/u/P60517) or RDA specific information like [nature of content](http://rdaregistry.info/Elements/u/P60584).
+
+Though we rely on Schema.org as base vocabulary in [lobid-organisations](http://lobid.org/organisations), we sticked to DC, Bibo et al. as basic vocabularies in the context of bibliographic resources. We [intend](https://github.com/hbz/lobid-resources-web/issues/25) to add schema.org markup embedded in the HTML for use by search engines etc. But schema.org already convinced us to use its event-based modeling of publication information, see e.g. the "publication" object in [this example file](http://lobid.org/resources/HT002213253?format=json).
+
+In specific cases we draw properties/classes from other sources, for example using MADS for representing [complex subjects](https://github.com/hbz/lobid-resources/issues/187) or Music Ontology for typing sheet music. 
+
+Finally, we create properties and classes in our own _lobid vocab_ if other relevant vocabularies don't resolve properly, aren't available in RDF or if there is no existing vocabulary providing the necessary means at all. This was the case for 11 classes and 18 properties, e.g. when associating isPartOf relations of a resource to a series or multi-volume work with the volume number (https://github.com/hbz/lobid-vocabs/issues/39) or when expressing dataset-specific information like the internal identifier. lobid-vocab can be found at http://purl.org/lobid/lv and is maintained on [GitHub](https://github.com/hbz/lobid-vocabs/blob/master/lobid-vocab.ttl). For convenience it is written in Turtle.
+
+# The result
+
+Here is an overview over all vocabularies we currently use and how much classes/properties are taken from them:
 
 | Vocabulary | Properties | Classes |
 |------------|------------|---------|
@@ -49,21 +65,6 @@ Here is an overview over all vocabularies we use and how much classes/properties
 | [UMBEL](http://umbel.org/umbel) | 1 | - |
 | [ [WDRS](http://www.w3.org/2007/05/powder-s) | 1 | - |
 | [ArchivesHub vocab](http://data.archiveshub.ac.uk/def/) | - | 1 |
-
-
-# Some examples
-
-To get into more detail: DC is at the first place, simply because it’s a widely adopted standard for basic information about resources.
-
-Since Bibframe is still in development, changes will happen, making it rather unstable for now. However, we are optimistic that the current version 2.0 is stable enough and – on the plus side –  we are able to propose changes and improvements as needed. As there is quite a lot interest in Bibframe we also just wanted to get a little bit familiar with it. It already turned out to be quite valuable, for example giving us the opportunity to replace some FRBR-relicts from our data and to model contributions and roles the way we needed, see [this comment](https://github.com/hbz/lobid-resources/issues/38#issuecomment-259084607)).
-
-When the information to be expressed in RDF gets more and more library-specific the RDA Unconstrained Properties can often help out. We currently use eight RDA unconstrained properties, e.g. for things like [thesis information](http://rdaregistry.info/Elements/u/P60489), [title of subseries](http://rdaregistry.info/Elements/u/P60517) or RDA specific information like [nature of content](http://rdaregistry.info/Elements/u/P60584).
-
-Though we rely on Schema.org as base vocabulary in [lobid-organisations](http://lobid.org/organisations), we sticked to DC, Bibo et al. as basic vocabularies in the context of bibliographic resources. We [intend](https://github.com/hbz/lobid-resources-web/issues/25) to add schema.org markup embedded in the HTML for use by search engines etc. But schema.org already convinced us to use its event-based modeling of publication information, see e.g. the "publication" object in [this example file](http://lobid.org/resources/HT002213253?format=json).
-
-In specific cases we draw properties/classes from other sources, for example using MADS for representing [complex subjects](https://github.com/hbz/lobid-resources/issues/187) or Music Ontology for typing sheet music. 
-
-Finally, we create properties and classes in our own _lobid-vocab_ if other relevant vocabularies don't resolve properly, aren't available in RDF or if there is no existing vocabulary providing the necessary means at all. This was the case for 11 classes and 18 properties, e.g. when associating isPartOf relations of a resource to a series or multi-volume work with the volume number (https://github.com/hbz/lobid-vocabs/issues/39) or when expressing dataset-specific information like the internal identifier. lobid-vocab can be found at http://purl.org/lobid/lv and is maintained on [GitHub](https://github.com/hbz/lobid-vocabs/blob/master/lobid-vocab.ttl). For convenience it is written in Turtle.
 
 If you have comments or suggestions for improvement, we would be interested to hear them. 
 
