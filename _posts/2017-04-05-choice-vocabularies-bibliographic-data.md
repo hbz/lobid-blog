@@ -24,10 +24,32 @@ The workflow for finding the right thing to reuse regarding the other data eleme
 3. [Bibliograpic Ontology (Bibo)](http://bibliontology.com/)
 4. Resource Description and Access (RDA) [Unconstrained Properties](http://www.rdaregistry.info/Elements/u/)
 5. [schema.org](http://schema.org/)
-6. Several other vocabularies (MADS, Music Ontology, DC Elements, FOAF,...) for individual elements
+6. Several other vocabularies (MADS, Music Ontology, DC Elements,...) for individual elements
 6. [Our own vocabulary](http://purl.org/lobid/lv)
 
 The ranking takes into account different aspects of vocabularies, like: How mature is the vocabulary? Is it well known and does it have a considerable user group? How stable is a vocabulary? Criteria for exclusion are whether vocabulary URIs actually resolve and deliver RDF.  The question how user-friendly a vocabulary interface is doesn't weigh much, though, as actually most vocabularies currently have a suboptimal UI (including and especially our own vocab which is served as plain Turtle).
+
+Here is an overview over all vocabularies we use and how much classes/properties are taken from them:
+
+| Vocabulary | Properties | Classes |
+|------------|------------|---------|
+| [lobid-vocab]()|     17     |    11   |
+| [DC Terms](http://purl.org/dc/terms/)   |     15     |     1   |
+| [Bibframe](http://id.loc.gov/ontologies/bibframe/)   |     11     |     3   |
+| [RDA Unconstrained Properties](http://rdaregistry.info/Elements/u/) | 8 | - |
+| [Bibo](http://purl.org/ontology/bibo/) | 6 | 12 |
+| [schema.org](http://schema.org) | 5 | 2 |
+| [GND Ontology](http://d-nb.info/standards/elementset/gnd) | 2 | 8 |
+| [RDF Schema](http://www.w3.org/2000/01/rdf-schema) | 2 | - |
+| [MADS](http://www.loc.gov/mads/rdf/v1) | 1 | 1 |
+| [Music Ontology](http://purl.org/ontology/mo/) | 1 | 1 |
+| [DC Elements](http://purl.org/dc/elements/1.1/) | 1 | - |
+| [OWL](http://www.w3.org/2002/07/owl) | 1 | - |
+| [SKOS](http://www.w3.org/2004/02/skos/core) | 1 | - |
+| [UMBEL](http://umbel.org/umbel) | 1 | - |
+| [ [WDRS](http://www.w3.org/2007/05/powder-s) | 1 | - |
+| [ArchivesHub vocab](http://data.archiveshub.ac.uk/def/) | - | 1 |
+
 
 # Some examples
 
