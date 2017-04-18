@@ -66,7 +66,7 @@ Here is an overview over all vocabularies we currently use and how much classes/
 | [WDRS](http://www.w3.org/2007/05/powder-s) | 1 | - |
 | [ArchivesHub vocab](http://data.archiveshub.ac.uk/def/) | - | 1 |
 
-If you want to know which concrete properties and classes we use, take a look at our [JSON-LD context](http://lobid.org/resources/context.jsonld)<sup3</sup> or check out the [documentation](http://lobid.org/resources/api#jsonld) (in German).
+If you want to know which concrete properties and classes we use, take a look at our [JSON-LD context](http://lobid.org/resources/context.jsonld)<sup>3</sup> or check out the [documentation](http://lobid.org/resources/api#jsonld) (in German).
 
 If you have comments or suggestions for improvement, we would be interested to hear them. 
 
