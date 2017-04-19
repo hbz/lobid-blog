@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Which vocabularies to use for bibliographic descriptions?"
-date: 2017-04-05
+date: 2017-04-19
 author: Christoph Ewertowski, Adrian Pohl
 ---
 
