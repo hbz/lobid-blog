@@ -7,7 +7,7 @@ title: Lobid Blog
 	<table>
 	{% for post in site.posts %}
 		<tr>
-			<td>{{ post.date | date_to_string }}, </td>
+			<td>{{ post.date | date_to_string }}</td>
 			<td>{{ post.author }}</td>
 			<td>» <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></td>
 		</tr>
