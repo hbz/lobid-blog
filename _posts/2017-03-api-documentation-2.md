@@ -29,22 +29,17 @@ We chose to annotate each JSON key with the following information:
 - Description
 - Coverage
 - Use cases
-- (Provenance)
-- (URI)
+- Provenance
+- URI
 
 What are the requirements for such an approach:
 - The examples taken for documentation should at best be live data from production. Thus, if something changes on the data side, the example – and with it the documentation – automatically updates.
 
 See e.g. the documentation for the – still officially to be launched – lobid-organisations service: http://lobid.org/organisations/api/en
 
-
-
 ----
-
-
 
 Questions:
 
 - Should we add "type" information to the annotations in lobid?
-- Add the corresponding URI to each field?
 - Should we add a query template to each field annotation, e.g. for contribution.agent.id: https://lobid.org/resources/search?q=contribution.agent.id:{GND-ID}
