@@ -10,9 +10,9 @@ As outlined in the [part I](http://blog.lobid.org/2017/02/23/api-documentation-1
 
 To give persons (as well as machines) a quick overview over the dataset that is provided via the API, we mostly followed the W3C's [Data on the Web Best Practices recommendation](https://www.w3.org/TR/dwbp/#metadata). The result is a [JSON-LD file](http://lobid.org/organisations/dataset.jsonld) describing the dataset as well as a human-readable [HTML version](http://lobid.org/organisations/dataset) of the same information. Note that we decided to use schema.org properties and classes where possible instead of DC Terms as suggested in the W3C recommendation.
 
-| ![Description of the lobid-organisations data set](/images/lobid-organisations-description.png) |
-|:---:|
-| HTML-version of the lobid-organisations data set description |
+![Description of the lobid-organisations data set](/images/lobid-organisations-description.png) 
+
+Image: HTML-version of the lobid-organisations data set description
 
 # Documenting API, data structure & application profile
 
