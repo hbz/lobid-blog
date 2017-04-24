@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Documenting the lobid API, part I: What to document?"
+title: "Documenting the lobid API, part II: How to document?"
 date: 2017-02-03
 author: Adrian Pohl
 ---
-As outlined in the [previous post](http://blog.lobid.org/2017/02/23/api-documentation-1.html), there are different aspects of an API you need to take into account when working on the documentation. In this post I want to share how we carried out the documentation of the lobid API.
+As outlined in the [part I](http://blog.lobid.org/2017/02/23/api-documentation-1.html), there are different aspects of an API you need to take into account when working on the documentation. In this post I want to share how we carried out the documentation of the lobid API.
 
 # High-level documentation of the dataset
 
