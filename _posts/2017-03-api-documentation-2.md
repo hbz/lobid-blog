@@ -4,11 +4,15 @@ title: "Documenting the lobid API, part II: How to document?"
 date: 2017-02-03
 author: Adrian Pohl
 ---
-As outlined in the [part I](http://blog.lobid.org/2017/02/23/api-documentation-1.html), there are different aspects of an API you need to take into account when working on the documentation. In this post I want to share how we carried out the documentation of the lobid API.
+As outlined in the [part I](http://blog.lobid.org/2017/02/23/api-documentation-1.html), there are different aspects of an API you need to take into account when working on the documentation: the data set as a whole, the API calls and response structurem RDF properties and classes, provenance information. In this post I want to share how we approached their documentation.
 
 # High-level documentation of the dataset
 
-To give persons (as well as machines) a quick overview over the dataset that is provided via the API, we mostly followed the W3C's [Data on the Web Best Practices recommendation](https://www.w3.org/TR/dwbp/#metadata). The result is a [JSON-LD file](http://lobid.org/organisations/dataset.jsonld) describing the dataset as well as a human-readable [HTML version](http://lobid.org/organisations/dataset) of the same information. Note that we decided to use schema.org properties and classes where possible instead of DC Terms and  [DCAT](http://www.w3.org/ns/dcat) vocabulary as suggested in the W3C recommendation.
+To give persons (as well as machines) a quick overview over the dataset that is provided via the API, we mostly followed the W3C's [Data on the Web Best Practices recommendation](https://www.w3.org/TR/dwbp/#metadata). The result is a [JSON-LD file](http://lobid.org/organisations/dataset.jsonld) describing the dataset as well as a human-readable [HTML version](http://lobid.org/organisations/dataset) of the same information. Note that we decided to use schema.org properties and classes where possible instead of DC Terms as suggested in the W3C recommendation.
+
+| ![Description of the lobid-organisations data set](/images/lobid-organisations-description.png) |
+|:---:|
+| HTML-version of the lobid-organisations data set description |
 
 # Documenting API, data structure & application profile
 
