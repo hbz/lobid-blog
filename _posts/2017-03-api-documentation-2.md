@@ -43,31 +43,38 @@ A [post on API documentation from 2010](https://www.programmableweb.com/news/web
 
 > In addition to sample code, having HTTP, XML, and JSON samples of your request and response is important. However, samples only are not sufficient. In addition, you need a description that explains the purpose of the call and you need a table that explains each element. We recommend a table with columns for Name, Type, Description, and Remarks.
 
-Agreed, that samples alone are not sufficient, but do I really need a table describing each element of you data? When putting the example first, why not attach the structured descriptive data (name, description, etc.) to the example? It is quite easy to achieve with web annotation tools. So we took production examples of our JSON-LD data and annotated them with [hypothes.is](https://hypothes.is/).
+Agreed, that samples alone are not sufficient, but do I really need a table describing each element of you data? When putting the example first, why not attach the structured descriptive data (name, description, etc.) to the example? Today, this is quite easy to achieve with web annotation tools. So we took production examples of our JSON-LD data and annotated them with [hypothes.is](https://hypothes.is/).<sup>2</sup>
 
 We chose to annotate each JSON key adding the following information:
 
-- Name
-- Description
-- Coverage
-- Use cases
-- URI
-- Provenance
+- Name: a human-readable name for the field
+- Description: a short description of the information in the field
+- Coverage: the number of resources that have information in this field (Here, you will often find example URLs on how to query the field.)
+- Use cases: example use cases on what the information from the field can be used for along with example queries
+- URI: the RDF property the JSON key is mapped to
+- Provenance: information about the source data fields the information is derived from
 
-At http://lobid.org/organisations/api/en you can see documentation by annotation in action. <sup>1</sup> Just go to the [JSON-LD section](http://lobid.org/resources/api#jsonld) and click on one of the highlighted JSON keys. The hypothes.is side bar will open with information about the data element.
+While the first two information points (name and description) and the URI can be found in every annotation, the others are not (yet) available for every field. We try to develop an even better feeling on how to use the API by the adding lots of example queries in the documentation, especially in the "Coverage" and "Use cases" section.
 
-What are the requirements for such an approach:
-- The examples taken for documentation should at best be live data from production. Thus, if something changes on the data side, the example – and with it the documentation – automatically updates.<sup>2</sup>
+At http://lobid.org/organisations/api/en you can see documentation by annotation in action.<sup>1</sup> Just go to the [JSON-LD section](http://lobid.org/resources/api#jsonld) and click on one of the highlighted JSON keys. The hypothes.is side bar will open with information about the data element.
 
-See e.g. the documentation for the – still officially to be launched – lobid-organisations service: http://lobid.org/organisations/api/en
+![Example annotation](/images/annotation-example.png) 
 
-Another benefit is that API users can easily ask questions regarding specific parts of the documentation by replying to a hypothes.is annotation.
+Example annotation on the "type" key
+
+## Benefits
+
+The examples taken for documentation should at best be live data from production. Thus, if something changes on the data side, the example – and with it the documentation – automatically updates.<sup>2</sup> For example, when information from a specific field won't be provided anymore, the example automatically updates and the corresponding hypothes.is annotation will become an "orphan"
+
+We hope that this documentation approach based on annotation of examples is more fun than the traditional descriptive approach. It should give people an intuitive and interactive interface for exploring and understanding the data provided by the lobid API. If any questions remain, API users can easily ask questions regarding specific parts of the documentation by replying to a hypothes.is annotation and we will automatically notified via email.
+
+We are curious what you think about this documentation approach? Let us know by adding an annotation to the whole post ("page note") or by annotating specific parts.
 
 ----
 
-sup>1</sup> There also is a [German version](http://lobid.org/organisations/api/de) & the [lobid-resources documentation](http://lobid.org/resources/api) solely exists in German.
+sup>1</sup> There also is a [German version](http://lobid.org/organisations/api/de) and the [lobid-resources documentation](http://lobid.org/resources/api) solely exists in German.
 
-<sup>2</sup> At first we planned to directly annotate the JSON filesbut this only works with the Chrome plugin. Hypothes.is' [via service](https://via.hypothes.is/)does [not support annotation of text files](https://github.com/hypothesis/via/issues/79) and you also can not include JavaScript in a JSON document. Thus, we decided to embed the JSON files in a HTML page adding the hypothes.is script to the page.
+<sup>2</sup> At first we planned to directly annotate the JSON files as provided via lobid (e.g. [this](http://lobid.org/organisations/DE-38?format=json)) but people would only be able to see the annotations when using the [hypothes.is Chrome plugin](https://chrome.google.com/webstore/detail/hypothesis-web-pdf-annota/bjfhmglciegochdpefhhlphglcehbmek). Another option is hypothes.is' [via service](https://via.hypothes.is/) but it does [not support annotation of text files](https://github.com/hypothesis/via/issues/79). Thus, we decided to embed the JSON file on-the-fly in a HTML page adding the hypothes.is script to the page.
 
 Questions:
 
