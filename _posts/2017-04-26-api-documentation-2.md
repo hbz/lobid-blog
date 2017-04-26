@@ -49,7 +49,7 @@ We chose to annotate each JSON key adding the following information:
 
 While the first two information points (name and description) and the URI can be found in every annotation, the others are not (yet) available for every field. We try to develop a better feeling on how to use the API by adding lots of example queries in the documentation, especially in the "Coverage" and "Use cases" section.
 
-At http://lobid.org/organisations/api you can see documentation by annotation in action.<sup>2</sup> Just go to the [JSON-LD section](http://lobid.org/resources/api#jsonld) and click on one of the highlighted JSON keys. The hypothes.is side bar will open with information about the data element.
+At [http://lobid.org/organisations/api]([http://lobid.org/organisations/api]) you can see documentation by annotation in action.<sup>2</sup> Just go to the [JSON-LD section](http://lobid.org/resources/api#jsonld) and click on one of the highlighted JSON keys. The hypothes.is side bar will open with information about the data element.
 
 ![Example annotation](/images/annotation-example.png) 
 
