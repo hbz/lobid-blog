@@ -22,7 +22,7 @@ The documentation describes the supported response content types and provides sa
 
 For the lobid-organisations documentation, we finally describe its specific functionality, like location based queries, CSV export, and OpenRefine reconciliation support.
 
-## Documentation by example: data structure, application profile, provenance
+# Documentation by example: data structure, application profile, provenance
 
 When we try to get an understanding of a schema and how it is used, we quickly find ourselves looking out for examples. But examples are often secondary parts of documentation, if given at all. It is common practice to use what can be called a "descriptive approach" of documenting a vocabulary or an application profile by listing elements in tables – often contained within a PDF – and describing their different aspects in various columns.
 
