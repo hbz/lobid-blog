@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Documenting the lobid API, part II: How to document?"
-date: 2017-04-25
+date: 2017-04-26
 author: Adrian Pohl, Fabian Steeg
 ---
 As outlined in [part I](http://blog.lobid.org/2017/02/23/api-documentation-1.html), there are different aspects of an API you need to take into account when working on the documentation: the dataset as a whole, the API calls and response structure, RDF properties and classes, provenance information. In this post we want to share how we approached their documentation for the two services [lobid-resources](https://lobid.org/resources/) and [lobid-organisations](https://lobid.org/organisations/), using lobid-organisations as primary example.
