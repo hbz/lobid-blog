@@ -12,6 +12,10 @@ Quick setup:
 
 Start server:
 
-@bundle exec jekyll serve@
+@bundle exec jekyll serve --drafts@
 
 Open "http://localhost:4000":http://localhost:4000
+
+Render @*.dot@ files in @images/@ with:
+
+@sh render.sh <name-without-extension>@ e.g. @sh render.sh data@ to render @data.dot@ as @data.png@.
