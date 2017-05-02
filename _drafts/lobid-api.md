@@ -160,7 +160,7 @@ A key take away from our experience with JSON-LD is that JSON-LD can be used and
 
 # User interfaces
 
-In addition to these API and data changes, [Lobid](http://lobid.org) 2.0 provides improved user interfaces. While the original service only had rudimentary table views for single records and search queries, the new services provide full featured search interfaces including map based visaulizations and faceted search.
+In addition to these API and data changes, [Lobid](http://lobid.org) 2.0 provides improved user interfaces. While the original service only had rudimentary table views for single records and search queries, the new services provide full featured search interfaces including map based visualizations and faceted search.
 
 ----
 
