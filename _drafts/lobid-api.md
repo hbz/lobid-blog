@@ -41,7 +41,7 @@ The resulting JSON-LD used the URIs from the N-Triples as the JSON keys. We inde
 
 ## Custom JSON-LD in the 2.0 systems
 
-### lobid-organisations: JSON with context
+### Creating JSON-LD as JSON with context: lobid-organisations
 
 For the first dataset that we moved to the new approach, lobid-organisations, we turned that around &mdash; instead of crafting N-Triples, and generating JSON-LD from them, we crafted JSON in the exact structure we want, from which we can then generate RDF serializations like N-Triples:
 
@@ -51,7 +51,7 @@ The main advantage of this is that it puts the concrete use case first: we expli
 
 Compared to the approach in the 1.x API, this is at the opposite side of the spectrum described above, treating JSON-LD as JSON, with no knowledge of RDF.
 
-### lobid-resources: an RDF serialization
+### Creating JSON-LD as an RDF serialization: lobid-resources
 
 For lobid-resources 2.0, we adopted something in between. We decided to reuse and build upon the transformation script of API 1.x, as it already transforms our data into N-Triples. We then used code which was developed by Jan Schnasse for the [etikett project](https://github.com/hbz/etikett) to create custom JSON-LD from the N-Triples. Like for lobid-organisations, and unlike the lobid 1.x API, the resulting custom JSON-LD is the internal index format _and at the same time_ the external API format.
 
