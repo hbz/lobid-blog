@@ -29,7 +29,7 @@ Combining these modules, we still get a large API area, and a large UI, but each
 
 # JSON-LD: an RDF serialization, or JSON with context
 
-JSON-LD is a W3C recommendation for a JSON-based linked data serialization. There are two ways to view JSON-LD: as an RDF serialization (like N-Triples, Turtle, or RDF-XML), or as a way to use JSON for linking data. This is reflected in the [JSON-LD spec](https://www.w3.org/TR/json-ld/), which both states that JSON-LD is "usable as RDF", and that it is "designed to be usable directly as JSON, with no knowledge of RDF".
+JSON-LD is a W3C recommendation for a JSON-based linked data serialization. There are two ways to view JSON-LD: as an RDF serialization (like N-Triples, Turtle, or RDF-XML), or as a way to use JSON for linking data. This is reflected in the [JSON-LD spec](https://www.w3.org/TR/json-ld/), which both states that JSON-LD is "usable as RDF", and that it is "designed to be usable directly as JSON, with no knowledge of RDF". Regular JSON becomes serializable as RDF by [attaching a context](https://www.w3.org/TR/json-ld/#the-context).
 
 ## Generic JSON-LD in the 1.x system
 
@@ -43,7 +43,7 @@ The resulting JSON-LD used the URIs from the N-Triples as the JSON keys. We inde
 
 ### lobid-organisations: JSON with context
 
-For the first dataset that we moved to the new approach, lobid-organisations, we turned that around &mdash; instead of crafting N-Triples, and generating JSON-LD from them, we crafted JSON in the exact structure we want, from which we can then generate RDF serializations like N-Triples<sup>2</sup>:
+For the first dataset that we moved to the new approach, lobid-organisations, we turned that around &mdash; instead of crafting N-Triples, and generating JSON-LD from them, we crafted JSON in the exact structure we want, from which we can then generate RDF serializations like N-Triples:
 
 ![Lobid 2](/images/lobid-2.png "Lobid 2")
 
@@ -141,7 +141,7 @@ When using the API, a common use case is to show labels for the URIs used to ide
 
 	"medium" : "http://rdvocab.info/termList/RDAproductionMethod/1010"
 
-To display labels for URIs like this, we had to maintain mappings of URIs to labels in our client applications. In the new API, we provide the labels along with the URIs:<sup>3</sup>
+To display labels for URIs like this, we had to maintain mappings of URIs to labels in our client applications. In the new API, we provide the labels along with the URIs:<sup>2</sup>
 
 	"medium": [{
 	  "id": "http://rdaregistry.info/termList/RDAproductionMethod/1010",
@@ -162,6 +162,4 @@ In addition to these API and data changes, [Lobid](http://lobid.org) 2.0 provide
 
 <sup>1</sup> Elasticsearch expects consistent types for a specific field (e.g. the field `alternateName` should always be a string, or should always be an array), but compact JSON-LD uses a single string if there is only one value, or an array if there are multiple values. Expanded JSON-LD will always create an array, even if it contains a single value only. We would have needed something like compact keys with expanded values, but that is not available (see [https://github.com/json-ld/json-ld.org/issues/338](https://github.com/json-ld/json-ld.org/issues/338)).
 
-<sup>2</sup> Regular JSON becomes serializable as RDF by attaching a context, see [https://www.w3.org/TR/json-ld/#the-context](https://www.w3.org/TR/json-ld/#the-context).
-
-<sup>3</sup> Note that the value is an array here, even though there's only one medium in this case. Since the data we serve is what we store in the index, we ensure that values are always arrays for fields that can have multiple values. See also footnote 1 above.
+<sup>2</sup> Note that the value is an array here, even though there's only one medium in this case. Since the data we serve is what we store in the index, we ensure that values are always arrays for fields that can have multiple values. See also footnote 1 above.
