@@ -49,7 +49,7 @@ Here is an overview over all vocabularies we currently use and how much classes/
 
 | Vocabulary | Properties | Classes |
 |------------|------------|---------|
-| [lobid-vocab]()|     17     |    11   |
+| [lobid-vocab](http://purl.org/lobid/lv)|     17     |    11   |
 | [DC Terms](http://purl.org/dc/terms/)   |     15     |     1   |
 | [Bibframe](http://id.loc.gov/ontologies/bibframe/)   |     11     |     3   |
 | [RDA Unconstrained Properties](http://rdaregistry.info/Elements/u/) | 8 | - |
