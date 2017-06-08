@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Lobid API 2.0: Why and how"
-date: 2017-04-27
-authors: Fabian Steeg, Pascal Christoph
+date: 2017-06-08
+author: Fabian Steeg, Pascal Christoph
 ---
 
 # Introduction: The Lobid API
@@ -31,7 +31,7 @@ Combining these modules, we still get a large API area, and a large UI, but each
 
 JSON-LD is a W3C recommendation for a JSON-based linked data serialization. There are two ways to view JSON-LD: as an RDF serialization (like N-Triples, Turtle, or RDF-XML), or as a way to use JSON for linking data. This is reflected in the [JSON-LD spec](https://www.w3.org/TR/json-ld/), which both states that JSON-LD is "usable as RDF", and that it is "designed to be usable directly as JSON, with no knowledge of RDF".
 
-## JSON-LD in the 1.x system
+## Generic JSON-LD in the 1.x system
 
 For the 1.x API, we created N-Triples in our data transformation and automatically converted them to JSON-LD using a JSON-LD processor, thus treating it completely as an RDF serialization:
 
@@ -39,9 +39,9 @@ For the 1.x API, we created N-Triples in our data transformation and automatical
 
 The resulting JSON-LD used the URIs from the N-Triples as the JSON keys. We indexed this data in Elasticsearch as [expanded JSON-LD](https://www.w3.org/TR/json-ld/#expanded-document-form).<sup>1</sup> When serving responses via our API, we automatically converted the data to [compact JSON-LD](https://www.w3.org/TR/json-ld/#compacted-document-form) to get short, more user friendly keys. So we actually generated two formats: the internal index format, and the external API format.
 
-## JSON-LD in the 2.0 systems
+## Custom JSON-LD in the 2.0 systems
 
-### lobid-organisations: crafting JSON-LD
+### lobid-organisations: JSON with context
 
 For the first dataset that we moved to the new approach, lobid-organisations, we turned that around &mdash; instead of crafting N-Triples, and generating JSON-LD from them, we crafted JSON in the exact structure we want, from which we can then generate RDF serializations like N-Triples<sup>2</sup>:
 
@@ -51,43 +51,9 @@ The main advantage of this is that it puts the concrete use case first: we expli
 
 Compared to the approach in the 1.x API, this is at the opposite side of the spectrum described above, treating JSON-LD as JSON, with no knowledge of RDF.
 
-### lobid-resources: crafting N-Triples, serialize JSON-LD
+### lobid-resources: an RDF serialization
 
-For lobid-resources 2.0, we adopted something in between. We decided to reuse and build upon the
-transformation script of API 1.x, as ir already transforms our data into N-Triples. We thought to
-serialize the N-Triples as JSON-LD would be easy, using a JSON-LD library. Unfortunately, as
-we discovered later, there are some [functionalities missing in the java library](https://github.com/jsonld-java/jsonld-java/issues/150).
-As Dave Beckett in the pretty well-known raptor project puts it:
-
-> JSON-LD is not supported - too complex to implement. -- <cite>[raptor README][1]</cite>
-[1]:https://github.com/dajobe/raptor/search?q=json-ld
-
-We decided to reuse an [RDF-To-JSON-LD library](https://github.com/hbz/lobid-rdf-to-json/)
-which was in developement by the [etikett-project](https://github.com/hbz/etikett) at the hbz.
-This' library's purpose is to primarily consume
-lobid-RDF to serialize it into JSON-LD. Additionally, the library comes with a so-called
-_sidecar-approach_, providing a human friendly _label_ for every _id_ of the JSON.
-We got along, especially as we concentrated on functionalities of JSON-LD we needed.
-
-Trouble came with the many improvements and structural changes, e.g. the introducing of
-[complex subjects](https://github.com/hbz/lobid-resources/issues/187):
-in a graph structure this comes with many blank nodes, while modelling
-directly as JSON would be more straight forward. Also, by default, multiple values in RDF
-come as a set, while in JSON everything is an ordered list. JSON-LD allows to define unordered
-lists, but the natural way to think about a collection in JSON is as a linear sequence, which is fine.
-Everything is a list!  E.g. a sequence of subjects, defining
-a semantic hierarchy, is a ordered list. Making [lists in RDF is clumsy](https://www.w3.org/TR/2004/REC-rdf-primer-20040210/#collections), though.
-
-So we actually generate two serializations: the first is the direct transformation of our old MAB
-catalog data into a shiny N-Triple graph (using metafacture) and from that to JSON-LD records
-with our own RDF java library. One of the not-so-nice sideeffects is that if one wants to change
-the data structure of the JSON documents it's necessary to think in terms of an N-Triple graph to
-change the transformation rules and map that to the JSON tree (resp. vice-versa).
-
-Like for lobid-organisations, and unlike the lobid 1.x API, the resulting JSON-LD is the internal
-index format _and at the same time_ the external API format.
-
-[TODO: details on JSON generation in lobid-rdf-to-json]
+For lobid-resources 2.0, we adopted something in between. We decided to reuse and build upon the transformation script of API 1.x, as it already transforms our data into N-Triples. We then used code which was developed by Jan Schnasse for the [etikett project](https://github.com/hbz/etikett) to create custom JSON-LD from the N-Triples. Like for lobid-organisations, and unlike the lobid 1.x API, the resulting custom JSON-LD is the internal index format _and at the same time_ the external API format.
 
 ## Benefits of custom JSON-LD
 
@@ -182,9 +148,7 @@ To display labels for URIs like this, we had to maintain mappings of URIs to lab
 	  "label": "Print"
 	}]
 
-Like for the creation of the JSON-LD in general, the implementation for adding these labels differs in the JSON-first and the Triples-first approach. In lobid-organisations, like all other aspects of the JSON creation, it is part of the transformation. For lobid-resources, a config file called `labels.json` is used [...]
-
-[TODO: details on labels.json in lobid-rdf-to-json]
+Like for the creation of the JSON-LD in general, the implementation for adding these labels differs in the JSON-first and the Triples-first approach. In lobid-organisations, like all other aspects of the JSON creation, it is part of the transformation. For lobid-resources, a `labels.json` config file is used during the conversion from N-Triples to JSON-LD.
 
 ### Summary: JSON-LD does not equal JSON-LD
 
