@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using the Java API for scripting in Elasticsearch 5.6"
-date: 2017-11-28
+date: 2017-11-29
 author: Fabian Steeg
 ---
 
@@ -46,4 +46,4 @@ Which we can then use, e.g. in our `Aggregation`:
 	searchRequest.addAggregation(
 		AggregationBuilders.terms("topic").script(script));
 
-For details on other Elasticsearch APIs and the painless scripting language, see [the Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/index.html).
+For details on other Elasticsearch APIs and the [painless scripting language](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/modules-scripting-painless.html), see [the Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/index.html).
