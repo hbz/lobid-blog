@@ -11,4 +11,4 @@ Um uns selbst einen plastischen Überblick über vergangene Entwicklungen zu ver
 
 Auch wenn der Vortrag leider entfallen musste, möchten wir die geleisteten Vorarbeiten nicht einfach in der Schublade verstauben lassen. Die der Zeitleiste zu Grunde liegende Tabelle ist daher lizenziert unter einer <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative-Commons-Namensnennung-4.0-International-Lizenz</a>. Mitarbeit an dieser Zeitleiste ist [ausdrücklich erwünscht](https://docs.google.com/spreadsheets/d/1jskswhsv20PithoDZqIw8QSjw_KdYS_HGDfVVx-CemI/edit?usp=sharing).
 
-Dieses Posting ist parallel [im Lobid-Blog](http://blog.lobid.org/2018/02/22/lodbib-zeitleiste.html) / Blog der TIB erschienen.
+Dieses Posting ist parallel [im Lobid-Blog](http://blog.lobid.org/2018/02/22/lodbib-zeitleiste.html) / [Blog der TIB](https://blogs.tib.eu/wp/tib/2018/02/22/geschichte-des-semantic-web-linked-open-data-im-bibliothekswesen-eine-zeitleiste) erschienen.
