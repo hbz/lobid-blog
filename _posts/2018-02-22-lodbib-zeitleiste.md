@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Geschichte des Semantic Web, Linked (Open) Data im Bibliothekswesen – eine Zeitleiste"
+title: "Geschichte des Semantic Web und Linked (Open) Data im Bibliothekswesen – eine Zeitleiste"
 date: 2018-02-22
 author: Adrian Pohl, Christian Hauschke
 ---
