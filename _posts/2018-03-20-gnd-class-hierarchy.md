@@ -32,7 +32,7 @@ Still, the most general class in the GND ontology is "AuthorityResource". These 
    - [AdministrativeUnit](http://lobid.org/gnd/search?filter=type:AdministrativeUnit) (11,844)
    - [BuildingOrMemorial](http://lobid.org/gnd/search?filter=type:BuildingOrMemorial) (6,4735)
    - [Country](http://lobid.org/gnd/search?filter=type:Country) (327)
-   - [ExtraterrestrialTerritory](ExtraterrestrialTerritory) (261)
+   - [ExtraterrestrialTerritory](http://lobid.org/gnd/search?filter=type:ExtraterrestrialTerritory) (261)
    - [FictivePlace](http://lobid.org/gnd/search?filter=type:FictivePlace) (30)
    - [MemberState](http://lobid.org/gnd/search?filter=type:MemberState) (579)
    - [NameOfSmallGeographicUnitLyingWithinAnotherGeographicUnit](http://lobid.org/gnd/search?filter=type:NameOfSmallGeographicUnitLyingWithinAnotherGeographicUnit) (1,877)
