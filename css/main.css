@@ -67,3 +67,9 @@ code {
 img {
 	width: 100%;
 }
+
+.logo {
+	height: 1.5em;
+	width: auto;
+	vertical-align: bottom;
+}
