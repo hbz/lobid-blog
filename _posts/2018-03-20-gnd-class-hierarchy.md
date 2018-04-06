@@ -55,7 +55,7 @@ Still, the most general class in the GND ontology is "AuthorityResource". These 
 - [Work](http://lobid.org/gnd/search?filter=type:Work) (324,074)
    - [Collection](http://lobid.org/gnd/search?filter=type:Collection) (1,112)
    - [CollectiveManuscript](http://lobid.org/gnd/search?filter=type:CollectiveManuscript) (0)
-   - [Expression](http://lobid.org/gnd/search?filter=type:Expression) (0)
+   - [Expression](http://lobid.org/gnd/search?filter=type:Expression) (5,270)
    - [Manuscript](http://lobid.org/gnd/search?filter=type:Manuscript) (5,747)
    - [MusicalWork](http://lobid.org/gnd/search?filter=type:MusicalWork) (167,771)
    - [ProvenanceCharacteristic](http://lobid.org/gnd/search?filter=type:ProvenanceCharacteristic) (2,236)
