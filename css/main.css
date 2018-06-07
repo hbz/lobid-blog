@@ -57,6 +57,7 @@ pre code {
 	font-size: inherit;
 	color: inherit;
 	white-space: pre-wrap;
+	word-wrap: break-word;
 }
 
 code {
