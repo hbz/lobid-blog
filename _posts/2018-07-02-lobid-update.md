@@ -18,11 +18,11 @@ Wie auch in [lobid-organisations](https://lobid.org/organisations) wird nun auf 
 
 Für jede lobid-gnd-Abfrage kann jetzt – wie auch in lobid-resources – die gesamte Ergebnismenge als JSON Lines heruntergeladen werden, indem einach der Parameter `format=jsonl` ergänzt wird. Im Antwortformat wird dann pro Zeile ein GND-Eintrag zurückgeliefert, zum Beispiel alle GND-Entitäten vom Typ "Sammlung" (Unterklasse von "Werk"):
 
-[http://lobid.org/gnd/search?filter=%2B%28type%3ACollection%29&size=100&format=jsonl](http://lobid.org/gnd/search?filter=%2B%28type%3ACollection%29&size=100&format=jsonl)
+[http://lobid.org/gnd/search?filter=type:Collection&format=jsonl](http://lobid.org/gnd/search?filter=type:Collection&format=jsonl)
 
 Bei solchen kleineren Ergebnismengen reicht der JSON-Lines-Download aus, werden größere Untermengen der GND abgefragt, empfiehlt es sich, das Ergebnis komprimiert als gzip herunterzuladen. Dafür muss der HTTP-Anfrage nur der entsprechende Accept-Header mitgegeben werden, z.B. mit curl:
 
-`$ curl --header "Accept-Encoding: gzip" 'http://lobid.org/gnd/search?filter=%2B%28type%3ACollection%29&size=100&format=jsonl'`
+`$ curl --header "Accept-Encoding: gzip" 'http://lobid.org/gnd/search?filter=type:Collection&format=jsonl'`
 
 ## OpenRefine Reconciliation API
 
