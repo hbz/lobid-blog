@@ -21,11 +21,11 @@ Häufig ist es hilfreich herauszufinden, wieviele und welche Einträge überhaup
 
 ## Suche vs. Filter
 
-Die lobid-gnd-API unterstützt Abfragen im [Query- und im Filter-Kontext](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-context.html). Mit dem `q`-Parameter wird eine query ausgelöst, die eine gerankte Ergebnisliste zurückliefert. Der `filter`-Parameter gibt nur die Einträge zurück, die genau die Suchanfrage erfüllen, ein Ranking ist dabei nicht möglich. Filter-Anfragen eignen sich bestens für die Einschränlung anhand kontrollierter Werte während Queries für Anfragen auf Textfelder angelegt sind.
+Die lobid-gnd-API unterstützt Abfragen im [Query- und im Filter-Kontext](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-context.html). Mit dem `q`-Parameter wird eine query ausgelöst, die eine gerankte Ergebnisliste zurückliefert. Der `filter`-Parameter gibt nur die Einträge zurück, die genau die Suchanfrage erfüllen, ein Ranking ist dabei nicht möglich. Filter-Anfragen eignen sich bestens für die Einschränkung anhand kontrollierter Werte während Queries für Anfragen auf Textfelder angelegt sind.
 
 # Wie lass ich mir die JSON-Daten anzeigen?
 
-Im folgenden wird immer wieder auf die strukturierten Daten im Format JSON-LD bezug genommen, die es für jeden Eintrag in lobid-gnd gibt. Anzeigen lassen sich diese wie folgt:
+Im folgenden wird immer wieder auf die strukturierten Daten im Format JSON-LD Bezug genommen, die es für jeden Eintrag in lobid-gnd gibt. Anzeigen lassen sich diese wie folgt:
 
 1. Mit Klick auf das JSON-LD-Zeichen in einer Detailansicht:
 [![Screenshot](/images/focus-json-ld.png "Hinweis auf Link zum JSON-LD")](http://lobid.org/gnd/11850391X)
