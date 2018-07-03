@@ -1,0 +1,50 @@
+---
+layout: post
+title: "lobid-gnd: Suche und Navigation"
+date: 2018-07-03
+author: Fabian Steeg
+---
+
+Dieser Artikel bietet einen Überblick zur Suche und Navigation in [lobid-gnd](http://lobid.org/gnd). Die Startseite von lobid-gnd führt auf die einfache Suchoberfläche:
+
+![http://lobid.org/gnd](/images/lobid-gnd-suche/1-1-suchen.png)
+
+Nach der Eingabe im Suchfeld kann einer der Vorschläge direkt ausgewählt werden:
+
+![http://lobid.org/gnd](/images/lobid-gnd-suche/1-2-vorschlag-auswahl.png)
+
+Alternativ kann eine Suche über die Enter-Taste oder das Lupen-Icon ausgeführt werden:
+
+![http://lobid.org/gnd](/images/lobid-gnd-suche/1-3-vorschlag-suche.png)
+
+Als alternativer Einstieg kann die gesamte GND erkundet werden: 
+
+![http://lobid.org/gnd/search](/images/lobid-gnd-suche/2-erkunden.png)
+
+Über beide Wege kommt man zur Trefferliste, die auf der rechten Seite zur Eingrenzung der Ergebnisse eine facettierte Suche nach Entitätstyp, GND-Sachgruppe, Ländercode, und Beruf oder Beschäftigung ermöglicht:
+
+![http://lobid.org/gnd/search](/images/lobid-gnd-suche/3-facetten.png)
+
+Als Standard werden die fünf häufigsten Einträge angezeigt, weitere Einträge lassen ein- und ausblenden:
+
+![http://lobid.org/gnd/search](/images/lobid-gnd-suche/4-facetten-einblenden.png)
+
+Entitätstypen sind in Untertypen differenziert:
+
+![http://lobid.org/gnd/search](/images/lobid-gnd-suche/5-facetten-untertypen.png)
+
+Über die Auswahl unterschiedlicher Facetten lässt sich die Treffermenge präzise eingrenzen, z.B. zur Anzeige aller hydrologischen Geografika in Deutschland:
+
+![http://lobid.org/gnd/search](/images/lobid-gnd-suche/6-1-facetten-filter.png)
+
+Erweiterte Suchmöglichkeiten ergeben sich aus einer Kombination von Sucheinstieg über das Suchfeld und facettierter Suche, sowie über Mehrfachauswahl innerhalb einer Facette:
+
+![http://lobid.org/gnd/search](/images/lobid-gnd-suche/6-2-facetten-filter.png)
+
+Die Detailseiten enthalten Links zu den verknüpften Entitäten und ermöglichen über die Lupen-Icons Suchen nach weiteren Einträgen im gleichen Verhältnis, z.B. weitere Teile der Nordsee:
+
+![http://lobid.org/gnd/4393546-1](/images/lobid-gnd-suche/7-1-details-lupe.png)
+
+Die visuelle Darstellung erlaubt ebenso eine Navigation zu den verknüpften Entitäten per Klick auf die Knoten des Graphs und eine Suche nach weiteren Einträgen im gleichen Verhältnis per Klick auf die Kanten:
+
+![http://lobid.org/gnd/4393546-1](/images/lobid-gnd-suche/7-2-details-kante.png "10")
