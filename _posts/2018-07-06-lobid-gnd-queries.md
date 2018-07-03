@@ -5,7 +5,27 @@ date: 2018-07-06
 author: Adrian Pohl
 ---
 
-Im [vorherigen Beitrag]() haben wir bereits die Oberfläche von [lobid-gnd](https://lobid.org/gnd) und ihre Funktionen beschrieben. Die API ermöglicht aber auch komplexere Abfragen, für die man sich ein wenig mit den dahinterliegenden Daten vertraut machen muss. Dies soll an einigen Beispielen ausgeführt werden. 
+Im [vorherigen Beitrag](http://blog.lobid.org/2018/07/03/lobid-gnd-suche.html) haben wir bereits die Oberfläche von [lobid-gnd](https://lobid.org/gnd) und ihre Funktionen beschrieben. Die API ermöglicht aber auch komplexere Abfragen, für die man sich ein wenig mit den zugrundeliegenden Datenstrukturen vertraut machen muss. Dies soll in diesem Beitrag an einigen Beispielen ausgeführt werden, zunächst aber werden einige generelle Informationen zur Suche geliefert.
+
+# Query basics
+
+
+
+## Query Language
+
+lobid-gnd wird auf Basis von [Elasticsearch](https://de.wikipedia.org/wiki/Elasticsearch) angeboten. Dadurch wird die  unterstützt. Die Query Language soll hier nicht noch einmal dokmentiert werden, wir verweisen stattdessen auf die Dokumentation der  [Elasticsearch Query String Syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax) sowie der [Apache Lucene Query Syntax](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html). (Elasticsearch basiert auf [Apache Lucene](https://de.wikipedia.org/wiki/Apache_Lucene).))
+
+## Suche vs. Filter
+
+Die lobid-gnd-API unterstützt Abfragen im [Query- und im Filter-Kontext](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-context.html). Mit dem `q`-Parameter wird eine query ausgelöst, die eine gerankte Ergebnisliste zurückliefert. Der `filter`-Parameter gibt nur die Einträge zurück, die genau die Suchanfrage erfüllen, ein Ranking ergibt hier keinen Sinn.
+
+Beispiel:
+
+https://lobid.org/gnd/search?q=professionOrOccupation.label:Schriftsteller
+
+## _exists_-Abfragen
+
+
 
 # Wie lass ich mir die JSON-Daten anzeigen?
 
@@ -15,16 +35,6 @@ Im folgenden wird immer wieder auf die strukturierten Daten im Format JSON-LD be
 [![Screenshot](/images/focus-json-ld.png "Hinweis auf Link zum JSON-LD")](http://lobid.org/gnd/11850391X)
 2. Durch Anhängen von `.json` an die URL eines Einzeltreffers, z.B. [http://lobid.org/gnd/11850391X.json](http://lobid.org/gnd/11850391X)
 3. **Bei Suchanfragen** muss der Parameter `format=json` angehängt werden, um die gesamte Ergebnisliste als JSON-LD anzuzeigen. (Alternativ können auch das JSON eines Treffers per Zeile mit JSON Lines ausgegeben werden (Parameter `format=jsonl`).
-
-# Query basics
-
-## Lucene Query Language
-
-
-## Suche vs. Filter
-
-
-## _exists_-Abfragen
 
 
 # Beispiele
