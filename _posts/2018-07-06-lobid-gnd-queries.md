@@ -5,31 +5,27 @@ date: 2018-07-06
 author: Adrian Pohl
 ---
 
-Im [vorherigen Beitrag](http://blog.lobid.org/2018/07/03/lobid-gnd-suche.html) haben wir bereits die Oberfläche von [lobid-gnd](https://lobid.org/gnd) und ihre Funktionen beschrieben. Die API ermöglicht aber auch komplexere Abfragen, für die man sich ein wenig mit den zugrundeliegenden Datenstrukturen vertraut machen muss. Dies soll in diesem Beitrag an einigen Beispielen ausgeführt werden, zunächst aber werden einige generelle Informationen zur Suche geliefert.
+Im [vorherigen Beitrag](http://blog.lobid.org/2018/07/03/lobid-gnd-suche.html) haben wir bereits die Oberfläche von [lobid-gnd](https://lobid.org/gnd) und ihre Funktionen beschrieben. Die API ermöglicht aber auch komplexere Abfragen, für die man sich ein wenig mit den zugrundeliegenden Datenstrukturen vertraut machen muss. Dies soll in diesem Beitrag an einigen Beispielen ausgeführt werden.
 
 # Query basics
 
-
+ Bevor wir die Suchmöglichkeiten an einigen Beispielen illustrieren, werden zunächst einige generelle Informationen zur Suche geliefert.
 
 ## Query Language
 
 lobid-gnd wird auf Basis von [Elasticsearch](https://de.wikipedia.org/wiki/Elasticsearch) angeboten. Dadurch wird die  unterstützt. Die Query Language soll hier nicht noch einmal dokmentiert werden, wir verweisen stattdessen auf die Dokumentation der  [Elasticsearch Query String Syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax) sowie der [Apache Lucene Query Syntax](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html). (Elasticsearch basiert auf [Apache Lucene](https://de.wikipedia.org/wiki/Apache_Lucene).))
 
+## `_exists_`-Abfragen
+
+Häufig ist es hilfreich herauszufinden, wieviele und welche Einträge überhaupt eine bestimmte Information angeben bzw. in wievielen Einträgen ein bestimmte Feld fehlt. Für solcherlei Anfragen eignet sich die `_exists_`-Anfrage, die im Query-Kontext in der Form `_exists_:{Feldname}` mitgegeben werden kann, optional mit dem Booleschen `NOT`, um alle Einträge zu bekommen, die das jeweilige *nicht* haben.
+
 ## Suche vs. Filter
 
-Die lobid-gnd-API unterstützt Abfragen im [Query- und im Filter-Kontext](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-context.html). Mit dem `q`-Parameter wird eine query ausgelöst, die eine gerankte Ergebnisliste zurückliefert. Der `filter`-Parameter gibt nur die Einträge zurück, die genau die Suchanfrage erfüllen, ein Ranking ergibt hier keinen Sinn.
-
-Beispiel:
-
-https://lobid.org/gnd/search?q=professionOrOccupation.label:Schriftsteller
-
-## _exists_-Abfragen
-
-
+Die lobid-gnd-API unterstützt Abfragen im [Query- und im Filter-Kontext](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-context.html). Mit dem `q`-Parameter wird eine query ausgelöst, die eine gerankte Ergebnisliste zurückliefert. Der `filter`-Parameter gibt nur die Einträge zurück, die genau die Suchanfrage erfüllen, ein Ranking ist dabei nicht möglich. Filter-Anfragen eignen sich bestens für die Einschränlung anhand kontrollierter Werte während Queries für Anfragen auf Textfelder angelegt sind.
 
 # Wie lass ich mir die JSON-Daten anzeigen?
 
-Im folgenden wird immer wieder auf die strukturierten Daten im Format JSON-LD bezug genommen, die es für jeden Eintrag in lobid-gnd gibt. Anzeigen lassen diese sich wie folgt:
+Im folgenden wird immer wieder auf die strukturierten Daten im Format JSON-LD bezug genommen, die es für jeden Eintrag in lobid-gnd gibt. Anzeigen lassen sich diese wie folgt:
 
 1. Mit Klick auf das JSON-LD-Zeichen in einer Detailansicht:
 [![Screenshot](/images/focus-json-ld.png "Hinweis auf Link zum JSON-LD")](http://lobid.org/gnd/11850391X)
