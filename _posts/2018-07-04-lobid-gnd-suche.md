@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "lobid-gnd: Suche und Navigation"
-date: 2018-07-03
+date: 2018-07-04
 author: Fabian Steeg
 ---
 
@@ -33,7 +33,7 @@ Entitätstypen sind in Untertypen differenziert:
 
 ![http://lobid.org/gnd/search](/images/lobid-gnd-suche/5-facetten-untertypen.png)
 
-Über die Auswahl unterschiedlicher Facetten lässt sich die Treffermenge präzise eingrenzen, z.B. zur Anzeige aller hydrologischen Geografika in Deutschland:
+Über die Auswahl unterschiedlicher Facetten lässt sich die Treffermenge präzise eingrenzen, z.B. zur Anzeige aller hydrologischen Geografika in Nordrhein-Westfalen:
 
 ![http://lobid.org/gnd/search](/images/lobid-gnd-suche/6-1-facetten-filter.png)
 
