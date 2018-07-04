@@ -2,7 +2,7 @@
 layout: post
 title: "lobid-gnd: Suche und Navigation"
 date: 2018-07-04
-author: Fabian Steeg
+author: Fabian Steeg, Adrian Pohl
 ---
 
 Dieser Artikel bietet einen Überblick zur Suche und Navigation in [lobid-gnd](http://lobid.org/gnd). Die Startseite von lobid-gnd führt auf die einfache Suchoberfläche:
@@ -21,11 +21,15 @@ Als alternativer Einstieg kann die gesamte GND erkundet werden:
 
 ![http://lobid.org/gnd/search](/images/lobid-gnd-suche/2-erkunden.png)
 
-Über beide Wege kommt man zur Trefferliste, die auf der rechten Seite zur Eingrenzung der Ergebnisse eine facettierte Suche nach Entitätstyp, GND-Sachgruppe, Ländercode und Beruf oder Beschäftigung ermöglicht:
+Über beide Wege kommt man zur Trefferliste. Über den Treffern auf der linken Seite kann die Anzahl der Treffer pro Seite gewählt werden, darunter kann zwischen den Seiten gewechselt werden:
 
-![http://lobid.org/gnd/search](/images/lobid-gnd-suche/3-facetten.png)
+![http://lobid.org/gnd/search](/images/lobid-gnd-suche/3-1-liste-paginierung.png)
 
-Als Standard werden die fünf häufigsten Einträge angezeigt, weitere Einträge lassen sich ein- und ausblenden:
+Auf der rechten Seite ermöglicht eine facettierte Suche nach Entitätstyp, GND-Sachgruppe, Ländercode und Beruf oder Beschäftigung eine Eingrenzung der Ergebnisse:
+
+![http://lobid.org/gnd/search](/images/lobid-gnd-suche/3-2-liste-facetten.png)
+
+Als Standard werden in jeder Facette die fünf häufigsten Einträge angezeigt, weitere Einträge lassen sich ein- und ausblenden:
 
 ![http://lobid.org/gnd/search](/images/lobid-gnd-suche/4-facetten-einblenden.png)
 
