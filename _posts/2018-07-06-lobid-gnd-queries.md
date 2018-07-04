@@ -49,8 +49,12 @@ Im folgenden wird immer wieder auf die strukturierten Daten im Format JSON-LD Be
 Als Defaultsuche ist in lobid-gnd eine XX-Verknüpfung mehrerer Suchterme eingestellt. Boolesche Operatoren lassen sich aber auch passgenau einstellen.
 
 Beispiele:
-- Suche nach "Dom" UND "Aachen OR Köln": [Dom AND (Aachen OR Köln)](http://lobid.org/gnd/search?q=Dom+AND+(Aachen OR Köln))
+- Suche nach "Dom" UND "Aachen OR Köln": [`Dom AND (Aachen OR Köln)`](http://lobid.org/gnd/search?q=Dom+AND+(Aachen OR Köln))
 - [Geographika in Äthiopien oder Eritrea](http://lobid.org/gnd/search?q=type%3APlaceOrGeographicName+AND+geographicAreaCode.id%3A%28%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XC-ET%22+OR+%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XC-ER%22%29)
+
+## Einträge mit/ohne Angabe eines Architekten
+
+
 
 ## Gleichzeitige Suche in Ansetzungs- und Verweisungsformen
 
@@ -60,13 +64,13 @@ Aus einer E-Mai-Anfrage an das lobid-Team:
 
 Die [Lucene Query Parser Syntax](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html). unterstützt zwei Varianten, das umzusetzen: mit dem `AND`-Operator oder dem `+`-Zeichen:
 
-- [preferredName:(Muka AND Arnošt) OR variantName:(Muka AND Arnošt)](http://lobid.org/gnd/search?q=preferredName:(Muka AND Arnošt) OR variantName:(Muka AND Arnošt))
-- [preferredName:(+Muka +Arnošt) OR variantName:(+Muka +Arnošt)](http://lobid.org/gnd/search?q=preferredName:(+Muka +Arnošt) OR variantName:(+Muka +Arnošt))
+- [`preferredName:(Muka AND Arnošt) OR variantName:(Muka AND Arnošt)`](http://lobid.org/gnd/search?q=preferredName:(Muka AND Arnošt) OR variantName:(Muka AND Arnošt))
+- [`preferredName:(+Muka +Arnošt) OR variantName:(+Muka +Arnošt)`](http://lobid.org/gnd/search?q=preferredName:(+Muka +Arnošt) OR variantName:(+Muka +Arnošt))
 
 
-## Einträge mit Wikidata-Link aber ohne Bild
+## Suche nach Einträgen mit Wikidata-Link aber ohne Bild
 
-Im Kontext der Anzeige eines zufälligen Bildes auf der [lobid-gnd-Startseite](https://lobid.org/gnd), wollte ich wissen, wie viele und welche Einträge denn einen Wikidata-Link aber kein Bild haben. Dafür schaue ich mir zunächst am besten die Daten eines Eintrags an der beides hat, z.B. [Hannah Arendt](http://lobid.org/gnd/11850391X.json). Hier die für uns wichtigen Ausschnitte:
+Im Kontext der Anzeige eines zufälligen Bildes auf der [lobid-gnd-Startseite](https://lobid.org/gnd), war es nützlich zu wissen, wie viele und welche Einträge denn einen Wikidata-Link aber kein Bild haben. Dafür schaue ich mir zunächst am besten die Daten eines Eintrags an der beides hat, z.B. [Hannah Arendt](http://lobid.org/gnd/11850391X.json). Hier die für uns wichtigen Ausschnitte:
 
 ```json
 {
@@ -93,12 +97,45 @@ Im Kontext der Anzeige eines zufälligen Bildes auf der [lobid-gnd-Startseite](h
 }
 ```
 
-Die Verlinkung zu Wikidata findet sich innerhalb eines Objekts im `sameAs`-Array. Gekennzeichnet als Wikidata-Verlinkung ist sie durch die verknüpfte Sammlung (`collection`), u.a. durch die ID `http://www.wikidata.org/entity/Q2013` für Wikidata. Will ich also meine Suche auf Einträge einschränken, die einen Link zu Wikidata haben muss ich einen Filter auf das Feld `sameAs.collection.id` (diese Notation ist die gängige, um ein JSON-Feld innerhalb einer hierarchisch geschachtelten Struktur zu identifizieren) setzen:
+Die Verlinkung zu Wikidata findet sich innerhalb eines Objekts im `sameAs`-Array. Gekennzeichnet als Wikidata-Verlinkung ist sie durch die angegebene Sammlung (`collection`). Will ich also meine Suche auf Einträge einschränken, die einen Link zu Wikidata haben muss ich nach Einträgen mit der ID `http://www.wikidata.org/entity/Q2013` im Feld `sameAs.collection.id` (diese Notation ist die gängige, um ein JSON-Feld innerhalb einer hierarchisch geschachtelten Struktur zu identifizieren) suchen:
 
-[http://lobid.org/gnd/search?filter=sameAs.collection.id:"http://www.wikidata.org/entity/Q2013"](http://lobid.org/gnd/search?filter=sameAs.collection.id:%22http://www.wikidata.org/entity/Q2013%22)
+[`sameAs.collection.id:"http://www.wikidata.org/entity/Q2013"`](http://lobid.org/gnd/search?q=sameAs.collection.id:%22http://www.wikidata.org/entity/Q2013%22)
 
-**Hinweis**: Damit der Filter funktioniert und es keine Probleme mit der URL gibt, muss die Wikidata-URI (`http://www.wikidata.org/entity/Q2013`) in Anführungszeichen gesetzt werden.
+**Hinweis**: Damit die Suche funktioniert und es keine Probleme mit der URL gibt, muss die Wikidata-URI (`http://www.wikidata.org/entity/Q2013`) in Anführungszeichen gesetzt werden.
 
-Wir wollen aber nicht alle Einträge mit Wikidata-Link, sondern nur jene *ohne Bild*. Das heißt wird müssen die Bedingung ergänzen, dass das Feld `depiction` nicht vorhanden ist. Hier kommt uns die `_exist_`-Query von Elasticsearch zur Hilfe. Ich kann mir damit alle Einträge anzeigen, die ein bestimmes Feld aufweisen, ganz gleichen mit welchem Wert und kombiniert mit dem Booleschen "NOT" kann ich eben auch alle Einträge anzeigen, bei denen ein bestimmtes Feld *nicht* vorhanden ist. Konkret müssen wir zur Suchanfrage `+AND+NOT+_exists_:depiction` ergänzen, so dass am Ende bei rauskommt:
+Wir wollen aber nicht alle Einträge mit Wikidata-Link, sondern nur jene *ohne Bild*. Das heißt wird müssen die Bedingung ergänzen, dass das Feld `depiction` nicht vorhanden ist. Hier kommt uns die `_exist_`-Query zur Hilfe. Ich kann mir damit alle Einträge anzeigen, die ein bestimtmes Feld aufweisen, ganz gleichen mit welchem Inhalt und kombiniert mit dem Booleschen "NOT" kann ich eben auch alle Einträge anzeigen, bei denen ein bestimmtes Feld *nicht* vorhanden ist. Konkret müssen wir zur Suchanfrage `+AND+NOT+_exists_:depiction` ergänzen, so dass am Ende bei rauskommt:
 
-[http://lobid.org/gnd/search?filter=sameAs.collection.id:"http://www.wikidata.org/entity/Q2013"+AND+NOT+_exists_:depiction](http://lobid.org/gnd/search?filter=sameAs.collection.id:"http://www.wikidata.org/entity/Q2013"+AND+NOT+_exists_:depiction)
+[`sameAs.collection.id:"http://www.wikidata.org/entity/Q2013" AND NOT _exists_:depiction`](http://lobid.org/gnd/search?q=sameAs.collection.id:"http://www.wikidata.org/entity/Q2013"+AND+NOT+_exists_:depiction)
+
+## Personen, die während der NS-Zeit in Köln geboren wurden
+
+Wenn ich eine Frage beantworten möchte, wie "Welche Personen in der GND wurden in der NS-Zeit in Köln geboren?", dann ist es sinnvoll, sich einen Eintrag zu suchen, der die nötigen Informationen zur Beantwortung einer solchen Frage besitzt. Hier z.B. der Eintrag zu [Konrad Adenauer](http://lobid.org/gnd/11850066X.json), der Informationen zu Geburtsort und -datum hat:
+
+```json
+{
+  "id":"http://d-nb.info/gnd/11850066X",
+  "placeOfBirth":[
+    {
+      "id":"http://d-nb.info/gnd/4031483-2",
+      "label":"Köln"
+    }
+  ],
+  "dateOfBirth":[
+    "1876-01-05"
+  ]
+}
+```
+
+Den ersten Schritt – die Eingrenzung auf in Köln geborene Personen – können wir auf einfache Weise über die Benutzeroberfläche vollziehen: Mt einem Klick auf die Lupe neben "Geburtsort Köln" wird eine Abfrage nach allen in Köln geborenen Menschen in der GND gestartet.
+
+ ![Screenshot](/images/lupe-klick.png "Suche per Lupe")
+
+ Jetzt müssen wir die vorhandene Abfrage ([]`placeOfBirth.id:"http://d-nb.info/gnd/4031483-2"`](http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22&format=html)) noch um eine Einschränkung des Geburtsdatums ergänzen. Auch hier unterstützt uns Elasticsearch mit der [range query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_ranges), die Zeitrahmen mit verschiedenen Detailgraden (Jahr, Monat, Tag etc.) ermöglicht. Für unseren Fall probieren wir zunächst die tagesgenaue Eingrenzung mit `dateOfBirth:[1933-01-30 TO 1945-05-08]`:
+
+ [`placeOfBirth.id:"http://d-nb.info/gnd/4031483-2" AND dateOfBirth:[1933-01-30 TO 1945-05-08]`](http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933-01-30+TO+1945-05-08%5D)
+
+ Da bei vielen Personen nur das Geburtsjahr angegeben ist, ist ein Test der jahresgenauen Abfrage sinnvoll:
+
+ [`placeOfBirth.id:"http://d-nb.info/gnd/4031483-2" AND dateOfBirth:[1933 TO 1945]`](http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D)
+
+ Diese Abfrage beinhaltet nun auch alle Treffer, bei denen nur das Geburtsjahr "1933" oder "1945" angegeben ist aber natürlich auch tagesgenaue Geburtstage vor dem 30. Januar 1933 oder nach dem 8.5.1945. Je nach Zweck kann die eine oder andere Abfrage sinnvoller sein.
