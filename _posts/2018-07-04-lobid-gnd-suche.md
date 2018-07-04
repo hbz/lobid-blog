@@ -9,7 +9,7 @@ Dieser Artikel bietet einen Überblick zur Suche und Navigation in [lobid-gnd](h
 
 ![http://lobid.org/gnd](/images/lobid-gnd-suche/1-1-suchen.png)
 
-Nach der Eingabe im Suchfeld kann einer der Vorschläge direkt ausgewählt werden:
+Nach der Eingabe im Suchfeld kann einer der Vorschläge direkt ausgewählt werden, um zur Detailansicht zu gelangen:
 
 ![http://lobid.org/gnd](/images/lobid-gnd-suche/1-2-vorschlag-auswahl.png)
 
@@ -41,7 +41,7 @@ Erweiterte Suchmöglichkeiten ergeben sich aus einer Kombination von Sucheinstie
 
 ![http://lobid.org/gnd/search](/images/lobid-gnd-suche/6-2-facetten-filter.png)
 
-Die Detailseiten enthalten Links zu verknüpften GND-Einträgen. Über die Lupen-Icons kann eine Suche nach Einträgen mit der gleichen Beziehung angestoßen werden, z.B. [alle Teile der Nordsee](https://lobid.org/gnd/search?q=broaderTermPartitive.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4042579-4%22):
+Der Klick auf einen Suchtreffer führt zu einer Detailansicht. Die Detailseiten enthalten Links zu verknüpften GND-Einträgen. Über die Lupen-Icons kann eine Suche nach Einträgen mit der gleichen Beziehung angestoßen werden, z.B. [alle Teile der Nordsee](https://lobid.org/gnd/search?q=broaderTermPartitive.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4042579-4%22&size=50&format=html):
 
 ![http://lobid.org/gnd/4393546-1](/images/lobid-gnd-suche/7-1-details-lupe.png)
 
