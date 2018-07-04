@@ -33,7 +33,7 @@ Entitätstypen sind in Untertypen differenziert:
 
 ![http://lobid.org/gnd/search](/images/lobid-gnd-suche/5-facetten-untertypen.png)
 
-Über die Auswahl unterschiedlicher Facetten lässt sich die Treffermenge präzise eingrenzen, z.B. zur Anzeige aller hydrologischen Geografika in Nordrhein-Westfalen:
+Über die Auswahl unterschiedlicher Facetten lässt sich die Treffermenge präzise eingrenzen, z.B. zur Anzeige [aller hydrologischen Geografika in Nordrhein-Westfalen](http://lobid.org/gnd/search?filter=%2B(type%3ANaturalGeographicUnit)+%2B(gndSubjectCategory.id%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgnd-sc%2319.3%22)+%2B(geographicAreaCode.id%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE-NW%22)):
 
 ![http://lobid.org/gnd/search](/images/lobid-gnd-suche/6-1-facetten-filter.png)
 
@@ -41,10 +41,10 @@ Erweiterte Suchmöglichkeiten ergeben sich aus einer Kombination von Sucheinstie
 
 ![http://lobid.org/gnd/search](/images/lobid-gnd-suche/6-2-facetten-filter.png)
 
-Die Detailseiten enthalten Links zu verknüpften GND-Einträgen. Über die Lupen-Icons kann eine Suche nach Einträgen mit der gleichen Beziehung angestoßen werden, z.B. [alle Teile der Nordsee](https://lobid.org/gnd/search?q=broaderTermPartitive.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4042579-4%22&size=50&format=html):
+Die Detailseiten enthalten Links zu verknüpften GND-Einträgen. Über die Lupen-Icons kann eine Suche nach Einträgen mit der gleichen Beziehung angestoßen werden, z.B. [alle Teile der Nordsee](https://lobid.org/gnd/search?q=broaderTermPartitive.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4042579-4%22):
 
 ![http://lobid.org/gnd/4393546-1](/images/lobid-gnd-suche/7-1-details-lupe.png)
 
 Die visuelle Darstellung im Tab "Beziehungen" erlaubt ebenso eine Navigation zu den verknüpften Entitäten per Klick auf einen Knoten des Graphs und eine Suche nach weiteren Einträgen mit der gleichen Beziehung per Klick auf eine Kante:
 
-![http://lobid.org/gnd/4393546-1](/images/lobid-gnd-suche/7-2-details-kante.png "10")
+![http://lobid.org/gnd/4393546-1](/images/lobid-gnd-suche/7-2-details-kante.png)
