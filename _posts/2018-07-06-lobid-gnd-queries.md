@@ -3,6 +3,7 @@ layout: post
 title: "lobid-gnd: Formulierung komplexer Suchanfragen"
 date: 2018-07-06
 author: Adrian Pohl, Fabian Steeg
+tags: lobid-gnd
 ---
 
 Im [vorherigen Beitrag](http://blog.lobid.org/2018/07/03/lobid-gnd-suche.html) haben wir bereits die Oberfläche von [lobid-gnd](https://lobid.org/gnd) und ihre Funktionen beschrieben. Die API ermöglicht aber auch komplexere Abfragen, für die man sich ein wenig mit den zugrundeliegenden Datenstrukturen vertraut machen muss. Dies soll in diesem Beitrag an einigen Beispielen ausgeführt werden.

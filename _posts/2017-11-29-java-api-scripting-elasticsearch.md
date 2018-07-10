@@ -3,6 +3,7 @@ layout: post
 title: "Using the Java API for scripting in Elasticsearch 5.6"
 date: 2017-11-29
 author: Fabian Steeg
+tags: technology
 ---
 
 To create a custom aggregation [in lobid-resources for NWBib](https://github.com/hbz/lobid-resources/commit/72054407cd25371f58a28de0068a44ce8ada12bd), I used the Java API for scripting in Elasticsearch 5.6. It was surprisingly hard to find details on this, since there was no full, current documentation available. So here is the gist of it.

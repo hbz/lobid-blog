@@ -3,6 +3,7 @@ layout: post
 title: "Lobid API 2.0: Why and how"
 date: 2017-06-08
 author: Fabian Steeg, Pascal Christoph
+tags: technology
 ---
 
 # Introduction: The Lobid API

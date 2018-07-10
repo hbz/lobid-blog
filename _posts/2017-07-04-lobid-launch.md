@@ -3,6 +3,7 @@ layout: post
 title: "Officially launching lobid-resources & lobid-organisations 2.0"
 date: 2017-07-04
 author: Adrian Pohl
+tags: lobid-resources lobid-organisations
 ---
 
 We are happy to announce the official launch of lobid-resources and lobid-organisations 2.0!
