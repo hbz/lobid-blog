@@ -3,6 +3,7 @@ layout: post
 title: "lobid-gnd: Suche und Navigation"
 date: 2018-07-04
 author: Fabian Steeg, Adrian Pohl
+tags: lobid-gnd
 ---
 
 Dieser Artikel bietet einen Überblick zur Suche und Navigation in [lobid-gnd](http://lobid.org/gnd). Die Startseite von lobid-gnd führt auf die einfache Suchoberfläche:

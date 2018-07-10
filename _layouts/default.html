@@ -8,6 +8,9 @@
 		<link rel="canonical" href="http://blog.lobid.org{{ page.url }}" />
 		<script async defer src="https://hypothes.is/embed.js"></script>
 		<script src="/javascripts/anchor.min.js"></script>
+		{% if site.tags != "" %}
+			{% include collect_tags.html %}
+		{% endif %}
 	</head>
 	<body>
 		<nav>

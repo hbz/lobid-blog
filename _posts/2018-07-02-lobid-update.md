@@ -3,6 +3,7 @@ layout: post
 title: "lobid-gnd-Neuigkeiten: Bulk Downloads, OpenRefine-API und mehr"
 date: 2018-07-02
 author: Adrian Pohl
+tags: lobid-gnd
 ---
 
 Letzte Woche haben wir einige Funktionen zu lobid-gnd ergänzt, hier ein Überblick.

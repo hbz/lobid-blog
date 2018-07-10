@@ -3,6 +3,7 @@ layout: post
 title: "The GND class hierarchy, updated"
 date: 2018-03-20
 author: Adrian Pohl
+tags: lobid-gnd
 ---
 
 We started doing some work on the lobid-gnd (in beta), the service providing access to the Integrated Authority File (GND): [https://lobid.org/gnd](https://lobid.org/gnd). Currently we are working on the type filter (see [issue #42](https://github.com/hbz/lobid-gnd/issues/42)). As several of sub-classes have been added to the GND ontology in the meantime, it seemed like a good opportunity for a quick update of a post from 2013 titled ["The GND ontology's class hierarchy - an overview"](https://wiki1.hbz-nrw.de/x/CIeW).
