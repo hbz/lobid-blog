@@ -10,7 +10,7 @@ Wir freuen uns, nun offiziell den Launch des lobid-Services zur Bereitstellung d
 
 [![Screenshot](/images/20170711_screenshot.png "lobid-gnd screenshot")](https://lobid.org/gnd)
 
-In den letzten Monaten haben wir bereits einige Blogbeiträge zu dem Dienst veröffentlicht, siehe [hier](add-lobid-gnd-url).
+In den letzten Monaten haben wir bereits einige Blogbeiträge zu dem Dienst veröffentlicht, siehe [hier](http://blog.lobid.org/tags/lobid-gnd).
 
 ## Shutdown der alten lobid-APIs
 
