@@ -3,7 +3,7 @@ layout: post
 title: "Data modeling client effects"
 date: 2016-12-13
 author: Fabian Steeg
-tags: technology
+tags: lobid-resources
 ---
 
 While [working on UI updates](https://github.com/hbz/nwbib/pull/362) for [changes in our beta API](https://github.com/hbz/lobid-resources/issues/38), I noticed an interesting way that these changes affect the client side code.

@@ -3,7 +3,7 @@ layout: post
 title: "Geschichte des Semantic Web und Linked (Open) Data im Bibliothekswesen – eine Zeitleiste"
 date: 2018-02-22
 author: Adrian Pohl, Christian Hauschke
-tags: technology
+tags: misc
 ---
 
 Die Entwicklung von Linked (Open) Data war schon immer eng mit dem wissenschaftlichen Bibliothekswesen verknüpft. Für einen Vortrag auf der [Inetbib-ODOK-Tagung 2018](https://www.inetbib.de/inetbib18-do/) wollten wir, [Adrian Pohl](http://lobid.org/team/ap) (hbz) und [Christian Hauschke](https://vivo.tib.eu/fis/display/n0000-0003-2499-7741) (TIB), diese Zusammenhänge aufzeigen und vergangene erfüllte und enttäuschte Hoffnungen darstellen.

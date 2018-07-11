@@ -4,10 +4,10 @@ layout: default
 <h1>{{ page.title }}</h1>
 <p class="meta">
 	{{ page.date | date_to_string }}, {{ page.author }}
-	<small>| &rarrlp;
+	| <b>&#127991;</b><small>
 		{% for tag in page.tags %}
 		{% capture tag_name %}{{ tag }}{% endcapture %}
-		<a href="/tags/{{ tag_name }}">{{ tag_name }}</a>&nbsp;
+		<a href="/tags/{{ tag_name }}"><code><nobr>{{ tag_name }}</nobr></code></a>&nbsp;
 		{% endfor %}
 	</small>
 </p>

@@ -3,7 +3,7 @@ layout: post
 title: "Elasticsearch distance scoring"
 date: 2016-12-09
 author: Fabian Steeg
-tags: technology
+tags: lobid-organisations
 ---
 
 In our [organisations directory beta](https://beta.lobid.org/organisations) we were sorting results by distance to the user, if they share their location. [Adrian noticed](https://github.com/hbz/lobid-organisations/issues/280) that this yields confusing results, since the relevance ranking is completely overridden by the distance sorting. A quick research in the fabulous [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/guide/current/sorting-by-distance.html#scoring-by-distance) revealed that we actually want to _score_ results by distance, not _sort_ by distance.
