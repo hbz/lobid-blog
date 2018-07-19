@@ -10,4 +10,6 @@ Mit lobid-organisations and lobid-resources gingen [vor etwa einem Jahr](http://
 
 **Am 31. Oktober 2018 werden alle lobid-1.x-APIs abgeschaltet. Wir empfehlen allen API-Nutzer*innen einen Umstieg auf die neuen, verbesserten Angebote.**
 
+Soweit möglich werden wir mit der Abschaltung Anfragen an den alten Dienst auf die neue Version umleiten.
+
 Bei Fragen oder Problemen beim Umstieg helfen wir gerne weiter, [kontaktieren Sie das lobid-Team](https://lobid.org/team).
