@@ -2,7 +2,7 @@
 layout: post
 title: "GND reconciliation for OpenRefine"
 date: 2018-08-27
-author: Fabian Steeg
+author: Fabian Steeg, Adrian Pohl
 tags: lobid-gnd
 ---
 
