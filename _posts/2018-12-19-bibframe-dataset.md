@@ -6,9 +6,20 @@ author: Adrian Pohl
 tags: lobid-labs
 ---
 
-At last year's SWIB conference ([SWIB18](http://swib.org/swib18/programme.html)) we offered a workshop "From LOD to LOUD: making data usable". In that we showed how to create well-structured JSON-LD from RDF data, index it in Elasticsearch, build a simple web application for querying it and use the data with tools like OpenRefine and Kibana. For details, see the slides at [https://hbz.github.io/swib18-workshop/](https://hbz.github.io/swib18-workshop/).
+<div class="alert-info">
+&#x1f6c8; This post describes an experimental service running on labs.lobid.org. The described service is not be stable and links in the text might stop working in the future.
+</div>
 
-We had to decide which RDF dataset we would use to be treated in the workshop. In the end, we chose the Bibframe works dataset that the Library of Congress (LoC) had [published in June](https://listserv.loc.gov/cgi-bin/wa?A2=BIBFRAME;3141fdaf.1806). As preparation for the workshop, we did an experimental not very quick but rather dirty conversion of the N-Triples to JSON-LD and indexed the whole Bibframe dataset into Elasticsearch.
+
+At last year's SWIB conference ([SWIB18](http://swib.org/swib18/programme.html)) the [lobid team](http://lobid.org/team/) offered a workshop "From LOD to LOUD: making data usable". In that we showed how to create well-structured JSON-LD from RDF data, index it in Elasticsearch, build a simple web application for querying it and use the data with tools like OpenRefine and Kibana. For details, see the slides at [https://hbz.github.io/swib18-workshop/](https://hbz.github.io/swib18-workshop/). Also, Fabian published a [blog post](http://fsteeg.com/notes/from-rdf-to-json-with-json-ld) about the first part of the workshop where we created some decent JSON-LD.
+
+We had to decide which RDF dataset we would use to be treated in the workshop. In the end, we chose the Bibframe works dataset (but not the instances dataset) that the Library of Congress (LoC) had [published in June](https://listserv.loc.gov/cgi-bin/wa?A2=BIBFRAME;3141fdaf.1806). As preparation for the workshop, we did an experimental not very quick but rather dirty conversion of the N-Triples to JSON-LD and indexed the whole Bibframe dataset into Elasticsearch.
+
+# The JSON-LD context
+
+The [context](https://json-ld.org/spec/latest/json-ld/#the-context) plays an important role when creating some easy-to-use JSON-LD. A central function of the context is to map long property URIs to short keys to be used in the JSON. For example with the line `"label": "http://www.w3.org/2000/01/rdf-schema#label"` in the context, I can now use the key `"label"` in the JSON and when including the context in the document (for example by referencing it like `"@context": "https://example.org/context.jsonld"`) the key-value pair can be translated to an RDF triple.
+
+Unfortunately, nobody had already created a context we could reuse. And as a lot of properties and classes are used in the Bibframe the context grew quite big and its creation took a lot of time and iterations. The result can be found at [https://github.com/hbz/swib18-workshop/blob/master/data/context.json](https://github.com/hbz/swib18-workshop/blob/master/data/context.json). It is not perfect but may be of help to others who want to do something similar with the Bibframe data.
 
 # Querying the index & visualizing with Kibana
 
