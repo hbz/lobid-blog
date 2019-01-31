@@ -37,7 +37,7 @@ All records containing the phrase "climate change" somewhere, listing the first 
 
 If you want to know which subject headings are used in those records, look at the Kibana visualization showing the [top 10 subject headings](http://kibana.labs.lobid.org/goto/6f8434fca70236e694c189aab538aaf8):
 
-![bar chart](/images/20190201_bibframe-dataset/top-10-subjects-climate-change.png)
+![bar chart](/images/20190131_bibframe-dataset/top-10-subjects-climate-change.png)
 
 
 **Query specific fields:**
@@ -46,7 +46,7 @@ Records with topic "Cat owners": [http://es.labs.lobid.org/loc_works/_search?q=s
 
 And here a [visualization comparing the number of record about "Cat owners" (green) with those about "Dog owners" (blue)](http://kibana.labs.lobid.org/goto/36fc3fb32b0983053dcd7ea8bd226ff9):
 
-<img src="/images/20190201_bibframe-dataset/dogs-vs-cats.png" alt="pie chart" style="width:200px !important;height:200px !important;">
+<img src="/images/20190131_bibframe-dataset/dogs-vs-cats.png" alt="pie chart" style="width:200px !important;height:200px !important;">
 
 **Boolean operators:**
 
@@ -62,13 +62,13 @@ All resources created in 2017: [adminMetadata.creationDate:[2017-01-01+TO+2017-1
 
 You can also use date fields for visualizations, e.g. [record creation date by year](http://kibana.labs.lobid.org/goto/49a8fee1a547f276673384d65e868939) (What happened from 1981 to 1985?):
 
-![timeline](/images/20190201_bibframe-dataset/timeline-creation-date.png)
+![timeline](/images/20190131_bibframe-dataset/timeline-creation-date.png)
 
 **\_exists\_ queries:**
 - A list of all records containing subject information: [`_exists_:subject`](http://es.labs.lobid.org/loc_works/_search?q=_exists_:subject)
 - And here is a [visualization comparing the number of entries with subject information (green) to those without (blue)](http://kibana.labs.lobid.org/goto/88cc6fabfc3c35076bd3450e6170b08d)
 
-<img src="/images/20190201_bibframe-dataset/subject-donut.png" alt="donut" style="width:200px !important;height:200px !important;">
+<img src="/images/20190131_bibframe-dataset/subject-donut.png" alt="donut" style="width:200px !important;height:200px !important;">
 
 # Using Kibana and adding visualizations
 
