@@ -72,13 +72,13 @@ You can also use date fields for visualizations, e.g. [record creation date by y
 
 # Using Kibana and adding visualizations
 
-Feel free to play around with the index and Kibana. you can also [create](http://kibana.labs.lobid.org/app/kibana#/visualize/new) other interesting visualizations. Just take a look at the examples as template. Specifically, we would check for keys that still contain "http" to find out which properties are missing in the context document. (As the index pattern is based on the )
+Feel free to play around with the index and Kibana. you can also [create](http://kibana.labs.lobid.org/app/kibana#/visualize/new) other interesting visualizations. Just take a look at the examples as template. Specifically, we would check for keys that still contain "http" to find out which properties are missing in the context document.
 
 # Lessons Learned
 
 We have learned a lot creating the JSON-LD and indexing it. For [example](https://github.com/hbz/swib18-workshop/issues/23#issuecomment-438217655), the Kibana index pattern page is a good place to find problems in the creation of the compacted JSON-LD.  As the index pattern page is itself based on the [GET mapping API](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html), this insight led us to use the mapping API to [create an automatic check](https://github.com/hbz/lobid-gnd/issues/171) against the [lobid-gnd](http://blog.lobid.org/tags/lobid-gnd) data for not compacted keys.
 
-Another thing we have learned that it is probably better to create a JSON context by hand than creating it from the ontologies used in a dataset. The ontology approach will give you lots of things in the context that aren't actually used in the data. (Anybody for creating a tool to automatically create a JSON-LD context based on an RDF dataset as input?)
+Another thing we have learned is that it is probably better to create a JSON context by hand than creating it from the ontologies used in a dataset. The ontology approach will give you lots of things in the context that aren't actually used in the data. (Anybody for creating a tool to automatically create a JSON-LD context based on an RDF dataset as input?)
 
 # Feedback to LoC
 
