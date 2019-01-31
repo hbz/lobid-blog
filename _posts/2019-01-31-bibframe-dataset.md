@@ -10,8 +10,7 @@ tags: lobid-labs
 &#x1f6c8; This post describes an experimental service running on labs.lobid.org. The described service is not be stable and links in the text might stop working in the future.
 </div>
 
-
-At last year's SWIB conference ([SWIB18](http://swib.org/swib18/programme.html)) the [lobid team](http://lobid.org/team/) offered a workshop "From LOD to LOUD: making data usable". In that we showed how to create well-structured JSON-LD from RDF data, index it in Elasticsearch, build a simple web application for querying it and use the data with tools like OpenRefine and Kibana. For details, see the slides at [https://hbz.github.io/swib18-workshop/](https://hbz.github.io/swib18-workshop/).
+At last year's SWIB conference ([SWIB18](http://swib.org/swib18/programme.html)) the [lobid team](http://lobid.org/team/) offered a workshop "From LOD to LOUD: making data usable". In the workshop, participants carried out the steps to create well-structured JSON-LD from RDF data, index it in Elasticsearch, build a simple web application for querying it and use the data with tools like OpenRefine and Kibana. For details, see the slides at [https://hbz.github.io/swib18-workshop/](https://hbz.github.io/swib18-workshop/).
 
 We had to decide which RDF dataset we would use to be treated in the workshop. In the end, we chose the Bibframe works dataset (but not the instances dataset) that the Library of Congress (LoC) had [published in June](https://listserv.loc.gov/cgi-bin/wa?A2=BIBFRAME;3141fdaf.1806). As preparation for the workshop, we did an experimental not very quick but rather dirty conversion of the N-Triples to JSON-LD and indexed the whole Bibframe dataset into Elasticsearch.
 
@@ -72,13 +71,13 @@ You can also use date fields for visualizations, e.g. [record creation date by y
 
 # Using Kibana and adding visualizations
 
-Feel free to play around with the index and Kibana. you can also [create](http://kibana.labs.lobid.org/app/kibana#/visualize/new) other interesting visualizations. Just take a look at the examples as template. Specifically, we would check for keys that still contain "http" to find out which properties are missing in the context document.
+Feel free to play around with the index and Kibana. You can also [create](http://kibana.labs.lobid.org/app/kibana#/visualize/new) other interesting visualizations. Just take a look at the examples as template.
 
 # Lessons Learned
 
-We have learned a lot creating the JSON-LD and indexing it. For [example](https://github.com/hbz/swib18-workshop/issues/23#issuecomment-438217655), the Kibana index pattern page is a good place to find problems in the creation of the compacted JSON-LD.  As the index pattern page is itself based on the [GET mapping API](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html), this insight led us to use the mapping API to [create an automatic check](https://github.com/hbz/lobid-gnd/issues/171) against the [lobid-gnd](http://blog.lobid.org/tags/lobid-gnd) data for not compacted keys.
+We have learned a lot creating the JSON-LD and indexing it. For [example](https://github.com/hbz/swib18-workshop/issues/23#issuecomment-438217655), the Kibana index pattern page is a good place to find problems in the creation of the compacted JSON-LD. Specifically, we would check for keys that still contain "http" to find out which properties are missing in the context document. As the index pattern page is itself based on the [GET mapping API](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html), this insight led us to use the mapping API to [create an automatic check](https://github.com/hbz/lobid-gnd/issues/171) against the [lobid-gnd](http://blog.lobid.org/tags/lobid-gnd) data for not compacted keys.
 
-Another thing we have learned is that it is probably better to create a JSON context by hand than creating it from the ontologies used in a dataset. The ontology approach will give you lots of things in the context that aren't actually used in the data. (Anybody for creating a tool to automatically create a JSON-LD context based on an RDF dataset as input?)
+Another thing we have learned that it is probably better to create a JSON context by hand than creating it from the ontologies used in a dataset. The ontology approach will give you lots of things in the context that aren't actually used in the data. (Anybody for creating a tool to automatically create a JSON-LD context based on an RDF dataset as input?)
 
 # Feedback to LoC
 
