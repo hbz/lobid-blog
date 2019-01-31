@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Indexing the LoC's Bibframe dataset"
+title: "Indexing the Bibframe works dataset as JSON-LD"
 date: 2019-01-31
 author: Adrian Pohl
 tags: lobid-labs
@@ -19,7 +19,7 @@ We had to decide which RDF dataset we would use to be treated in the workshop. I
 
 The [context](https://json-ld.org/spec/latest/json-ld/#the-context) plays an essential role when creating JSON-LD and in increasing its usability. A central function of the context is to map long property URIs to short keys to be used in the JSON. For example with the line `"label": "http://www.w3.org/2000/01/rdf-schema#label"` in the context, I can now use the key `"label"` in a JSON-LD document and when including the context in the document (for example by referencing it like `"@context": "https://example.org/context.jsonld"`) the key-value pair can be translated to an RDF triple. The context is also used to declare that the values of a specific key should be interpreted as URIs (by saying `"@type": "@id"`) or as a date ([example](https://github.com/hbz/swib18-workshop/blob/85b3d87d2d3d18f7f435a617a3e8b7c104b56b3f/data/context.json#L139-L142)) or to enforce that a key always is used with an array (`"@container": "@set"`), see e.g [here](https://github.com/hbz/swib18-workshop/blob/85b3d87d2d3d18f7f435a617a3e8b7c104b56b3f/data/context.json#L263-L267).
 
-Unfortunately, nobody had already created a context we could reuse. And as a lot of properties and classes are used in the Bibframe the context grew quite big and its creation took a lot of time and iterations. The result can be found [here](https://github.com/hbz/swib18-workshop/blob/master/data/context.json). It is not perfect but may be of help to others who want to do something similar with the Bibframe dataset.
+Unfortunately, nobody had already created a context we could reuse. And as a lot of properties and classes are used in the Bibframe works dataset the context grew quite big and its creation took a lot of time and iterations. The result can be found [here](https://github.com/hbz/swib18-workshop/blob/master/data/context.json). It is not perfect but may be of help to others who want to do something similar with the Bibframe dataset.
 
 So we used this JSON-LD context to create JSON-LD from the Bibframe N-Triples and indexed the result in Elastisearch. For some more information on how to create JSON-LD from N-Triples see Fabian's [blog post](http://fsteeg.com/notes/from-rdf-to-json-with-json-ld) about the first part of the workshop.
 
