@@ -75,3 +75,10 @@ img {
 	width: auto;
 	vertical-align: bottom;
 }
+
+.alert-info {
+  padding: 20px;
+  background-color: #2196F3; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
