@@ -42,9 +42,13 @@ Paste `https://lobid.org/gnd/reconcile` as the service URL:
 
 ![6](/images/2018-08-27-openrefine/06-service-url.png)
 
-Collapse the drawer on the left hand side by clicking the newly added service. As our list for reconciliation consists solely of personal names, we now select `Person` to reconcile only against GND entries of type `Person`:
+Collapse the drawer on the left hand side by clicking the newly added service. As our list for reconciliation consists solely of personal names, we now select `DifferentiatedPerson` to reconcile only against GND entries of that type:
 
-![7](/images/2018-08-27-openrefine/07-type.png)
+![7-1](/images/2018-08-27-openrefine/07-type.png)
+
+Optionally, we could reconcile against a type that is not suggested by selecting "Reconcile against type" and specifying the type, e.g. `BuildingOrMemorial`:
+
+![7-2](/images/2018-08-27-openrefine/07-type-custom.png)
 
 For real-world data it can make sense to pass additional data from other columns to improve the reconciliation results (the value in the text box is arbitrary here, but must not be empty):
 
