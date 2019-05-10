@@ -23,6 +23,8 @@ An established approach from the library world looks like this:
 - Metadata is crawled from repositories and loaded into search indexes
 - Search interfaces are offered to end users
 
++++picture to be added+++
+
 ## Maintenance burden
 
 For offering a search interface you have to create and maintain a list of sources to harvest which means
@@ -45,7 +47,18 @@ In short, the repository metaphor obscures what constitutes the web: **resources
 
 So how could a web- or resource-centric approach to resource discovery look like?
 
-# Advantages
+## Of the web
+
+To truly be part of the web, URIs are the most important part: Every OER needs a URL that locates and identifies the OER. If I want to make use of knowledge organization systems on the web, representing a controlled vocabulary using the SKOS vocabulary while assigning each element a URI is the best way to go forward. With this prerequisites, anybody can link their resources to topics from a controlled vocabulary.
+
++++picture to be added+++
+
+## Web-based subscriptions and notifications
+
+
++++picture to be added+++
+
+## Advantages
 
 - Knowledge organization systems are used to their full potential
 - Content producers are incited to describe their resources using structured data and KOS
