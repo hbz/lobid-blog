@@ -15,7 +15,7 @@ alternative titles:
 
 For a long time, openness movements and initiatives with labels like "Open Access", "Open Educational Resources" (OER) or "Linked Science" have been working on establishing a culture where scientific or educational resources are by default published with an [open](http://opendefinition.org/) license on the web to be read, used, remixed and shared by anybody. With a growing supply of respources on the web the challenge grows to learn about or find resources relevant for your teaching, studies, or research.
 
-In this post, we describe a novel approach in syndicating content on the web, combining knowledge organization systems (also called "controlled vocabularies") like authority files or classifications with current web standards for sending notifications and subscribing to feeds.
+In this post, we describe the Skohub project being carried out by the hbz in cooperation with Felix Ostrowski (graphthinking) as technical lead. The project seeks to implement a prototype for a novel approach in syndicating content on the web by combining knowledge organization systems (also called "controlled vocabularies") with current web standards for sending notifications and subscribing to feeds.
 
 # Current practices and problems
 
@@ -80,18 +80,25 @@ So, HTTP URIs for educational resources and subjects are important to identify a
 - Content producers are incited to describe their resources using structured data and KOS
 - Push instead of pull: content is coming in and you don't have to know beforehand where to look. Blacklisting instead of whitelisting.
 
-# Scope of the Skohub project
+# Skohub scope
 
-The Skohub project has four deliverables
+The Skohub project has four deliverables. While working on the backend infrastructure for receiving and pushing notifications (skohub-pubsub), we also want to provide people with means to publish a controlled vocabulary along with inbox (skohub-ssg), to link to a subject and send a notification (skohub-editor) and to subscribe to notifications in the browser (skohub-deck).
 
 ## skohub-pubsub: Inboxes and subscriptions
 
+This part provides the Skohub core infrastructure: Setup of basic inboxes for subjects plus the ability of subscribing to push subscriptions for each new notification.
+
 ## skohub-ssg: Static site generator for Simple Knowledge Organization Systems
+
+This part of the project covers the need to easily publish a controlled vocabulary as SKOS file, with a basic lookup API and a nice HTML view including links to an inbox for each subject.
 
 ## skohub-editor: Describing & linking learning resources, sending notifications
 
+The editor runs in the browser and enables ergonomic structured description of an educational resource. It includes validation of the entered content for each field and lookup of controlled values via the API provided by skohub-ssg.
+
 ## skohub-deck: Browser-based subscription to subjects
 
+The Skohub deck is not much more than a proff of concept that the technologies developed actually work. It enables people to subscribe to notifications for specific subjects in the browser. The incoming notifications will be shown in a Tweetdeck-like interface.
 
 # References
 
