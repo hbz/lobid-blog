@@ -1,21 +1,14 @@
 ---
 layout: post
-title: "Skohub: Enabling authority-based content subscription"
+title: "Skohub: Enabling KOS-based content subscription"
 date: 2019-05-15
 author: Adrian Pohl, Felix Ostrowski
 tags: skohub
 ---
 
-alternative titles:
-
-- "Skohub: Subscribing to content updates via knowledge organization systems"
-- "Skohub: Knowledge-organization-based content subscription"
-- "Skohub: Enabling authority-based content subscription"
-- "Skohub: Infrastructure for knowledge-organization-based content syndication"
-
 For a long time, openness movements and initiatives with labels like "Open Access", "Open Educational Resources" (OER) or "Linked Science" have been working on establishing a culture where scientific or educational resources are by default published with an [open](http://opendefinition.org/) license on the web to be read, used, remixed and shared by anybody. With a growing supply of respources on the web the challenge grows to learn about or find resources relevant for your teaching, studies, or research.
 
-In this post, we describe the Skohub project being carried out by the hbz in cooperation with Felix Ostrowski (graphthinking) as technical lead. The project seeks to implement a prototype for a novel approach in syndicating content on the web by combining knowledge organization systems (also called "controlled vocabularies") with current web standards for sending notifications and subscribing to feeds.
+In this post, we describe the Skohub project being carried out by the hbz in cooperation with Felix Ostrowski (graphthinking) as technical lead. The project seeks to implement a prototype for a novel approach in syndicating content on the web by combining current web standards for sending notifications and subscribing to feeds with knowledge organization systems (KOS, sometimes also called "controlled vocabularies").
 
 # Current practices and problems
 
