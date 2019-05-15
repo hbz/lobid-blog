@@ -58,7 +58,7 @@ To truly be part of the web, URIs are the most important part: Every OER needs a
 
 ## Web-based subscriptions and notifications
 
-So, HTTP URIs for educational resources and subjects are important to transparently publish and thereafter identify and link educational resources, classifications and subjects on the web. But with URIs as the basic requirement in place, we also get the possibility to utilize other web standards for the discovery of OER. For Skohub, we make use of [Linked Data Notifications](https://www.w3.org/TR/ldn/) and [Websub](https://www.w3.org/TR/websub/) to build an infrastructure where services can send and subscribe to notifications for subjects. The general setup looks as follows:
+So, HTTP URIs for educational resources and subjects are important to transparently publish and thereafter identify and link educational resources, classifications and subjects on the web. But with URIs as the basic requirement in place, we also get the possibility to utilize other web standards for the discovery of OER. For Skohub, we make use of [Social Web Protocoly](https://www.w3.org/TR/social-web-protocols/) to build an infrastructure where services can send and subscribe to notifications for subjects. The general setup looks as follows:
 
 1. Every element of a controlled vocabulary gets an inbox, identified by a URL.
 <img src="/images/2019-05-15-skohub/subject-indexing-with-uris-and-inbox.png" alt="A diagram with four resources (an OER, a subject, an inbox, a classification), each identified by a URI and linked together" style="width:500px">
@@ -67,11 +67,36 @@ So, HTTP URIs for educational resources and subjects are important to transparen
 3. Systems can subscribe to a subject's inbox and will directly receive a notification as soon as it is received (push approach).
 <img src="/images/2019-05-15-skohub/pushing-notification.png" alt="A diagram with four resources (an OER, a subject, an inbox, a classification), each identified by a URI and linked together plus a notification being sent from the OER to the suject's inbox" style="width:500px">
 
-## Advantages
+This infrastructure allows applications
 
-- Knowledge organization systems are used to their full potential
-- Content producers are incited to describe their resources using structured data and KOS
-- Push instead of pull: content is coming in and you don't have to know beforehand where to look. Blacklisting instead of whitelisting.
+1. to send a notification to a subject's inbox containing information about and a link to new content about this subject
+2. to subscribe to the inbox of a subject from a knowledge organization system to receive push updates abotu new content in real time,
+
+Here is an example about a teacher being interested in new resources about environmental topics who subscribes to the subject via a controlled vocabulary like [ISCED-2013 Fields of Education and Training](https://unesdoc.unesco.org/ark:/48223/pf0000235049). He then receives updates whenever a colleague publishes a resource that is linked to the topic.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/2019-05-15-skohub/pubsub.png" alt="A diagram with Teacher A subscribing to a subject tag that a document published by Teacher B is about, thus receiving notifications about the new resource." style="width:300px">
+
+To be really useful, applications for subscribing to content should enable additional filters, to subscribe to combination of subjects (e.g. "Environment" & "Building and civil engineering") or to add addtional filters on educational level, license type etc.
+
+# Advantages
+
+This subject-oriented notification/subscription approach to content syndication on the web has many advantages.
+
+**Push instead of pull**
+<br />
+ With the push approach, you subscribe once and content is coming from different and new soruces without the subscriber having to maintain a list of sources. IOf course spam might become a problem. Thus, instead of whitelisting by administering a subscription list one would practice blacklisting by filtering out sources of low-quality or spam content.
+
+**Knowledge organization systems are used to their full potential**
+<br />
+This additional layer to the use of Knowledge Organization Systemsgive them much more power ("KOS on steroids").
+
+**Encouraging creation and use of shared Knowledge Organization Systems across applications**
+<br />
+In the German OER context it is a recurring theme that people are wishing everybody would use the same controlled vocabularies so that data exchange and aggregation required less mapping. With a Skohub infrastructure in place, there are big additional incentives on going forward in this direction.
+
+**Incentive for content producers to add machine-readable descriptions**
+<br />
+When subject indexing becomes tantamount with notifying interested parties to their resources, this means a huge incentive for content producers to describe their resources with structured data doing subject indexing.
 
 # Skohub scope
 
@@ -103,11 +128,11 @@ The Skohub deck is a proof of concept that the technologies developed actually w
 
 # Outlook
 
-The project will latest be completed by end of 2019. We intend to give updates about the process during the way. Next up, we will explain the technical architecture in more detail, expanding on our use of LDN and WebSub. Furthermore, we will give updates on the development status of the project.
+The project will latest be completed by end of 2019. We intend to give updates about the process during the way. Next up, we will explain the technical architecture in more detail, expanding on our use of social web protocols. Furthermore, we will give updates on the development status of the project.
 
 ----
 
-\*<small> Note, that while Skohub has clear similarities with the "Information-Sharing Pipeline" envisioned in Ilik and Koster 2019 regarding the use of current social web standards on authority data, there is also a fundamental difference: While Ilik and Koster are talking about sharing updates *of* authority entries themselves (e.g. receiving updates for a person profile to be considered for inclusion in one's own authority file), Skohub is about sending notifications *to* an entry in an authority file or other controlled vocabulary.</small>
+\*<small> Note, that while Skohub has clear similarities with the "Information-Sharing Pipeline" envisioned in Ilik and Koster 2019 regarding the use of social web protocols on authority data, there is also a fundamental difference: While Ilik and Koster are talking about sharing updates *of* authority entries themselves (e.g. receiving updates for a person profile to be considered for inclusion in one's own authority file), Skohub is about sending notifications *to* an entry in an authority file or other controlled vocabulary.</small>
 
 # References
 
