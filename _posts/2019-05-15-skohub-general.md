@@ -84,7 +84,7 @@ This subject-oriented notification/subscription approach to content syndication 
 
 **Push instead of pull**
 <br />
- With the push approach, you subscribe once and content is coming from different and new sources without the subscriber having to maintain a list of sources. Of course spam might become a problem. Thus, instead of whitelisting by administering a subscription list one would practice blacklisting by filtering out sources of low-quality or spam content.
+ With the push approach, you subscribe once and content is coming from different and new sources without the subscriber having to maintain a list of sources. Of course quality control might become an issue. Thus, instead of whitelisting by administering a subscription list one would practice blacklisting by filtering out sources that distribute spam or provide low-quality content.
 
 **Knowledge organization systems are used to their full potential**
 <br />
@@ -96,7 +96,7 @@ In the German OER context it is a recurring theme that people are wishing everyb
 
 **Incentive for content producers to add machine-readable descriptions**
 <br />
-When subject indexing becomes tantamount with notifying interested parties to their resources, this means a huge incentive for content producers to describe their resources with structured data doing subject indexing.
+When subject indexing becomes tantamount with notifying interested parties about one's resources, this means a huge incentive for content producers to describe their resources with structured data doing subject indexing.
 
 # SkoHub scope
 
