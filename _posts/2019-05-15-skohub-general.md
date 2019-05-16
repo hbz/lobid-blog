@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Skohub: Enabling KOS-based content subscription"
+title: "SkoHub: Enabling KOS-based content subscription"
 date: 2019-05-15
 author: Adrian Pohl, Felix Ostrowski
 tags: skohub
@@ -8,7 +8,7 @@ tags: skohub
 
 For a long time, openness movements and initiatives with labels like "Open Access", "Open Educational Resources" (OER) or "Linked Science" have been working on establishing a culture where scientific or educational resources are by default published with an [open](http://opendefinition.org/) license on the web to be read, used, remixed and shared by anybody. With a growing supply of resources on the web the challenge grows to learn about or find resources relevant for your teaching, studies, or research.
 
-In this post, we describe the Skohub project being carried out in 2019 by the hbz in cooperation with Felix Ostrowski (graphthinking) as technical lead. The project seeks to implement a prototype for a novel approach in syndicating content on the web by combining current web standards for sending notifications and subscribing to feeds with knowledge organization systems (KOS, sometimes also called "controlled vocabularies").\*
+In this post, we describe the SkoHub project being carried out in 2019 by the hbz in cooperation with Felix Ostrowski (graphthinking) as technical lead. The project seeks to implement a prototype for a novel approach in syndicating content on the web by combining current web standards for sending notifications and subscribing to feeds with knowledge organization systems (KOS, sometimes also called "controlled vocabularies").\*
 
 # Current practices and problems
 
@@ -29,11 +29,11 @@ With this approach, subject-specific filtering is either already done when crawl
 
 ## Maintenance burden
 
-When offering a search interface with this approach, you have to create and maintain a list of sources to harvest which means
+When offering a search interface with this approach, you have to create and maintain a list of sources to harvest:
 
-1. watching out for new relevant sources to be added to your list,
-2. adjusting your crawler to changes regarding the services' harvesting interface,
-3. homogenising data from different sources to get a consistent search index.
+1. watch out for new relevant sources to be added to your list,
+2. adjust your crawler to changes regarding the services' harvesting interface,
+3. homogenize data from different sources to get a consistent search index.
 
 Furthermore, end users have to know where to find your service to search for relevant content.
 
@@ -51,14 +51,14 @@ So how could a web- or resource-centric approach to resource discovery by subjec
 
 ## Of the web
 
-To truly be part of the web, URIs are the most important part: Every OER needs a URL that locates and identifies the OER. If I want to make use of knowledge organization systems on the web, representing a controlled vocabulary using the [SKOS](https://en.wikipedia.org/wiki/Simple_Knowledge_Organization_System) vocabulary while assigning each element a URI is the best way to go forward. With this prerequisites, anybody can link their resources to topics from a controlled vocabulary (for example by embedding [LRMI](http://www.dublincore.org/specifications/lrmi/lrmi_1/), "Learning Resource Metadata Initiative" metadata as JSON-LD into the resource or its description page).
+To truly be part of the web, URIs are the most important part: Every resource (e.g. an Open Educational Resource, OER) needs a URL that locates and identifies it. If I want to make use of knowledge organization systems on the web, representing a controlled vocabulary using the [SKOS](https://en.wikipedia.org/wiki/Simple_Knowledge_Organization_System) vocabulary (assigning each element a URI) is the best way to go forward. With this prerequisites, anybody can link their resources to topics from a controlled vocabulary (for example by embedding [LRMI](http://www.dublincore.org/specifications/lrmi/lrmi_1/), "Learning Resource Metadata Initiative" metadata as JSON-LD into the resource or its description page).
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/2019-05-15-skohub/subject-indexing-with-uris.png" alt="A diagram with three resources (an OER, a subject and a classification), each identified by a URI and linked together" style="width:230px">
 
 
 ## Web-based subscriptions and notifications
 
-So, HTTP URIs for educational resources and subjects are important to transparently publish and thereafter identify and link educational resources, classifications and subjects on the web. But with URIs as the basic requirement in place, we also get the possibility to utilize other web standards for the discovery of OER. For Skohub, we make use of [Social Web Protocols](https://www.w3.org/TR/social-web-protocols/) to build an infrastructure where services can send and subscribe to notifications for subjects. The general setup looks as follows:
+So, HTTP URIs for resources and subjects are important to transparently publish and thereafter identify and link educational resources, classifications and subjects on the web. But with URIs as the basic requirement in place, we also get the possibility to utilize other web standards for the discovery of OER. For SkoHub, we make use of [Social Web Protocols](https://www.w3.org/TR/social-web-protocols/) to build an infrastructure where services can send and subscribe to notifications for subjects. The general setup looks as follows:
 
 1. Every element of a controlled vocabulary gets an inbox, identified by a URL.
 <img src="/images/2019-05-15-skohub/subject-indexing-with-uris-and-inbox.png" alt="A diagram with four resources (an OER, a subject, an inbox, a classification), each identified by a URI and linked together" style="width:500px">
@@ -70,13 +70,13 @@ So, HTTP URIs for educational resources and subjects are important to transparen
 This infrastructure allows applications
 
 1. to send a notification to a subject's inbox containing information about and a link to new content about this subject
-2. to subscribe to the inbox of a subject from a knowledge organization system to receive push updates about new content in real time
+2. to subscribe to the inbox of a subject from a knowledge organization system to receive push updates about new content in real time.
 
-Here is an example about a teacher being interested in new resources about environmental topics who subscribes to the subject via a controlled vocabulary like [ISCED-2013 Fields of Education and Training](https://unesdoc.unesco.org/ark:/48223/pf0000235049). He then receives updates whenever a colleague publishes a resource that is linked to the topic.
+Here is an example: a teacher is interested in new resources about environmental topics. He subscribes to the subject via a controlled vocabulary like [ISCED-2013 Fields of Education and Training](https://unesdoc.unesco.org/ark:/48223/pf0000235049). He then receives updates whenever a colleague publishes a resource that is linked to the topic.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/2019-05-15-skohub/pubsub.png" alt="A diagram with Teacher A subscribing to a subject tag that a document published by Teacher B is about, thus receiving notifications about the new resource." style="width:300px">
 
-To be really useful, applications for subscribing to content should enable additional filters, to subscribe to combination of subjects (e.g. "Environment" & "Building and civil engineering") or to add addtional filters on educational level, license type etc.
+To be really useful, applications for subscribing to content should enable additional filters, to subscribe to combinations of subjects (e.g. "Environment" & "Building and civil engineering") or to add addtional filters on educational level, license type etc.
 
 # Advantages
 
@@ -92,47 +92,47 @@ This additional layer to the use of Knowledge Organization Systems give them muc
 
 **Encouraging creation and use of shared Knowledge Organization Systems across applications**
 <br />
-In the German OER context it is a recurring theme that people are wishing everybody would use the same controlled vocabularies so that data exchange and aggregation required less mapping. With a Skohub infrastructure in place, there are big additional incentives on going forward in this direction.
+In the German OER context it is a recurring theme that people are wishing everybody would use the same controlled vocabularies so that data exchange and aggregation required less mapping. With a SkoHub infrastructure in place, there are big additional incentives on going forward in this direction.
 
 **Incentive for content producers to add machine-readable descriptions**
 <br />
 When subject indexing becomes tantamount with notifying interested parties to their resources, this means a huge incentive for content producers to describe their resources with structured data doing subject indexing.
 
-# Skohub scope
+# SkoHub scope
 
-The Skohub project has four deliverables. While working on the backend infrastructure for receiving and pushing notifications (skohub-pubsub), we also want to provide people with means to publish a controlled vocabulary along with inbox (skohub-ssg), to link to a subject and send a notification (skohub-editor) and to subscribe to notifications in the browser (skohub-deck).
+The SkoHub project has four deliverables. While working on the backend infrastructure for receiving and pushing notifications (skohub-pubsub), we also want to provide people with means to publish a controlled vocabulary along with inboxes (skohub-ssg), to link to subjects and send notifications (skohub-editor) and to subscribe to notifications in the browser (skohub-deck).
 
 **skohub-pubsub: Inboxes and subscriptions**
 <br />
 Code: [https://github.com/hbz/skohub-pubsub](https://github.com/hbz/skohub-pubsub)
 <br />
-This part provides the Skohub core infrastructure, setting up basic inboxes for subjects plus the ability of subscribing to push subscriptions for each new notification.
+This part provides the SkoHub core infrastructure, setting up basic inboxes for subjects plus the ability of subscribing to push subscriptions for each new notification.
 
 **skohub-ssg: Static site generator for Simple Knowledge Organization Systems**
 <br />
 Code: [https://github.com/hbz/skohub-ssg](https://github.com/hbz/skohub-ssg)
 <br />
-This part of the project covers the need to easily publish a controlled vocabulary as SKOS file, with a basic lookup API and a nice HTML view including links to an inbox for each subject.
+This part of the project covers the need to easily publish a controlled vocabulary as a SKOS file, with a basic lookup API and a nice HTML view including links to an inbox for each subject.
 
 **skohub-editor: Describing & linking learning resources, sending notifications**
 <br />
 Code: [https://github.com/hbz/skohub-editor](https://github.com/hbz/skohub-editor)
 <br />
-The editor runs in the browser and enables ergonomic structured description of an educational resource. It includes validation of the entered content for each field and lookup of controlled values via the API provided by skohub-ssg.
+The editor will run in the browser and enable ergonomic structured description of educational resources. It includes validation of the entered content for each field and lookup of controlled values via the API provided by skohub-ssg.
 
 **skohub-deck: Browser-based subscription to subjects**
 <br />
 Code: [https://github.com/hbz/skohub-deck](https://github.com/hbz/skohub-deck)
 <br />
-The Skohub deck is a proof of concept that the technologies developed actually work. It enables people to subscribe to notifications for specific subjects in the browser. The incoming notifications will be shown in a Tweetdeck-like interface.
+The SkoHub deck is a proof of concept to show that the technologies developed actually work. It enables people to subscribe to notifications for specific subjects in the browser. The incoming notifications will be shown in a Tweetdeck-like interface.
 
 # Outlook
 
-The project will latest be completed by end of 2019. We intend to give updates about the process during the way. Next up, we will explain the technical architecture in more detail, expanding on our use of social web protocols. Furthermore, we will give updates on the development status of the project.
+The project will be completed by end of 2019 at the latest. We intend to provide updates about the process during the way. Next up, we will explain the technical architecture in more detail, expanding on our use of social web protocols. Furthermore, we will provide updates on the development status of the project.
 
 ----
 
-\*<small> Note, that while Skohub has clear similarities with the "Information-Sharing Pipeline" envisioned in Ilik and Koster 2019 regarding the use of social web protocols on authority data, there is also a fundamental difference: While Ilik and Koster are talking about sharing updates *of* authority entries themselves (e.g. receiving updates for a person profile to be considered for inclusion in one's own authority file), Skohub is about sending notifications *to* an entry in an authority file or other controlled vocabulary.</small>
+\*<small> Note that while SkoHub has clear similarities with the "Information-Sharing Pipeline" envisioned in Ilik and Koster 2019 regarding the use of social web protocols on authority data, there is also a fundamental difference: While Ilik and Koster are talking about sharing updates *of* authority entries themselves (e.g. receiving updates for a person profile to be considered for inclusion in one's own authority file), SkoHub is about sending notifications *to* an entry in an authority file or other controlled vocabulary.</small>
 
 # References
 
