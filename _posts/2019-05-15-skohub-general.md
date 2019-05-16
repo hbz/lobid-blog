@@ -6,7 +6,7 @@ author: Adrian Pohl, Felix Ostrowski
 tags: skohub
 ---
 
-For a long time, openness movements and initiatives with labels like "Open Access", "Open Educational Resources" (OER) or "Linked Science" have been working on establishing a culture where scientific or educational resources are by default published with an [open](http://opendefinition.org/) license on the web to be read, used, remixed and shared by anybody. With a growing supply of respources on the web the challenge grows to learn about or find resources relevant for your teaching, studies, or research.
+For a long time, openness movements and initiatives with labels like "Open Access", "Open Educational Resources" (OER) or "Linked Science" have been working on establishing a culture where scientific or educational resources are by default published with an [open](http://opendefinition.org/) license on the web to be read, used, remixed and shared by anybody. With a growing supply of resources on the web the challenge grows to learn about or find resources relevant for your teaching, studies, or research.
 
 In this post, we describe the Skohub project being carried out in 2019 by the hbz in cooperation with Felix Ostrowski (graphthinking) as technical lead. The project seeks to implement a prototype for a novel approach in syndicating content on the web by combining current web standards for sending notifications and subscribing to feeds with knowledge organization systems (KOS, sometimes also called "controlled vocabularies").\*
 
@@ -58,7 +58,7 @@ To truly be part of the web, URIs are the most important part: Every OER needs a
 
 ## Web-based subscriptions and notifications
 
-So, HTTP URIs for educational resources and subjects are important to transparently publish and thereafter identify and link educational resources, classifications and subjects on the web. But with URIs as the basic requirement in place, we also get the possibility to utilize other web standards for the discovery of OER. For Skohub, we make use of [Social Web Protocoly](https://www.w3.org/TR/social-web-protocols/) to build an infrastructure where services can send and subscribe to notifications for subjects. The general setup looks as follows:
+So, HTTP URIs for educational resources and subjects are important to transparently publish and thereafter identify and link educational resources, classifications and subjects on the web. But with URIs as the basic requirement in place, we also get the possibility to utilize other web standards for the discovery of OER. For Skohub, we make use of [Social Web Protocols](https://www.w3.org/TR/social-web-protocols/) to build an infrastructure where services can send and subscribe to notifications for subjects. The general setup looks as follows:
 
 1. Every element of a controlled vocabulary gets an inbox, identified by a URL.
 <img src="/images/2019-05-15-skohub/subject-indexing-with-uris-and-inbox.png" alt="A diagram with four resources (an OER, a subject, an inbox, a classification), each identified by a URI and linked together" style="width:500px">
@@ -70,7 +70,7 @@ So, HTTP URIs for educational resources and subjects are important to transparen
 This infrastructure allows applications
 
 1. to send a notification to a subject's inbox containing information about and a link to new content about this subject
-2. to subscribe to the inbox of a subject from a knowledge organization system to receive push updates abotu new content in real time,
+2. to subscribe to the inbox of a subject from a knowledge organization system to receive push updates about new content in real time
 
 Here is an example about a teacher being interested in new resources about environmental topics who subscribes to the subject via a controlled vocabulary like [ISCED-2013 Fields of Education and Training](https://unesdoc.unesco.org/ark:/48223/pf0000235049). He then receives updates whenever a colleague publishes a resource that is linked to the topic.
 
@@ -84,11 +84,11 @@ This subject-oriented notification/subscription approach to content syndication 
 
 **Push instead of pull**
 <br />
- With the push approach, you subscribe once and content is coming from different and new soruces without the subscriber having to maintain a list of sources. IOf course spam might become a problem. Thus, instead of whitelisting by administering a subscription list one would practice blacklisting by filtering out sources of low-quality or spam content.
+ With the push approach, you subscribe once and content is coming from different and new sources without the subscriber having to maintain a list of sources. Of course spam might become a problem. Thus, instead of whitelisting by administering a subscription list one would practice blacklisting by filtering out sources of low-quality or spam content.
 
 **Knowledge organization systems are used to their full potential**
 <br />
-This additional layer to the use of Knowledge Organization Systemsgive them much more power ("KOS on steroids").
+This additional layer to the use of Knowledge Organization Systems give them much more power ("KOS on steroids").
 
 **Encouraging creation and use of shared Knowledge Organization Systems across applications**
 <br />
