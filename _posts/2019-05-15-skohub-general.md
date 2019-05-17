@@ -138,4 +138,4 @@ The project will be completed by end of 2019 at the latest. We intend to provide
 
 de Sompel, Herbert Van / Nelson, Michael L. (2015): Reminiscing About 15 Years of Interoperability Efforts. D-Lib Magazine 21 , no. 11/12. DOI: [10.1045/november2015-vandesompel](https://doi.org/10.1045/november2015-vandesompel)
 
-Ilik, Violeta / Koster, Lukas (2019): Information-Sharing Pipeline, The Serials Librarian, DOI: [10.1080/0361526X.2019.1583045](https://doi.org/10.1080/0361526X.2019.1583045). Preprint: [https://doi.org/10.31219/osf.io/hbwf8](https://doi.org/10.31219/osf.io/hbwf8])
+Ilik, Violeta / Koster, Lukas (2019): Information-Sharing Pipeline, The Serials Librarian, DOI: [10.1080/0361526X.2019.1583045](https://doi.org/10.1080/0361526X.2019.1583045). Preprint: [https://doi.org/10.31219/osf.io/hbwf8](https://doi.org/10.31219/osf.io/hbwf8)
