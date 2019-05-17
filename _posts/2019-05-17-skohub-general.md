@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SkoHub: Enabling KOS-based content subscription"
-date: 2019-05-15
+date: 2019-05-17
 author: Adrian Pohl, Felix Ostrowski
 tags: skohub
 ---
@@ -16,7 +16,7 @@ What are the present approaches to the problem of finding open content on the we
 
 ## Searching metadata harvested from silos
 
-Current approaches for publishing and finding open content on the web are often focused on repositories as the place to publish content. Those repositories then provide standardized interfaces for crawlers to collect and index the metadata in order to offer search solutions on top. An established approach for Open Access (OA) articles goes like this:
+Current approaches for publishing and finding open content on the web are often focused on repositories as the place to publish content. Those repositories then provide (ideally standardized) interfaces for crawlers to collect and index the metadata in order to offer search solutions on top. An established approach for Open Access (OA) articles goes like this:
 
 - Repositories with interfaces for metadata harvesting ([OAI-PMH](http://www.openarchives.org/OAI/openarchivesprotocol.html)) are set up for scholars to upload their OA publications
 - Metadata is crawled from those repositories, normalized and loaded into search indexes
@@ -85,9 +85,13 @@ This subject-oriented notification/subscription approach to content syndication 
 <br />
  With the push approach, you subscribe once and content is coming from different and new sources without the subscriber having to maintain a list of sources. Of course quality control might become an issue. Thus, instead of whitelisting by administering a subscription list one would practice blacklisting by filtering out sources that distribute spam or provide low-quality content.
 
+**Supporting web-wide publications**
+
+Being of the web, SkoHub supports publications residing anywhere on the web. While the repository-centric approach favours content in a repository that provides interfaces for harvesting, with SkoHub any web resource can make use of the notification mechanism. Thus, content producers can choose which tool or platform best fits their publishing needs, be it YouTube, a repository, hackmd.io or else. The only requirement is for publications to have a stable URL and, voilà, they can syndicate their content via KOS.
+
 **Knowledge organization systems are used to their full potential**
 <br />
-This additional layer to the use of Knowledge Organization Systems give them much more power ("KOS on steroids").
+This additional layer to the use of Knowledge Organization Systems makes them much more powerful ("KOS on steroids") and attractive for potential users.
 
 **Encouraging creation and use of shared Knowledge Organization Systems across applications**
 <br />
@@ -131,7 +135,7 @@ The project will be completed by end of 2019. We intend to provide updates about
 
 ----
 
-\*<small> Note that while SkoHub has clear similarities with the "Information-Sharing Pipeline" envisioned in Ilik and Koster 2019 regarding the use of social web protocols on authority data, there is also a fundamental difference: While Ilik and Koster are talking about sharing updates *of* authority entries themselves (e.g. receiving updates for a person profile to be considered for inclusion in one's own authority file), SkoHub is about sending notifications *to* an entry in an authority file or other controlled vocabulary when they are used to describe content.</small>
+\*<small> Note that while SkoHub has clear similarities with the "Information-Sharing Pipeline" envisioned in Ilik and Koster 2019 regarding the use of social web protocols on authority data, there is also a fundamental difference: While Ilik and Koster are talking about sharing *updates* of authority entries themselves (e.g. receiving updates for a person profile to be considered for inclusion in one's own authority file), SkoHub is about sharing new *links* to an entry in an authority file or other controlled vocabulary.</small>
 
 # References
 
