@@ -41,7 +41,7 @@ Alle Felder lassen sich über die API abfragen. Hier ein paar Beispiele:
 - Einrichtungen mit Angabe einer SRU-Schnittstelle: [`availableChannel.serviceType:SRU`](https://lobid.org/organisations/search?q=availableChannel.serviceType%3ASRU)
 - Einrichtungen mit Angabe einer OpenURL-Schnittstelle: [`availableChannel.serviceType:OpenURL`](https://lobid.org/organisations/search?q=availableChannel.serviceType%3AOpenURL)
 - Einrichtungen mit Angabe einer DAIA- oder PAIA-API: [`availableChannel.serviceType:DAIA OR availableChannel.serviceType:PAIA`](https://lobid.org/organisations/search?q=availableChannel.serviceType%3ADAIA+OR+availableChannel.serviceType%3APAIA)
-- Einrichtungen mit verzeichneter DAIA-API aber ohne PAIA-API: [`availableChannel.serviceType:DAIA AND NOT availableChannel.serviceType:PAIA`](https://lobid.org/organisations/search?q=availableChannel.serviceType%3ADAIA+AND+NOT+availableChannel.serviceType%3APAIA)
+- Einrichtungen mit verzeichneter DAIA-API aber ohne SRU-API: [`availableChannel.serviceType:DAIA AND NOT availableChannel.serviceType:SRU`](https://lobid.org/organisations/search?q=availableChannel.serviceType%3ADAIA+AND+NOT+availableChannel.serviceType%3ASRU)
 
 Die Abfragen lassen sich natürlich beliebig mit der Abfrage anderer Felder (siehe die [API-Dokumentation](https://lobid.org/organisations/api/de#jsonld) kombinieren, zum Beispiel:
 
@@ -65,7 +65,7 @@ Ob und unter welcher URL welche Schnittstellen zu Bibliothekssystemen existieren
 
 Wer will kann natürlich auch den Link zum Änderungsformular im jeweiligen lobid-organisations-Eintrag klicken:
 
-<a href="https://lobid.org/organisations/DE-Hil2"><img src="/images/2019-07-19-aenderungen-via-lobid.png" alt="Ein Screenshot, der zeigt, wie man aus einem lobid-organisations-Eintrag in das entsprechende Änderungsformular des SDigelverzeichnisses gelangt" style="width:650px"></a>
+<a href="https://lobid.org/organisations/DE-Hil2"><img src="/images/2019-07-19-aenderungen-via-lobid.png" alt="Ein Screenshot, der zeigt, wie man aus einem lobid-organisations-Eintrag in das entsprechende Änderungsformular des Sigelverzeichnisses gelangt" style="width:650px"></a>
 
 ## Dank
 
