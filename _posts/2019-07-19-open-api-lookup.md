@@ -6,9 +6,9 @@ author: Adrian Pohl
 tags: lobid-organisations
 ---
 
-Im Sigelverzeichnis lassen sich die API-Endpoints verschiedener offener Programmierschnittstellen erfassen und sind dann über [lobid-organisations](https://lobid.org/organisations) abfragbar. Bisher ist es oft nur recht umständlich herauszufinden, ob und welche Schnittstellen zu einem Bibliothekssystem existieren. Dies kann nun auf sehr bequeme Weise über die lobid-API erfolgen.
+Bisher ist es oft nur recht umständlich herauszufinden, ob und welche Schnittstellen zu einem Bibliothekssystem existieren. Dies kann nun auf sehr bequeme Weise über die lobid-API erfolgen. Im Sigelverzeichnis lassen sich die API-Endpoints verschiedener offener Programmierschnittstellen erfassen und sind dann über [lobid-organisations](https://lobid.org/organisations) abfragbar.
 
-Wir nehmen als Beispiel die Universitätsbibliothek Hildesheim (DE-Hil2), die ihre Schnittstellen ([SRU](http://www.loc.gov/standards/sru/), [DAIA](http://purl.org/NET/DAIA), [PAIA](https://gbv.github.io/paia/paia.html)) vorbildlich erfasst hat. Das JSON-LD enthält folgende Informationen:
+Wir nehmen als Beispiel die Universitätsbibliothek Hildesheim (DE-Hil2), die ihre Schnittstellen ([SRU](http://www.loc.gov/standards/sru/), [DAIA](http://purl.org/NET/DAIA), [PAIA](https://gbv.github.io/paia/paia.html)) vorbildlich erfasst hat. Das [JSON-LD](https://lobid.org/organisations/DE-Hil2.json) enthält folgende Informationen:
 
 ```json
 {
@@ -32,6 +32,9 @@ Wir nehmen als Beispiel die Universitätsbibliothek Hildesheim (DE-Hil2), die ih
    ]
 }
 ```
+
+Im `availableChannel` Array sind also nun alle im Sigelverzeichnis eingetragenen Service URLs als `ServiceChannel` angegeben, wobei nur Programmierschnittstellen den zusätzlichen Typ `WebAPI` haben.<sup>*</sup> Mit `serviceType` wird der jeweilige Schnittstellentyp angegeben.
+
 Alle Felder lassen sich über die API abfragen. Hier ein paar Beispiele:
 
 - Einrichtungen, die mindestens eine offene API im Sigelverzeichnis dokumentiert haben: [`availableChannel.type:WebAPI`](https://lobid.org/organisations/search?q=availableChannel.type%3AWebAPI)
@@ -40,7 +43,11 @@ Alle Felder lassen sich über die API abfragen. Hier ein paar Beispiele:
 - Einrichtungen mit Angabe einer DAIA- oder PAIA-API: [`availableChannel.serviceType:DAIA OR availableChannel.serviceType:PAIA`](https://lobid.org/organisations/search?q=availableChannel.serviceType%3ADAIA+OR+availableChannel.serviceType%3APAIA)
 - Einrichtungen mit verzeichneter DAIA-API aber ohne PAIA-API: [`availableChannel.serviceType:DAIA AND NOT availableChannel.serviceType:PAIA`](https://lobid.org/organisations/search?q=availableChannel.serviceType%3ADAIA+AND+NOT+availableChannel.serviceType%3APAIA)
 
-Voraussetzung ist natürlich, dass die Schnittstellen überhaupt im Sigelverzeichnis erfasst sind, wozu wir ausdrücklich ermutigen möchten. Für die Erfassung hat Jakob Voß eine [Anleitung](https://verbundwiki.gbv.de/display/VZG/Schnittstellen) erstellt, die wir hier nochmal wiedergeben.
+Die Abfragen lassen sich natürlich beliebig mit der Abfrage anderer Felder (siehe die [API-Dokumentation](https://lobid.org/organisations/api/de#jsonld) kombinieren, zum Beispiel:
+
+- Alle Zentralen Universitätsbibliotheken, die mindestens eine offene API im SIgelverzeichnis dokumentiert haben: [`availableChannel.type:WebAPI AND classification.id:"http://purl.org/lobid/libtype#n60"`](https://lobid.org/organisations/search?location=&from=0&size=20&q=availableChannel.type:WebAPI+AND+classification.id:%22http://purl.org/lobid/libtype%23n60%22)
+
+Voraussetzung für eine umfassende Suche nach offenen Schnittstellen ist natürlich, dass die Schnittstellen überhaupt im Sigelverzeichnis erfasst sind, wozu wir ausdrücklich ermutigen möchten. Für die Erfassung hat Jakob Voß eine [Anleitung](https://verbundwiki.gbv.de/display/VZG/Schnittstellen) erstellt, die wir hier wiedergeben.
 
 ## Eintragung offener APIs im Sigelverzeichnis
 
@@ -59,3 +66,12 @@ Ob und unter welcher URL welche Schnittstellen zu Bibliothekssystemen existieren
 Wer will kann natürlich auch den Link zum Änderungsformular im jeweiligen lobid-organisations-Eintrag klicken:
 
 <a href="https://lobid.org/organisations/DE-Hil2"><img src="/images/2019-07-19-aenderungen-via-lobid.png" alt="Ein Screenshot, der zeigt, wie man aus einem lobid-organisations-Eintrag in das entsprechende Änderungsformular des SDigelverzeichnisses gelangt" style="width:650px"></a>
+
+## Dank
+
+Danke an alle Beteiligten (siehe diesen [Twitter Thread](https://twitter.com/acka47/status/1143820540785897472)), vor allem Jakob Voß und Carsten Klee für die schnelle Unterstützung. Das war ein zügige verbundübergreifende Zusammenarbeit, die Spaß gemacht hat.
+Und merci im Vorabbereich an alle, die ihre offenen Schnittstellen im Sigelverzeichnis erfassen!
+
+----
+
+<sup>*</sup> Es gibt noch einige weitere Nutzungsarten des entsprechenden Feldes im Sigelverzeichnis, z.B. werden Links zur [Benutzungsordnung](https://lobid.org/organisations/search?q=availableChannel.serviceType%3ANutzung), zum [Standort](https://lobid.org/organisations/search?q=availableChannel.serviceType%3AStandort) oder zu den [Öffnungszeiten](https://lobid.org/organisations/search?q=availableChannel.serviceType%3A%C3%96ffnungszeiten) in dem Feld angegeben. Eine Liste der `serviceType`-Werte gibt es [hier](https://gist.github.com/acka47/bcf7d0cbbbb8de8d31220c12c2525171).
