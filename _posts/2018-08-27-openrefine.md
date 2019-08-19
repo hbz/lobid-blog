@@ -2,6 +2,7 @@
 layout: post
 title: "GND reconciliation for OpenRefine"
 date: 2018-08-27
+updated: 2019-08-19
 author: Fabian Steeg, Adrian Pohl
 tags: lobid-gnd
 ---
@@ -46,15 +47,15 @@ Collapse the drawer on the left hand side by clicking the newly added service. A
 
 ![7-1](/images/2018-08-27-openrefine/07-type.png)
 
-Optionally, we could reconcile against a type that is not suggested by selecting "Reconcile against type" and specifying the type, e.g. `BuildingOrMemorial`:
+Optionally, we could reconcile against a non-default type by typing into the "Reconcile against type" field and selecting one of the suggested types, e.g. `Person`:
 
 ![7-2](/images/2018-08-27-openrefine/07-type-custom.png)
 
-For real-world data it can make sense to pass additional data from other columns to improve the reconciliation results (the value in the text box is arbitrary here, but must not be empty):
+It can make sense to pass additional data from other columns to improve the reconciliation results. Type in the text fields for each column, and select one of the suggested properties. E.g. use the data from the `beruf` column to search in the `professionOrOccupationAsLiteral` field in the GND:
 
 ![8](/images/2018-08-27-openrefine/08-other.png)
 
-After reconciliation, we can inspect not automatically matched candidates by clicking their name:
+After reconciliation, we can inspect candidates that have not been automatically matched by clicking or hovering over (depending on your OpenRefine version) their name:
 
 ![9](/images/2018-08-27-openrefine/09-candidate.png)
 
@@ -62,11 +63,15 @@ This brings up a preview, with the option to match them:
 
 ![10](/images/2018-08-27-openrefine/10-preview.png)
 
+Alternatively, we can search for a match by clicking "Search for match". This brings up a dialog with a text field prefilled with the cell value. Select one of the suggestions to match the cell:
+
+![10](/images/2018-08-27-openrefine/10-search.png)
+
 After matching, we can enrich our data with the reconciled data. We want to add columns based on the reconciled values:
 
 ![11](/images/2018-08-27-openrefine/11-add-columns.png)
 
-We can now select the properties we want to add and preview them. Here, we choose `Beruf oder Beschäftigung`, `Geburtsort`, `Sterbeort`, and `Ländercode`:
+We can now select the properties we want to add (using the search field and picking one of the suggestions for what we typed, or from the the prefilled list below the search field) and preview them. Here, we choose `Beruf oder Beschäftigung`, `Geburtsort`, `Sterbeort`, and `Ländercode`:
 
 ![12](/images/2018-08-27-openrefine/12-add-preview.png)
 
