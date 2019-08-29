@@ -21,7 +21,8 @@ publicationDate: 26.10.2016
 license: CC-BY
 subject: Bauingenieurwesen, Eisenbahntechnik
 ```
-Dies ist eine für Menschen gut lesbare Beschreibung der Ressource. Will ich diese Art der Beschreibung konsistent innerhalb meines Systems oder systemübergreifend anwenden, kann ich ein *Metadatenschema* definieren, das bestimmt, welches Pflichtfelder und welches optionale Felder sind und welche Inhalte sie haben sollen. Das könnte vereinfacht so aussehen:
+
+Dies ist eine für Menschen gut lesbare Beschreibung der Ressource. Will ich diese Art der Beschreibung konsistent innerhalb meines Systems oder systemübergreifend anwenden, kann ich ein *Metadatenschema* definieren: Dieses gibt vor, welche Felder es gibt, welche davon verpflichtend oder optional sind und welche Inhaltstypen sie haben sollen. Das könnte vereinfacht so aussehen:
 
 ```
 mandatory:
@@ -31,10 +32,12 @@ mandatory:
 
 optional:
 	- thumbnail: url
-	- publicationDate: string
+	- publicationDate: ISO8601
 	- license: string
 	- subject: string
 ```
+
+Es gibt in dem Beispiel drei verschiedene Inhaltstypen (string, url, ISO8601), anhand derer Input validiert werden kann. Gibt z.B. jemand "März 2019" in das Feld `publicationDate` ein, so kann eine Fehlermeldung zurückgegeben werden. Im Feld subject sind nach diesem Schema jegliche Textstrings erlaubt, d.h. "Bauingenieurwesen" ist genauso erlaubt wie ein Wort mit Schreibfehler ("Bauingeneurwesen") oder auch ein anderes Wort, das sich auf dieselbe Sache bezieht ("Bautechnik").
 
 Für einige der Feldinhalte eignet sich die Nutzung kontrollierter Vokabulare:
 
