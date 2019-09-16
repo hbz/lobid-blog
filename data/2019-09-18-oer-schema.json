@@ -64,31 +64,13 @@
       },
       "license":{
         "title":"License",
-        "type":"object",
-        "_widget":"SkohubLookup",
-        "properties":{
-          "type":{
-            "type":"string",
-            "enum":[
-              "Concept"
-            ]
-          },
-          "id":{
-            "type":"string",
-            "format":"uri"
-          },
-          "inScheme":{
-            "type":"object",
-            "properties":{
-              "id":{
-                "type":"string",
-                "enum":[
-                  "https://oerworldmap.org/assets/json/licenses/"
-                ]
-              }
-            }
-          }
-        }
+        "type":"string",
+        "format": "uri",
+        "enum": [
+          "https://creativecommons.org/publicdomain/zero/1.0/",
+          "https://creativecommons.org/licenses/by/4.0/",
+          "https://creativecommons.org/licenses/by-sa/4.0/"
+        ]
       },
       "about":{
          "title":"Subject",
