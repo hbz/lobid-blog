@@ -22,17 +22,9 @@
       "type":{
          "title":"Type",
          "type":"string",
+         "default": "CreativeWork",
          "enum":[
-            "WebPage",
-            "Book",
-            "Course",
-            "Dataset",
-            "Game",
-            "ImageObject",
-            "DigitalDocument",
-            "AudioObject",
-            "VideoObject",
-            "HowTo"
+            "CreativeWork"
          ]
       },
       "name":{
@@ -46,11 +38,11 @@
             "type":"object",
             "properties":{
                "type":{
-                  "title":"Typ",
+                  "title":"Type",
                   "type":"string",
+                  "default": "Person",
                   "enum":[
-                     "Person",
-                     "Organization"
+                     "Person"
                   ]
                },
                "id":{
