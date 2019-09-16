@@ -28,9 +28,9 @@ I created a [basic JSON schema](https://github.com/lobid/lobid.github.com/blob/m
 
 <img src="/images/2019-09-18-skohub-prototype/editor-input.png" alt="Screenshot of the SkoHub editor with input describing slides for a class." style="width:650px">
 
-The schema is pretty straightforward, as with every JSOn schema I can specify which fields to show, what type of input they expect and provide a list of values to be selected from for a specific field like the schema does in [lines 65 to 74](https://github.com/lobid/lobid.github.com/blob/3ebb98904e01cc445c27f966686de4012f93cae5/data/2019-09-18-oer-schema.json#L65-L74) for choosing one of three OER licenses.
+As you can see, the JSON-LD is output on the right-hand side of the screen and can easily be copied to the clipboard to be included in the HTML of any web page.
 
-Where it gets interesting is when you input a value in the "Subject" field.
+The underlying schema is pretty straightforward. As with every JSON schema I can specify which fields to show, what type of input they expect and provide a list of values to be selected from for a specific field like the schema does in [lines 65 to 74](https://github.com/lobid/lobid.github.com/blob/3ebb98904e01cc445c27f966686de4012f93cae5/data/2019-09-18-oer-schema.json#L65-L74) for choosing one of three OER licenses. Where it gets interesting is when you input a value in the "Subject" field:
 
 <img src="/images/2019-09-18-skohub-prototype/auto-suggestion-from-skos-vocab.png" alt="The string \"inform\" is input in the subject field and several entries with this string from a controlled vocabulary are suggested." style="width:650px">
 
