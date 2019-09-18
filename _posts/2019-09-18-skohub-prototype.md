@@ -34,7 +34,7 @@ The underlying schema is pretty straightforward. As with every JSON schema I can
 
 <img src="/images/2019-09-18-skohub-prototype/pick-a-license.png" alt="The string 'Inform' is input in the subject field and several entries with this string from a controlled vocabulary are suggested." style="width:620px">
 
-As said above, we also want to enable adding a subject from a controlled vocabulary to each resource. When inputing content into the "Subject" field, we also get a dropdown with suggestions:
+With this setup, we already have covered all information you can create with "Bildungsteiler". But we said to also enable adding a subject from a controlled vocabulary to each resource. When inputing content into the "Subject" field, we also get a dropdown with suggestions:
 
 <img src="/images/2019-09-18-skohub-prototype/auto-suggestion-from-skos-vocab.png" alt="The string 'Inform' is input in the subject field and several entries with this string from a controlled vocabulary are suggested." style="width:620px">
 
@@ -112,20 +112,28 @@ So, when I descibe an OER in SkoHub Editor, assign the topic I have subscribed t
 
 <img src="/images/2019-09-18-skohub-prototype/notification.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:620px">
 
-With this prototype the basic functionality of SkoHub is presented as a proof of concept. We are happy to announce that we have obtained more funding for moving SkoHub to production level.
+With this prototype the basic functionality of SkoHub is presented as a proof of concept.
+- an editor with validated structured data as output for
+  1. *describing* a resource including the use of terms from a controlled vocabulary
+  2. *sending notifications* to the terms' inboxes
+- a process and application to *publish controlled vocabularies* represented in SKOS to the web and enable *lookup* of terms from the vocabulary
+- the ability to *subscribe* to a vocabulary term and an application to view incoming messages about new resources
+
+So the basic infrastructure is there but this is still a prototype. We will have to fix some smaller and bigger things and to generally improve the UI/UX of the components to make it production ready. We are happy to announce that we have obtained more funding for continuing SkoHub development and moving to production .
 
 # To Dos for production
 
-To achieve production level, we will continue work on SkoHub until the end of the year. Besides working on the UI/UX of the editor and static site generator, we have a lot of work to do on the PubSub backend and want to add some additional features. Here is a list of what we are thinking about.
+To achieve production level, we will directly continue work on SkoHub until the end of the year. Besides working on the UI/UX of the editor and static site generator, we have a lot of work to do on the PubSub backend (where we will switch the underlying pubsub protocol) and want to add some additional features. Here is a list of what we are thinking about.
 
-- Move from WebSub to ActivityPub
+- Move from WebSub to ActivityPub (see [#16](https://github.com/hbz/skohub-pubsub/issues/16) and the wiki page linked there)
 - Enable easy setup on local server (Docker?)
 - Offer plugins for content description and sending of notifications (e.g. for Moodle, WordPress and/or hypothes.is)
-- Prototype for semi-automatic subject indexing in SkoHub Editor using Annif
+- Prototype for semi-automatic subject indexing in SkoHub Editor using [Annif](http://annif.org/)
 - Provide more documentation
 - Present SkoHub at conferences
+- Create and maintain a reference application
 - Find implementors
-- Use SkoHub components in standardiziation work of DINI KIM
+- Use SkoHub components in standardiziation work for OER metadata in the [DINI KIM](https://wiki.dnb.de/display/DINIAGKIM/OER-Metadaten-Gruppe) context (create agreed-upon schemas for describing OER and agree on controlled vocabularies for subjects, resource type etc.)
 
 # Try it out
 
