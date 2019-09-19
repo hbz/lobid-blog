@@ -30,7 +30,7 @@ It is configured with a [JSON schema](https://json-schema.org/understanding-json
 
 As you can see, the JSON-LD is output on the right-hand side of the screen and can easily be copied to the clipboard to be included in the HTML of any web page.
 
-The underlying schema is pretty straightforward. As with every JSON schema I can for specify a number of optional or mandatory fields, what type of input each field expects. I also can provide a list of values to be selected from for a specific field like the schema does for choosing one of three OER licenses in [lines 65 to 74](https://github.com/lobid/lobid.github.com/blob/3ebb98904e01cc445c27f966686de4012f93cae5/data/2019-09-18-oer-schema.json#L65-L74). In the  SkoHub Editor this is then reflected by a "select" under the "License" field button where after clicking all three values are shown in a dropdown.
+The underlying schema is pretty straightforward. As with every JSON schema I can specify a number of optional or mandatory fields and the type each field expects. I also can provide a list of values to be selected from for a specific field like the schema does for choosing one of three OER licenses in [lines 65 to 74](https://github.com/lobid/lobid.github.com/blob/3ebb98904e01cc445c27f966686de4012f93cae5/data/2019-09-18-oer-schema.json#L65-L74). In the  SkoHub Editor this is then reflected by a "select" under the "License" field button where after clicking all three values are shown in a dropdown.
 
 <img src="/images/2019-09-18-skohub-prototype/pick-a-license.png" alt="The string 'Inform' is input in the subject field and several entries with this string from a controlled vocabulary are suggested." style="width:620px">
 
@@ -56,7 +56,7 @@ In order to publish a vocabulary to SkoHub you have to set up a webhook in GitHu
 
 1.  In the GitHub repo where the vocab resides, got to "Settings" → "Webhooks" and click "Add webhook"   
 <img src="/images/2019-09-18-skohub-prototype/add-webhook.png" alt="Screenshot of the Webhook page in a GitHub repo with highlighted fields for the navigation path." style="width:620px">
-2. Enter `https://test.skohub.io/build` as payload URL choose `application/json` as content type and enter the secret. (Please [contact](http://lobid.org/team/) us for the secret if you want to try it out.)
+2. Enter `https://test.skohub.io/build`. As payload URL choose `application/json` as content type and enter the secret. (Please [contact](https://lobid.org/team/) us for the secret if you want to try it out.)
 <img src="/images/2019-09-18-skohub-prototype/add-webhook2.png" alt="Screenshot of the Webhook page with input (payload URL and secret)." style="width:620px">
 
 
@@ -102,17 +102,17 @@ If you came this far into this post you may ask yourself: *But what about the "K
 
 <img src="/images/2019-09-18-skohub-prototype/subscribe.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:420px">
 
-When you click this link, you will be driected to [SkoHub Deck](https://github.com/hbz/skohub-deck), an application to subscribe to and view notifications sent to a specific subject in your browser.
+When you click this link, you will be directed to [SkoHub Deck](https://github.com/hbz/skohub-deck), an application to subscribe to and view notifications sent to a specific subject in your browser.
 
 <img src="/images/2019-09-18-skohub-prototype/skohub-deck.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:620px">
 
 As the receiving end of notifications about new content about a specific subject SkoHub Deck makes use of the backend infrastructure provided by the [SkoHub Pubsub](https://github.com/hbz/skohub-pubsub) server. Although, SkoHub Pubsub is the core of the whole infrastructure and the module that connects all the other SkoHub components, it is not visible itself but only in applications like SkoHub Deck and SkoHub Editor which can send out notifications to a specific topic.
 
-So, when I descibe an OER in SkoHub Editor, assign the topic I have subscribed to and click "save", a notification about the resource will be sent to SkoHub Deck.
+So, when I describe an OER in SkoHub Editor, assign the topic I have subscribed to and click "save", a notification about the resource will be sent to SkoHub Deck.
 
 <img src="/images/2019-09-18-skohub-prototype/notification.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:620px">
 
-With this prototype the basic functionality of SkoHub is presented as a proof of concept.
+With this prototype the basic functionality of SkoHub is presented as a proof of concept:
 - an editor with validated structured data as output for
   1. *describing* a resource including the use of terms from a controlled vocabulary
   2. *sending notifications* to the terms' inboxes
