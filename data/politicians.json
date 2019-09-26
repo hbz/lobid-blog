@@ -1,0 +1,199 @@
+[
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "label",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://lobid.org/gnd/reconcile",
+      "identifierSpace": "https://lobid.org/gnd",
+      "schemaSpace": "https://lobid.org/gnd",
+      "type": {
+        "id": "DifferentiatedPerson",
+        "name": "Individualisierte Person"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column label to type DifferentiatedPerson"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "parliamentary_group",
+    "expression": "grel:value",
+    "onError": "set-to-blank",
+    "newColumnName": "affiliation",
+    "columnInsertIndex": 2,
+    "description": "Create column affiliation at index 2 based on column parliamentary_group using expression grel:value"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "affiliation",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "GRUENE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "http://d-nb.info/gnd/2124337-2"
+      },
+      {
+        "from": [
+          "NA"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      },
+      {
+        "from": [
+          "FDP"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "http://d-nb.info/gnd/37037-X"
+      },
+      {
+        "from": [
+          "CDU"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "http://d-nb.info/gnd/7230-8"
+      },
+      {
+        "from": [
+          "SPD"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "http://d-nb.info/gnd/2022139-3"
+      },
+      {
+        "from": [
+          "LINKE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "http://d-nb.info/gnd/10173685-X"
+      },
+      {
+        "from": [
+          "PDS"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "http://d-nb.info/gnd/5010217-5"
+      }
+    ],
+    "description": "Mass edit cells in column affiliation"
+  },
+  {
+    "op": "core/recon-discard-judgments",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "label",
+    "clearData": true,
+    "description": "Discard recon judgments and clear recon data for cells in column label"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "label",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://lobid.org/gnd/reconcile",
+      "identifierSpace": "https://lobid.org/gnd",
+      "schemaSpace": "https://lobid.org/gnd",
+      "type": {
+        "id": "DifferentiatedPerson",
+        "name": "Individualisierte Person"
+      },
+      "autoMatch": true,
+      "columnDetails": [
+        {
+          "column": "affiliation",
+          "propertyName": "Affiliation",
+          "propertyID": "affiliation"
+        }
+      ],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column label to type DifferentiatedPerson"
+  },
+  {
+    "op": "core/recon-discard-judgments",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "label",
+    "clearData": true,
+    "description": "Discard recon judgments and clear recon data for cells in column label"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "label",
+    "expression": "grel:\"Politik*\"",
+    "onError": "set-to-blank",
+    "newColumnName": "occupation",
+    "columnInsertIndex": 1,
+    "description": "Create column occupation at index 1 based on column label using expression grel:\"Politik*\""
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "label",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://lobid.org/gnd/reconcile",
+      "identifierSpace": "https://lobid.org/gnd",
+      "schemaSpace": "https://lobid.org/gnd",
+      "type": {
+        "id": "DifferentiatedPerson",
+        "name": "Individualisierte Person"
+      },
+      "autoMatch": true,
+      "columnDetails": [
+        {
+          "column": "occupation",
+          "propertyName": "Beruf oder Beschäftigung",
+          "propertyID": "professionOrOccupation"
+        },
+        {
+          "column": "affiliation",
+          "propertyName": "Affiliation",
+          "propertyID": "affiliation"
+        }
+      ],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column label to type DifferentiatedPerson"
+  }
+]

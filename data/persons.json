@@ -1,0 +1,93 @@
+[
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Name",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://lobid.org/gnd/reconcile",
+      "identifierSpace": "https://lobid.org/gnd",
+      "schemaSpace": "https://lobid.org/gnd",
+      "type": {
+        "id": "DifferentiatedPerson",
+        "name": "Individualisierte Person"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column Name to type DifferentiatedPerson"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DateOfBirth",
+    "expression": "grel:value + \"*\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DateOfBirth using expression grel:value + \"*\""
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DateOfDeath",
+    "expression": "grel:value + \"*\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DateOfDeath using expression grel:value + \"*\""
+  },
+  {
+    "op": "core/recon-discard-judgments",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Name",
+    "clearData": true,
+    "description": "Discard recon judgments and clear recon data for cells in column Name"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Name",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://lobid.org/gnd/reconcile",
+      "identifierSpace": "https://lobid.org/gnd",
+      "schemaSpace": "https://lobid.org/gnd",
+      "type": {
+        "id": "DifferentiatedPerson",
+        "name": "Individualisierte Person"
+      },
+      "autoMatch": true,
+      "columnDetails": [
+        {
+          "column": "DateOfBirth",
+          "propertyName": "Geburtsdatum",
+          "propertyID": "dateOfBirth"
+        },
+        {
+          "column": "DateOfDeath",
+          "propertyName": "Sterbedatum",
+          "propertyID": "dateOfDeath"
+        }
+      ],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column Name to type DifferentiatedPerson"
+  }
+]
