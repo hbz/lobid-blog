@@ -24,23 +24,23 @@ Currently, a SKOS vocab has to be published in a GitHub repository as one or mor
 In order to publish a vocabulary from GitHub with SkoHub Vocabs, you have to set up a webhook in GitHub. It goes like this:
 
 1.  In the GitHub repo where the vocab resides, got to "Settings" → "Webhooks" and click "Add webhook"   
-<img src="/images/2019-09-18-skohub-prototype/add-webhook.png" alt="Screenshot of the Webhook page in a GitHub repo with highlighted fields for the navigation path." style="width:620px">
+<img src="/images/presenting-skohub-vocabs/add-webhook.png" alt="Screenshot of the Webhook page in a GitHub repo with highlighted fields for the navigation path." style="width:620px">
 2. Enter `https://test.skohub.io/build` as payload URL choose `application/json` as content type and enter the secret. (Please [contact](http://lobid.org/team/) us for the secret if you want to try it out.)
-<img src="/images/2019-09-18-skohub-prototype/add-webhook2.png" alt="Screenshot of the Webhook page with input (payload URL and secret)." style="width:620px">
+<img src="/images/presenting-skohub-vocabs/add-webhook2.png" alt="Screenshot of the Webhook page with input (payload URL and secret)." style="width:620px">
 
 ## Step 3: Execute build & error handling
 
 For the vocabulary to be built and published on SkoHub, there has to be a new commit in the master branch. So, we have to adjust something in the vocab and push it into the master branch. Looking again at the webhook page in the repo settings, you can see a notice that the build was triggered:
 
-<img src="/images/2019-09-18-skohub-prototype/check-webhook-response.png" alt="Screenshot from GitHub Webhook page with information that build was triggered with link to build log." style="width:620px">
+<img src="/images/presenting-skohub-vocabs/check-webhook-response.png" alt="Screenshot from GitHub Webhook page with information that build was triggered with link to build log." style="width:620px">
 
 However, looking at the [build log](https://test.skohub.io/build/?id=03f3a817-a11e-4498-a254-a478d4f6b089#44), an error is shown and the site did not build:
 
-<img src="/images/2019-09-18-skohub-prototype/error-in-build-log.png" alt="Screenshot from build log with error message" style="width:620px">
+<img src="/images/presenting-skohub-vocabs/error-in-build-log.png" alt="Screenshot from build log with error message" style="width:620px">
 
 Oops, we forgot to check the vocab for syntax errors before triggering the build and there actually *is* a syntax error in the turtle file. Fixing the syntax in a new [commit](https://github.com/hbz/vocabs-edu/commit/6ab97649874607df7784eaa0787adadbcefde166) will automatically trigger a new build:
 
-<img src="/images/2019-09-18-skohub-prototype/fix-error.png" alt="Screenshot from build log with error message" style="width:620px">
+<img src="/images/presenting-skohub-vocabs/fix-error.png" alt="Screenshot from build log with error message" style="width:620px">
 
 This time the [build](https://test.skohub.io/build/?id=678ba699-758d-498d-afeb-104d8824f282) goes through without errors and, voilà, SkoHub has published a human-readable version of the vocabulary at [https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.html](https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.html). (SkoHub Static Site Generator also publishes an [overview](https://test.skohub.io/hbz/vocabs-edu/) of all the SKOS vocaularies in the GitHub repo.)
 
@@ -48,7 +48,7 @@ This time the [build](https://test.skohub.io/build/?id=678ba699-758d-498d-afeb-1
 
 As I want the canonical version of ESC to be the one published with SkoHub Vocabs, I need to redirect the namespace URI I defined in the Turtle file to SkoHub. As I used w3id.org for this, I have to make a pull request in the respective repo.
 
-<a href="https://github.com/perma-id/w3id.org/pull/1483"><img src="/images/2019-09-18-skohub-prototype/open-pr-at-w3id.png" alt="Screenshot of a pull request to redirect ESC to SkoHub" style="width:620px"></a>
+<a href="https://github.com/perma-id/w3id.org/pull/1483"><img src="/images/presenting-skohub-vocabs/open-pr-at-w3id.png" alt="Screenshot of a pull request to redirect ESC to SkoHub" style="width:620px"></a>
 
 If everything looks good, w3id.org PRs are merged very quickly, in this case it happened an hour later.
 
@@ -56,11 +56,11 @@ If everything looks good, w3id.org PRs are merged very quickly, in this case it 
 
 As a result, I have published a controlled vocabulary in SKOS under a permanent URI and with a human-readable [HTML](https://w3id.org/class/esc/scheme.html) representation from GitHub with a minimum amount of work. Additionally, the initial Turtle representation is transformed to more developer-friendly [JSON-LD](https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.jsonld). The HTML has a hierarchy view that can be expanded and collapsed at will:
 
-<a href="https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.html"><img src="/images/2019-09-18-skohub-prototype/open-pr-at-w3id.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:620px"></a>
+<a href="https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.html"><img src="/images/presenting-skohub-vocabs/open-pr-at-w3id.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:620px"></a>
 
 There also is a search field to easily filter the vocabulary:
 
-<img src="/images/2019-09-18-skohub-prototype/skohub-ssg-filter.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:420px">
+<img src="/images/presenting-skohub-vocabs/skohub-ssg-filter.png" alt="Screenshot: Filter the scheme by yping in the search box" style="width:420px">
 
 This filter is based on a [FlexSearch](https://github.com/nextapps-de/flexsearch) index that is also built along with the rest of the content. This allows us to implement lookup functionalities without the need for a server-side API. More about this below and in the upcoming post on the SkoHub Editor.
 
