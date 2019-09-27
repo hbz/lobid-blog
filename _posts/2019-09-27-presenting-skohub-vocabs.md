@@ -24,9 +24,9 @@ Currently, a SKOS vocab has to be published in a GitHub repository as one or mor
 
 In order to publish a vocabulary from GitHub with SkoHub Vocabs, you have to set up a webhook in GitHub. It goes like this:
 
-1.  In the GitHub repo where the vocab resides, got to "Settings" → "Webhooks" and click "Add webhook"   
+1.  In the GitHub repo where the vocab resides, go to "Settings" → "Webhooks" and click "Add webhook"
 <img src="/images/presenting-skohub-vocabs/add-webhook.png" alt="Screenshot of the Webhook page in a GitHub repo with highlighted fields for the navigation path." style="width:620px">
-2. Enter `https://test.skohub.io/build` as payload URL choose `application/json` as content type and enter the secret. (Please [contact](http://lobid.org/team/) us for the secret if you want to try it out.)
+2. Enter `https://test.skohub.io/build` as payload URL, choose `application/json` as content type and enter the secret. (Please [contact](http://lobid.org/team/) us for the secret if you want to try it out.)
 <img src="/images/presenting-skohub-vocabs/add-webhook2.png" alt="Screenshot of the Webhook page with input (payload URL and secret)." style="width:620px">
 
 ## Step 3: Execute build & error handling
@@ -47,7 +47,7 @@ This time the [build](https://test.skohub.io/build/?id=678ba699-758d-498d-afeb-1
 
 ## Step 4: Redirect vocab URI to SkoHub
 
-As I want the canonical version of ESC to be the one published with SkoHub Vocabs, I need to redirect the namespace URI I defined in the Turtle file to SkoHub. As I used w3id.org for this, I have to make a pull request in the respective repo.
+As we want the canonical version of ESC to be the one published with SkoHub Vocabs, we need to redirect the namespace URI we defined in the Turtle file to SkoHub. As we used w3id.org for this, we have to make a pull request in the respective repo.
 
 <a href="https://github.com/perma-id/w3id.org/pull/1483"><img src="/images/presenting-skohub-vocabs/open-pr-at-w3id.png" alt="Screenshot of a pull request to redirect ESC to SkoHub" style="width:620px"></a>
 
@@ -55,9 +55,9 @@ If everything looks good, w3id.org PRs are merged very quickly, in this case it 
 
 ## Result: HTML & JSON-LD representation published with SkoHub & basic GitHub editing workflow
 
-As a result, I have published a controlled vocabulary in SKOS under a permanent URI and with a human-readable [HTML](https://w3id.org/class/esc/scheme.html) representation from GitHub with a minimum amount of work. Additionally, the initial Turtle representation is transformed to more developer-friendly [JSON-LD](https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.jsonld). The HTML has a hierarchy view that can be expanded and collapsed at will:
+As a result, we have published a controlled vocabulary in SKOS under a permanent URI and with a human-readable [HTML](https://w3id.org/class/esc/scheme.html) representation from GitHub with a minimum amount of work. Additionally, the initial Turtle representation is transformed to more developer-friendly [JSON-LD](https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.jsonld). The HTML has a hierarchy view that can be expanded and collapsed at will:
 
-<a href="https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.html"><img src="/images/presenting-skohub-vocabs/open-pr-at-w3id.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:620px"></a>
+<a href="https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.html"><img src="/images/presenting-skohub-vocabs/published-vocab.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:620px"></a>
 
 There also is a search field to easily filter the vocabulary:
 
