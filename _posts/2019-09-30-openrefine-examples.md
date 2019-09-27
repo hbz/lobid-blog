@@ -52,7 +52,7 @@ In particular, we want to add an `*` to use our years as a prefix when matching,
 
 We perform these steps for both the `DateOfBirth` and `DateOfDeath` columns.
 
-Before we reconcile again, passing the modified dates as additional properties, let's clear the previous reconciliation data and the reconciliation facets:
+Before we reconcile again, passing the modified dates as additional properties, we `Remove All` facets and `Clear reconciliation data`:
 
 ![persons-08-clear](/images/2019-09-30-openrefine-examples/persons-08-clear.png)
 
@@ -64,7 +64,7 @@ We check the results again, and see that we now have more than 90% matched (1277
 
 ![persons-10-reconciled](/images/2019-09-30-openrefine-examples/persons-10-reconciled.png)
 
-The remaining entries can be matched manually using previews and entry suggestions, see [our general documentation](http://blog.lobid.org/2018/08/27/openrefine.html) for details. You can download the [complete workflow](/data/persons.json) to re-run it (`Undo / Redo` tab, `Apply...`) on the [input data](/data/persons.csv).
+The remaining entries can be matched manually using previews and entry suggestions, see [our general documentation](http://blog.lobid.org/2018/08/27/openrefine.html) for details. You can download the [complete workflow](/data/persons.json) to run it (`Undo / Redo` tab, `Apply...`) on the [input data](/data/persons.csv) in a new project.
 
 Occupations and affiliations
 ----------------------------
@@ -213,7 +213,7 @@ Then click `Perform Operations`:
 
 ![politicians-09-perform](/images/2019-09-30-openrefine-examples/politicians-09-perform.png)
 
-Again, before we reconcile with the additional affiliation IDs, let's clear the previous reconciliation data and facets:
+Again, before we reconcile with the additional affiliation IDs, we `Remove All` facets and `Clear reconciliation data`:
 
 ![politicians-10-clear](/images/2019-09-30-openrefine-examples/politicians-10-clear.png)
 
@@ -231,7 +231,7 @@ To further improve reconciliation results, let's use the fact that we know the p
 
 Using `Politik*` results in matching both male (`Politiker`) and female (`Politikerin`) forms, as well as related occupations like `Politikwissenschaftler` and `Politikwissenschaftlerin`.
 
-We now clear the reconciliation data and facets as before, and reconcile again, this time passing both the `occupation` and `affiliation`columns as additional properties:
+We now `Remove All` facets and `Clear reconciliation data` as before, and reconcile again, this time passing both the `occupation` and `affiliation`columns as additional properties:
 
 ![politicians-14-reconcile](/images/2019-09-30-openrefine-examples/politicians-14-reconcile.png)
 
@@ -239,6 +239,6 @@ Checking our final result, we now have more than 75% matched entries (275 matche
 
 ![politicians-15-reconciled](/images/2019-09-30-openrefine-examples/politicians-15-reconciled.png)
 
-Again, the remaining entries can be matched manually using previews and entry suggestions, see [our general documentation](http://blog.lobid.org/2018/08/27/openrefine.html) for details. You can download the [complete workflow](/data/politicians.json) to re-run it (`Undo / Redo` tab, `Apply...`) on the [input data](/data/politicians.csv).
+Again, the remaining entries can be matched manually using previews and entry suggestions, see [our general documentation](http://blog.lobid.org/2018/08/27/openrefine.html) for details. You can download the [complete workflow](/data/politicians.json) to run it (`Undo / Redo` tab, `Apply...`) on the [input data](/data/politicians.csv) in a new project.
 
 *<small>*Thanks to Felix Ostrowski and Florian Gilberg for providing these data sets.*</small>
