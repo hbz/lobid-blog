@@ -11,6 +11,8 @@ SkoHub is all about utilizing the power of Knowledge Organization Systems (KOS) 
 
 We will thus start this series with [SkoHub Vocabs](https://github.com/hbz/skohub-vocabs), a static site generator that provides integration for a GitHub-based workflow to publish an HTML version of SKOS vocabularies. Check out the [JAMStack Best Practices](https://jamstack.org/best-practices/) for some thoughts about the advantages of this approach. SkoHub Vocabs – like SkoHub Editor that will be presented in a separate post – is a stand-alone module that can already be helpful on its own, when used without any of the other SkoHub modules.
 
+# How to publish a SKOS scheme from GitHub with SkoHub Vocabs
+
 Let's take a look at the editing and publishing workflow step by step. We will use SkoHub Vocabs to publish a subject classification for Open Educational Resources. We will use the "Educational Subject Classification" (ESC), that was created for the [OER World Map](https://oerworldmap.org) based on [ISCED Fields of Education and Training 2013](http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf).
 
 ## Step 1: Publish vocab as turtle file(s) on GitHub
@@ -60,9 +62,9 @@ There also is a search field to easily filter the vocabulary:
 
 <img src="/images/2019-09-18-skohub-prototype/skohub-ssg-filter.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:420px">
 
-This filter mentioned above is based on a [FlexSearch](https://github.com/nextapps-de/flexsearch) index that is also built along with the rest of the content. This allows us to implement lookup functionalities without the need for a server-side API. More about this below and in the upcoming post on the SkoHub Editor.
+This filter is based on a [FlexSearch](https://github.com/nextapps-de/flexsearch) index that is also built along with the rest of the content. This allows us to implement lookup functionalities without the need for a server-side API. More about this below and in the upcoming post on the SkoHub Editor.
 
-## Implementation
+# Implementation
 
 To follow along the more technical aspects, you might want to have SkoHub Vocabs checked out locally:
 
@@ -71,14 +73,14 @@ To follow along the more technical aspects, you might want to have SkoHub Vocabs
     $ npm i
     $ cp .env.example .env
 
-The static site generator itself is implemented with [Gatsby](https://www.gatsbyjs.org/). One reason for this choice was our good previous experience with [React](https://reactjs.org/). Another nice feature of Gatsby is that all content is sourced into an in-memory database that is available using [GraphQL](https://graphql.org/). While there is certainly a learning curve, this makes the experience of creating a static site not that much different from traditional database based approaches. You can locally build a vocab as follows:
+The static site generator itself is implemented with [Gatsby](https://www.gatsbyjs.org/). One reason for this choice was our good previous experience with [React](https://reactjs.org/). Another nice feature of Gatsby is that all content is sourced into an in-memory database that is available using [GraphQL](https://graphql.org/). While there is certainly a learning curve, this makes the experience of creating a static site not that much different from traditional database-based approaches. You can locally build a vocab as follows:
 
     $ cp test/data/systematik.ttl data/
     $ npm run build
 
-This will result in a build in `public/` directory. Currently, the build is optimized to be served by Apache with [Multiviews](https://httpd.apache.org/docs/2.4/mod/mod_negotiation.html) in order to provide content negotiation. Please not that currently only vocabularies that implement the [slash namespace](https://www.w3.org/2001/sw/BestPractices/VM/http-examples/2006-01-18/#slash) pattern. We will add support for hash URIs in the future.
+This will result in a build in `public/` directory. Currently, the build is optimized to be served by Apache with [Multiviews](https://httpd.apache.org/docs/2.4/mod/mod_negotiation.html) in order to provide content negotiation. Please note that currently only vocabularies are supported that implement the [slash namespace](https://www.w3.org/2001/sw/BestPractices/VM/http-examples/2006-01-18/#slash) pattern. We will add support for hash URIs in the future.
 
-In order to trigger the static site generator from GitHub, a small webhook server based on [Koa](https://koajs.com/) was implemented. Why not [Express](https://expressjs.com/)? It wouldn't have made a difference. The [webhook](https://developer.github.com/webhooks/) server listens for and validates POST requests coming from GitHub, retrieves the data from the corresponding repository and then spins up Gatsby to create the static content.
+In order to trigger the static site generator from GitHub, a small webhook server based on [Koa](https://koajs.com/) was implemented. (Why not [Express](https://expressjs.com/)? – It wouldn't have made a difference.) The [webhook](https://developer.github.com/webhooks/) server listens for and validates POST requests coming from GitHub, retrieves the data from the corresponding repository and then spins up Gatsby to create the static content.
 
 A final word on the FlexSearch index mentioned above. An important use case for vocabularies is to access them from external applications. Using the FlexSearch library and the index pre-built by SkoHub Vocabs, a lookup of vocabulary terms is easy to implement:
 
