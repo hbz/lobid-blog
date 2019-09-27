@@ -2,6 +2,7 @@
 layout: post
 title: "Presenting the SkoHub-Vocabs Prototype"
 author: Adrian Pohl, Felix Ostrowski
+date: 2019-09-27
 tags: skohub
 ---
 
