@@ -33,7 +33,7 @@ Wir nehmen als Beispiel die Universitätsbibliothek Hildesheim (DE-Hil2), die ih
 }
 ```
 
-Im `availableChannel` Array sind also nun alle im Sigelverzeichnis eingetragenen Service URLs als `ServiceChannel` angegeben, wobei nur Programmierschnittstellen den zusätzlichen Typ `WebAPI` haben.<sup>*</sup> Mit `serviceType` wird der jeweilige Schnittstellentyp angegeben.
+Im `availableChannel` Array sind also nun alle im Sigelverzeichnis eingetragenen Service URLs als `ServiceChannel` angegeben, wobei nur Programmierschnittstellen den zusätzlichen Typ `WebAPI` haben.<sup>\*</sup> Mit `serviceType` wird der jeweilige Schnittstellentyp angegeben.
 
 Alle Felder lassen sich über die API abfragen. Hier ein paar Beispiele:
 
