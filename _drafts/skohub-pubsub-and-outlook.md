@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Presenting the SkoHub-PubSub Prototype"
+author: Adrian Pohl
+tags: skohub
+---
+
 # Subscribing to a subject
 
 If you came this far into this post you may ask yourself: *But what about the "KOS-based content subscription" that SkoHub announced to implement?* Just take a look at a single subject from a controlled vocabulary published with SkoHub, e.g. [Library, information and archival studies](https://w3id.org/class/esc/n0322), and you can see the "Subscribe" button right under the concept URI:

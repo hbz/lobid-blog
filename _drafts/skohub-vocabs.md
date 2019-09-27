@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Presenting the SkoHub Prototype"
-date: 2019-09-18
 author: Adrian Pohl
 tags: skohub
 ---
@@ -64,4 +63,3 @@ There also is a search field to easily filter the vocabulary:
 This filter is based on the same index that is also used in the SkoHub Editor. It can be requested with a `GET` on the SKOS schema URI and the content type `text/index`, in our case: `$ curl -L -H "Accept: text/index" https://w3id.org/class/esc/scheme`
 
 ## Implementation
-

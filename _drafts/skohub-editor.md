@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Presenting the SkoHub-Editor Prototype"
+author: Adrian Pohl
+tags: skohub
+---
+
 For the implementation application, we will be oriented towards ["Bildungsteiler"](https://oerhoernchen.de/bildungsteiler) (developed by our colleague [Matthias Andrasch](https://blog.matthias-andrasch.de/about/) in his free time). When you enter the creator, title, URL and license of a resource and the application in "Bildungsteiler", it will create a HTML snippet to be embedded in your web page. Just [try it out](https://oerhoernchen.de/bildungsteiler) for one minute.
 
 In this demo we will use SkoHub components to rebuild Matthias' application with these main differences:
