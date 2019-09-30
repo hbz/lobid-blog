@@ -5,10 +5,9 @@ layout: feed
 <feed xmlns="http://www.w3.org/2005/Atom">
 
 	<title>Lobid Blog</title>
-	<link href="http://lobid.github.io/feed.xml" rel="self"/>
-	<link href="http://lobid.github.io"/>
+	<link href="http://blog.lobid.org/feed.xml" rel="self"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
-	<id>http://lobid.github.io</id>
+	<id>http://blog.lobid.org/</id>
 	<author>
 		<name>Lobid team</name>
 		<email>semweb@hbz-nrw.de</email>
@@ -16,11 +15,11 @@ layout: feed
 
 	{% for post in site.posts %}
 		<entry>
-			<title>{{ post.title }}</title>
-			<link href="http://lobid.github.io{{ post.url }}"/>
+			<title>{{ post.title | xml_escape }}</title>
+			<link href="http://blog.lobid.org{{ post.url }}"/>
 			<updated>{{ post.date | date_to_xmlschema }}</updated>
 			<author><name>{{ post.author }}</name></author>
-			<id>http://lobid.github.io{{ post.id }}</id>
+			<id>http://blog.lobid.org{{ post.id }}</id>
 			<content type="html">{{ post.content | xml_escape }}</content>
 		</entry>
 	{% endfor %}
