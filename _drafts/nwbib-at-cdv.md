@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "NWBib-Daten für Coding da Vinci"
-author: Adrian Pohl
+author: Adrian Pohl, Fabian Steeg, Pascal Christoph
 tags: lobid-resources
 ---
 
