@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"/>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  </head>
+  <body>
+    <h1>Raumbezug der <a href="http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22+AND+tagebau">NWBib-Publikationen zu 'Tagebau'</a></h1>
+    <div id="map" style="height: 500px; color: black;"></div>
+    <script>
+    // we create a map with clustered markers (https://github.com/Leaflet/Leaflet.markercluster):
+    var map = L.map('map').setView([51, 6.5], 10);
+    var markers = L.markerClusterGroup();
+    var layer = new L.StamenTileLayer("terrain").addTo(map);
+    map.addLayer(markers);
+    // we call the lobid API:
+    $.ajax({
+        url: 'http://lobid.org/resources/search?&size=500&q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22+AND+tagebau',
+        success: function(result){
+            // iterate over all result members...
+            $.each(result.member, function(index, hit) {
+                // iterate over all spatial objects of each result...
+                $.each(hit.spatial, function(index, spatial) {
+                    // if we have a focus and a geo location field...
+                    if(spatial.focus && spatial.focus.geo) {
+                        // we create a marker with a popup on our map:
+                        markers.addLayer(L.marker([spatial.focus.geo.lat, spatial.focus.geo.lon])
+                          .bindPopup(spatial.label));
+                    }
+                });
+            });
+        }});
+    </script>
+  </body>
+</html>

@@ -238,9 +238,7 @@ Zum besseren Verständnis zeigen wir hier anhand einiger Beispiele und Ideen, wa
 
 ## Kartenvisualisierung auf Basis der Orts- und Geodaten aus Wikidata
 
-Mit den oben beschriebenen Wikidata-Ortsdaten in der NWBib lassen sich mit wenig Aufwand Visualisierungen erstellen, z.B. eine [Heatmap](http://lobid.org/download/heatTest1.html).
-
-To Do
+Mit den oben beschriebenen Wikidata-Ortsdaten in der NWBib lassen sich mit wenig Aufwand Visualisierungen erstellen, z.B. eine [Karte mit Raumbezügen](/data/nwbib-at-cdv.html) zu bestimmten Suchanfragen (die HTML-Datei enthält die komplette Umsetzung und kann als Ausgangsbasis für eigene Ideen verwendet werden) oder eine [Heatmap](http://lobid.org/download/heatTest1.html) aller Ortsbezüge (siehe hier die im Beispiel verlinkte allgemeine Dokumentation zur Erstellung vergleichbarer Heatmaps).
 
 ## Orte und Personen
 
