@@ -238,7 +238,7 @@ Zum besseren Verständnis zeigen wir hier anhand einiger Beispiele und Ideen, wa
 
 ## Kartenvisualisierung auf Basis der Orts- und Geodaten aus Wikidata
 
-Mit den oben beschriebenen Wikidata-Ortsdaten in der NWBib lassen sich mit wenig Aufwand Visualisierungen erstellen.
+Mit den oben beschriebenen Wikidata-Ortsdaten in der NWBib lassen sich mit wenig Aufwand Visualisierungen erstellen, z.B. eine [Heatmap](http://lobid.org/download/heatTest1.html).
 
 To Do
 
