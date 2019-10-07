@@ -23,11 +23,11 @@ Eine Bibliographie ist ein Nachweisinstrument. Das heißt, sie sammelt lediglich
 
 # Die NWBib als Teil des hbz-Verbundkatalogs
 
-Die Redaktion der NWBib in den Universitäts- und Landesbibliotheken Düsseldorf und Münster (mit Unterstützung der Universitäts- und Landesbibliothek Bonn) nutzt gängige bibliothekariache Erschließungsstandards (Resource Description and Access, RDA) zur Erfassung der Titel. Die Daten werden als Teil des [hbz-Verbundkatalogs](https://de.wikipedia.org/wiki/Hbz-Verbunddatenbank) gepflegt. Mit [lobid-resources](https://lobid.org/resources) stellt das Hochschulbibliothekszentrum des Landes-Nordrhein-Westfalen (hbz) den Verbundkatalog unter einer CC0-Lizenz als Linked Open Data u.a. über eine Web-API bereit. Im folgenden zeigen wir, welche Informationen in der NWBib verzeichnet sind und wie die Daten über die lobid-resources-API abgefragt werden können.
+Die Redaktion der NWBib in den Universitäts- und Landesbibliotheken Düsseldorf und Münster (mit Unterstützung der Universitäts- und Landesbibliothek Bonn) nutzt gängige bibliothekarische Erschließungsstandards (Resource Description and Access, RDA) zur Erfassung der Titel. Die Daten werden als Teil des [hbz-Verbundkatalogs](https://de.wikipedia.org/wiki/Hbz-Verbunddatenbank) gepflegt. Mit [lobid-resources](https://lobid.org/resources) stellt das Hochschulbibliothekszentrum des Landes-Nordrhein-Westfalen (hbz) den Verbundkatalog unter einer CC0-Lizenz als Linked Open Data u.a. über eine Web-API bereit. Im folgenden zeigen wir, welche Informationen in der NWBib verzeichnet sind und wie die Daten über die lobid-resources-API abgefragt werden können.
 
 # Abfragen der NWBib-Daten: die Weboberfläche
 
-Bevor man direkt in die JSON-Daten einsteigt, ist es sinnvoll, sich zunächst ein bisschen mit der NWBib über die Weboberfläche vertraut zu machen. Dies gibt einen guten ersten Einblick in die zugrundeliegenden Metadaten und was damit alles möglich ist.
+Vor dem direkten Einstieg in die JSON-Daten, ist es sinnvoll, sich zunächst ein bisschen mit der NWBib über die Weboberfläche vertraut zu machen. Diese gibt einen guten ersten Einblick in die zugrundeliegenden Metadaten und was damit alles möglich ist.
 
 Die Startseite des Webauftritts unter [nwbib.de](https://nwbib.de) bietet ein Suchfeld für den einfachen Einstieg, eine Beschreibung der NWBib sowie eine Karte für die direkte Eingrenzung der NWBib-Titel nach Ortsbezug, bei der zwischen Kreis- oder Gemeindeebene gewählt werden kann:
 
@@ -39,7 +39,7 @@ Ein Klick auf die Stadt "Essen" in der Karte gibt zum Beispiel alle NWBib-Titel 
 
 Ein Suchergebnis lässt sich auf der rechten Seite über verschiedene Filter eingrenzen: nach Erscheinungsjahr, nach Raumbezug über eine Karte oder über Ortsnamen aus der [NWBib-Raumsystematik](https://nwbib.de/spatial), nach Sachgebieten aus der [NWBib-Sachsystematik](https://nwbib.de/subjects) , nach Schlagwörtern der [Gemeinsamen Normdatei](http://lobid.org/gnd), nach Medien- und Publikationstypen sowie nach Bestand in bestimmten Bibliotheken.
 
-Bei einem Einzeltreffer werden zum einem sämtliche Metadaten angezeigft. Auf einer Karte wird angezeigt, welche Bibliotheken die Ressource in ihrem Bestand haben.
+Bei einem Einzeltreffer werden die wichtigsten Metadaten angezeigt. Auf einer Karte wird angezeigt, welche Bibliotheken die Ressource in ihrem Bestand haben.
 
 <a href="https://nwbib.de/BT000063880">![Einzeiltreffer](/images/nwbib-at-cdv/einzeltreffer.png "Einzeltrefferanzeige in der NWBib")</a>
 
@@ -51,7 +51,7 @@ Jeder NWBib-Titel verlinkt auf seine lobid-Entsprechung mit einem kleine "Link"-
 
 ![lobid-Link](/images/nwbib-at-cdv/lobid-link.png "Einzeltrefferanzeige in der NWBib mit Hervorherbung des Links zu lobid")
 
-In lobid wiederum kann man sich – durch Ergänzen von `.json` oder Klick auf das JSON-LD-Icon – das zugrundeliegende JSON (hier [https://lobid.org/resources/BT000063880.json](https://lobid.org/resources/BT000063880.json)) anschauen, welches über die API abgefragt werden kann.
+In lobid wiederum kann sich – durch Ergänzen von `.json` oder Klick auf das JSON-LD-Icon – das zugrundeliegende JSON (hier [https://lobid.org/resources/BT000063880.json](https://lobid.org/resources/BT000063880.json)) angeschaut werden. Dieses JSON kann über die API abgefragt werden.
 
 ![lobid-Einzeltreffer](/images/nwbib-at-cdv/lobid-einzeltreffer.png "Einzeltrefferanzeige inlobid-resources mit Hervorherbung des Links zum JSON")
 
@@ -81,7 +81,7 @@ Wir können fast jedes Feld abfragen. Ist das Feld tiefer geschachtelt, geben wi
 
 ## Inhaltstypen, Paging, Bulk Download
 
-Die oben genannte Abfrage gibt über den Browser eine HTML-Sicht zurück, über cUrl o.ä. wird automatisch JSON(-LD) geliefert. Durch Ergänzung von `format=json` (bei Einzeltrefferen wie bereits erwähnt auch `.json`) lässt sich die Rückgabe von JSON auch im Browser erzwingen, z.B. [`inCollection.id:"http://lobid.org/resources/HT014176012#!"&format=json`](http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22&format=json)
+Die oben genannte Abfrage gibt über den Browser eine HTML-Sicht zurück, über cUrl o.ä. wird automatisch JSON(-LD) geliefert. Durch Ergänzung von `format=json` (bei Einzeltreffern wie bereits erwähnt auch `.json`) lässt sich die Rückgabe von JSON auch im Browser erzwingen, z.B. [`inCollection.id:"http://lobid.org/resources/HT014176012#!"&format=json`](http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22&format=json)
 
 Ergebnislisten werden per default auf mehreren Seiten geliefert. Hier lässt sich mit dem `size`-Parameter die Anzahl der Treffer pro Seite setzen (default: 10 Treffer) und über den `from`-Parameter die Nummer des Treffers, ab dem die Liste beginnen soll. Wir können uns aber auch die gesamte Ergebnisliste als [JSON Lines](http://jsonlines.org/) ausgeben lassen, indem wir den Parameter `format=jsonl` verwenden.
 
@@ -105,7 +105,7 @@ Beispiel:
 
 ## Titelzusatz / `otherTitleInformation`
 
-Das ist ein Zusatz zum Titel, den viele Publikationen haben, oftmal eine Art Untertitel.
+Das ist ein Zusatz zum Titel, den viele Publikationen haben, oftmals eine Art Untertitel.
 
 Beispiel:
 
@@ -188,7 +188,7 @@ Bei Aufsätzen ist die Angabe der Publikation sinnvoll, in der der Aufsatz ersch
 
 Beispiel:
 
-`"bibliographicCitation":"Forum Industriedenkmalpflege und Geschichtskultur. - 2004, 2, S. 44-45 : Ill."``
+`"bibliographicCitation":"Forum Industriedenkmalpflege und Geschichtskultur. - 2004, 2, S. 44-45 : Ill."`
 
 
 # NWBib-Ortssystematik und Wikidata
@@ -251,7 +251,7 @@ In den anderen CdV-Datensets tauchen immer wieder Orte und Personen auf, die auc
   - Natzungen: https://nwbib.de/spatial#Q1971675
   - Vreden: https://nwbib.de/spatial#Q200528
 - In [euregio-history.net](https://codingdavinci.de/daten/#euregiohistory) gibt es die Spalten 'field_place' und 'field_regions'. Die dort eingetragenen Orte finden sich häufig in der NWBib-Raumsystematik/in Wikidata.
-- Über das [Freilichtmuseum Detmold](https://codingdavinci.de/daten/#lwl-freilichtmuseum-detmold) und die gebäude dort gibt es [176 Einträge](https://nwbib.de/search?subject=http%3A%2F%2Fd-nb.info%2Fgnd%2F605200-9) in der NWBib.
+- Über das [Freilichtmuseum Detmold](https://codingdavinci.de/daten/#lwl-freilichtmuseum-detmold) und die Gebäude dort gibt es [176 Einträge](https://nwbib.de/search?subject=http%3A%2F%2Fd-nb.info%2Fgnd%2F605200-9) in der NWBib.
 
 Was lässt sich aus der Anschlussfähigkeit der NWBib an die anderen Datensets machen? Zum Beispiel kann die NWBib herangezogen werden, um in einer Anwendung auf weiterführende Literatur zu einem Ort oder einer Person zu verweisen.
 
