@@ -5,7 +5,7 @@ author: Adrian Pohl
 tags: lobid-resources
 ---
 
-Der Hackathon "[Coding da Vinci (CdV)](https://codingdavinci.de/)" wird seit 2014 jährlich in Deutschland ausgerichtet. Ziel von CdV ist es, Entwickler\*innen zu motivieren, Anwendungen zu erarbeiten, in denen offene Daten aus Kultureinrichtungen nutzbar gemacht werden. Wir haben über die Jahre die verschiedenen [CdV Hackathons](https://codingdavinci.de/dokumentation/) beobachtet und immer wieder überlegt, Daten beizutragen. Jetzt ist es endlich so weit: Zum Hackathon ["Coding da Vinci Westfalen-Ruhrgebiet"](https://codingdavinci.de/events/westfalen-ruhrgebiet/) bieten wir die [Nordrhein-Westfälische Bibliographie (NWBib)](https://nwbib.de) als [Datenset](https://codingdavinci.de/daten/#hochschulbibliothekszentrum-des-landes-nordrhein-westfalen) an, das die Teilnehmer\*innen für ihe Anwendungen verwenden können. Die Möglichkeiten zur Nutzung der NWBib-Daten sind leider bisher nicht optimal dokumentiert sind. Dieser Beitrag soll die Situation verbessern.
+Der Hackathon "[Coding da Vinci (CdV)](https://codingdavinci.de/)" wird seit 2014 jährlich in Deutschland ausgerichtet. Ziel von CdV ist es, Entwickler\*innen zu motivieren, Anwendungen zu erarbeiten, in denen offene Daten aus Kultureinrichtungen nutzbar gemacht werden. Wir haben über die Jahre die verschiedenen [CdV Hackathons](https://codingdavinci.de/dokumentation/) beobachtet und immer wieder überlegt, Daten beizutragen. Jetzt ist es endlich so weit: Zum Hackathon ["Coding da Vinci Westfalen-Ruhrgebiet"](https://codingdavinci.de/events/westfalen-ruhrgebiet/) bieten wir die [Nordrhein-Westfälische Bibliographie (NWBib)](https://nwbib.de) als [Datenset](https://codingdavinci.de/daten/#hochschulbibliothekszentrum-des-landes-nordrhein-westfalen) an, das die Teilnehmer\*innen für ihe Anwendungen verwenden können. Die Möglichkeiten zur Nutzung der NWBib-Daten sind leider bisher nicht optimal dokumentiert. Dieser Beitrag soll die Situation verbessern.
 
 # Die NWBib
 
@@ -33,13 +33,13 @@ Die Startseite des Webauftritts unter [nwbib.de](https://nwbib.de) bietet ein Su
 
 <a href="https://nwbib.de">![Startseite](/images/nwbib-at-cdv/nwbib-startseite.png "Startseite")</a>
 
-Ein Klick auf die Stadt "Essen" in der Karte gibt zum Beispiel alle NWBib-Titel zurück, die über Orte, Personen, Veranstaltungen etc. innerhalb der Grenzen Essens handeln. Eine [Suche nach "Essen"](https://nwbib.de/search?q=essen) ist da unspezifischer und gibt beispielsweise auch – aufgrund von [Stemming](https://de.wikipedia.org/wiki/Stemming) im zugrundeliegenden Suchmaschinenindex – Artikel von "Hartmut Esser" zurück.
+Ein Klick auf die Stadt "Essen" in der Karte gibt zum Beispiel alle NWBib-Titel zurück, die über Orte, Personen, Veranstaltungen etc. innerhalb der Grenzen Essens handeln. Eine [Suche nach "Essen"](https://nwbib.de/search?q=essen) ist da unspezifischer und gibt beispielsweise auch – aufgrund von [Stemming](https://de.wikipedia.org/wiki/Stemming) im zugrundeliegenden Suchmaschinenindex – Artikel von "Wolfgang Esser" zurück.
 
 <a href="https://nwbib.de/search?q=essen">![Einfache Suche](/images/nwbib-at-cdv/suche.png "Einfache Suche in der NWBib nach 'Essen'")</a>
 
 Ein Suchergebnis lässt sich auf der rechten Seite über verschiedene Filter eingrenzen: nach Erscheinungsjahr, nach Raumbezug über eine Karte oder über Ortsnamen aus der [NWBib-Raumsystematik](https://nwbib.de/spatial), nach Sachgebieten aus der [NWBib-Sachsystematik](https://nwbib.de/subjects) , nach Schlagwörtern der [Gemeinsamen Normdatei](http://lobid.org/gnd), nach Medien- und Publikationstypen sowie nach Bestand in bestimmten Bibliotheken.
 
-Bei einem Einzeltreffer werden zum einem sämtliche Metadaten angezeigft. Auf einer Karte wird angezeigt, welche Bibliotheken die Ressource in ihrem Bestand haben.
+Bei einem Einzeltreffer werden sämtliche Metadaten angezeigt. Auf einer Karte wird angezeigt, welche Bibliotheken die Ressource in ihrem Bestand haben.
 
 <a href="https://nwbib.de/BT000063880">![Einzeiltreffer](/images/nwbib-at-cdv/einzeltreffer.png "Einzeltrefferanzeige in der NWBib")</a>
 
@@ -55,7 +55,7 @@ In lobid wiederum kann man sich – durch Ergänzen von `.json` oder Klick auf d
 
 ![lobid-Einzeltreffer](/images/nwbib-at-cdv/lobid-einzeltreffer.png "Einzeltrefferanzeige inlobid-resources mit Hervorherbung des Links zum JSON")
 
-In folgenden werden die grundlegenden Möglichkeiten zur Abfrage der NWBib-Daten gezeigt.
+Im Folgenden werden die grundlegenden Möglichkeiten zur Abfrage der NWBib-Daten gezeigt.
 
 ## Eingrenzen auf NWBib
 
@@ -81,19 +81,19 @@ Wir können fast jedes Feld abfragen. Ist das Feld tiefer geschachtelt, geben wi
 
 ## Inhaltstypen, Paging, Bulk Download
 
-Die oben genannte Abfrage gibt über den Browser eine HTML-Sicht zurück, über cUrl o.ä. wird automatisch JSON(-LD) geliefert. Durch Ergänzung von `format=json` (bei Einzeltrefferen wie bereits erwähnt auch `.json`) lässt sich die Rückgabe von JSON auch im Browser erzwingen, z.B. [`inCollection.id:"http://lobid.org/resources/HT014176012#!"&format=json`](http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22&format=json)
+Die oben genannte Abfrage gibt über den Browser eine HTML-Sicht zurück. Ohne `Accept` Header wird über cURL o.ä. automatisch JSON(-LD) geliefert. Durch Ergänzung von `format=json` (bei Einzeltrefferen wie bereits erwähnt auch `.json`) lässt sich die Rückgabe von JSON auch im Browser erzwingen, z.B. [`inCollection.id:"http://lobid.org/resources/HT014176012#!"&format=json`](http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22&format=json)
 
 Ergebnislisten werden per default auf mehreren Seiten geliefert. Hier lässt sich mit dem `size`-Parameter die Anzahl der Treffer pro Seite setzen (default: 10 Treffer) und über den `from`-Parameter die Nummer des Treffers, ab dem die Liste beginnen soll. Wir können uns aber auch die gesamte Ergebnisliste als [JSON Lines](http://jsonlines.org/) ausgeben lassen, indem wir den Parameter `format=jsonl` verwenden.
 
-Das heißt, mit folgender Abfrage können wir die gesamten NWBib-Daten (1,9 GB) abziehen: `inCollection.id:"http://lobid.org/resources/HT014176012#!"&format=jsonl`
+Das heißt, mit folgendem Query-String können wir die gesamten NWBib-Daten (1,9 GB) abziehen: `q=inCollection.id:"http://lobid.org/resources/HT014176012#!"&format=jsonl`
 
-Bei dem Umfang lohnt es sich, die Daten gepackt (223 MB) herunterzuladen. Dies geht über cUrl wie folgt (die Sonderzeichen in der URL müssen in diesem Fall besser escapet werden):
+Bei dem Umfang lohnt es sich, die Daten gepackt (223 MB) herunterzuladen. Dies geht über cURL wie folgt (die Sonderzeichen in der URL müssen in diesem Fall vollständig escapet werden):
 
 `$ curl --header "Accept-Encoding: gzip" "http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22&format=jsonl" > nwbib.gz`
 
 # lobid-Datenmodell
 
-Das Datenmodell der bibliographischen Daten in lobid ist mittlerweile recht komplex. Wir nutzen ein lobid-spezifisches Applikationsprofil aus DC Terms, Bibframe, Bibliographic Ontology und anderen Vokabularen (wer sich für so etwas interessiert, siehe [diesen Beitrag](http://blog.lobid.org/2017/04/19/vocabulary-choices.html)). Die wichtigsten Felder für eine elementare Anzeige eines Titels seien hier genannt, am Beispiel eines Aufsatzes ["Notwendiges Übel – das Abortgebäude der Zeche Zollern II/IV"](http://lobid.org/resources/HT014198549). Bei Fragen zu weiteren Feldern sei auf die [lobid-API-Dokumentation](https://lobid.org/resources/api#jsonld) verwiesen. Wir beantworten auch gerne Fragen zum Datenmodell.
+Das Datenmodell der bibliographischen Daten in lobid ist mittlerweile recht komplex. Wir nutzen ein lobid-spezifisches Applikationsprofil aus DC Terms, Bibframe, Bibliographic Ontology und anderen Vokabularen (wer sich für so etwas interessiert, siehe [diesen Beitrag](http://blog.lobid.org/2017/04/19/vocabulary-choices.html)). Die wichtigsten Felder für eine elementare Anzeige eines Titels seien im Folgenden genannt, am Beispiel eines Aufsatzes ["Notwendiges Übel – das Abortgebäude der Zeche Zollern II/IV"](http://lobid.org/resources/HT014198549). Bei Fragen zu weiteren Feldern sei auf die [lobid-API-Dokumentation](https://lobid.org/resources/api#jsonld) verwiesen. Wir beantworten auch gerne Fragen zum Datenmodell.
 
 ## Titel / `title`
 
@@ -105,7 +105,7 @@ Beispiel:
 
 ## Titelzusatz / `otherTitleInformation`
 
-Das ist ein Zusatz zum Titel, den viele Publikationen haben, oftmal eine Art Untertitel.
+Das ist ein Zusatz zum Titel, den viele Publikationen haben, oft eine Art Untertitel.
 
 Beispiel:
 
@@ -193,7 +193,7 @@ Beispiel:
 
 # NWBib-Ortssystematik und Wikidata
 
-[96% aller NWBib-Titel haben einen Bezug zu einem Ort](https://lobid.org/resources/search?q=_exists_%3Aspatial+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22), d.h. sie behandeln als Thema einen Landkreis, einen Stadteil, einen Kirchenkreis, eine Grafschaft etc. Der Ortsbezug eines Eintrags findet sich im `spatial`-Objekt, siehe z.B. [https://lobid.org/resources/HT019559235.json](https://lobid.org/resources/HT019559235.json):
+[96% aller NWBib-Titel haben einen Bezug zu einem Ort](https://lobid.org/resources/search?q=_exists_%3Aspatial+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22), d.h. sie behandeln als Thema einen Landkreis, einen Stadtteil, einen Kirchenkreis, eine Grafschaft etc. Der Ortsbezug eines Eintrags findet sich im `spatial`-Objekt, siehe z.B. [https://lobid.org/resources/HT019559235.json](https://lobid.org/resources/HT019559235.json):
 
 ```json
 {
@@ -228,7 +228,7 @@ Beispiel:
 }
 ```
 
-Die `id` im `spatial`-Objekt (im Beispiel `https://nwbib.de/spatial#Q1295`) verweist auf einen Eintrag in der [NWBib-Raumsystematik](https://nwbib.de/spatial), die alle Orte hierarchisch gliedert, auf die NWBib-Titel Bezug nehmen. Mit `spatial.focus.id` wird der entsprechende Wikidata-Eintrag zu dem Ort angegeben (hier `http://www.wikidata.org/entity/Q1295`).\* Zudem finden sich im `spatial.focus`-Objekt Geokoordinaten aus Wikidata und die Klassen, denen das Wikidata-Objekt zugeordnet wurde. Weitere Informationen können bei Wikidata geholt werden.
+Die `id` im `spatial`-Objekt (im Beispiel `https://nwbib.de/spatial#Q1295`) verweist auf einen Eintrag in der [NWBib-Raumsystematik](https://nwbib.de/spatial), die alle Orte hierarchisch gliedert, auf die NWBib-Titel Bezug nehmen. Mit `spatial.focus.id` wird der entsprechende Wikidata-Eintrag zu dem Ort angegeben (hier `http://www.wikidata.org/entity/Q1295`).\* Zudem finden sich im `spatial.focus`-Objekt Geokoordinaten aus Wikidata und die Klassen, denen das Wikidata-Objekt zugeordnet wurde. Über die Links können weitere Informationen bei Wikidata geholt werden.
 
 Wikidata wiederum beinhaltet Verknüpfungen zur NWBib. Alle Wikidata-Ortseinträge, die sich auch in der NWBib-Ortssystematik wiederfinden, verlinken mit der Property [P6814 "NWBib ID"](https://www.wikidata.org/wiki/Property:P6814) auf den jeweiligen Systematikeintrag, siehe z.B. den Wikidata-Eintrag zu [Dortmund-Bövinghausen](https://www.wikidata.org/wiki/Q1250595). Da [Wikidata](https://codingdavinci.de/daten/#wikidata) ein weiteres Datenset ist, das im CdV Westfalen-Ruhrgebiet genutzt wird, ergeben sich hier einige Möglichkeiten der gegenseitigen Anreicherung.
 
@@ -247,11 +247,11 @@ To Do
 In den anderen CdV-Datensets tauchen immer wieder Orte und Personen auf, die auch in der NWBib behandelt werden. Hier ein paar Beispiele:
 
 - Im [Volksliedarchiv zu Westfalen](https://codingdavinci.de/daten/#volkskundliche-kommission-fur-westfalen-landschaftsverband-westfalen-lippe) tauchen in den Liednamen etwa folgende Orte auf:
-  - Espelkamp: https://nwbib.de/spatial#Q182691
-  - Natzungen: https://nwbib.de/spatial#Q1971675
-  - Vreden: https://nwbib.de/spatial#Q200528
-- In [euregio-history.net](https://codingdavinci.de/daten/#euregiohistory) gibt es die Spalten 'field_place' und 'field_regions'. Die dort eingetragenen Orte finden sich häufig in der NWBib-Raumsystematik/in Wikidata.
-- Über das [Freilichtmuseum Detmold](https://codingdavinci.de/daten/#lwl-freilichtmuseum-detmold) und die gebäude dort gibt es [176 Einträge](https://nwbib.de/search?subject=http%3A%2F%2Fd-nb.info%2Fgnd%2F605200-9) in der NWBib.
+  - Espelkamp: [https://nwbib.de/spatial#Q182691](https://nwbib.de/spatial#Q182691)
+  - Natzungen: [https://nwbib.de/spatial#Q1971675](https://nwbib.de/spatial#Q1971675)
+  - Vreden: [https://nwbib.de/spatial#Q2005289](https://nwbib.de/spatial#Q200528)
+- In [euregio-history.net](https://codingdavinci.de/daten/#euregiohistory) gibt es die Spalten `field_place` und `field_regions`. Die dort eingetragenen Orte finden sich häufig in der NWBib-Raumsystematik / in Wikidata.
+- Über das [Freilichtmuseum Detmold](https://codingdavinci.de/daten/#lwl-freilichtmuseum-detmold) und die Gebäude dort gibt es [176 Einträge](https://nwbib.de/search?subject=http%3A%2F%2Fd-nb.info%2Fgnd%2F605200-9) in der NWBib.
 
 Was lässt sich aus der Anschlussfähigkeit der NWBib an die anderen Datensets machen? Zum Beispiel kann die NWBib herangezogen werden, um in einer Anwendung auf weiterführende Literatur zu einem Ort oder einer Person zu verweisen.
 
