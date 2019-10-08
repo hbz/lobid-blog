@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "NWBib-Daten für Coding da Vinci"
+date: 2019-10-08
 author: Adrian Pohl, Fabian Steeg, Pascal Christoph
 tags: nwbib
 ---
