@@ -2,7 +2,7 @@
 layout: post
 title: "NWBib-Daten für Coding da Vinci"
 author: Adrian Pohl, Fabian Steeg, Pascal Christoph
-tags: lobid-resources
+tags: nwbib
 ---
 
 Der Hackathon "[Coding da Vinci (CdV)](https://codingdavinci.de/)" wird seit 2014 jährlich in Deutschland ausgerichtet. Ziel von CdV ist es, Entwickler\*innen zu motivieren, Anwendungen zu erarbeiten, in denen offene Daten aus Kultureinrichtungen nutzbar gemacht werden. Wir haben über die Jahre die verschiedenen [CdV Hackathons](https://codingdavinci.de/dokumentation/) beobachtet und immer wieder überlegt, Daten beizutragen. Jetzt ist es endlich so weit: Zum Hackathon ["Coding da Vinci Westfalen-Ruhrgebiet"](https://codingdavinci.de/events/westfalen-ruhrgebiet/) bieten wir die [Nordrhein-Westfälische Bibliographie (NWBib)](https://nwbib.de) als [Datenset](https://codingdavinci.de/daten/#hochschulbibliothekszentrum-des-landes-nordrhein-westfalen) an, das die Teilnehmer\*innen für ihe Anwendungen verwenden können. Die Möglichkeiten zur Nutzung der NWBib-Daten sind leider bisher nicht optimal dokumentiert. Dieser Beitrag soll die Situation verbessern.
