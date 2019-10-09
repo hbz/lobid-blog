@@ -48,7 +48,7 @@ Wir laden dazu ein, einfach mal mit der Oberfläche herumzuspielen und die NWBib
 
 # Abfragen der NWBib über die lobid-API
 
-Jeder NWBib-Titel verlinkt auf seine lobid-Entsprechung mit einem kleine "Link"-Symbol in der oberen rechten Ecke der Beschreibung:
+Jeder NWBib-Titel verlinkt auf seine lobid-Entsprechung mit einem kleinen "Link"-Symbol in der oberen rechten Ecke der Beschreibung:
 
 ![lobid-Link](/images/nwbib-at-cdv/lobid-link.png "Einzeltrefferanzeige in der NWBib mit Hervorherbung des Links zu lobid")
 
