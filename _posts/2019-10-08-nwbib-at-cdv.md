@@ -246,9 +246,9 @@ Mit den oben beschriebenen Wikidata-Ortsdaten in der NWBib lassen sich mit wenig
 In den anderen CdV-Datensets tauchen immer wieder Orte und Personen auf, die auch in der NWBib behandelt werden. Hier ein paar Beispiele:
 
 - Im [Volksliedarchiv zu Westfalen](https://codingdavinci.de/daten/#volkskundliche-kommission-fur-westfalen-landschaftsverband-westfalen-lippe) tauchen in den Liednamen etwa folgende Orte auf:
-  - Espelkamp: https://nwbib.de/spatial#Q182691
-  - Natzungen: https://nwbib.de/spatial#Q1971675
-  - Vreden: https://nwbib.de/spatial#Q200528
+  - Espelkamp: [https://nwbib.de/spatial#Q182691](https://nwbib.de/spatial#Q182691)
+  - Natzungen: [https://nwbib.de/spatial#Q1971675](https://nwbib.de/spatial#Q1971675)
+  - Vreden: [https://nwbib.de/spatial#Q200528](https://nwbib.de/spatial#Q200528)
 - In [euregio-history.net](https://codingdavinci.de/daten/#euregiohistory) gibt es die Spalten 'field_place' und 'field_regions'. Die dort eingetragenen Orte finden sich häufig in der NWBib-Raumsystematik/in Wikidata.
 - Über das [Freilichtmuseum Detmold](https://codingdavinci.de/daten/#lwl-freilichtmuseum-detmold) und die Gebäude dort gibt es [176 Einträge](https://nwbib.de/search?subject=http%3A%2F%2Fd-nb.info%2Fgnd%2F605200-9) in der NWBib.
 
