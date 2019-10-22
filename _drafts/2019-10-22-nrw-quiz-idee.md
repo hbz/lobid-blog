@@ -18,8 +18,8 @@ oder aufgrund von statistischen Auswertungen über das gesamte Datenset. Die and
 
 Hier ein paar Ideen:
 
-Auf einer Karte, die NRW zeigt, werden (je nach Spiel randomisiert oder alle) größeren Städte dargestellt. Wenn auf einen Marker
-geklickt wird, erscheint eine Quizfrage, die auf Basis der Daten erzeugt wird (technische Details später). Z.B. könnte eine Frage zu "Köln" heißen:
+Auf einer Karte von Nordrhein-Westfalen werden die größeren Städte mit einem Marker versehen, je nach Spiel randomisiert oder alle auf einmal. Wenn auf einen Marker
+geklickt wird, erscheint eine Quizfrage, die auf Basis der Daten erzeugt wird (technische Details später). Zum Beispeil könnte eine Frage zu "Köln" heißen:
 
 "Für was ist Köln am bekanntesten?"
 
@@ -31,11 +31,11 @@ geklickt wird, erscheint eine Quizfrage, die auf Basis der Daten erzeugt wird (t
 
 Nach 10 Fragen ist das Spiel zu Ende => Eintrag in die Highscore-Liste.
 
-Variationen sind:
-* kleinere Städte erlauben
-* eingrenzen auf "die bekannteste Person/Bauwerke/..." (hierzu lassen sich zumeist auch Bilder anzeigen. Eine Variante wäre, nur die Portraits zu zeigen statt der Namen.)
+Mögliche Variationen:
+* auch kleinere Städte mit einbeziehen
+* eingrenzen auf "die bekannteste Person/Bauwerke/..." (hierzu lassen sich zumeist auch Bilder anzeigen. Eine weitere Variante wäre, nur die Portraits zu zeigen statt der Namen.)
 * reverse, also die Antwort wird gezeigt, und die Spielerin muss den Ort durch anklicken auf der Karte ungefähr lokalisieren
-* Spielende nach zwei falsche Antworten. Wer kommt am weitesten?
+* Ende des Spiels nach zwei falsche Antworten. Wer kommt am weitesten?
 * ...
 
 Eine sehr einfache Variante ist, ein Bild aus der Wikidata zu der Stadt einzublenden und entweder:
@@ -51,7 +51,8 @@ der Multiple-Choice Test ist sicherlich einfacher zu lösen, und würde in diese
 bei richtiger Antwort.
 
 ## Technische Details
-(wird noch ausführlicher dokumentiert mit Queries und Programmschnippsel zum Filtern der Ergebnisse)
+
+Hier einige Details zum Einstieg, teilweise entnommen aus dem [voherigen Beitrag](http://blog.lobid.org/2019/10/08/nwbib-at-cdv.html). Bei Bedarf können wir das noch ausführlicher dokumentieren mit Queries und Programmschnippseln zum Filtern der Ergebnisse.
 
 ### NWBib-Ortssystematik und Wikidata
 
@@ -94,7 +95,8 @@ Die `id` im `spatial`-Objekt (im Beispiel `https://nwbib.de/spatial#Q1295`) verw
 
 ### Kartenvisualisierung auf Basis der Orts- und Geodaten aus Wikidata
 
-* Beispiel für "Suchwort Erraten"
+#### Beispiel: "Suchwort Erraten"
+
 Mit den oben beschriebenen Wikidata-Ortsdaten in der NWBib lassen sich mit wenig Aufwand Visualisierungen erstellen, z.B. eine [Karte mit Raumbezügen](http://blog.lobid.org/data/nwbib-at-cdv.html) zu bestimmten Suchanfragen (die HTML-Datei enthält die komplette Umsetzung und kann als Ausgangsbasis für eigene Ideen verwendet werden). Als Quiz würde dann gefragt:
 
 "Um was für ein Suchwort hat es sich wohl gehandelt?"
@@ -105,19 +107,20 @@ Mit den oben beschriebenen Wikidata-Ortsdaten in der NWBib lassen sich mit wenig
 4. Beethoven
 5. Heimatmuseum
 
-* Beispiel: Wofür ist "Gelsenkirchen am bekanntesten?"
+#### Beispiel: Wofür ist "Gelsenkirchen am bekanntesten?"
+
 Die Karte wird gezeigt mit Fokus auf Gelsenkirchen. Die Antwort auch die Frage "Gelsenkirchan am bekanntesten?" lässt sich automatisch aus der [raumbezogene Abfrage](https://nwbib.de/search?location=&q=spatial.id%3A%22https%3A%2F%2Fnwbib.de%2Fspatial%23Q2765%22) ableiten: das
 Schlagworte "FC Schalke 04" steht ganz oben (in den Query-Results müssen die herausgefiltert werden, die sich selbst zum Gegenstand haben, z.B. hier also "Gelsenkirchen").
 
-* Beispiel Reverse-Quiz:
+#### Beispiel Reverse-Quiz
+
 Welche Stadt ist am bekanntesten für "Malerei"?
 Dabei muss auf das [Schlagwort "Malerei" eingegrenzt](https://nwbib.de/search?q=subject.componentList.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4037220-0%22) werden. Auf der rechten Seite der Trefferliste steht unter "Regionen" mit 601 Treffer "Düsseldorf" ganz oben.
-
 
 ### Probleme
 
 Es ist so: die Datengrundlage entscheidet. Die Fragen müssten also korrekterweise nicht lauten "Für was ist diese Stadt am bekanntesten?"
-sondern "Welches Schlagwort zu Publikationen über diese Stadt kommen kommt am häufigsten vor?".
+sondern "Welches Schlagwort zu Publikationen über diese Stadt kommt am häufigsten in der NWBib vor?".
 
 Durch mehr Erfahrungen mit den Daten lässt sich, konsekutiv, das Quiz verbessern:
 In einer Alpha-Version erscheinen oft unpassende Schlagworte. Vielen ist gemeinsam, dass es sich um raumbezogene Schlagworte handelt,
