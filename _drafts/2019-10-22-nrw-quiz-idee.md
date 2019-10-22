@@ -1,32 +1,33 @@
 ---
 layout: post
-title: "NRW-Quiz auf Grundlage der NWBib-Daten. Für Coding da Vinci."
+title: "Ideen: NRW-Quiz auf Grundlage der NWBib-Daten für Coding da Vinci"
 date: 2019-10-22
-author: Pascal Christoph, Adrian Pohl, Fabian Steeg
+author: Pascal Christoph
 tags: nwbib
 ---
 
-Nach dem Besuch der ["Coding da Vinci Westfalen-Ruhrgebieti 2019"](https://codingdavinci.de/events/westfalen-ruhrgebiet/) entstand die Idee, auf Grundlage des von uns zur selbst zur Verfügung gestellten [Datensets](https://codingdavinci.de/daten/#hochschulbibliothekszentrum-des-landes-nordrhein-westfalen) ein NRW-Quiz zu machen. Die Daten sind die Grundlage für die [Nordrhein-Westfälische Bibliographie (NWBib)](https://nwbib.de).
+Nach dem Besuch des ["Coding da Vinci Westfalen-Ruhrgebiet 2019"](https://codingdavinci.de/events/westfalen-ruhrgebiet/) entstand die Idee, auf Grundlage des von uns zur Verfügung gestellten [Datensets](https://codingdavinci.de/daten/#hochschulbibliothekszentrum-des-landes-nordrhein-westfalen) ein NRW-Quiz zu machen. Die Daten sind die Grundlage für die [Nordrhein-Westfälische Bibliographie (NWBib)](https://nwbib.de).
 
 Die Möglichkeiten zur Nutzung der NWBib-Daten haben wir in ["NWBib-Daten für Coding da Vinci"](http://blog.lobid.org/2019/10/08/nwbib-at-cdv.html) beschrieben.
 
 # Die Idee(n)
 Es sind eigentlich mehrere Ideen. Je nach Aufwand und Lust zur Umsetzung reicht es, auch nur eine davon umzusetzen.
 
-Der Knackpunkt ist, dass alle Antworten des Quiz' automatisiert erzeugbar sind, aufgrund von explizitem Wissen in einem Datensatz
+Der Knackpunkt ist, dass alle Antworten des Quiz automatisiert erzeugbar sind, aufgrund von explizitem Wissen in einem Datensatz
 oder aufgrund von statistischen Auswertungen über das gesamte Datenset. Die anderen, "falschen" Antworten lassen sich ebenfalls automatisch erzeugen.
 
 Hier ein paar Ideen:
 
-Auf einer Karte, die NRW zeigt, werden (je nach Spiel, randomisiert oder alle) größeren Städte dargestellt. Wenn auf einen Marker
-geklickt wird, erscheint eine Quizfrage, die aufgrund der Daten erzeugt wird (technische Details später). Z.B. könnte eine Frage zu "Köln" heiße:
-für was ist Köln am bekanntesten:
+Auf einer Karte, die NRW zeigt, werden (je nach Spiel randomisiert oder alle) größeren Städte dargestellt. Wenn auf einen Marker
+geklickt wird, erscheint eine Quizfrage, die auf Basis der Daten erzeugt wird (technische Details später). Z.B. könnte eine Frage zu "Köln" heißen:
 
-> a) Freilichtbühne
-> b) Zeche Zollern ||/|V
-> c) Dom
-> d) Technische Universität
-> e) Westfälischer Frieden
+"Für was ist Köln am bekanntesten?"
+
+1. Freilichtbühne
+2. Zeche Zollern II/IV
+3. Dom
+4. Technische Universität
+5. Westfälischer Frieden
 
 Nach 10 Fragen ist das Spiel zu Ende => Eintrag in die Highscore-Liste.
 
@@ -39,7 +40,7 @@ Variationen sind:
 
 Eine sehr einfache Variante ist, ein Bild aus der Wikidata zu der Stadt einzublenden und entweder:
 
-* eine Liste von Städten vorzugeben und eine Aussuchen lassen (multiple-choice) oder
+* eine Liste von Städten vorzugeben und eine aussuchen lassen (multiple-choice) oder
 * die ungefähre Lokalisation durch einen Klick auf der Karte anzuzeigen
 
 Hier ein Beispiel für Dortmund:
@@ -95,18 +96,18 @@ Die `id` im `spatial`-Objekt (im Beispiel `https://nwbib.de/spatial#Q1295`) verw
 
 * Beispiel für "Suchwort Erraten"
 Mit den oben beschriebenen Wikidata-Ortsdaten in der NWBib lassen sich mit wenig Aufwand Visualisierungen erstellen, z.B. eine [Karte mit Raumbezügen](http://blog.lobid.org/data/nwbib-at-cdv.html) zu bestimmten Suchanfragen (die HTML-Datei enthält die komplette Umsetzung und kann als Ausgangsbasis für eigene Ideen verwendet werden). Als Quiz würde dann gefragt:
- "Um was für ein Suchwort hat es sich wohl gehandelt?"
 
-> a) FC-Schalke
-> b) Tagebau
-> c) Malerei
-> d) Beethoven
-> e) Heimatmuseum
+"Um was für ein Suchwort hat es sich wohl gehandelt?"
 
-* Beispiel: Wofür ist "Gelsenkirchan am bekanntesten?"
+1. FC Schalke
+2. Tagebau
+3. Malerei
+4. Beethoven
+5. Heimatmuseum
+
+* Beispiel: Wofür ist "Gelsenkirchen am bekanntesten?"
 Die Karte wird gezeigt mit Fokus auf Gelsenkirchen. Die Antwort auch die Frage "Gelsenkirchan am bekanntesten?" lässt sich automatisch aus der [raumbezogene Abfrage](https://nwbib.de/search?location=&q=spatial.id%3A%22https%3A%2F%2Fnwbib.de%2Fspatial%23Q2765%22) ableiten: das
 Schlagworte "FC Schalke 04" steht ganz oben (in den Query-Results müssen die herausgefiltert werden, die sich selbst zum Gegenstand haben, z.B. hier also "Gelsenkirchen").
-
 
 * Beispiel Reverse-Quiz:
 Welche Stadt ist am bekanntesten für "Malerei"?
