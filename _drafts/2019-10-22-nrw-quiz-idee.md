@@ -43,7 +43,7 @@ Eine sehr einfache Variante ist, ein Bild aus der Wikidata zu der Stadt einzuble
 * die ungefähre Lokalisation durch einen Klick auf der Karte anzuzeigen
 
 Hier ein Beispiel für Dortmund:
-<a href="https://www.wikidata.org/wiki/Q1295">![Photozuordnung](/images/nwbib-at-cdv/1043px-North_Rhine-Westphalia_topographic_map_01V_Photo-Dortmund.svg.png"Photozuordnung auf der Karte für Dortmund'")</a>
+<a href="https://www.wikidata.org/wiki/Q1295">![Photozuordnung](/images/nwbib-at-cdv/1043px-North_Rhine-Westphalia_topographic_map_01V_Photo-Dortmund.svg.png "Photozuordnung auf der Karte für Dortmund")</a>
 
 Das Quizfenster rechts unten impliziert die zweite Variante, d.h. es sind eigentlich zwei Spielideen verknüpft:
 der Multiple-Choice Test ist sicherlich einfacher zu lösen, und würde in dieser komplexen Quizidee mit nur der Hälfte der Punkte belohnt
