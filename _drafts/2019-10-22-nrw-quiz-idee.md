@@ -94,7 +94,7 @@ Die `id` im `spatial`-Objekt (im Beispiel `https://nwbib.de/spatial#Q1295`) verw
 ### Kartenvisualisierung auf Basis der Orts- und Geodaten aus Wikidata
 
 * Beispiel für "Suchwort Erraten"
-Mit den oben beschriebenen Wikidata-Ortsdaten in der NWBib lassen sich mit wenig Aufwand Visualisierungen erstellen, z.B. eine [Karte mit Raumbezügen](/data/nwbib-at-cdv.html) zu bestimmten Suchanfragen (die HTML-Datei enthält die komplette Umsetzung und kann als Ausgangsbasis für eigene Ideen verwendet werden). Als Quiz würde dann gefragt:
+Mit den oben beschriebenen Wikidata-Ortsdaten in der NWBib lassen sich mit wenig Aufwand Visualisierungen erstellen, z.B. eine [Karte mit Raumbezügen](http://blog.lobid.org/data/nwbib-at-cdv.html) zu bestimmten Suchanfragen (die HTML-Datei enthält die komplette Umsetzung und kann als Ausgangsbasis für eigene Ideen verwendet werden). Als Quiz würde dann gefragt:
  "Um was für ein Suchwort hat es sich wohl gehandelt?"
 
 > a) FC-Schalke
