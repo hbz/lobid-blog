@@ -108,11 +108,14 @@ Die `id` im `spatial`-Objekt (im Beispiel `https://nwbib.de/spatial#Q1295`) verw
 
 Die Karte wird gezeigt mit Fokus auf Gelsenkirchen. Die Antwort auch die Frage "Wofür ist Gelsenkirchen am bekanntesten?" lässt sich automatisch aus der [raumbezogene Abfrage](https://nwbib.de/search?location=&q=spatial.id%3A%22https%3A%2F%2Fnwbib.de%2Fspatial%23Q2765%22) ableiten: das
 Schlagworte "FC Schalke 04" steht ganz oben (in den Query-Results müssen die herausgefiltert werden, die sich selbst zum Gegenstand haben, z.B. hier also "Gelsenkirchen"). Die entsprechende API-Abfrage, um an die häufigsten Schlagworte zu gelangen, die in den Metadadten der Publikationen über "Gelsenkirchen" stehen, ist:
-```bash
+
+```
 curl -L 'lobid.org/resources/search?q=spatial.id%3A"https%3A%2F%2Fnwbib.de%2Fspatial%23Q2765"&format=json&aggregations=subject.id%2Csubject.componentList.id&size=1' |jq .aggregation
 ```
+
 Das Ergebnis sieht wie folgt aus:
-```json
+
+```
 {
   "subject.componentList.id": [
     {
@@ -128,10 +131,11 @@ Das Ergebnis sieht wie folgt aus:
       "key": "http://d-nb.info/gnd/4069716-2"
     },
 ```
+
 Wenn nun den gnd-IDs gefolgt wird, zeigt sich, dass der erste Eintrag für "Gelsenkirchen" steht (und folglich ignoriert werden muss, da es der Suchbegriff selbst ist)
 und am zweithäufigsten mit 105 Treffern der Begriff "FC Schalke 04".
 (Hier bestünde ebenfalls die Möglichkeit, ein Bild zu erhalten, das für diesen Sportverein steht:
-Die GND-ID gibt es auch in Wikidata, und somit auch in der API der lobid-gnd. Um ein Bild zum Begriff zu bekommen kann diese ID einfach an diese API angehangen werden: http://lobid.org/gnd/2037491-4 . Dort ist, ebenfalls in JSON serialisiert, die URL zur Grafik hinterlegt, einmal also große Datei (depiction.id) und sogar als thumbnail (depiction.thumbnail). Ob für alle resp. für wie viele möglichen Begriffe im Quiz auch Bilder vorhanden sind, wäre zu untersuchen.)
+Die GND-ID gibt es auch in Wikidata, und somit auch in der API der lobid-gnd. Um ein Bild zum Begriff zu bekommen kann diese ID einfach an diese API angehangen werden: [https://lobid.org/gnd/2037491-4](https://lobid.org/gnd/2037491-4). Dort ist, ebenfalls in JSON serialisiert, die URL zur Grafik hinterlegt, einmal also große Datei (`depiction.id`) und sogar als thumbnail (`depiction.thumbnail`). Ob für alle resp. für wie viele möglichen Begriffe im Quiz auch Bilder vorhanden sind, wäre zu untersuchen.)
 
 #### Beispiel: "Suchwort Erraten"
 
