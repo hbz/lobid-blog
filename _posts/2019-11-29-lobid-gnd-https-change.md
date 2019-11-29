@@ -24,4 +24,4 @@ Relationship Ontology)**
 
 lobid-gnd basiert maßgeblich auf den von der DNB bereitgestellten RDF-Daten der GND. Deshalb werden auch in lobid die URIs auf HTTPS umgestellt. Uns ist bewusst, dass dies für lobid-basierte Anwendungen Probleme bereiten kann, weshalb wir Zeit für Anpassungen lassen. Unter [https://test.lobid.org/gnd](https://test.lobid.org/gnd) findet sich bereits die neue Version zum Testen (dort werden allerdings keine täglichen Updates eingespielt).
 
-**Wir planen, die Umstellung am 12.12.2019 durchzuführen.**
+**Wir planen, die Umstellung am Donnerstag, den 12.12.2019 durchzuführen.**
