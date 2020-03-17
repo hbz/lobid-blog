@@ -32,7 +32,7 @@
          "type":"string"
       },
       "creator":{
-         "title":"Author(s)",
+         "title":"Creator",
          "type":"array",
          "items":{
             "type":"object",
@@ -42,7 +42,8 @@
                   "type":"string",
                   "default": "Person",
                   "enum":[
-                     "Person"
+                     "Person",
+                     "Organization"
                   ]
                },
                "id":{
