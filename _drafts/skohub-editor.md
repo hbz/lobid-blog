@@ -31,31 +31,18 @@ Currently, the schema only makes the fields "URL" and "Title" obligatory any oth
 
 As said above, the SkoHub Extension only wraps the SkoHub Editor running at [https://skohub.io/editor/](https://skohub.io/editor/) in the browser.
 
-So we want to create an editor that lets you create JSON-LD describing an OER that is published somewhere on the web. SkoHub Editor is configured with a [JSON schema](https://json-schema.org/understanding-json-schema/) document that is simultaneously used for the validation of the entered content. Accordingly, this is what we have to start with. We created & put online a draft [JSON schema for OER](https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json) using relevant properties and types from [schema.org](https://schema.org).
+SkoHub Editor is configured with a [JSON schema](https://json-schema.org/understanding-json-schema/) document that is simultaneously used for the validation of the entered content. Accordingly, this is what we have to start with. We created & put online a draft [JSON schema for OER](https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json) using relevant properties and types from [schema.org](https://schema.org).
 
 With the JSON schema URL, we can now load [a web form](https://skohub.io/editor/?schema=https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json) in SkoHub Editor by providing the link to the schema and then start to input the information.
 
-# Describing a resource
-
-
-
-<img src="../images/skohub-editor/editor-input.png" alt="Screenshot of the SkoHub editor with input describing a YouTube video." style="width:620px">
-
-
-
-Here, a SkoHub-specific addition to JSON schema – the SkoHub Lookup Widget – is used. It works with all controlled vocabularies that are published with SkoHub Vocabs.
-
-# Diving deeper into the JSON schema config
+To make our data JSON-LD, we set as default define a mandatory `@context` property with only possible value – a link to the JSON-LD context at `https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/context.jsonld`. This makes the editor add it to the document as default without any user interaction needed.
 
 The underlying schema is pretty straightforward. Generally, with JSON schema you can specify a number of optional or mandatory properties and what type of input each expects.
-
 The `"title"` of each property will be used as the label for the field in the web form.
-
-To make our data JSON-LD, we define a mandatory `@context` property with only possible value `http://schema.org/`. This makes the editor add it to the document as default without any user interaction needed.
 
 As in every JSON schema, I can provide a list of values to be selected from for a specific field like the schema does for choosing one of three OER licenses in [lines 65 to 74](https://github.com/lobid/lobid.github.com/blob/0bf57d4fcdddefbb47a50eda37d623189c9bb4c9/data/oer-schema.json#L71-L73). In the  SkoHub Editor this is then reflected by a "select" under the "License" field button where after clicking all three values are shown in a dropdown.
 
 You may have noticed some custom keys in the JSON schema, those that start with an underscore `_`. tbd
 
-<img src="../images/skohub-editor/pick-a-license.png" alt="The string 'Inform' is input in the subject field and several entries with this string from a controlled vocabulary are suggested." style="width:620px">
+For example, a SkoHub-specific addition to JSON schema – the SkoHub Lookup Widget – is used. It works with all controlled vocabularies that are published with SkoHub Vocabs.
 
