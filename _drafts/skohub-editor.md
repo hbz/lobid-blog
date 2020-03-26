@@ -25,15 +25,11 @@ We also mentioned being able to look up a subject from a controlled vocabulary i
 
 <img src="../images/skohub-editor/auto-suggestion-from-skos-vocab.png" alt="The string 'gesundh' is input in the subject field and several entries with this string from a controlled vocabulary are suggested." style="width:620px">
 
-Currently, the schema only makes the fields "URL" and "Title" obligatory any other field is optional. So when you think you have described the resource sufficiently.
+Currently, only the fields "URL", "Title" and "Subject" are obligatory, any other field is optional. So when you think you have described the resource sufficiently you can copy & paste the JSON-LD or publish the resource via SkoHub PubSub (to be covered in the next blog post).
 
 # Configuring and loading a web form
 
-As said above, the SkoHub Extension only wraps the SkoHub Editor running at [https://skohub.io/editor/](https://skohub.io/editor/) in the browser.
-
-SkoHub Editor is configured with a [JSON schema](https://json-schema.org/understanding-json-schema/) document that is simultaneously used for the validation of the entered content. Accordingly, this is what we have to start with. We created & put online a draft [JSON schema for OER](https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json) using relevant properties and types from [schema.org](https://schema.org).
-
-With the JSON schema URL, we can now load [a web form](https://skohub.io/editor/?schema=https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json) in SkoHub Editor by providing the link to the schema and then start to input the information.
+As said above, the SkoHub Extension wraps the SkoHub Editor running at [https://skohub.io/editor/](https://skohub.io/editor/) in the browser. SkoHub Editor is configured with a [JSON schema](https://json-schema.org/understanding-json-schema/) document that is simultaneously used for the validation of the entered content. Thus, this is what we have to start with. As default we are using a [draft schema for OER](https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json) we created using relevant properties and types from [schema.org](https://schema.org). With the JSON schema URL, we can now load the [web form](https://skohub.io/editor/?schema=https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json) you already know from the browser extension by providing the link to the schema. Now, let's take a deeper look at the schema.
 
 To make our data JSON-LD, we set as default define a mandatory `@context` property with only possible value – a link to the JSON-LD context at `https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/context.jsonld`. This makes the editor add it to the document as default without any user interaction needed.
 
