@@ -126,11 +126,55 @@ Finally, to make our data JSON-LD, we also set a mandatory `@context` property w
 
 SkoHub Editor already works very well and can be extremely useful for different purposes. However, some things are still work in progress and will need some future effort to be improved:
 
-- **Unfinished Vocabularies**: For "Learning Resource Type" and "intended Audience" we are using controlled vocabularies that are in development at the Dublin Core Metadata Initiative (DCMI). You will see that they might be missing some options. However, we assume that the combination of SkoHub Editor & SkoHub Vocabs makes a pretty nice environment for further developing these vocabularies with an open and transparent process on GitHub or GitLab.
+- **Unfinished Vocabularies**: For "Learning Resource Type" and "intended Audience" we are using controlled vocabularies that are in development at the Dublin Core Metadata Initiative (DCMI). You will see that they might be missing some options. However, we assume that the combination of SkoHub Editor & SkoHub Vocabs makes a pretty nice environment for further developing these vocabularies with an open and transparent process on dsvfGitHub or GitLab.
 -  **Custom JSON-LD context**: As we are using some SKOS elements besides schema.org markup, we decided to publish a custom JSON-LD context for the editor output. However, it seems like Google won't detect and use the schema.org markup although it is the. We might have to think about another way to addressing this, e.g. by embedding the context in each document orby solely using schema.org markup (see [#31](https://github.com/hbz/skohub-editor/issues/31)).
 
 # Implementation
 
+Of course you can also poke around the editor while running it locally:
 
+    $ git clone https://github.com/hbz/skohub-editor.git
+    $ cd skohub-editor
+    $ npm install
+
+As is the case with SkoHub vocabs, the editor is implemented in [React](https://reactjs.org/). The form components are located in `src/components/JSONSchemaForm`. In a nutshell, a `Form` provides data to the various input components:
+
+```
+<Form
+  data={{title: 'A title'}}
+  onSubmit={console.log}
+>
+  <Input property="title" />
+  <Textarea property="description" />
+  <button type="submit">Publish</button>
+</Form>
+```
+
+Obviously it would be tedious to manually code all the inputs for a given schema. This is where the `Builder` comes into play. It reads a schema and creates all necessary input components:
+
+```
+<Form
+  data={{title: ''}}
+  onSubmit={console.log}
+>
+  <Builder schema={{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "My JSON schema",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "title": "Title"
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "_widget": "Textarea"
+      }
+    }
+  }} />
+  <button type="submit">Publish</button>
+</Form>
+```
 
 # Outlook
