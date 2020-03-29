@@ -15,17 +15,19 @@ Let's start with actually using SkoHub Editor. You will have the most comfortabl
 
 <img src="../images/skohub-editor/extension-icon.png" alt="The SkoHub extension icon in between other extensions in the Firefox nav bar" style="width:600px">
 
-While having any web page open, you can now open the SkoHub editor in your browser to describe that web resource. In times of a coronavirus pandemic, let's use the YouTube video ["COVID-19 – 6 Dangerous Coronavirus Myths, Busted by World Health Organization"](https://www.youtube.com/watch?v=ZaiDDOZcaqc) published recently by the World Economic Forum under a CC-BY license as an example. Open the video in your browser, click on the extension and you will see that several fields are automatically filled out.
+While having any web page open, you can now open the SkoHub editor in your browser to describe that web resource. In times of a coronavirus pandemic, let's use as an example the YouTube video ["COVID-19 – 6 Dangerous Coronavirus Myths, Busted by World Health Organization"](https://www.youtube.com/watch?v=ZaiDDOZcaqc) published recently by the World Economic Forum under a CC-BY license. Open the video in your browser, click on the extension and you will see that several fields are automatically filled out.
 
-<img src="../images/skohub-editor/pre-populated-fields.png" alt="SkoHub extension in the sidebar of the browser with fields 'URL', 'Title' and 'Description' being pre-populated" style="width:600px">
+<img src="../images/skohub-editor/prepopulated-webform.png" alt="SkoHub extension in the sidebar of the browser with fields 'URL', 'Title' and 'Description' being pre-populated" style="width:600px">
 
-Clicking on "Show Preview" in the extension, you can see the JSON-LD that is being generated with the input. For example, it can easily be copied to the clipboard to be included in the HTML of any web page within a `<script type="application/ld+json">` tag.
+We can now add additional metadata by selecting a type (`VideoObject` in this case), add a creator, creation date, language etc. As we mentioned, you are also able for some fields to look up a subject from a controlled vocabulary in the web form. You will experience this when inputting content into the fields "Subject", "License", "Learning Resource Type", "Intended Audience". For those fields you will get a drop down with suggestions from a controlled vocabulary, e.g. for "Subject" from a German [classification](https://w3id.org/kim/hochschulfaechersystematik/scheme) of subjects in Higher education that is published with SkoHub Vocabs.
 
-We also mentioned being able to look up a subject from a controlled vocabulary in the web form. You can experience this when inputting content into the fields "Subject", "License", "Learning Resource Type", "Intended Audience". For those fields you will get a drop down with suggestions from a controlled vocabulary, e.g. for "Subject" from a German [classification](https://w3id.org/kim/hochschulfaechersystematik/scheme) of subjects in Higher education that is published with SkoHub Vocabs.
+<img src="../images/skohub-editor/auto-suggestion-from-skos-vocab.png" alt="The string 'gesundh' is input in the subject field and several entries with this string from a controlled vocabulary are suggested." style="width:420px">
 
-<img src="../images/skohub-editor/auto-suggestion-from-skos-vocab.png" alt="The string 'gesundh' is input in the subject field and several entries with this string from a controlled vocabulary are suggested." style="width:620px">
+Currently, only the fields "URL", "Type" and "Title are obligatory, all other fields are optional. When you think you have described the resource sufficiently, you can click on "Show Preview" in the extension, copy & paste the JSON-LD to the clipboard and include it in the HTML of any web page within a `<script type="application/ld+json">` tag. 
 
-Currently, only the fields "URL", "Title" and "Subject" are obligatory, all other fields are optional. When you think you have described the resource sufficiently, you can copy & paste the JSON-LD or publish the resource via SkoHub PubSub (to be covered in the next blog post).
+<img src="../images/skohub-editor/json-preview.png" alt="Preview of the structured JSON data in the SKoHub extension" style="width:420px">
+
+Using the [content subscription & publication features of SkoHub](http://blog.lobid.org/2019/05/17/skohub.html#subject-specific-subscription-to-web-resources), you can furthermore publish the resource via SkoHub PubSub (to be covered in detail in an upcoming post).
 
 # Configuring the web form with JSON Schema
 
@@ -122,13 +124,6 @@ Finally, to make our data JSON-LD, we also set a mandatory `@context` property w
 }
 ```
 
-## Areas for schema improvement
-
-SkoHub Editor already works very well and can be extremely useful for different purposes. However, some things are still work in progress and will need some future effort to be improved:
-
-- **Unfinished Vocabularies**: For "Learning Resource Type" and "intended Audience" we are using controlled vocabularies that are in development at the Dublin Core Metadata Initiative (DCMI). You will see that they might be missing some options. However, we assume that the combination of SkoHub Editor & SkoHub Vocabs makes a pretty nice environment for further developing these vocabularies with an open and transparent process on dsvfGitHub or GitLab.
--  **Custom JSON-LD context**: As we are using some SKOS elements besides schema.org markup, we decided to publish a custom JSON-LD context for the editor output. However, it seems like Google won't detect and use the schema.org markup although it is the. We might have to think about another way to addressing this, e.g. by embedding the context in each document orby solely using schema.org markup (see [#31](https://github.com/hbz/skohub-editor/issues/31)).
-
 # Implementation
 
 Of course you can also poke around the editor while running it locally:
@@ -178,3 +173,8 @@ Obviously it would be tedious to manually code all the inputs for a given schema
 ```
 
 # Outlook
+
+SkoHub Editor already works very well and can be extremely useful for different purposes. However, some things are still work in progress and will need some future effort to be improved:
+
+- **Unfinished Vocabularies**: For "Learning Resource Type" and "intended Audience" we are using controlled vocabularies that are in development at the Dublin Core Metadata Initiative (DCMI). You will see that they might be missing some options. However, we assume that the combination of SkoHub Editor & SkoHub Vocabs makes a pretty nice environment for further developing these vocabularies with an open and transparent process on dsvfGitHub or GitLab.
+-  **Custom JSON-LD context**: As we are using some SKOS elements besides schema.org markup, we decided to publish a custom JSON-LD context for the editor output. However, it seems like Google won't detect and use the schema.org markup although it is the. We might have to think about another way to addressing this, e.g. by embedding the context in each document orby solely using schema.org markup (see [#31](https://github.com/hbz/skohub-editor/issues/31)).
