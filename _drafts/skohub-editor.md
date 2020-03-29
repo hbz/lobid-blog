@@ -23,7 +23,7 @@ We can now add additional metadata by selecting a type (`VideoObject` in this ca
 
 <img src="../images/skohub-editor/auto-suggestion-from-skos-vocab.png" alt="The string 'gesundh' is input in the subject field and several entries with this string from a controlled vocabulary are suggested." style="width:420px">
 
-Currently, only the fields "URL", "Type" and "Title are obligatory, all other fields are optional. When you think you have described the resource sufficiently, you can click on "Show Preview" in the extension, copy & paste the JSON-LD to the clipboard and include it in the HTML of any web page within a `<script type="application/ld+json">` tag. 
+Currently, only the fields "URL", "Type" and "Title are obligatory, all other fields are optional. When you think you have described the resource sufficiently, you can click on "Show Preview" in the extension, copy & paste the JSON-LD to the clipboard and include it in the HTML of any web page within a `<script type="application/ld+json">` tag.
 
 <img src="../images/skohub-editor/json-preview.png" alt="Preview of the structured JSON data in the SKoHub extension" style="width:420px">
 
@@ -134,6 +134,7 @@ Of course you can also poke around the editor while running it locally:
 
 As is the case with SkoHub vocabs, the editor is implemented in [React](https://reactjs.org/). The form components are located in `src/components/JSONSchemaForm`. In a nutshell, a `Form` provides data to the various input components:
 
+{% raw %}
 ```
 <Form
   data={{title: 'A title'}}
@@ -144,9 +145,11 @@ As is the case with SkoHub vocabs, the editor is implemented in [React](https://
   <button type="submit">Publish</button>
 </Form>
 ```
+{% endraw %}
 
 Obviously it would be tedious to manually code all the inputs for a given schema. This is where the `Builder` comes into play. It reads a schema and creates all necessary input components:
 
+{% raw %}
 ```
 <Form
   data={{title: ''}}
@@ -171,6 +174,7 @@ Obviously it would be tedious to manually code all the inputs for a given schema
   <button type="submit">Publish</button>
 </Form>
 ```
+{% endraw %}
 
 # Outlook
 
