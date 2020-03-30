@@ -176,6 +176,8 @@ Obviously it would be tedious to manually code all the inputs for a given schema
 ```
 {% endraw %}
 
+The browser extension is essentially a simple wrapper for the editor running at https://skohub.io/editor/, which the extension injects as an `iframe` into the current page. Additionally, before the iframe is injected, some metadata is scraped from that page. This data is used to pre-populate the editor. This process obviously depends both on the data found in the web page and on the schema the editor is configured to use. YouTube for example uses `meta name="description"` for data about YouTube itself rather than the actual video, which is described in `meta property="og:description"`. Even if the correct metadata is extracted, there is no guarantee that the schema used to configure the editor even has a `description` field. In the future, it would be nice to find a possibility to perhaps map page metadata to properties in the schema itself somehow.
+
 # Outlook
 
 SkoHub Editor already works very well and can be extremely useful. However, some things are still work in progress and will need some future effort to be improved:
