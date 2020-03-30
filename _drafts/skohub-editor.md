@@ -11,7 +11,7 @@ In this post, we present *SkoHub Editor* ([demo](https://skohub.io/editor/), [co
 
 # Describing a resource with the browser extension
 
-Let's start with actually using SkoHub Editor. You will have the most comfortable experience when using the SkoHub browser extension that wraps the SkoHub Editor and pre-populates some field in the web form. The browser extension is available both for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/skohub-extension/) and [Chrome](tbd). Just add the extension to your browser and a little icon will be shown on the right-hand side of your navigation bar:
+Let's start with actually using SkoHub Editor. You will have the most comfortable experience when using the SkoHub browser extension that wraps the SkoHub Editor and pre-populates some field in the web form. The browser extension is available both for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/skohub-extension/) and [Chrome](https://chrome.google.com/webstore/detail/skohub/ghalhmcgaicdcpmdicinaegnoanfmggd). Just add the extension to your browser and a little icon will be shown on the right-hand side of your navigation bar:
 
 <img src="/images/skohub-editor/extension-icon.png" alt="The SkoHub extension icon in between other extensions in the Firefox nav bar" style="width:600px">
 
