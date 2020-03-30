@@ -31,7 +31,7 @@ Using the [content subscription & publication features of SkoHub](http://blog.lo
 
 # Configuring the web form with JSON Schema
 
-As said above, the SkoHub Extension wraps the SkoHub Editor running at [https://skohub.io/editor/](https://skohub.io/editor/). SkoHub Editor is configured with a [JSON schema](https://json-schema.org/understanding-json-schema/) document that is used both to generate appropriate form inputs and to validate the entered content. Thus, the JSON Schema is the central, most crucial part when working with SkoHub Editor. Currently, we are using a [draft schema for OER](https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json) we created using relevant properties and types from [schema.org](https://schema.org) as the default schema. With the JSON schema URL, we can now load the [web form](https://skohub.io/editor/?schema=https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json) you already know from the browser extension by providing the link to the schema.
+As said above, the SkoHub Extension wraps the SkoHub Editor running at [https://skohub.io/editor/](https://skohub.io/editor/). SkoHub Editor is configured with a [JSON schema](https://json-schema.org/understanding-json-schema/) document that is used both to generate appropriate form inputs and to validate the entered content. Thus, the JSON Schema is the central, most crucial part when working with SkoHub Editor. Currently, we are using as default schema a [draft schema for OER](https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json) we created using relevant properties and types from [schema.org](https://schema.org). With the JSON schema URL, we can now load the [web form](https://skohub.io/editor/?schema=https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json) you already know from the browser extension by providing the link to the schema. Of course, you can just write your own schema to build a web form for your use case.
 
 Let's take a short look at the underlying schema, which we tried to keep as straightforward as possible. Generally, with JSON schema you can specify a number of optional or mandatory properties and what type of input each expects. The `"title"` of each property will be used as the label for the field in the web form.
 
@@ -178,7 +178,16 @@ Obviously it would be tedious to manually code all the inputs for a given schema
 
 # Outlook
 
-SkoHub Editor already works very well and can be extremely useful for different purposes. However, some things are still work in progress and will need some future effort to be improved:
+SkoHub Editor already works very well and can be extremely useful. However, some things are still work in progress and will need some future effort to be improved:
 
-- **Unfinished Vocabularies**: For "Learning Resource Type" and "intended Audience" we are using controlled vocabularies that are in development at the Dublin Core Metadata Initiative (DCMI). You will see that they might be missing some options. However, we assume that the combination of SkoHub Editor & SkoHub Vocabs makes a pretty nice environment for further developing these vocabularies with an open and transparent process on dsvfGitHub or GitLab.
--  **Custom JSON-LD context**: As we are using some SKOS elements besides schema.org markup, we decided to publish a custom JSON-LD context for the editor output. However, it seems like Google won't detect and use the schema.org markup although it is the. We might have to think about another way to addressing this, e.g. by embedding the context in each document orby solely using schema.org markup (see [#31](https://github.com/hbz/skohub-editor/issues/31)).
+-  **Using schema.org markup for pre-population**: This might sound obvious but we have not implemented it yet, see [#17](https://github.com/hbz/skohub-extension/issues/17).
+-  **Further issues**: See also the issues at [https://github.com/hbz/skohub-editor/issues](https://github.com/hbz/skohub-editor/issues) for further ideas for improvement.
+
+Furthermore, some work will have to be put into the current default schema and the controlled vocabularies it uses:
+
+- **Develop JSON Schema**: The JSON Schema definitely is not finished yet. For example, it makes sense to include `http://schema.org/keywords` in the future for adding arbitrary tags to describe a resource. We plan to develop the schema within the [OER metadata group of DINI AG KIM &](https://oerworldmap.org/resource/urn:uuid:fd06253e-fe67-4910-b923-51db9d27e59f) with a focus on describing OER in the German-speaking world.
+- **Improve Vocabularies**: For "Learning Resource Type" and "intended Audience" we are using controlled vocabularies that are not nearly finished but in development at the [LRMI Task Group](https://www.dublincore.org/groups/lrmi-task-group/) of the Dublin Core Metadata Initiative (DCMI). Trying out the browser extension, you will for instance see that the educational resources types are missing some options. However, we assume that the combination of SkoHub Editor & SkoHub Vocabs makes a pretty nice environment for the development of these vocabularies in an open and transparent process on GitHub or GitLab.
+
+# Get involved
+
+Please try it out and let us know what doesn't work or which feature you are missing and also what you like about SkoHub. We are happy about every bug report, suggestion and feature requests for the production version. Get in contact with us via a hypothes.is annotation, GitHub, email, Twitter or IRC.
