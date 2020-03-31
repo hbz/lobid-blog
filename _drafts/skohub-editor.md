@@ -187,9 +187,9 @@ SkoHub Editor already works very well and can be extremely useful. However, some
 
 Furthermore, some work will have to be put into the current default schema and the controlled vocabularies it uses:
 
-- **Develop JSON Schema**: The JSON Schema definitely is not finished yet. For example, it makes sense to include `http://schema.org/keywords` in the future for adding arbitrary tags to describe a resource. We plan to develop the schema within the [OER metadata group of DINI AG KIM](https://oerworldmap.org/resource/urn:uuid:fd06253e-fe67-4910-b923-51db9d27e59f) with a focus on describing OER in the German-speaking world.
+- **Develop JSON Schema**: The JSON Schema definitely is not finished yet. For example, it makes sense to include `http://schema.org/keywords` in the future for adding arbitrary tags to describe a resource. We plan to develop the schema within the common [OER metadata group](https://oerworldmap.org/resource/urn:uuid:fd06253e-fe67-4910-b923-51db9d27e59f) of DINI AG KIM & Jointly with a focus on describing OER in the German-speaking world.
 - **Improve Vocabularies**: For "Learning Resource Type" and "Intended Audience" we are using controlled vocabularies that are not nearly finished but in development at the [LRMI Task Group](https://www.dublincore.org/groups/lrmi-task-group/) of the Dublin Core Metadata Initiative (DCMI). Trying out the browser extension, you will for instance see that the educational resources types are missing some options. However, we assume that the combination of SkoHub Editor & SkoHub Vocabs makes a pretty nice environment for the development of these vocabularies in an open and transparent process on GitHub or GitLab.
 
 # Get involved
 
-Please try it out and let us know what doesn't work or which feature you are missing and also what you like about SkoHub. We are happy about every bug report, suggestion and feature requests for the production version. Get in [contact](https://lobid.org/team-en/) with us via an hypothes.is annotation, GitHub, Email, Twitter or IRC.
+Please try it out and let us know what doesn't work or which feature you are missing and also what you like about SkoHub. We are happy about every bug report, suggestion and feature requests for the production version. Get in [contact](https://lobid.org/team-en/) with us via a hypothes.is annotation, GitHub, Email, Twitter or IRC.
