@@ -99,7 +99,7 @@ Such lists of allowed values can be considered controlled vocabularies, and idea
 
 Notice the custom key `_widget` in the JSON schema. This will configure the editor to use the specified UI element for the given field. In our example, the `SkohubLookup` widget is used, which works with all controlled vocabularies that are published with SkoHub Vocabs. All custom JSON schema extensions start with an underscore `_` and are used to control the look and feel of the editor; see below for an example for how to hide a field on the form.
 
-Finally, to make our data JSON-LD, we also set a mandatory `@context` property with only one possible value – a link to the JSON-LD context at `https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/context.jsonld`, and a default value for the `@context`. This makes the editor add it to the document without any user interaction needed.
+Finally, to make our data JSON-LD, we also set a mandatory `@context` property and a default object value for the `@context`. This makes the editor add it to the document without any user interaction needed.
 
 ```
 {
@@ -108,20 +108,24 @@ Finally, to make our data JSON-LD, we also set a mandatory `@context` property w
   "description": "This is a generic JSON schema for describing an Open Educational Resource with schema.org",
   "type": "object",
   "default": {
-    "@context": "https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/context.jsonld"
+    "@context": {
+      "id": "@id",
+      "type": "@type",
+      "@vocab": "http://schema.org/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "prefLabel": "skos:prefLabel",
+      "inScheme": "skos:inScheme",
+      "Concept": "skos:Concept"
+    }
   },
   "properties": {
     "@context": {
-      "type": "string",
-      "format": "uri",
-      "enum": [
-        "https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/context.jsonld"
-      ],
+      "type": "object",
+      "additionalProperties": true,
       "_display": {
         "className": "hidden"
       }
     }
-  }
 }
 ```
 
