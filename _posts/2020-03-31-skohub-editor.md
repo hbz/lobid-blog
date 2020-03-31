@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Presenting the SkoHub Editor"
+date: 2020-03-31
 author: Adrian Pohl, Felix Ostrowski
 tags: skohub
 ---
