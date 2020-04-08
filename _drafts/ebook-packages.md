@@ -5,7 +5,7 @@ author: Adrian Pohl
 tags: lobid-resources
 ---
 
-Kürzlich haben wir auf [Anfrage der UB Dortmund](https://github.com/hbz/lobid-resources/issues/1052), Angaben zu E-Books in lobid-resources ergänzt, auch wenn das entsprechende E-Book-Paket nicht im ISIL-Verzeichnis enthalten ist. Im hbz-Wiki findet sich ein [Übersicht über alle E-Book-Pakete im hbz-Verbundkatalog](https://service-wiki.hbz-nrw.de/display/VDBE/Produktsigel+und+interne+Selektionskennzeichen) mit Angabe ihrer ID – sei es eine ISIL oder eine interne ID.
+Kürzlich haben wir auf [Anfrage der UB Dortmund](https://github.com/hbz/lobid-resources/issues/1052) Angaben zu E-Books in lobid-resources ergänzt, auch wenn das entsprechende E-Book-Paket nicht im ISIL-Verzeichnis enthalten ist. Im hbz-Wiki findet sich eine [Übersicht über alle E-Book-Pakete im hbz-Verbundkatalog](https://service-wiki.hbz-nrw.de/display/VDBE/Produktsigel+und+interne+Selektionskennzeichen) mit Angabe ihrer ID – sei es eine ISIL oder eine interne ID.
 
 Schon vorher gab es in Titeln, die einem E-Book-Paket mit ISIL zugehören, einen Verweis auf das jeweilige Paket. Zum Beispiel zeigt sich in den Metadaten zum E-Book "Gottlob Frege: Schriften zur Logik und Sprachphilosophie" ([https://lobid.org/resources/HT020405841](https://lobid.org/resources/HT020405841)), dass es zu zwei E-Book-Paketen gehört:
 
@@ -43,7 +43,7 @@ Die neuen Angaben zu Paketen, die keine ISIL haben, sehen entsprechend aus. Ein 
 }
 ```
 
-In diesem Beispiel sind die Metadaten sogar deskriptiver als im obigen Beispiel, weil der Kollektionsname angezeigt wird. Allerdings haben wir nicht alle Namen konfigurieren können, so dass es manchmal aussieht, wie in diesem [Beispiel](https://lobid.org/resources/CT007001558) ([JSON](https://lobid.org/resources/CT007001558.json)):
+In diesem Beispiel sind die Metadaten sogar deskriptiver als im obigen Beispiel, weil der Kollektionsname angezeigt wird. Allerdings haben wir nicht alle Namen konfigurieren können, so dass es manchmal aussieht wie in diesem [Beispiel](https://lobid.org/resources/CT007001558) ([JSON](https://lobid.org/resources/CT007001558.json)):
 
 ```json
 {
