@@ -60,7 +60,7 @@ In diesem Beispiel sind die Metadaten sogar deskriptiver als im obigen Beispiel,
 }
 ```
 
-Die `label`-Angabe sollte allerdings ohnehin nie in Anwendungen benutzt werden, zuverlässig ist allein die Nutzung der URIs (`id`).
+Die `label`-Angabe sollte allerdings ohnehin nie zu Query-Zwecken benutzt werden, sondern allein für die Anzeige. Zuverlässig ist in Abfragen allein die Nutzung von URIs (`id`).
 
 ## Beispielsuche
 
