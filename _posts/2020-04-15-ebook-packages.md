@@ -2,6 +2,7 @@
 layout: post
 title: "Verbesserte Metadaten zur Zugehörigkeit von Titeln zu E-Book-Paketen"
 author: Adrian Pohl
+date: 2020-04-15
 tags: lobid-resources
 ---
 
