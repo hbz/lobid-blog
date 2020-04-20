@@ -55,7 +55,7 @@ Das sind über 19 Millionen Titel und der gesamte hbz-Verbundkatalog beinhaltet 
 
 [`_exists_:contribution.agent.dateOfDeath`](https://lobid.org/resources/search?q=_exists_%3Acontribution.agent.dateOfDeath)
 
-Mit dieser Einschränkung kann ich nun Titel ausmachen, die mit großer Wahrscheinlichkeit gemeinfrei sind, weil das Todesdatum der Beitragenden vor dem 1. Januar 1950 liegt:
+Mit dieser Einschränkung kann ich nun Titel identifizieren, die mit großer Wahrscheinlichkeit gemeinfrei sind, weil das Todesdatum der Beitragenden vor dem 1. Januar 1950 liegt:
 
 [`NOT contribution.agent.dateOfDeath:[1950-01-01 TO *] AND _exists_:contribution.agent.dateOfDeath`](https://lobid.org/resources/search?q=NOT+contribution.agent.dateOfDeath%3A%5B1950-01-01+TO+*%5D+AND+_exists_%3Acontribution.agent.dateOfDeath)
 
