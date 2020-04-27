@@ -2,6 +2,7 @@
 layout: post
 title: "Gemeinfreie Werke in lobid finden"
 author: Adrian Pohl
+date: 2020-04-27
 tags: lobid-resources
 ---
 
