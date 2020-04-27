@@ -14,9 +14,9 @@ Wir haben ein Anfrage bekommen, ob lobid benutzt werden könnte, um eine Liste v
 Dies sind die Schritte, wenn ich im Bestand einer bestimmten Bibliothek eine Liste von Titeln browsen möchte, die mit recht hoher Wahrscheinlichkeit gemeinfrei sind (weil alle verzeichneten Beteiligten vor dem 1.1.1950 gestorben sind) und nicht schon in einer Online-Version vorliegen:
 
 1. Zu [lobid-resources](https://lobid.org/resources/) gehen und in das Suchfenster folgendes einfügen bzw. einfach den Link klicken: [`NOT contribution.agent.dateOfDeath:[1950-01-01 TO *] AND contribution.agent.dateOfDeath:* AND NOT medium.id:"http://rdaregistry.info/termList/RDACarrierType/1018"`](https://lobid.org/resources/search?q=NOT+contribution.agent.dateOfDeath%3A%5B1950-01-01+TO+*%5D+AND+contribution.agent.dateOfDeath%3A*+AND+NOT+medium.id%3A%22http%3A%2F%2Frdaregistry.info%2FtermList%2FRDACarrierType%2F1018%22)
-2. Im Bestandsfilter meine Bibliothek wählen, z.B. UB Wuppertal: <img src="/images/gemeinfreie-titel-finden/bestandsfilter.png" alt="Bestandsfacette mit Auswahl der Bibliothek 'Wuppertal UB'" style="width:250px">
-3. Nach Bedarf weitere Filter anwenden (Erscheinungsjahr, Publikationstyp, Medientyp etc.) oder die Abfrage durch eine Volltextsuche in den Metadaten erweitern durch Voranstellen des Suchworts und eines `AND`, z.B.:
+2. Nach Bedarf Filter anwenden (Erscheinungsjahr, Publikationstyp, Medientyp etc.) oder die Abfrage durch eine Volltextsuche in den Metadaten erweitern durch Voranstellen des Suchworts und eines `AND`, z.B.:
 [`seuche AND NOT contribution.agent.dateOfDeath:[1950-01-01 TO *] AND contribution.agent.dateOfDeath:* AND NOT medium.id:"http://rdaregistry.info/termList/RDACarrierType/1018"`](https://lobid.org/resources/search?q=seuche+AND+NOT+contribution.agent.dateOfDeath%3A%5B1950-01-01+TO+*%5D+AND+contribution.agent.dateOfDeath:*+AND+NOT+medium.id%3A%22http%3A%2F%2Frdaregistry.info%2FtermList%2FRDACarrierType%2F1018%22)
+3. Im Bestandsfilter meine Bibliothek wählen, z.B. UB Wuppertal: <img src="/images/gemeinfreie-titel-finden/bestandsfilter.png" alt="Bestandsfacette mit Auswahl der Bibliothek 'Wuppertal UB'" style="width:250px">
 
 ---
 
