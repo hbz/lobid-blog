@@ -3,12 +3,12 @@ layout: post
 title: "Wir suchen: Softwareentwicklerin/ Softwareentwickler (m/w/d)"
 author: Adrian Pohl
 date: 2020-05-19
-tags: job misc
+tags: job
 ---
 
 ---
 
-*Die Original-Stellenausschreibung findet sich bis zum **Ende der Ausschreibungsfrist am 14.6.2020** unter [https://www.hbz-nrw.de/ueber-uns/stellenangebote/20oidev](https://www.hbz-nrw.de/ueber-uns/stellenangebote/20oidev).*
+*Die Original-Stellenangebot (PDF) findet sich bis zum **Ende der Ausschreibungsfrist am 14.6.2020** unter [https://www.hbz-nrw.de/ueber-uns/stellenangebote/20oidev](https://www.hbz-nrw.de/ueber-uns/stellenangebote/20oidev).*
 
 ---
 

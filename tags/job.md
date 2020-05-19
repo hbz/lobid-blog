@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: "Stellenausscheibungen"
+title: "Stellenangebote"
 tag: job
 ---
