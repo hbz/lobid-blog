@@ -52,7 +52,7 @@ Die Ausschreibung wendet sich ausdrücklich auch an Menschen mit Migrationshinte
 Die Wahrnehmung der Aufgaben ist auch im Wege einer Teilzeitbeschäftigung möglich. 
 
 **Ansprechpartner**
-Für weitere Rückfragen steht Ihnen Herr Pohl gerne zur Verfügung (Telefon 0221/400 75-235, E-Mail: [pohl@hbz-nrw.de](mailto:pohl@hbz-nrw.de)). Allgemeine Informationen über das Hochschulbibliothekszentrum sind unter der Internetadresse [www.hbz-nrw.de](http://www.hbz-nrw.de) einzusehen.
+Für weitere Rückfragen steht Ihnen Herr Pohl gerne zur Verfügung (Telefon 0221/400 75-235, E-Mail: pohl@hbz-nrw.de). Allgemeine Informationen über das Hochschulbibliothekszentrum sind unter der Internetadresse [www.hbz-nrw.de](http://www.hbz-nrw.de) einzusehen.
 
 **Verfahren**
 Ihre Bewerbung mit den üblichen Unterlagen richten Sie bitte mit dem Kennwort "20oiDEV" bis zum **14.06.2020** an das
@@ -65,7 +65,7 @@ Postfach 27 04 51<br />
 50510 Köln
     </b>
 </p>
-oder digital per E-Mail an: **[bewerbung@hbz-nrw.de](mailto:bewerbung@hbz-nrw.de)**.
+oder digital per E-Mail an: **bewerbung@hbz-nrw.de**.
 
 **Hinweis**: Die üblichen Bewerbungsunterlagen bitte nur in Kopie einreichen. Es erfolgt keine Rücksendung. Die Unterlagen werden nach einer Aufbewahrungsfrist von fünf Monaten vernichtet. Bei einem beigefügten Freiumschlag erfolgt eine Rücksendung der Unterlagen. Bei einer digitalen Bewerbung bitte möglichst alle Dokumente in einer *.pdf-Datei oder in einem komprimierten Ordner versenden. Eine Bewerbung per E-Mail ist datenschutzmäßig bedenklich. Der Versender trägt dafür die volle Verantwortung.
 
