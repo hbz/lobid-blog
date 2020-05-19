@@ -34,7 +34,7 @@ Zur Verstärkung der Gruppe „Offene Infrastruktur“ suchen wir zum nächstmö
 - Gute Englischkenntnisse
 
 ### Wir bieten Ihnen
-- Mitarbeit an spannenden und innovativen Entwicklungen im Umfeld von Open Educational Resources (OER), basierend auf einem Tech-Stack aus Git, GitHub, Elasticsearch, Java,Metafacture, Play, JSON, react.js, Linux
+- Mitarbeit an spannenden und innovativen Entwicklungen im Umfeld von Open Educational Resources (OER), basierend auf einem Tech-Stack aus Git, GitHub, Elasticsearch, Java, Metafacture, Play, JSON, react.js, Linux
 - Eine abwechslungsreiche und herausfordernde Tätigkeit in einer zukunftsgerichteten, hochschulnahen und IT-orientierten Dienstleistungseinrichtung im Herzen von Köln
 - Möglichkeit zur Teilnahme an nationalen und internationalen Konferenzen
 - Eine familienfreundliche Arbeitsumgebung (beispielsweise Teilzeit, Gleitzeit, Telearbeit)
@@ -52,7 +52,7 @@ Die Ausschreibung wendet sich ausdrücklich auch an Menschen mit Migrationshinte
 Die Wahrnehmung der Aufgaben ist auch im Wege einer Teilzeitbeschäftigung möglich. 
 
 **Ansprechpartner**
-Für weitere Rückfragen steht Ihnen Herr Pohl gerne zur Verfügung (Telefon 0221/400 75-235, E-Mail: pohl@hbz-nrw.de). Allgemeine Informationen über das Hochschulbibliothekszentrum sind unter der Internetadresse www.hbz-nrw.de einzusehen.
+Für weitere Rückfragen steht Ihnen Herr Pohl gerne zur Verfügung (Telefon 0221/400 75-235, E-Mail: pohl@hbz-nrw.de). Allgemeine Informationen über das Hochschulbibliothekszentrum sind unter der Internetadresse [www.hbz-nrw.de](http://www.hbz-nrw.de) einzusehen.
 
 **Verfahren**
 Ihre Bewerbung mit den üblichen Unterlagen richten Sie bitte mit dem Kennwort "20oiDEV" bis zum **14.06.2020** an das
