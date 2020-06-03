@@ -26,10 +26,10 @@ Zur Verstärkung der Gruppe „Offene Infrastruktur“ suchen wir zum nächstmö
 - Entwicklung Moderation und Unterstützung von Metadatenstandardisierung im Bereich Open Educational Resources
 
 ### Ihre Qualifikationen
-- Abgeschlossenes Hochschulstudium der Informatik oder vergleichbarer Studiengänge
-- Praktische Erfahrung in der Softwareentwicklung
+- Abgeschlossenes Studium im Bereich der Bibliotheks- und Informationswissenschaften, der Bibliotheksinformatik oder des Bibliotheksmanagements oder gleichwertige Kenntnisse und Erfahrungen
+- Kenntnisse im Bereich Web-Standards und bibliothekarischer Datenmodelle
 - Praktische Erfahrung und hohe Identifikation mit offenen Ansätzen (Open Source, Open Data, Open Access, Open Educational Resources, Open Web)
-- Bereitschaft und Fähigkeit, sich in technische Standards und/oder Frameworks einzuarbeiten
+- Bereitschaft und Fähigkeit, sich in technische Standards einzuarbeiten
 - Sehr gute analytische und kommunikative Fähigkeiten sowie eine selbstständige Arbeitsweise
 - Gute Englischkenntnisse
 
