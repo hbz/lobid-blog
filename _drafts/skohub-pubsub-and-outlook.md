@@ -1,11 +1,17 @@
 ---
 layout: post
 title: "Presenting SkoHub PubSub 
-author: Adrian Pohl
+author: Adrian Pohl, Felix Ostrowski
 tags: skohub
 ---
 
-In the previous blog posts we have presented [SkoHub Vocabs](http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html) and [SkoHub Editor](). In the final post of this SkoHub introduction series we will present SkoHub PubSub, the part of SkoHub that brings the novel approach of "KOS-based content subscription" into the game.
+In the previous blog posts we have presented [SkoHub Vocabs](http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html) and [SkoHub Editor](http://blog.lobid.org/2020/03/31/skohub-editor.html). In the final post of this SkoHub introduction series we will present SkoHub PubSub, the part of SkoHub that brings the novel approach of "KOS-based content subscription" into the game.
+
+Let's refresh what SkoHub is about by quoting the gist from [the project's homepage](https://skohub.io/):
+
+> SkoHub supports a novel approach for finding content on the web. The general idea is to extend the scope of Knowledge Organization Systems (KOS) to also act as communication hubs for publishers and information seekers. In effect, SkoHub allows to follow specific subjects in order to be notified when new content about that subject is published. 
+
+How could this approach be carried out in practice? Let's take a look at an example.
 
 # Subscribing to a subject
 
