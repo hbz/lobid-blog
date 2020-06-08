@@ -35,7 +35,7 @@ For the vocabulary to be built and published on SkoHub, there has to be a new co
 
 <img src="/images/presenting-skohub-vocabs/check-webhook-response.png" alt="Screenshot from GitHub Webhook page with information that build was triggered with link to build log." style="width:620px">
 
-However, looking at the [build log](https://test.skohub.io/build/?id=03f3a817-a11e-4498-a254-a478d4f6b089#44), an error is shown and the site did not build:
+However, looking at the build log, an error is shown and the site did not build:
 
 <img src="/images/presenting-skohub-vocabs/error-in-build-log.png" alt="Screenshot from build log with error message" style="width:620px">
 
@@ -43,7 +43,7 @@ Oops, we forgot to check the vocab for syntax errors before triggering the build
 
 <img src="/images/presenting-skohub-vocabs/fix-error.png" alt="Screenshot from build log with error message" style="width:620px">
 
-This time the [build](https://test.skohub.io/build/?id=678ba699-758d-498d-afeb-104d8824f282) goes through without errors and, voilà, SkoHub has published a human-readable version of the vocabulary at [https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.html](https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.html). (SkoHub Static Site Generator also publishes an [overview](https://test.skohub.io/hbz/vocabs-edu/) of all the SKOS vocaularies in the GitHub repo.)
+This time the build goes through without errors and, voilà, SkoHub has published a human-readable version of the vocabulary at [https://test.skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/scheme.html](https://test.skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/scheme.html). (SkoHub Static Site Generator also publishes an [overview](https://test.skohub.io/hbz/vocabs-edu/heads/master/) of all the SKOS vocaularies in the GitHub repo.)
 
 ## Step 4: Redirect vocab URI to SkoHub
 
@@ -57,7 +57,7 @@ If everything looks good, w3id.org PRs are merged very quickly, in this case it 
 
 As a result, we have published a controlled vocabulary in SKOS under a permanent URI and with a human-readable [HTML](https://w3id.org/class/esc/scheme.html) representation from GitHub with a minimum amount of work. Additionally, the initial Turtle representation is transformed to more developer-friendly [JSON-LD](https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.jsonld). The HTML has a hierarchy view that can be expanded and collapsed at will:
 
-<a href="https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.html"><img src="/images/presenting-skohub-vocabs/published-vocab.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:620px"></a>
+<a href="https://test.skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/scheme.html"><img src="/images/presenting-skohub-vocabs/published-vocab.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:620px"></a>
 
 There also is a search field to easily filter the vocabulary:
 
