@@ -15,10 +15,10 @@ How could this approach be carried out in practice? Let's take a look at an exam
 
 # Subscribing to a subject
 
-Just take a look at a single subject from a controlled vocabulary published with SkoHub, e.g. [Library, information and archival studies](https://w3id.org/class/esc/n0322), and you can see the "Subscribe" button right under the concept URI:
+In one of the mentioned previous posts we exemplary published the [Educational Subjects Classification](https://w3id.org/class/esc/scheme) with SkoHub Vocabs.  Now, let's take a look at a single subject from this classification, e.g. [Library, information and archival studies](https://w3id.org/class/esc/n0322):
 
-<img src="/images/2019-09-18-skohub-prototype/subscribe.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:420px">
+<img src="/images/skohub-pubsub/concept.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:420px">
 
-As the receiving end of notifications about new content about a specific subject SkoHub Deck makes use of the backend infrastructure provided by the [SkoHub Pubsub](https://github.com/hbz/skohub-pubsub) server. Although, SkoHub Pubsub is the core of the whole infrastructure and the module that connects all the other SkoHub components, it is not visible itself but only in applications like Mastodon and SkoHub Editor which can send out notifications to a specific topic.
+Although, SkoHub Pubsub is the core of the whole infrastructure and the module that connects all the other SkoHub components, it is not visible itself but only in applications like Mastodon and SkoHub Editor which can send out notifications to a specific topic.
 
 So, when I descibe an OER with SkoHub Editor, assign the topic I have subscribed to and click "publish", a notification about the resource will be sent to the topic which will then disseminate the resource to every actor that has described to the topic.
