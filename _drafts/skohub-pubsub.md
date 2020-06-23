@@ -62,7 +62,7 @@ I click on the follow button and am now following this subject with my Mastodon 
 
 Let's now switch into the role of a scholar, teacher, tutor or general interested person who has created an instructive online resource and wants to publish it to all people interested in the topic of "Library, information and archival studies". In this case, I published a [blog post about a talk at SWIB19 – Semantic Web in Libraries Conference](http://blog.lobid.org/2020/01/29/skohub-talk-at-swib19.html) and want to share it with others. I somehow need to send a message to the topic's inbox, in this case I am using the SkoHub Editor (but it could be any other ActivityPub client or even the command line interface from which I publish). For the best user experience I download the SkoHub browser extension ([Firefox](https://addons.mozilla.org/firefox/addon/skohub-extension/), [Chrome](https://chrome.google.com/webstore/detail/skohub/ghalhmcgaicdcpmdicinaegnoanfmggd)).
 
-As the default JSON schema uses another classification, we first have to configure the editor based on a schema that actually makes use of the Educational Subjects Classification. For this, we created a [version of the default schema](https://github.com/dini-ag-kim/lrmi-profile/blob/useEsc4Subjects/draft/schemas/schema.json) that does so. Now I put it into the extension's settings:
+As the default JSON schema uses another classification, we first have to configure the editor based on a schema that actually makes use of the Educational Subjects Classification. For this, we created a [version of the default schema](https://raw.githubusercontent.com/dini-ag-kim/lrmi-profile/useEsc4Subjects/draft/schemas/schema.json) that does so. Now I put it into the extension's settings:
 
 <img src="/images/skohub-pubsub/configure-extension.png" alt="Screenshot of how to configure a custom schema in the SkoHub Editor extension for Firefox">
 
@@ -70,9 +70,9 @@ Then, I fire up the extension when visiting the web page I like to share and add
 
 <img src="/images/skohub-pubsub/describing.png" alt="Describing a resource with the SkoHub Editor browser extension">
 
-I choose the topic "Library, information and archival studies" from the suggestions in the "subject" field add information on licensing etc. and click "Publish". Now, in the background, the description of the resource is sent to the respective topic (it could be more than one) which distributes the information to all its subscribers. Thus, in the end I will receive a notification of the resource in my Mastodon timeline:
+I select the topic "Library, information and archival studies" from the suggestions in the "subject" field add information on licensing etc. and click "Publish". A pop up lets you know that the resource is published to "Library, information and archival studies". In the background, the description of the resource is sent to the respective topic (it could be more than one) which distributes the information to all its subscribers.  Thus, in the end I will receive a notification of the resource in my Mastodon timeline:
 
-<img src="/images/skohub-pubsub/toot.png" alt="The toot announcing a resource newly published to a SkoHub topic">
+<img src="/images/skohub-pubsub/toot.png" alt="The toot announcing a resource newly published to a SkoHub topic" style="width:500px">
 
 # Protocols and implementation
 
