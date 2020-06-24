@@ -250,7 +250,7 @@ In den anderen CdV-Datensets tauchen immer wieder Orte und Personen auf, die auc
   - Natzungen: [https://nwbib.de/spatial#Q1971675](https://nwbib.de/spatial#Q1971675)
   - Vreden: [https://nwbib.de/spatial#Q200528](https://nwbib.de/spatial#Q200528)
 - In [euregio-history.net](https://codingdavinci.de/daten/#euregiohistory) gibt es die Spalten 'field_place' und 'field_regions'. Die dort eingetragenen Orte finden sich häufig in der NWBib-Raumsystematik/in Wikidata.
-- Über das [Freilichtmuseum Detmold](https://codingdavinci.de/daten/#lwl-freilichtmuseum-detmold) und die Gebäude dort gibt es [176 Einträge](https://nwbib.de/search?subject=http%3A%2F%2Fd-nb.info%2Fgnd%2F605200-9) in der NWBib.
+- Über das [Freilichtmuseum Detmold](https://codingdavinci.de/daten/#lwl-freilichtmuseum-detmold) und die Gebäude dort gibt es [176 Einträge](https://nwbib.de/search?subject=https%3A%2F%2Fd-nb.info%2Fgnd%2F605200-9) in der NWBib.
 
 Was lässt sich aus der Anschlussfähigkeit der NWBib an die anderen Datensets machen? Zum Beispiel kann die NWBib herangezogen werden, um in einer Anwendung auf weiterführende Literatur zu einem Ort oder einer Person zu verweisen.
 
