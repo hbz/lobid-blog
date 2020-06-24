@@ -17,11 +17,11 @@ So, let's take a look at an example workflow involving SkoHub Editor and the fed
 
 # Subscribing to a subject
 
-In one of the already mentioned blog posts we exemplary published the [Educational Subjects Classification](https://w3id.org/class/esc/scheme) with SkoHub Vocabs. Now, let's take a look at a single subject from this classification, e.g. [Library, information and archival studies](https://w3id.org/class/esc/n0322):
+In one of the already mentioned blog posts we exemplarily published the [Educational Subjects Classification](https://w3id.org/class/esc/scheme) with SkoHub Vocabs. Now, let's take a look at a single subject from this classification, e.g. [Library, information and archival studies](https://w3id.org/class/esc/n0322):
 
 <img src="/images/skohub-pubsub/concept.png" alt="Screenshot of the HTML version of a SKOS concept published with SkoHub.">
 
-On the left-hand side, you can see the location of the topic in the classification hierarchy. On the right-hand side, there is some basic information on the subject: It has a URI (`https://w3id.org/class/esc/n0322`), a notation within the classification (`0322`) a preferred label (`Library, information and archival studies`) and an inbox. This is how the [underlying JSON data](https://w3id.org/class/esc/n0322.json) (e.g. by adding the format suffix `.json` to the URI) looks like:
+On the left-hand side, you can see the location of the topic in the classification hierarchy. On the right-hand side, there is some basic information on the subject: It has a URI (`https://w3id.org/class/esc/n0322`), a notation (`0322`), a preferred label (`Library, information and archival studies`) and an inbox. This is how the [underlying JSON data](https://w3id.org/class/esc/n0322.json) (e.g. by adding the format suffix `.json` to the URI) looks like:
 
 ```json
 {
@@ -52,7 +52,7 @@ On the left-hand side, you can see the location of the topic in the classificati
 
 Besides the usual SKOS properties, the `followers` key gives a hint that I can somehow follow this subject. Clicking on the associated URL, I will see a JSON file containing the list of followers of this subject. I am also interested in this topic and want to follow it to receive notifications about knew online resources that are published and tagged with this subject. How do I achieve this?
 
-As already noted, what I need is a client that speaks ActivityPub. In this case we will use one of the most the popular services in the [Fediverse](https://en.wikipedia.org/wiki/Fediverse): Mastodon. So, I open up my Mastodon client and put the topic URI into the search box:
+As already noted, what I need is an application that speaks ActivityPub. In this case we will use one of the most the popular services in the [Fediverse](https://en.wikipedia.org/wiki/Fediverse): Mastodon. So, I open up my Mastodon client and put the topic URI into the search box:
 
 <img src="/images/skohub-pubsub/subscribe.png" alt="Screenshot of a Mastodon search result for a topic URL with adjacent subscribe button" style="width:420px">
 
@@ -70,7 +70,7 @@ Then, I fire up the extension when visiting the web page I like to share and add
 
 <img src="/images/skohub-pubsub/describing.png" alt="Describing a resource with the SkoHub Editor browser extension">
 
-I select the topic "Library, information and archival studies" from the suggestions in the "subject" field add information on licensing etc. and click "Publish". A pop up lets you know that the resource is published to "Library, information and archival studies". In the background, the description of the resource is sent to the respective topic (it could be more than one) which distributes the information to all its subscribers.  Thus, in the end I will receive a notification of the resource in my Mastodon timeline:
+I select the topic "Library, information and archival studies" from the suggestions in the "subject" field add information on licensing etc. and click "Publish". A pop up lets me know that the resource is published to "Library, information and archival studies". In the background, the description of the resource is sent to the respective topic (it could be more than one) which distributes the information to all its subscribers. Thus, in the end I as a subscriber of the topic will receive a notification of the resource in my Mastodon timeline:
 
 <img src="/images/skohub-pubsub/toot.png" alt="The toot announcing a resource newly published to a SkoHub topic" style="width:500px">
 
@@ -84,4 +84,4 @@ I select the topic "Library, information and archival studies" from the suggesti
 
 # Outlook
 
-We currently consider PubSub the least mature component of SkoHub. In the future, we would like to validate incoming Linked Data Notifications against a JSON schema that should be specific enough to ensure a consistent experience when viewing them e.g. in Mastodon but flexible enough to support additional use cases. We would also like to support additional ActivityPub activities such as [`Create`](https://www.w3.org/TR/activitypub/#create-activity-inbox) and [`Announce`](https://www.w3.org/TR/activitypub/#announce-activity-inbox) in order to enable use cases such as [mentioning a SkoHub concept on Mastodon](https://github.com/hbz/skohub-pubsub/issues/37). We would really value your input on this!
+We currently consider PubSub the least mature component of SkoHub. In the future, we would like to validate incoming Linked Data Notifications against a JSON schema that should be specific enough to ensure a consistent experience when viewing them e.g. in Mastodon but flexible enough to support additional use cases. We would also like to support [ActivityPub on the publication side](https://github.com/hbz/skohub-pubsub/issues/38) and [`Announce`](https://www.w3.org/TR/activitypub/#announce-activity-inbox) activities in order to enable use cases such as [mentioning a SkoHub concept on Mastodon](https://github.com/hbz/skohub-pubsub/issues/37). We would really value your input on this!
