@@ -126,7 +126,7 @@ Ein Array mit den Beiträgen von Personen oder Körperschaften (Organisationen) 
             "Contribution"
          ],
          "agent":{
-            "id":"http://d-nb.info/gnd/114263221",
+            "id":"https://d-nb.info/gnd/114263221",
             "type":[
                "Person"
             ],
@@ -143,7 +143,7 @@ Ein Array mit den Beiträgen von Personen oder Körperschaften (Organisationen) 
             "Contribution"
          ],
          "agent":{
-            "id":"http://d-nb.info/gnd/112181201",
+            "id":"https://d-nb.info/gnd/112181201",
             "type":[
                "Person"
             ],

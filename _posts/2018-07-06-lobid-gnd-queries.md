@@ -42,7 +42,7 @@ In den folgenden Beispielen wird immer wieder auf die strukturierten Daten im Fo
 2. Durch Anhängen von `.json` an die URL eines Einzeltreffers, z.B. [http://lobid.org/gnd/11850391X.json](http://lobid.org/gnd/11850391X)
 3. Der Vollständigkeit halber: **Bei Suchanfragen** muss der Parameter `format=json` angehängt werden, um die gesamte Ergebnisliste als JSON-LD anzuzeigen, z.B. [http://lobid.org/gnd/search?q=hannah+arendt&format=json](http://lobid.org/gnd/search?q=hannah+arendt&format=json). (Alternativ können auch mit dem Parameter `format=jsonl` JSON Lines ausgegeben werden, d.h. pro Zeile ein Eintrag als JSON, z.B. [http://lobid.org/gnd/search?q=hannah+arendt&format=jsonl](http://lobid.org/gnd/search?q=hannah+arendt&format=jsonl)).
 
-Die Bedeutung eines Feldes lässt sich im [JSON-LD-Kontext](https://json-ld.org/spec/latest/json-ld/#the-context) unter [http://lobid.org/gnd/context.jsonld](http://lobid.org/gnd/context.jsonld) nachschlagen. Will ich beispielsweise wissen, wie das Feld `broaderTermPartitive` verwendet wird, dann suche ich im JSON-LD-Kontext nach diesem Feld und folge dem angegebenen Link zur Beschreibung der zugrundeliegenden RDF-Property, hier ist dies die Beschreibung von ["Oberbegriff partitiv"](http://d-nb.info/standards/elementset/gnd#broaderTermPartitive) in der GND-Ontologie.
+Die Bedeutung eines Feldes lässt sich im [JSON-LD-Kontext](https://json-ld.org/spec/latest/json-ld/#the-context) unter [http://lobid.org/gnd/context.jsonld](http://lobid.org/gnd/context.jsonld) nachschlagen. Will ich beispielsweise wissen, wie das Feld `broaderTermPartitive` verwendet wird, dann suche ich im JSON-LD-Kontext nach diesem Feld und folge dem angegebenen Link zur Beschreibung der zugrundeliegenden RDF-Property, hier ist dies die Beschreibung von ["Oberbegriff partitiv"](https://d-nb.info/standards/elementset/gnd#broaderTermPartitive) in der GND-Ontologie.
 
 ## Feldsuchen
 
@@ -58,7 +58,7 @@ Will ich ein Feld abfragen, das sich nicht auf der obersten Ebene der geschachte
 {
   "professionOrOccupation": [
     {
-      "id": "http://d-nb.info/gnd/4124099-6",
+      "id": "https://d-nb.info/gnd/4124099-6",
       "label": "Sänger"
     }
   ]
@@ -83,10 +83,10 @@ Ich schaue zunächst im JSON nach, wie das entsprechende Feld heißt:
 
 ```json
 {
-  "id":"http://d-nb.info/gnd/1065252633",
+  "id":"https://d-nb.info/gnd/1065252633",
   "architect":[
     {
-      "id":"http://d-nb.info/gnd/118530232",
+      "id":"https://d-nb.info/gnd/118530232",
       "label":"Encke, Fritz"
     }
   ]
@@ -116,7 +116,7 @@ Im Kontext der Anzeige eines zufälligen Bildes auf der [lobid-gnd-Startseite](h
 
 ```json
 {
-  "id":"http://d-nb.info/gnd/11850391X",
+  "id":"https://d-nb.info/gnd/11850391X",
   "depiction":[
     {
       "id":"https://commons.wikimedia.org/wiki/Special:FilePath/Hannah_arendt-150x150.jpg",
@@ -155,10 +155,10 @@ Wenn ich eine Frage beantworten möchte wie "Welche Personen in der GND wurden i
 
 ```json
 {
-  "id":"http://d-nb.info/gnd/11850066X",
+  "id":"https://d-nb.info/gnd/11850066X",
   "placeOfBirth":[
     {
-      "id":"http://d-nb.info/gnd/4031483-2",
+      "id":"https://d-nb.info/gnd/4031483-2",
       "label":"Köln"
     }
   ],
@@ -172,13 +172,13 @@ Den ersten Schritt – die Eingrenzung auf in Köln geborene Personen – könne
 
  ![Screenshot](/images/2018-07-06-lobid-gnd-queries/lupe-klick.png "Suche per Lupe")
 
-Jetzt müssen wir die vorhandene Abfrage ([`placeOfBirth.id:"http://d-nb.info/gnd/4031483-2"`](http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22&format=html)) noch um eine Einschränkung des Geburtsdatums ergänzen. Hier können wir eine [range query](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-query-string-query.html#_ranges) verwenden, die Zeitrahmen mit verschiedenen Detailgraden (Jahr, Monat, Tag etc.) ermöglicht. Für unseren Fall probieren wir zunächst die tagesgenaue Eingrenzung mit `dateOfBirth:[1933-01-30 TO 1945-05-08]`:
+Jetzt müssen wir die vorhandene Abfrage ([`placeOfBirth.id:"https://d-nb.info/gnd/4031483-2"`](http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22&format=html)) noch um eine Einschränkung des Geburtsdatums ergänzen. Hier können wir eine [range query](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-query-string-query.html#_ranges) verwenden, die Zeitrahmen mit verschiedenen Detailgraden (Jahr, Monat, Tag etc.) ermöglicht. Für unseren Fall probieren wir zunächst die tagesgenaue Eingrenzung mit `dateOfBirth:[1933-01-30 TO 1945-05-08]`:
 
-[`placeOfBirth.id:"http://d-nb.info/gnd/4031483-2" AND dateOfBirth:[1933-01-30 TO 1945-05-08]`](http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933-01-30+TO+1945-05-08%5D)
+[`placeOfBirth.id:"https://d-nb.info/gnd/4031483-2" AND dateOfBirth:[1933-01-30 TO 1945-05-08]`](http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933-01-30+TO+1945-05-08%5D)
 
 Ebenfalls möglich ist eine jahresgenaue Abfrage (enthält hier auch Geburtsdaten im Jahr 1933 vor dem 30.1. und im Jahr 1945 nach dem 8.5.):
 
-[`placeOfBirth.id:"http://d-nb.info/gnd/4031483-2" AND dateOfBirth:[1933 TO 1945]`](http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D)
+[`placeOfBirth.id:"https://d-nb.info/gnd/4031483-2" AND dateOfBirth:[1933 TO 1945]`](http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D)
 
 Je nach Zweck kann die eine oder andere Abfrage sinnvoller sein.
 

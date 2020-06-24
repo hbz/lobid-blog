@@ -120,15 +120,15 @@ Das Ergebnis sieht wie folgt aus:
   "subject.componentList.id": [
     {
       "doc_count": 641,
-      "key": "http://d-nb.info/gnd/4019947-2"
+      "key": "https://d-nb.info/gnd/4019947-2"
     },
     {
       "doc_count": 105,
-      "key": "http://d-nb.info/gnd/2037491-4"
+      "key": "https://d-nb.info/gnd/2037491-4"
     },
     {
       "doc_count": 54,
-      "key": "http://d-nb.info/gnd/4069716-2"
+      "key": "https://d-nb.info/gnd/4069716-2"
     },
 ```
 

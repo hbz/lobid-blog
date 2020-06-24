@@ -94,7 +94,7 @@ To improve that using the parties, first let's check how political parties are r
 ```
 "affiliation": [
   {
-    "id": "http://d-nb.info/gnd/2022139-3",
+    "id": "https://d-nb.info/gnd/2022139-3",
     "label": "Sozialdemokratische Partei Deutschlands"
   }
 ]
@@ -102,12 +102,12 @@ To improve that using the parties, first let's check how political parties are r
 
 Since the label does not contain the abbreviated form used in our data (SPD), we should match based on the ID. To do so, we want to transform the abbreviations to their GND IDs:
 
-- SPD &rarr; `http://d-nb.info/gnd/2022139-3`
-- CDU &rarr; `http://d-nb.info/gnd/7230-8`
-- GRUENE &rarr; `http://d-nb.info/gnd/2124337-2`
-- FDP &rarr; `http://d-nb.info/gnd/37037-X`
-- LINKE &rarr; `http://d-nb.info/gnd/10173685-X`
-- PDS &rarr; `http://d-nb.info/gnd/5010217-5`
+- SPD &rarr; `https://d-nb.info/gnd/2022139-3`
+- CDU &rarr; `https://d-nb.info/gnd/7230-8`
+- GRUENE &rarr; `https://d-nb.info/gnd/2124337-2`
+- FDP &rarr; `https://d-nb.info/gnd/37037-X`
+- LINKE &rarr; `https://d-nb.info/gnd/10173685-X`
+- PDS &rarr; `https://d-nb.info/gnd/5010217-5`
 
 We can do this by opening a text facet for the abbreviations: `Facet` > `Text facet`:
 
@@ -153,7 +153,7 @@ Paste the following JSON (we first duplicate the original column to retain the o
         ],
         "fromBlank": false,
         "fromError": false,
-        "to": "http://d-nb.info/gnd/2124337-2"
+        "to": "https://d-nb.info/gnd/2124337-2"
       },
       {
         "from": [
@@ -169,7 +169,7 @@ Paste the following JSON (we first duplicate the original column to retain the o
         ],
         "fromBlank": false,
         "fromError": false,
-        "to": "http://d-nb.info/gnd/37037-X"
+        "to": "https://d-nb.info/gnd/37037-X"
       },
       {
         "from": [
@@ -177,7 +177,7 @@ Paste the following JSON (we first duplicate the original column to retain the o
         ],
         "fromBlank": false,
         "fromError": false,
-        "to": "http://d-nb.info/gnd/7230-8"
+        "to": "https://d-nb.info/gnd/7230-8"
       },
       {
         "from": [
@@ -185,7 +185,7 @@ Paste the following JSON (we first duplicate the original column to retain the o
         ],
         "fromBlank": false,
         "fromError": false,
-        "to": "http://d-nb.info/gnd/2022139-3"
+        "to": "https://d-nb.info/gnd/2022139-3"
       },
       {
         "from": [
@@ -193,7 +193,7 @@ Paste the following JSON (we first duplicate the original column to retain the o
         ],
         "fromBlank": false,
         "fromError": false,
-        "to": "http://d-nb.info/gnd/10173685-X"
+        "to": "https://d-nb.info/gnd/10173685-X"
       },
       {
         "from": [
@@ -201,7 +201,7 @@ Paste the following JSON (we first duplicate the original column to retain the o
         ],
         "fromBlank": false,
         "fromError": false,
-        "to": "http://d-nb.info/gnd/5010217-5"
+        "to": "https://d-nb.info/gnd/5010217-5"
       }
     ],
     "description": "Mass edit cells in column affiliation"
