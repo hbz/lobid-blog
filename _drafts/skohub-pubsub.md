@@ -52,7 +52,7 @@ On the left-hand side, you can see the location of the topic in the classificati
 
 Besides the usual SKOS properties, the `followers` key gives a hint that I can somehow follow this subject. Clicking on the associated URL, I will see a JSON file containing the list of followers of this subject. I am also interested in this topic and want to follow it to receive notifications about knew online resources that are published and tagged with this subject. How do I achieve this?
 
-As already noted, what I need is an application that speaks ActivityPub. In this case we will use one of the most the popular services in the [Fediverse](https://en.wikipedia.org/wiki/Fediverse): Mastodon. So, I open up my Mastodon client and put the topic URI into the search box:
+As already noted, what I need is an application that speaks ActivityPub. In this case we will use one of the most popular services in the [Fediverse](https://en.wikipedia.org/wiki/Fediverse): Mastodon. So, I open up my Mastodon client and put the topic URI into the search box:
 
 <img src="/images/skohub-pubsub/subscribe.png" alt="Screenshot of a Mastodon search result for a topic URL with adjacent subscribe button" style="width:420px">
 
