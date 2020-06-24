@@ -153,7 +153,7 @@ Mit den oben beschriebenen Wikidata-Ortsdaten in der NWBib lassen sich mit wenig
 #### Beispiel Reverse-Quiz
 
 Welche Stadt ist am bekanntesten für "Malerei"?
-Dabei muss auf das [Schlagwort "Malerei" eingegrenzt](https://nwbib.de/search?q=subject.componentList.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4037220-0%22) werden. Auf der rechten Seite der Trefferliste steht unter "Regionen" mit 601 Treffer "Düsseldorf" ganz oben.
+Dabei muss auf das [Schlagwort "Malerei" eingegrenzt](https://nwbib.de/search?q=subject.componentList.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4037220-0%22) werden. Auf der rechten Seite der Trefferliste steht unter "Regionen" mit 601 Treffer "Düsseldorf" ganz oben.
 
 ### Probleme
 
