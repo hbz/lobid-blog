@@ -9,7 +9,7 @@ In the previous blog posts we have presented [SkoHub Vocabs](http://blog.lobid.o
 
 Let's refresh what SkoHub is about by quoting the gist from [the project homepage](https://skohub.io/):
 
-> SkoHub supports a novel approach for finding content on the web. The general idea is to extend the scope of Knowledge Organization Systems (KOS) to also act as communication hubs for publishers and information seekers. In effect, SkoHub allows to follow specific subjects in order to be notified when new content about that subject is published. 
+> SkoHub supports a novel approach for finding content on the web. The general idea is to extend the scope of Knowledge Organization Systems (KOS) to also act as communication hubs for publishers and information seekers. In effect, SkoHub allows to follow specific subjects in order to be notified when new content about that subject is published.
 
 Before diving into the technical implementation and protocols used, we provide an example on how this subscription, publication and notification process can be carried out in practice. Although SkoHub Pubsub constitutes the core of the SkoHub infrastructure being the module that brings all SkoHub components together, it is not visible to end users by itself but only through applications which send out notifications or subscribe to a specific topic. (This is the great thing about open standards as it also invites everybody to develop new clients for specific use cases!)
 
@@ -76,4 +76,12 @@ I select the topic "Library, information and archival studies" from the suggesti
 
 # Protocols and implementation
 
- We decided to use relatively new but quite often implemented social media protocols published by W3C: [ActivityPub](http://activitypub.rocks/) and [Linked Data Notifications](https://www.w3.org/TR/ldn/). Furthermore, we support [Webfinger](https://docs.joinmastodon.org/spec/webfinger/) as it is needed to integrate with Mastodon.
+ The SkoHub-PubSub server is built in [Node.js](https://nodejs.org/en/) and implements a subset of [ActivityPub](http://activitypub.rocks/), [Linked Data Notifications](https://www.w3.org/TR/ldn/) and [Webfinger](https://docs.joinmastodon.org/spec/webfinger/) to achieve the behavior described above. On the ActivityPub side, Server to Server [Follow](https://www.w3.org/TR/activitypub/#follow-activity-inbox) and corresponding [Undo](https://www.w3.org/TR/activitypub/#undo-activity-inbox) interactions can be received to handle the subscription mechanism. Non-activity messages are considered Linked Data Notifications and can simply be sent to the inbox of a subject using a [POST request](https://www.w3.org/TR/ldn/#sender) with any JSON body. These notifications are considered metadata payload, wrapped in a `Create` action and distributed to every follower of the corresponding subject again using ActivityPub.
+
+ As for the internals, [MongoDB](https://www.mongodb.com/) is used to manage followers lists and an [Elasticsearch](https://www.elastic.co/elasticsearch/) index is used to keep an archive of all payloads that have been distributed. This archive can be used to search and further explore metadata that has been distributed, e.g. by visualizing the distribution of subjects across all payloads.
+
+ The most challenging aspects of the implementation were to gain an understanding of [Webfinger](https://github.com/hbz/skohub-pubsub/issues/27) for user discovery and of the details of message signatures and how to validate them. ["How to implement a basic ActivityPub server"](https://blog.joinmastodon.org/2018/06/how-to-implement-a-basic-activitypub-server/) was a good guidance here!
+
+# Outlook
+
+We currently consider PubSub the least mature component of SkoHub. In the future, we would like to validate incoming Linked Data Notifications against a JSON schema that should be specific enough to ensure a consistent experience when viewing them e.g. in Mastodon but flexible enough to support additional use cases. We would also like to support additional ActivityPub activities such as [`Create`](https://www.w3.org/TR/activitypub/#create-activity-inbox) and [`Announce`](https://www.w3.org/TR/activitypub/#announce-activity-inbox) in order to enable use cases such as [mentioning a SkoHub concept on Mastodon](https://github.com/hbz/skohub-pubsub/issues/37). We would really value your input on this!
