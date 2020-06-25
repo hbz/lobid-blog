@@ -12,15 +12,15 @@ SkoHub is all about utilizing the power of Knowledge Organization Systems (KOS) 
 
 We will thus start this series with [SkoHub Vocabs](https://github.com/hbz/skohub-vocabs) (formerly called "skohub-ssg"), a static site generator that provides integration for a GitHub-based workflow to publish an HTML version of SKOS vocabularies. Check out the [JAMStack Best Practices](https://jamstack.org/best-practices/) for some thoughts about the advantages of this approach. SkoHub Vocabs – like SkoHub Editor that will be presented in a separate post – is a stand-alone module that can already be helpful on its own, when used without any of the other SkoHub modules.
 
-# How to publish a SKOS scheme from GitHub with SkoHub Vocabs
+## How to publish a SKOS scheme from GitHub with SkoHub Vocabs
 
 Let's take a look at the editing and publishing workflow step by step. We will use SkoHub Vocabs to publish a subject classification for Open Educational Resources. We will use the "Educational Subject Classification" (ESC), that was created for the [OER World Map](https://oerworldmap.org) based on [ISCED Fields of Education and Training 2013](http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf).
 
-## Step 1: Publish vocab as turtle file(s) on GitHub
+### Step 1: Publish vocab as turtle file(s) on GitHub
 
 Currently, a SKOS vocab has to be published in a GitHub repository as one or more [Turtle](https://www.w3.org/TR/turtle/) file(s) in order to be processed by SkoHub Vocabs. ESC is already [available on GitHub](https://github.com/hbz/vocabs-edu/blob/master/esc.ttl) in one Turtle file, so there is nothing to do in this regard. Note that you can also use the static site generator locally, i.e. without GitHub integration; see [below](#implementation) for more about this.
 
-## Step 2: Configure webhook
+### Step 2: Configure webhook
 
 In order to publish a vocabulary from GitHub with SkoHub Vocabs, you have to set up a webhook in GitHub. It goes like this:
 
@@ -29,7 +29,7 @@ In order to publish a vocabulary from GitHub with SkoHub Vocabs, you have to set
 2. Enter `https://test.skohub.io/build` as payload URL, choose `application/json` as content type and enter the secret. (Please [contact](http://lobid.org/team/) us for the secret if you want to try it out.)
 <img src="/images/presenting-skohub-vocabs/add-webhook2.png" alt="Screenshot of the Webhook page with input (payload URL and secret)." style="width:620px">
 
-## Step 3: Execute build & error handling
+### Step 3: Execute build & error handling
 
 For the vocabulary to be built and published on SkoHub, there has to be a new commit in the master branch. So, we have to adjust something in the vocab and push it into the master branch. Looking again at the webhook page in the repo settings, you can see a notice that the build was triggered:
 
@@ -45,7 +45,7 @@ Oops, we forgot to check the vocab for syntax errors before triggering the build
 
 This time the [build](https://test.skohub.io/build/?id=678ba699-758d-498d-afeb-104d8824f282) goes through without errors and, voilà, SkoHub has published a human-readable version of the vocabulary at [https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.html](https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.html). (SkoHub Static Site Generator also publishes an [overview](https://test.skohub.io/hbz/vocabs-edu/) of all the SKOS vocaularies in the GitHub repo.)
 
-## Step 4: Redirect vocab URI to SkoHub
+### Step 4: Redirect vocab URI to SkoHub
 
 As we want the canonical version of ESC to be the one published with SkoHub Vocabs, we need to redirect the namespace URI we defined in the Turtle file to SkoHub. As we used w3id.org for this, we have to make a pull request in the respective repo.
 
@@ -53,7 +53,7 @@ As we want the canonical version of ESC to be the one published with SkoHub Voca
 
 If everything looks good, w3id.org PRs are merged very quickly, in this case it happened an hour later.
 
-## Result: HTML & JSON-LD representation published with SkoHub & basic GitHub editing workflow
+### Result: HTML & JSON-LD representation published with SkoHub & basic GitHub editing workflow
 
 As a result, we have published a controlled vocabulary in SKOS under a permanent URI and with a human-readable [HTML](https://w3id.org/class/esc/scheme.html) representation from GitHub with a minimum amount of work. Additionally, the initial Turtle representation is transformed to more developer-friendly [JSON-LD](https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.jsonld). The HTML has a hierarchy view that can be expanded and collapsed at will:
 
@@ -65,7 +65,7 @@ There also is a search field to easily filter the vocabulary:
 
 This filter is based on a [FlexSearch](https://github.com/nextapps-de/flexsearch) index that is also built along with the rest of the content. This allows us to implement lookup functionalities without the need for a server-side API. More about this below and in the upcoming post on the SkoHub Editor.
 
-# Implementation
+## Implementation
 
 To follow along the more technical aspects, you might want to have SkoHub Vocabs checked out locally:
 
