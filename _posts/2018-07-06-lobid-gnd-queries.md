@@ -8,11 +8,11 @@ tags: lobid-gnd
 
 Im [vorherigen Beitrag](http://blog.lobid.org/2018/07/03/lobid-gnd-suche.html) haben wir bereits die Oberfläche von [lobid-gnd](https://lobid.org/gnd) und ihre Funktionen beschrieben. Die API ermöglicht aber auch komplexere Abfragen, für die man sich ein wenig mit den zugrundeliegenden Datenstrukturen vertraut machen muss. Dies soll in diesem Beitrag an einigen Beispielen ausgeführt werden.
 
-# Query-Grundlagen
+## Query-Grundlagen
 
 Bevor wir die Suchmöglichkeiten an einigen Beispielen illustrieren, werden zunächst einige generelle Informationen zur Suche geliefert.
 
-## Eingabe
+### Eingabe
 
 Alle Abfragen können über das Suchfeld auf der lobid-gnd-Seite eingegeben werden:
 
@@ -26,14 +26,14 @@ Oder auf der Kommandozeile via curl:
 
 <small>`$ curl "http://lobid.org/gnd/search?q=Dom+K%C3%B6ln"`</small>
 
-## Default-Sucheinstellungen & boolesche Operatoren
+### Default-Sucheinstellungen & boolesche Operatoren
 
 Standardmäßig geht eine im Suchfenster angestoßene Suche über alle Felder. Mehrere Suchterme werden dabei per default mit einem booleschen `AND` verknüpft. Boolesche Operatoren lassen sich aber auch passgenau für den jeweiligen Zweck angeben. Beispiele:
 
 - [Dom UND (Aachen ODER Köln)](http://lobid.org/gnd/search?q=Dom+AND+(Aachen OR Köln))
 - [Geographika in (Äthiopien ODER Eritrea)](http://lobid.org/gnd/search?q=type%3APlaceOrGeographicName+AND+geographicAreaCode.id%3A%28%22https%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XC-ET%22+OR+%22https%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XC-ER%22%29)
 
-## Anzeige der JSON-Daten
+### Anzeige der JSON-Daten
 
 In den folgenden Beispielen wird immer wieder auf die strukturierten Daten im Format JSON-LD Bezug genommen, die es für jeden Eintrag in lobid-gnd gibt. Anzeigen lassen sich diese wie folgt:
 
@@ -44,7 +44,7 @@ In den folgenden Beispielen wird immer wieder auf die strukturierten Daten im Fo
 
 Die Bedeutung eines Feldes lässt sich im [JSON-LD-Kontext](https://json-ld.org/spec/latest/json-ld/#the-context) unter [http://lobid.org/gnd/context.jsonld](http://lobid.org/gnd/context.jsonld) nachschlagen. Will ich beispielsweise wissen, wie das Feld `broaderTermPartitive` verwendet wird, dann suche ich im JSON-LD-Kontext nach diesem Feld und folge dem angegebenen Link zur Beschreibung der zugrundeliegenden RDF-Property, hier ist dies die Beschreibung von ["Oberbegriff partitiv"](https://d-nb.info/standards/elementset/gnd#broaderTermPartitive) in der GND-Ontologie.
 
-## Feldsuchen
+### Feldsuchen
 
 Über die `<Feld>:<Suchbegriff>`-Syntax kann in spezifischen Feldern gesucht werden, z.B. nach einer bestimmten Ansetzungsform:
 
@@ -67,15 +67,15 @@ Will ich ein Feld abfragen, das sich nicht auf der obersten Ebene der geschachte
 
 So kann ich etwa nach [`professionOrOccupation.label:Sänger*`](http://lobid.org/gnd/search?q=professionOrOccupation.label:Sänger*) suchen, wenn ich sowohl männliche wie auch weibliche Vokalist*innen finden möchte.
 
-# Beispiele
+## Beispiele
 
-## `_exists_`-Abfragen
+### `_exists_`-Abfragen
 
 Häufig ist es hilfreich herauszufinden, wie viele und welche Einträge überhaupt eine bestimmte Information beinhalten bzw. in wie vielen Einträgen ein bestimmtes Feld fehlt. Dafür kann eine Anfrage in der Form `_exists_:<Feldname>` verwendet werden, optional mit dem booleschen `NOT`, um alle Einträge zu bekommen, die das jeweilige *nicht* haben, z.B. geschlechtslose Geister:
 
 [`http://lobid.org/gnd/search?q=type:Spirits+AND+NOT+_exists_:gender`](http://lobid.org/gnd/search?q=type%3ASpirits+AND+NOT+_exists_%3Agender)
 
-## Einträge mit Angabe eines Architekten
+### Einträge mit Angabe eines Architekten
 
 Beim Betrachten etwa des Eintrags zum [Friedenspark Köln](http://lobid.org/gnd/1065252633) fällt auf, dass ein Architekt angegeben ist. Bei Interesse daran, welche Einträge noch Architekt*innen angeben, lässt sich das wie folgt herausfinden.
 
@@ -99,7 +99,7 @@ Dann schreibe ich die entsprechende `_exists`-[Anfrage](http://lobid.org/gnd/sea
 Unterfelder werden wie beschrieben über eine Punkt-Notation angegeben, z.B. Architekten mit dem label "Fritz":
 [`architect.label:Fritz`](http://lobid.org/gnd/search?q=architect.label:Fritz)
 
-## Gleichzeitige Suche in Ansetzungs- und Verweisungsformen
+### Gleichzeitige Suche in Ansetzungs- und Verweisungsformen
 
 Aus einer E-Mail-Anfrage an das lobid-Team:
 
@@ -110,7 +110,7 @@ Das geht über eine Kombination von booleschem OR und Phrasensuche mit `"<Phrase
 [`preferredName:"Muka, Arnošt" OR variantName:"Muka, Arnošt"`](http://lobid.org/gnd/search?q=preferredName%3A%22Muka%2C+Arno%C5%A1t%22+OR+variantName%3A%22Muka%2C+Arno%C5%A1t%22)
 
 
-## Suche nach Einträgen mit Wikidata-Link aber ohne Bild
+### Suche nach Einträgen mit Wikidata-Link aber ohne Bild
 
 Im Kontext der Anzeige eines zufälligen Bildes auf der [lobid-gnd-Startseite](https://lobid.org/gnd) kam die Frage auf, wie viele und welche Einträge einen Wikidata-Link aber kein Bild haben. Dafür schaue ich mir zunächst am besten die Daten eines Eintrags an der beides hat, z.B. [Hannah Arendt](http://lobid.org/gnd/11850391X.json). Hier die für uns wichtigen Ausschnitte:
 
@@ -149,7 +149,7 @@ Wir wollen aber nicht alle Einträge mit Wikidata-Link, sondern nur jene *ohne B
 
 [`sameAs.collection.id:"http://www.wikidata.org/entity/Q2013" AND NOT _exists_:depiction`](http://lobid.org/gnd/search?q=sameAs.collection.id:"http://www.wikidata.org/entity/Q2013"+AND+NOT+_exists_:depiction)
 
-## Personen, die während der NS-Zeit in Köln geboren wurden
+### Personen, die während der NS-Zeit in Köln geboren wurden
 
 Wenn ich eine Frage beantworten möchte wie "Welche Personen in der GND wurden in der NS-Zeit in Köln geboren?", dann ist es sinnvoll, sich einen Eintrag zu suchen, der die nötigen Informationen zur Beantwortung einer solchen Frage besitzt. Hier z.B. die strukturierten Daten zum Eintrag von [Konrad Adenauer](http://lobid.org/gnd/11850066X.json), der folgende Informationen zu Geburtsort und -datum enthält:
 
@@ -182,6 +182,6 @@ Ebenfalls möglich ist eine jahresgenaue Abfrage (enthält hier auch Geburtsdate
 
 Je nach Zweck kann die eine oder andere Abfrage sinnvoller sein.
 
-## Vollständige Query-Syntax
+### Vollständige Query-Syntax
 
 lobid-gnd ist auf Basis von [Elasticsearch](https://de.wikipedia.org/wiki/Elasticsearch) umgesetzt. Wir verweisen hier auf die vollständige Dokumentation der [Elasticsearch Query String Syntax](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-query-string-query.html#query-string-syntax) sowie der [Apache Lucene Query Syntax](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html). (Elasticsearch basiert auf [Apache Lucene](https://de.wikipedia.org/wiki/Apache_Lucene).)

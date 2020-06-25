@@ -6,7 +6,7 @@ author: Fabian Steeg, Pascal Christoph
 tags: lobid-resources lobid-organisations lobid-gnd
 ---
 
-# Introduction: The Lobid API
+## Introduction: The Lobid API
 
 [Lobid](http://lobid.org) provides uniform access to different library-related data via a web-based application programming interface (API) that serves JSON for linked data (JSON-LD):
 
@@ -16,7 +16,7 @@ The idea is to decouple applications that make use of the data from specific dat
 
 After the initial release of the API in 2013 we started [gathering improvements](https://github.com/hbz/lobid/issues/1) that would not be compatible with the released version, as a preparation for a future API 2.0 release. With the upcoming launch of our 2.0 APIs, we want to revisit these improvements, and describe how we implemented them.
 
-# Architecture: from horizontal layers to vertical slices
+## Architecture: from horizontal layers to vertical slices
 
 The implementation of the 1.x system was a classical layered system: we had one repo that implemented the backend, which included data transformations and storage for all datasets, and one repo that implemented the API and frontend for all datasets. All datasets shared one Elasticsearch cluster, and all APIs and UIs ran in the same process.
 
@@ -28,11 +28,11 @@ So for the 2.0 system, we sliced the system boundaries to [vertical, self contai
 
 Combining these modules, we still get a large API area, and a large UI, but each part of the API and UI is encapsuled in its own module, which deals with one dataset, and can be understood, changed, and deployed independently.
 
-# JSON-LD: an RDF serialization, or JSON with context
+## JSON-LD: an RDF serialization, or JSON with context
 
 JSON-LD is a W3C recommendation for a JSON-based linked data serialization. There are two ways to view JSON-LD: as an RDF serialization (like N-Triples, Turtle, or RDF-XML), or as a way to use JSON for linking data. This is reflected in the [JSON-LD spec](https://www.w3.org/TR/json-ld/), which both states that JSON-LD is "usable as RDF", and that it is "designed to be usable directly as JSON, with no knowledge of RDF". Regular JSON becomes serializable as RDF by [attaching a context](https://www.w3.org/TR/json-ld/#the-context).
 
-## Generic JSON-LD in the 1.x system
+### Generic JSON-LD in the 1.x system
 
 For the 1.x API, we created N-Triples in our data transformation and automatically converted them to JSON-LD using a JSON-LD processor, thus treating it completely as an RDF serialization:
 
@@ -40,9 +40,9 @@ For the 1.x API, we created N-Triples in our data transformation and automatical
 
 The resulting JSON-LD used the URIs from the N-Triples as the JSON keys. We indexed this data in Elasticsearch as [expanded JSON-LD](https://www.w3.org/TR/json-ld/#expanded-document-form).<sup>1</sup> When serving responses via our API, we automatically converted the data to [compact JSON-LD](https://www.w3.org/TR/json-ld/#compacted-document-form) to get short, more user friendly keys. So we actually generated two formats: the internal index format, and the external API format.
 
-## Custom JSON-LD in the 2.0 systems
+### Custom JSON-LD in the 2.0 systems
 
-### Creating JSON-LD as JSON with context: lobid-organisations
+#### Creating JSON-LD as JSON with context: lobid-organisations
 
 For the first dataset that we moved to the new approach, lobid-organisations, we turned that around &mdash; instead of crafting N-Triples, and generating JSON-LD from them, we crafted JSON in the exact structure we want, from which we can then generate RDF serializations like N-Triples:
 
@@ -52,15 +52,15 @@ The main advantage of this is that it puts the concrete use case first: we expli
 
 Compared to the approach in the 1.x API, this is at the opposite side of the spectrum described above, treating JSON-LD as JSON, with no knowledge of RDF.
 
-### Creating JSON-LD as an RDF serialization: lobid-resources
+#### Creating JSON-LD as an RDF serialization: lobid-resources
 
 For lobid-resources 2.0, we adopted something in between. We decided to reuse and build upon the transformation script of API 1.x, as it already transforms our data into N-Triples. We then used code which was developed by Jan Schnasse for the [etikett project](https://github.com/hbz/etikett) to create custom JSON-LD from the N-Triples. Like for lobid-organisations, and unlike the lobid 1.x API, the resulting custom JSON-LD is the internal index format _and at the same time_ the external API format.
 
-## Benefits of custom JSON-LD
+### Benefits of custom JSON-LD
 
 Both approaches to creating custom JSON-LD, be it custom generated from N-Triples or 'hand crafted' JSON, yield multiple benefits.
 
-### What you see is what you can query
+#### What you see is what you can query
 
 A central aspect is that we now serve the same format that is actually stored in the index. This allows us to support generic querying for any part of the data. For instance, if you look at a particular record, like [http://lobid.org/organisations/DE-605?format=json](http://lobid.org/organisations/DE-605?format=json), you see something like:
 
@@ -83,7 +83,7 @@ These can now be expressed with a generic `q` query parameter and actual field n
 
 This avoids a limitation of the supported query types to those we anticipated. It opens API access to the full data.
 
-### Semantically structured data
+#### Semantically structured data
 
 The generated JSON-LD in the 1.x API resulted in a flat structure, with objects in an array under the `@graph` key, e.g. in `http://lobid.org/organisation?id=DE-605&format=full`:
 
@@ -136,7 +136,7 @@ This allows developers familiar with JSON to process the data in a straightforwa
 
 Another example for adding semantics to our data by providing a custom structure in our JSON, and the effect of that data on its usage in the client, [are contributors and their roles in lobid-resources](http://blog.lobid.org/2016/12/13/data-modeling-client-effects.html).
 
-### Labels for IDs
+#### Labels for IDs
 
 When using the API, a common use case is to show labels for the URIs used to identify resources, authors, subjects, etc. For applications using the 1.x APIs, we implemented label lookup functionality in many different forms and contexts. To ease that use case, we provide labels in the 2.0 API along with IDs when it makes sense and is possible. For instance the old data would only contain a URI for the medium:
 
@@ -151,11 +151,11 @@ To display labels for URIs like this, we had to maintain mappings of URIs to lab
 
 Like for the creation of the JSON-LD in general, the implementation for adding these labels differs in the JSON-first and the Triples-first approach. In lobid-organisations, like all other aspects of the JSON creation, it is part of the transformation. For lobid-resources, a `labels.json` config file is used during the conversion from N-Triples to JSON-LD.
 
-### Summary: JSON-LD does not equal JSON-LD
+#### Summary: JSON-LD does not equal JSON-LD
 
 A key take away from our experience with JSON-LD is that JSON-LD can be used and produced very differently. How it's created has major effects on how it can be processed, and on how useful it appears to developers with different backgrounds. While a pure RDF serialization as in our 1.x API might be perfectly usable for developers working on the RDF model anyway, it can alienate web developers familiar with JSON. This variety in what JSON-LD actually looks like provides a challenge in talking about the usefulness of JSON-LD. At the same time this is JSON-LD's unique strength, being both a JSON-based RDF serialization, and a simple way to link JSON data.
 
-# User interfaces
+## User interfaces
 
 In addition to these API and data changes, [Lobid](http://lobid.org) 2.0 provides improved user interfaces. While the original service only had rudimentary table views for single records and search queries, the new services provide full featured search interfaces including map based visualizations and faceted search.
 

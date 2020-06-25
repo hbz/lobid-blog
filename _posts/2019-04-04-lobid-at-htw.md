@@ -26,7 +26,7 @@ Wir hatten uns in der Vorbereitung relativ zügig auf die groben Inhalte geeinig
 
 Die Slides zur Veranstaltung finden sich unter [http://slides.lobid.org/htw-chur-2019/](http://slides.lobid.org/htw-chur-2019/). (Wir haben zu einem großen Teil Slides aus vergangenen Präsentationen recycelt und angepasst aber auch einige Dinge – wie z.B. die [JSON-LD-Übung ab Slide 66](http://slides.lobid.org/htw-chur-2019/#/66) – neu erstellt.)
 
-# Lessons Learned
+## Lessons Learned
 
 Vor dem Hintergrund, dass wir keine Erfahrungen mit solcherlei Veranstaltungen hatten, sind wir insgesamt sehr zufrieden mit dem Verlauf. Ein großer Teil der Teilnehmer\*innen ist unserem Vortrag gefolgt (natürlich gab es auch einige, die anderes zu tun hatten, aber das bleibt bei einem Uni-Seminar nicht aus). Eine Handvoll von Student\*innen hat an verschiedenen Stellen nachgefragt und es haben sich Diskussionen entsponnen. Die Rückmeldungen, die wir am Ende von einigen Teilnehmer\*innen bekamen, waren durchweg positiv.
 

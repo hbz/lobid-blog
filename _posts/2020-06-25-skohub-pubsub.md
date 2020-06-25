@@ -15,7 +15,7 @@ Before diving into the technical implementation and protocols used, we provide a
 
 So, let's take a look at an example workflow involving SkoHub Editor and the federated microblogging service [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)) to demonstrate the functionalities.
 
-# Subscribing to a subject
+## Subscribing to a subject
 
 In one of the already mentioned blog posts we exemplarily published the [Educational Subjects Classification](https://w3id.org/class/esc/scheme) with SkoHub Vocabs. Now, let's take a look at a single subject from this classification, e.g. [Library, information and archival studies](https://w3id.org/class/esc/n0322):
 
@@ -58,7 +58,7 @@ As already noted, what I need is an application that speaks ActivityPub. In this
 
 I click on the follow button and am now following this subject with my Mastodon account and will receive any updates posted by it.
 
-# Describing and announcing a resource with SkoHub Editor
+## Describing and announcing a resource with SkoHub Editor
 
 Let's now switch into the role of a scholar, teacher, tutor or general interested person who has created an instructive online resource and wants to publish it to all people interested in the topic of "Library, information and archival studies". In this case, I published a [blog post about a talk at SWIB19 – Semantic Web in Libraries Conference](http://blog.lobid.org/2020/01/29/skohub-talk-at-swib19.html) and want to share it with others. I somehow need to send a message to the topic's inbox, in this case I am using the SkoHub Editor (but it could be any other ActivityPub client or even the command line interface from which I publish). For the best user experience I download the SkoHub browser extension ([Firefox](https://addons.mozilla.org/firefox/addon/skohub-extension/), [Chrome](https://chrome.google.com/webstore/detail/skohub/ghalhmcgaicdcpmdicinaegnoanfmggd)).
 
@@ -74,7 +74,7 @@ I select the topic "Library, information and archival studies" from the suggesti
 
 <img src="/images/skohub-pubsub/toot.png" alt="The toot announcing a resource newly published to a SkoHub topic" style="width:500px">
 
-# Protocols and implementation
+## Protocols and implementation
 
  The SkoHub-PubSub server is built in [Node.js](https://nodejs.org/en/) and implements a subset of [ActivityPub](http://activitypub.rocks/), [Linked Data Notifications](https://www.w3.org/TR/ldn/) and [Webfinger](https://docs.joinmastodon.org/spec/webfinger/) to achieve the behavior described above. On the ActivityPub side, Server to Server [Follow](https://www.w3.org/TR/activitypub/#follow-activity-inbox) and corresponding [Undo](https://www.w3.org/TR/activitypub/#undo-activity-inbox) interactions can be received to handle the subscription mechanism. Non-activity messages are considered Linked Data Notifications and can simply be sent to the inbox of a subject using a [POST request](https://www.w3.org/TR/ldn/#sender) with any JSON body. These notifications are considered metadata payload, wrapped in a `Create` action and distributed to every follower of the corresponding subject again using ActivityPub.
 
@@ -82,6 +82,6 @@ I select the topic "Library, information and archival studies" from the suggesti
 
  The most challenging aspects of the implementation were to gain an understanding of [Webfinger](https://github.com/hbz/skohub-pubsub/issues/27) for user discovery and of the details of message signatures and how to validate them. ["How to implement a basic ActivityPub server"](https://blog.joinmastodon.org/2018/06/how-to-implement-a-basic-activitypub-server/) was a good guidance here!
 
-# Outlook
+## Outlook
 
 We currently consider PubSub the least mature component of SkoHub. In the future, we would like to validate incoming Linked Data Notifications against a JSON schema that should be specific enough to ensure a consistent experience when viewing them e.g. in Mastodon but flexible enough to support additional use cases. We would also like to support [ActivityPub on the publication side](https://github.com/hbz/skohub-pubsub/issues/38) and [Announce](https://www.w3.org/TR/activitypub/#announce-activity-inbox) activities in order to enable use cases such as [mentioning a SkoHub concept on Mastodon](https://github.com/hbz/skohub-pubsub/issues/37). We would really value your input on this!
