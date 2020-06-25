@@ -5,13 +5,13 @@ author: Adrian Pohl, Felix Ostrowski
 tags: skohub
 ---
 
-In the previous blog posts we have presented [SkoHub Vocabs](http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html) and [SkoHub Editor](http://blog.lobid.org/2020/03/31/skohub-editor.html). In the final post of this SkoHub introduction series we will take a deeper look at SkoHub PubSub, the part of SkoHub that brings the novel approach of "KOS-based content subscription" into the game.
+In the previous blog posts we have presented [SkoHub Vocabs](http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html) and [SkoHub Editor](http://blog.lobid.org/2020/03/31/skohub-editor.html). In the final post of this SkoHub introduction series we will take a deeper look at SkoHub PubSub, the part of SkoHub that brings the novel approach of KOS-based content subscription into the game.
 
 Let's refresh what SkoHub is about by quoting the gist from [the project homepage](https://skohub.io/):
 
 > SkoHub supports a novel approach for finding content on the web. The general idea is to extend the scope of Knowledge Organization Systems (KOS) to also act as communication hubs for publishers and information seekers. In effect, SkoHub allows to follow specific subjects in order to be notified when new content about that subject is published.
 
-Before diving into the technical implementation and protocols used, we provide an example on how this subscription, publication and notification process can be carried out in practice. Although SkoHub Pubsub constitutes the core of the SkoHub infrastructure being the module that brings all SkoHub components together, it is not visible to end users by itself but only through applications which send out notifications or subscribe to a specific topic. (This is the great thing about open standards as it also invites everybody to develop new clients for specific use cases!)
+Before diving into the technical implementation and protocols used, we provide an example on how this subscription, publication and notification process can be carried out in practice. Although SkoHub PubSub constitutes the core of the SkoHub infrastructure being the module that brings all SkoHub components together, it is not visible to end users by itself but only through applications which send out notifications or subscribe to a specific topic. (This is the great thing about open standards as it also invites everybody to develop new clients for specific use cases!)
 
 So, let's take a look at an example workflow involving SkoHub Editor and the federated microblogging service [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)) to demonstrate the functionalities.
 
@@ -50,7 +50,7 @@ On the left-hand side, you can see the location of the topic in the classificati
 }
 ```
 
-Besides the usual SKOS properties, the `followers` key gives a hint that I can somehow follow this subject. Clicking on the associated URL, I will see a JSON file containing the list of followers of this subject. I am also interested in this topic and want to follow it to receive notifications about knew online resources that are published and tagged with this subject. How do I achieve this?
+Besides the usual SKOS properties, the `followers` key gives a hint that I can somehow follow this subject. Clicking on the associated URL, I will see a JSON file containing the list of followers of this subject. I am also interested in this topic and want to follow it to receive notifications about new online resources that are published and tagged with this subject. How do I achieve this?
 
 As already noted, what I need is an application that speaks ActivityPub. In this case we will use one of the most popular services in the [Fediverse](https://en.wikipedia.org/wiki/Fediverse): Mastodon. So, I open up my Mastodon client and put the topic URI into the search box:
 
@@ -70,7 +70,7 @@ Then, I fire up the extension when visiting the web page I like to share and add
 
 <img src="/images/skohub-pubsub/describing.png" alt="Describing a resource with the SkoHub Editor browser extension">
 
-I select the topic "Library, information and archival studies" from the suggestions in the "subject" field add information on licensing etc. and click "Publish". A pop up lets me know that the resource is published to "Library, information and archival studies". In the background, the description of the resource is sent to the respective topic (it could be more than one) which distributes the information to all its subscribers. Thus, in the end I as a subscriber of the topic will receive a notification of the resource in my Mastodon timeline:
+I select the topic "Library, information and archival studies" from the suggestions in the "subject" field, add information on licensing etc. and click "Publish". A pop up lets me know that the resource is published to "Library, information and archival studies". In the background, the description of the resource is sent to the respective topic (it could be more than one) which distributes the information to all its subscribers. Thus, in the end I as a subscriber of the topic will receive a notification of the resource in my Mastodon timeline:
 
 <img src="/images/skohub-pubsub/toot.png" alt="The toot announcing a resource newly published to a SkoHub topic" style="width:500px">
 
@@ -84,4 +84,4 @@ I select the topic "Library, information and archival studies" from the suggesti
 
 # Outlook
 
-We currently consider PubSub the least mature component of SkoHub. In the future, we would like to validate incoming Linked Data Notifications against a JSON schema that should be specific enough to ensure a consistent experience when viewing them e.g. in Mastodon but flexible enough to support additional use cases. We would also like to support [ActivityPub on the publication side](https://github.com/hbz/skohub-pubsub/issues/38) and [`Announce`](https://www.w3.org/TR/activitypub/#announce-activity-inbox) activities in order to enable use cases such as [mentioning a SkoHub concept on Mastodon](https://github.com/hbz/skohub-pubsub/issues/37). We would really value your input on this!
+We currently consider PubSub the least mature component of SkoHub. In the future, we would like to validate incoming Linked Data Notifications against a JSON schema that should be specific enough to ensure a consistent experience when viewing them e.g. in Mastodon but flexible enough to support additional use cases. We would also like to support [ActivityPub on the publication side](https://github.com/hbz/skohub-pubsub/issues/38) and [Announce](https://www.w3.org/TR/activitypub/#announce-activity-inbox) activities in order to enable use cases such as [mentioning a SkoHub concept on Mastodon](https://github.com/hbz/skohub-pubsub/issues/37). We would really value your input on this!
