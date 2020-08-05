@@ -12,7 +12,7 @@ tags: job
 
 ---
 
-<img style="float: right; width:150px !important;" src="http://lobid.org/images/hbz.png">
+<img style="float: right; width:150px !important;" src="https://lobid.org/images/hbz.png">
 Das Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen in Köln (hbz) ist eine zentrale Dienstleistungs- und Entwicklungseinrichtung für die Hochschulbibliotheken in NRW. Das hbz ist Mitglied des W3C. Es setzt sich für die Etablierung einer offenen Dateninfrastruktur in der Bibliothekswelt und der Wissenschaft ein und entwickelt aktiv Open-Source-Software.
 
 Zur Verstärkung der Gruppe „Offene Infrastruktur“ suchen wir zum nächstmöglichen Zeitpunkt eine/einen 
