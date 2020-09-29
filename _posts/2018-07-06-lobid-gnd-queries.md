@@ -50,7 +50,7 @@ Die Bedeutung eines Feldes lässt sich im [JSON-LD-Kontext](https://json-ld.org/
 
 ![Screenshot](/images/2018-07-06-lobid-gnd-queries/field-search.png "Feldsuche in Eingabefenster")
 
-[http://lobid.org/gnd/search?q=preferredName:"Dom+Köln"](http://lobid.org/gnd/search?q=preferredName:"Dom+K%C3%B6ln")
+[http://lobid.org/gnd/search?q=preferredName:"Dom+Köln"](http://lobid.org/gnd/search?q=preferredName:%22Dom+K%C3%B6ln%22)
 
 Will ich ein Feld abfragen, das sich nicht auf der obersten Ebene der geschachtelten JSON-Daten befindet, muss ich es über den Pfad identifizieren, das heißt ich gebe die Felder an, in denen das Feld eingebettet ist. Beispielsweise `professionOrOccupation.label` in folgenden Daten:
 
