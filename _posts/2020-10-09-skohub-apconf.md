@@ -2,7 +2,7 @@
 layout: post
 title: "ActivityPub Conference 2020"
 author: Adrian Pohl, Felix Ostrowski
-date: 2020-10-06
+date: 2020-10-09
 tags: skohub
 ---
 
