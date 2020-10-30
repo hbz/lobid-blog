@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 	<head>
 		<meta charset="UTF-8">
 		<title>{{ page.title }}</title>
@@ -16,22 +16,24 @@
 	<body>
 		<nav>
 			<ul>
-				<li><img class="logo" src="/images/lobid.png"/></li>
+				<li><img class="logo" src="/images/lobid.png" alt="lobid"/></li>
 				<li><a href="/">Blog</a></li>
 				<li><a href="/about">About</a></li>
 			</ul>
 		</nav>
-		<div class="container">
-			{{ content }}
-		</div>
+		<main>
+			<div class="container">
+				{{ content }}
+			</div>
+		</main>
 		<footer>
-		<ul>
-			<li><a href="mailto:semweb@hbz-nrw.de">Contact</a></li>
-			<li><a href="https://lobid.org">lobid.org</a></li>
-			<li><a href="https://github.com/hbz">github.com/hbz</a></li>
-			<li><a href="/feed.xml">Feed</a></li>
-			<li><a href="https://wiki1.hbz-nrw.de/pages/viewrecentblogposts.action?key=SEM">Old blog (2010-2015)</a></li>
-		</ul>
+			<ul>
+				<li><a href="mailto:semweb@hbz-nrw.de">Contact</a></li>
+				<li><a href="https://lobid.org">lobid.org</a></li>
+				<li><a href="https://github.com/hbz">github.com/hbz</a></li>
+				<li><a href="/feed.xml">Feed</a></li>
+				<li><a href="https://wiki1.hbz-nrw.de/pages/viewrecentblogposts.action?key=SEM">Old blog (2010-2015)</a></li>
+			</ul>
 		</footer>
 		<script>
 			anchors.add();
