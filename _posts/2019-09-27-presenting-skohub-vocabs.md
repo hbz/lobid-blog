@@ -43,7 +43,7 @@ Oops, we forgot to check the vocab for syntax errors before triggering the build
 
 <img src="/images/presenting-skohub-vocabs/fix-error.png" alt="Screenshot from build log with error message" style="width:620px">
 
-This time the build goes through without errors and, voilà, SkoHub has published a human-readable version of the vocabulary at [https://test.skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/scheme.html](https://test.skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/scheme.html). (SkoHub Static Site Generator also publishes an [overview](https://test.skohub.io/hbz/vocabs-edu/heads/master/) of all the SKOS vocaularies in the GitHub repo.)
+This time the build goes through without errors and, voilà, SkoHub has published a human-readable version of the vocabulary at [https://test.skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/scheme.en.html](https://test.skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/scheme.en.html). SkoHub Static Site Generator also publishes an [overview](https://test.skohub.io/hbz/vocabs-edu/heads/master/index.en.html) of all the SKOS vocaularies in the GitHub repo.
 
 ### Step 4: Redirect vocab URI to SkoHub
 
@@ -55,9 +55,9 @@ If everything looks good, w3id.org PRs are merged very quickly, in this case it 
 
 ### Result: HTML & JSON-LD representation published with SkoHub & basic GitHub editing workflow
 
-As a result, we have published a controlled vocabulary in SKOS under a permanent URI and with a human-readable [HTML](https://w3id.org/class/esc/scheme.html) representation from GitHub with a minimum amount of work. Additionally, the initial Turtle representation is transformed to more developer-friendly [JSON-LD](https://test.skohub.io/hbz/vocabs-edu/w3id.org/class/esc/scheme.jsonld). The HTML has a hierarchy view that can be expanded and collapsed at will:
+As a result, we have published a controlled vocabulary in SKOS under a permanent URI and with a human-readable [HTML](https://w3id.org/class/esc/scheme.html) representation from GitHub with a minimum amount of work. Additionally, the initial Turtle representation is transformed to more developer-friendly [JSON-LD](https://test.skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/scheme.json). The HTML has a hierarchy view that can be expanded and collapsed at will:
 
-<a href="https://test.skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/scheme.html"><img src="/images/presenting-skohub-vocabs/published-vocab.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:620px"></a>
+<a href="https://test.skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/scheme.en.html"><img src="/images/presenting-skohub-vocabs/published-vocab.png" alt="Screenshot of the HTML version of ESC published with SkoHub." style="width:620px"></a>
 
 There also is a search field to easily filter the vocabulary:
 
@@ -101,3 +101,7 @@ A final word on the FlexSearch index mentioned above. An important use case for 
 ```
 
 Note that currently the index will only return URIs associated with the search term, not the corresponding labels. This will change in a future update.
+
+*Updates:*
+
+* *Edit 2021-02-05: Update some URLs because with [implementing internationalization](https://github.com/skohub-io/skohub-vocabs/issues/79) for the HTML pages, SkoHub Vocabs URLs changed.*
