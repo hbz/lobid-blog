@@ -2,7 +2,6 @@
 layout: post
 title: "How we built a spatial subject classification based on Wikidata"
 author: Adrian Pohl
-date: 2021-02-27-04
 tags: nwbib
 ---
 
@@ -10,9 +9,13 @@ The Open Infrastructure team of hbz that provides and maintains lobid is also re
 
 In 2019 and 2020 we carried out a project to upgrade spatial subject indexing from using strings to using controlled values from a spatial classification that is created from Wikidata. I already shared progress on the project in a talk at WikidataCon 2019 ([slides](https://slides.lobid.org/nwbib-wikidatacon/)) but never got to write down a wrap-up of the whole endeavour. A conversation with Magnus Sälgö, Péter Király and Osma Suominen in the Mattermost chat of [SWIB20](https://swib.org/swib20) ([archived thread](https://gist.github.com/acka47/e24a091b27f4095cbafe3cf3803b0b9a)) reminded me that this topic is of possibly of bigger interest to other library folks and now I finally took the time to write this post.
 
+## Division of technical and editorial NWBib work
+
+Before diving deeper into the actual project, a short explainer how the technical and editorial work is divided between different people and institutions. NWBib editors are working at the University and State Libraries Düsseldorf and Münster while the whole udnerlying technical infastrcuture (from cataloging to the web presence of NWBib) is managed by hbz which mostly means: the Open Infrastructure team which is running this blog.
+
 ## NWBib as part of hbz union catalogue
 
-NWBib editors use our Aleph union catalog for cataloguing which means that NWBib records are also part of [lobid-resources](https://lobid.org/resources), aLOD-based web API for the union catalogue. (See [all blog posts about lobid-resources](https://blog.lobid.org/tags/lobid-resources.)) Within lobid-resources, all NWBib titles are marked like this:
+NWBib editors use our Aleph union catalog for cataloguing which means that NWBib records are also part of [lobid-resources](https://lobid.org/resources), a LOD-based web API for the union catalogue. (See [all blog posts about lobid-resources](https://blog.lobid.org/tags/lobid-resources.)) Within lobid-resources, all NWBib titles are marked like this:
 
 ```json
 {
@@ -24,7 +27,7 @@ NWBib editors use our Aleph union catalog for cataloguing which means that NWBib
 }
 ```
 
-This information enables to easily query NWBib data via lobid-resourcs by attaching [`inCollection.id:"http://lobid.org/resources/HT014176012#!"`](https://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22) to a lobid-resources query.
+This information enables to easily query NWBib data via lobid-resources by attaching [`inCollection.id:"http://lobid.org/resources/HT014176012#!"`](https://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22) to a lobid-resources query.
 
 Basically, this is what we are utilizing to offer the web interface for NWBib at https://nwbib.de.
 
@@ -49,7 +52,7 @@ The strings "Duisburg" and "Essen" refer to the cities in NRW with this name. Ar
 
 For years (2014-2019), we've been using Wikidata to enrich NWBib with geo coordinates by matching those place strings to Wikidata items and pulling the geo coordinates from there. We chose a rather naive matching approach which resulted in poor or no matches for some resources. However, it was good enough to enable map-based filtering of results at nwbib.de.
 
-Besides the sub-optimal matching there were other drawbacks with this approach. Of course the well-known problem occured which everybody encounters after some time when using typed strings instead of controlled values: you get lots of different strings for the same place because of different recording practices or typos. In the [2017 list containing all the distinct place name strings found in NWBib including an occurence count](https://gist.github.com/acka47/ccd3715201442e8cb78c70cca9ebd1ab) you can find for example five strings referring to Wiesdorf, a part of Leverkusen: 
+Besides the sub-optimal matching there were other drawbacks with this approach. Of course the well-known problem occured which everybody encounters after some time when using typed strings instead of controlled values: you get lots of different strings for the same place because of different recording practices or typos. IN 2017, NWBib included around 8,800 distinct spatial strings  which roughly referred to 4,500 different places. Taking a look at a [2017 list containing all the distinct place name strings found in NWBib including an occurence count](https://gist.github.com/acka47/ccd3715201442e8cb78c70cca9ebd1ab) you for example find five strings referring to Wiesdorf, a part of Leverkusen:
 
 - "Wiesdorf"
 - "Wiesdorf <Niederrhein>"
@@ -57,34 +60,36 @@ Besides the sub-optimal matching there were other drawbacks with this approach. 
 - "Leverkusen-Wiesdorf"
 - "Leverkusen- Wiesdorf (Niederrhein)"
 
-Another drawback was that we could not provide users with a hierarchical classification of all the places.
+Another drawback was that we could not provide users with a hierarchical classification of all the places. To address this, we started thinking about using controlled values from a spatial classification.
 
 ## Doing it the right way: use of controlled values
 
-Instrument: a spatial classification with controlled values
+You do not have to convince librarians that the best way to do spatial subject indexing is by using a classification rather than literal strings. Soon we all agreed to go this way, the main [**goals**](https://github.com/hbz/nwbib/wiki/Neukonzeption-der-Raumsystematik#ziele) of the approach being:
 
-### Goals
+1. no multiple values referring to the same place as well as one entry for a place before and after incorporation into another geographic entity (.e.g parts of a town that had once been stand-alone administrative entities)
+2. a hierarchical view of all places by NRW's administrative structure: [Regierungsbezirk](https://www.wikidata.org/wiki/Q22721), [Kreise/rural districts](https://www.wikidata.org/wiki/Q20738811), [urban](https://www.wikidata.org/wiki/QQ42744322) and [rural](https://www.wikidata.org/wiki/QQ262166) municipalities as well as [Ortsteil](https://www.wikidata.org/wiki/Q253019)
 
-- hierarchische Darstellung der Raumnotationen nach Regierungsbezirken, Kreisen, Orten und Ortsteilen (entsprechend der Verwaltungsstruktur in NRW)
-- keine Mehrfacheintragungen und Zusammenführung von Titeln zu einem Ortsteil vor und nach der Eingemeindung
+Here is a mockup of the envisaged classification NWBib editors created in 2017:
+
+<img src="/images/nwbib-wikidata/mockup-classification.png" alt="A mockup of a spatial classification created with Excel" style="width:600px">
 
 ### Requirements
 
-- coverage of the places currently used in spatial tagging
-- hierarchical relations between places should be included
-- extensibility: NWBib editors should be able to add new places to the classification
+We identified the following [requirements](https://github.com/hbz/nwbib/wiki/Neukonzeption-der-Raumsystematik#anforderungen) towards the autority data to be used for the spatial classification:
 
-TODO: add mockup from 2016 of classification
+- *Coverage*: As many places as possible that are currently used in spatial tagging should be covered by the authority data.
+- *Hierarchy*: Hierarchical relations between places should be included in the authority data.
+- *Extensibility*: NWBib editors should be able to add new places to the classification.
 
-### Why Wikidata?
+### Why Wikidata rather than GND?
 
-Naturally, in the German-speaking world cataloguers tend to use the GND for authority data. However, GND did not cover most of the requirements: coverage of hierarchical relations was small. With the RDA changes, there are different entries for entities before and after their incorporation into a administrative superior entity, see e.g. these two GND entries for Wiesdorf: [4108828-1](https://lobid.org/gnd/4108828-1) & [4099576-8](https://lobid.org/gnd/4099576-8)
+As the discussion happened in German university library context, NWBib editors naturally tended to use the Integrated Authority File (GND) which is the main authority file in the German-speaking world being used and maintained by hundreds of institutions and thousands of librarians. As NWBib titles had been indexed with GND subjects (including spatial subjects) for some years, GND looked like the obvious candidate.
 
-We also looked at GeoNames.
+However, GND did not cover most of the requirements: only few hierarchical relations existed in the data. And with the RDA changes \[which?], there are different entries for entities before and after their incorporation into a administrative superior entity, see e.g. these two GND entries for Wiesdorf: [4108828-1](https://lobid.org/gnd/4108828-1) & [4099576-8](https://lobid.org/gnd/4099576-8)
 
-Wikidata already had good coverage of place entries, geo coordinates and hierarchical information. Advantage over GeoNames: it alaso contains historical administrative entities.
+THe next candidate we looked at was Wikidata as we were already using it for geodata enrichment. Wikidata already had good coverage of place entries, geo coordinates and hierarchical information. (We didn't really consider GeoNames. It at least has one disadvantage as it doesn't contain historical administrative entities.)
 
-Infrastructure for editing and versioning was already there plus a community we could participate in to keep the data up to date
+Probably the biggest advantage if Wikidata: Infrastructure for editing and versioning was already there plus a community we could participate in to keep the data up to date.
 
 ## Implementation
 
