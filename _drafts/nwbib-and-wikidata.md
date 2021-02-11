@@ -83,25 +83,20 @@ We identified the following [requirements](https://github.com/hbz/nwbib/wiki/Neu
 
 ### Why Wikidata rather than GND?
 
-As the discussion happened in German university library context, NWBib editors naturally tended to use the Integrated Authority File (GND) which is the main authority file in the German-speaking world being used and maintained by hundreds of institutions and thousands of librarians. As NWBib titles had been indexed with GND subjects (including spatial subjects) for some years, GND looked like the obvious candidate.
+As the discussion happened in German university library context, NWBib editors naturally tended to use the Integrated Authority File (GND) which is the main authority file in the German-speaking world being used and maintained by hundreds of institutions and thousands of librarians. As NWBib titles had been indexed with GND subjects (including spatial subjects) for some years, GND looked like the obvious candidate.****
 
-However, GND did not cover most of the requirements: only few hierarchical relations existed in the data. And with the RDA changes \[which?], there are different entries for entities before and after their incorporation into a administrative superior entity, see e.g. these two GND entries for Wiesdorf: [4108828-1](https://lobid.org/gnd/4108828-1) & [4099576-8](https://lobid.org/gnd/4099576-8)
+However, GND did not cover most of the requirements: only few hierarchical relations existed in the data. And with switching to RDA many geographic entities have been split up into different  entities before and after their incorporation into a administrative superior entity, see e.g. these two GND entries for Wiesdorf: [4108828-1](https://lobid.org/gnd/4108828-1) & [4099576-8](https://lobid.org/gnd/4099576-8)
 
-THe next candidate we looked at was Wikidata as we were already using it for geodata enrichment. Wikidata already had good coverage of place entries, geo coordinates and hierarchical information. (We didn't really consider GeoNames. It at least has one disadvantage as it doesn't contain historical administrative entities.)
+The next candidate we looked at was Wikidata as we were already using it for geodata enrichment. Wikidata already had good coverage of place entries, geo coordinates and hierarchical information. (We didn't really consider GeoNames. It at least has one disadvantage as it doesn't contain historical administrative entities.) As iwth the GND, Wikidata comes with a technical infrastructure for maintaining the authority data. The difference with Wikidata being that the editing community encompasses virtually anybody and not only cataloguers. This fact has two sides:
 
-Probably the biggest advantage if Wikidata: Infrastructure for editing and versioning was already there plus a community we could participate in to keep the data up to date.
+1. The bigger the community the easier it is to keep the data up to date which means less work for NWBib editors.
+2. With anybody being able to edit the data, NWBib editors justifiably worried about unwanted changes and vandalism.
+
+Furthermore, while the free infrastructure of Wikidata is great to start working on a project, it might lead to problems in the long run if you solely rely on Wikimedia to keep the infrastructure running. We guaranteed NWBib editors that we'd develop a solution that mitigates 2.) as well as the lack of control over the infrastructure e.g by adding some kind of buffer between Wikidata and NWBib classification so that we could identify and fix unwanted changes before deploying them in NWBib. How we deal with this will be addressed in the next section on implementation.
 
 ## Implementation
 
-### Proxy against vandalism and unwanted edits
-
-NWBib editors did not want NWBib to directly rely on Wikidata
-
-...because Wikidata servers are not under our control
-
-Also fear of unwelcome edits or vandalism
-
-We decided to manage an intermediate SKOS (Simple Knowledge Organization System) file the application would rely on
+After laying out the background, requirements and goals we wanted to reach in the project, let us now move on to take a look at the implementation.
 
 ### Match strings
 
@@ -222,6 +217,21 @@ In the end of 2019 catalogers started to use Wikidata-based URIs for spatial sub
 For the cataloguers, we have added hidden copy buttons behind every classification entry that to get the needed Aleph format with one click. Just hover over the space behind each classification entry to make the button visible: 
 
 Clicking on it copies the following content in your clipboard: `Köln$$0https://nwbib.de/spatial#Q365`
+
+### Proxy against vandalism and unwanted edits
+
+As NWBib editors did not want NWBib to directly rely on Wikidata's infrastructure and data we had to create an intermediate representation of the classification that is under our control. We decided to store the classification the we built from Wikidata in an intermediate SKOS (Simple Knowledge Organization System) file the NWBib web application would rely on.
+
+
+1. Core classification with concepts not covered in Wikidata or where we need to use another label than Wikidata: https://github.com/hbz/nwbib/blob/master/conf/nwbib-spatial-conf.ttl
+2. Complete classification created from 1.) and Wikidata: https://github.com/hbz/lobid-vocabs/blob/master/nwbib/nwbib-spatial.ttl (same as at https://nwbib.de/spatial.ttl)
+
+Updating the classification
+1. SPARQL Wikidata: https://github.com/hbz/nwbib/blob/master/conf/wikidata.sparql
+2. Transform to SKOS (unfortunately, CONSTRUCT queries don't work): https://github.com/hbz/nwbib/blob/5f2b06cdb416430e58a7a4ddc874efec398e44ea/app/SpatialToSkos.java
+3. Merge with spatial-conf
+
+In the beginning, we hoped to achieve 1.) & 2.) in one step by using a SPARQL `CONSTRUCT` query to directly extract the data from Wikidata in SKOS format, see https://github.com/hbz/nwbib/wiki/Geo-Index-mit-SPARQL-CONSTRUCT-generieren (German) & https://github.com/hbz/lobid-vocabs/issues/85. Unfortunately, Wikidata does not support CONSTRUCT queries for such a large amount of data (https://phabricator.wikimedia.org/T211178).
 
 ### Find out best process for updating classification including review
 
