@@ -55,12 +55,12 @@ For years (2014-2019), we've been using Wikidata to enrich NWBib with geo coordi
 Besides the sub-optimal matching there were other drawbacks with this approach. Of course the well-known problem occured which everybody encounters after some time when using typed strings instead of controlled values: you get lots of different strings for the same place because of different recording practices or typos. IN 2017, NWBib included around 8,800 distinct spatial strings  which roughly referred to 4,500 different places. Taking a look at a [2017 list containing all the distinct place name strings found in NWBib including an occurence count](https://gist.github.com/acka47/ccd3715201442e8cb78c70cca9ebd1ab) you for example find five strings referring to Wiesdorf, a part of Leverkusen:
 
 - "Wiesdorf"
-- "Wiesdorf <Niederrhein>"
+- "Wiesdorf &lt;Niederrhein&gt;"
 - "Wiesdorf, Niederrhein"
 - "Leverkusen-Wiesdorf"
 - "Leverkusen- Wiesdorf (Niederrhein)"
 
-Another drawback was that we could not provide users with a hierarchical classification of all the places. To address this, we started thinking about using controlled values from a spatial classification.
+Another drawback was that we could not provide users with a hierarchical overview of all the places. To address this, we started thinking about using controlled values from a spatial classification.
 
 ## Doing it the right way: use of controlled values
 
@@ -75,17 +75,17 @@ Here is a mockup of the envisaged classification NWBib editors created in 2017:
 
 ### Requirements
 
-We identified the following [requirements](https://github.com/hbz/nwbib/wiki/Neukonzeption-der-Raumsystematik#anforderungen) towards the autority data to be used for the spatial classification:
+We identified the following [requirements](https://github.com/hbz/nwbib/wiki/Neukonzeption-der-Raumsystematik#anforderungen) towards the autority data to be reused for the spatial classification:
 
 - *Coverage*: As many places as possible that are currently used in spatial tagging should be covered by the authority data.
-- *Hierarchy*: Hierarchical relations between places should be included in the authority data.
-- *Extensibility*: NWBib editors should be able to add new places to the classification.
+- *Hierarchy*: Hierarchical relations between places must be included in the authority data.
+- *Extensibility*: NWBib editors must be able to add new places to the classification.
 
 ### Why Wikidata rather than GND?
 
 As the discussion happened in German university library context, NWBib editors naturally tended to use the Integrated Authority File (GND) which is the main authority file in the German-speaking world being used and maintained by hundreds of institutions and thousands of librarians. As NWBib titles had been indexed with GND subjects (including spatial subjects) for some years, GND looked like the obvious candidate.****
 
-However, GND did not cover most of the requirements: only few hierarchical relations existed in the data. And with switching to RDA many geographic entities have been split up into different  entities before and after their incorporation into a administrative superior entity, see e.g. these two GND entries for Wiesdorf: [4108828-1](https://lobid.org/gnd/4108828-1) & [4099576-8](https://lobid.org/gnd/4099576-8)
+However, GND did not cover most of the requirements: only few hierarchical relations existed in the data. And with the changes during the move to RDA RDA (16.2.2.7), single entries had been split into separate entries for entities before and another after their incorporation into a administrative superior entity, see e.g. these two GND entries for Wiesdorf: [4108828-1](https://lobid.org/gnd/4108828-1) & [4099576-8](https://lobid.org/gnd/4099576-8)
 
 The next candidate we looked at was Wikidata as we were already using it for geodata enrichment. Wikidata already had good coverage of place entries, geo coordinates and hierarchical information. (We didn't really consider GeoNames. It at least has one disadvantage as it doesn't contain historical administrative entities.) As iwth the GND, Wikidata comes with a technical infrastructure for maintaining the authority data. The difference with Wikidata being that the editing community encompasses virtually anybody and not only cataloguers. This fact has two sides:
 
