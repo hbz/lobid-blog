@@ -132,15 +132,13 @@ Furthermore, while the free infrastructure of Wikidata is great to start working
 
 ## Implementation
 
-After laying out the result, the background, the requirements and goals of the project , the following sections cover the actual implementation.
+After laying out the background, the requirements, the goals and result of the project, the following sections cover the actual implementation. As this project had to be carried out alongside other projects and different maintenance duties by a team of three persons working part-time, the whole duration of the project covered more than two years. This fit quite well with the constant need for review and feedback cycles which sometimes took quite some time due to NWBib editors sitting in two organizations different from the hbz.
 
 ### Match strings
 
-Matching via API isn't sufficient (e.g. because different levels of administrative areas have very similar names)
+As said above, we already had been matching place strings with Wikidata items since 2014 in order to enrich NWBib data with geo coordinates. We had learned early on there that using the Wikidata API is not sufficient for matching strings of places with Wikidata items. One reason being that different levels of administrative areas do have very similar names which led to systematic errors. So we created a custom Elasticsearch index from this query which was used in the matching process. As there was no single property for filtering all the places in North Rhine-Westphalia out of Wikidata and as we only wanted to get out those types of items we needed to match the strings with, we had to work with a SPARQL query that would be improved several times. See the evolution of this SPARQL query in https://git.io/JOVS9 & https://git.io/JOVS7.
 
-Matching via custom Elasticsearch index (maximizing precision by type restriction)
-
-The index is built based on Wikidata SPARQL query for specific entities in NRW: https://github.com/hbz/lobid-resources/commits/73a19ba820c82cb04a866121810fc919c5f0d370/src/main/resources/getNwbibSubjectLocationsAsWikidataEntities.txt & https://github.com/hbz/lobid-resources/commits/master/src/main/resources/getNwbibSubjectLocationsAsWikidataEntities.sparql
+For an optimal matching result, we indexed the German name and alternative names (`label`, `aliases`) as well the geo coordinates (`geo`) for the enrichment. As place strings often contained the name of the superior administrative body for disambiguation, we also added this name to the index (`locatedIn`). Here is a full example of the informationen from Wikidata we loaded into Elasticsearch:
 
 ```json
 {
@@ -172,24 +170,13 @@ The index is built based on Wikidata SPARQL query for specific entities in NRW: 
 }
 ```
 
-Successful automatic matching for >99% of records and ~92% of the place strings
+It then took quite some manual work in Wikidata (adding items andU/or alternative names) as well as adjustment of field boosting in Elasticsearch to reach a successful matching for around 99% of all NWBib records which covered approximately 92% of all place strings we had in the data. To get to a 100% coverage, NWBib editors adjusted catalog records and made more than 6000 manual edits to Wikidata adding aliases and type information or creating new entries.
 
-For <1000 strings the matching was incorrect
-
-Catalogers adjusted catalog records and made >6000 manual edits to Wikidata to reach 100% coverage (adding aliases & type information, creating new entries)
-
-### Add links to Wikidata
-
-Propose property: https://github.com/hbz/nwbib/issues/446
-Batch load: https://github.com/hbz/nwbib/issues/469
-
-### Create classification from Wikidata
-
-SKOS etc.
-
-### Update lobid
+### Create classification / update lobid with links to Wikidata
 
 Based on Wikidata entries and hierarchical statements (mainly P131)
+With this milestone of a 100% matching rate for all the place string reached, we could move on to the next step: Creating a spatial classification from Wikidata.
+
 
 Add SKOS concept URIs and links to Wikidata to lobid/NWBib, see "spatial" object in [JSON example](https://lobid.org/resources/HT017710656.json):
 
@@ -230,6 +217,7 @@ Add SKOS concept URIs and links to Wikidata to lobid/NWBib, see "spatial" object
 Voilá, now you are able to query for NWBib resources based on a place's QID:
 
 [`spatial.focus.id:"http://www.wikidata.org/entity/Q365" AND inCollection.id:"http://lobid.org/resources/HT014176012#!"`](https://lobid.org/resources/search?q=spatial.focus.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ365%22+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22)
+
 
 ### Update Wikidata with links to NWBib
 
