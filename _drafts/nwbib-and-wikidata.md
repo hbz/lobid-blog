@@ -17,7 +17,7 @@ Since the beginning of 2020, the NWBib's spatial classification – which can be
 
 As noted, cataloging is taking place in Aleph, so we somehow had to establish a process for cataloguers to easily add the controlled values into the bibliographic records. Thus, we have added a hidden copy button behind every classification entry to get the needed Aleph format with one click. One has to hover over the space behind a classification entry to make the button and an explaining tooltip visible, then click the button, select the correct field in Aleph and paste the entry there:
 
-<img src="/images/nwbib-wikidata/copy2aleph.png" alt="Hidden button in the NWbib classification to copy Aleph format for cataloging" style="width:600px">
+<img src="/images/nwbib-wikidata/copy2aleph.png" alt="Hidden button in the NWBib classification to copy Aleph format for cataloging" style="width:600px">
 
 For example, a click on the button as shown in the screenshot adds the following string to the clipboard:
 
@@ -170,13 +170,13 @@ For an optimal matching result, we indexed the German name and alternative names
 }
 ```
 
-It then took quite some manual work in Wikidata (adding items and/or alternative names) as well as adjustment of field boosting in Elasticsearch to reach a successful matching for around 99% of all NWBib records, which covered approximately 92% of all place strings we had in the data. To get to a 100% coverage, NWBib editors adjusted catalog records and made more than 6000 manual edits to Wikidata adding aliases and type information or creating new entries.
+It then took quite some manual work in Wikidata (adding items and/or alternative names) as well as adjustment of field boosting (see [https://git.io/J3LFi](https://git.io/J3LFi)) in Elasticsearch to reach a successful matching for around 99% of all NWBib records, which covered approximately 92% of all place strings we had in the data. To get to a 100% coverage, NWBib editors adjusted catalog records and made more than 6000 manual edits to Wikidata adding aliases and type information or creating new entries.
 
-### Create classification / update lobid with links to Wikidata
+### Update NWBib data
 
-With this milestone of a 100% matching rate for all the place strings reached, we could move on to the next step: Creating a spatial classification from Wikidata.
+Having reached the milestone of a 100% matching rate for all the place strings, we could move on to the next step: Updating NWBib data with information from Wikidata.
 
-We added SKOS concept URIs and links to Wikidata to lobid/NWBib, see "spatial" object in [JSON example](https://lobid.org/resources/HT017710656.json):
+We did this by including the information in a `spatial` JSON object (the JSON key being mapped to the property `http://purl.org/dc/terms/spatial`). In order to not be being susceptible to vandalism or other unwanted Wikidata edits, we refrained from directly using Wikidata URIs. Instead, we added SKOS concept URIs in the `nwbib.de` namespace we could then create a SKOS classification from (see below). The Wikidata entity URIs, the type information and geodata are then embedded in a `focus` (`http://xmlns.com/foaf/0.1/focus`) object. See as example the `spatial` object from the record [HT017710656](https://lobid.org/resources/HT017710656.json):
 
 ```json
 {
@@ -212,40 +212,63 @@ We added SKOS concept URIs and links to Wikidata to lobid/NWBib, see "spatial" o
 }
 ```
 
-Voilá, now you are able to query for NWBib resources based on a place's QID:
+With this setup, it is now possible to query lobid for NWBib resources based on a place's QID, for example:
 
-[`spatial.focus.id:"http://www.wikidata.org/entity/Q365" AND inCollection.id:"http://lobid.org/resources/HT014176012#!"`](https://lobid.org/resources/search?q=spatial.focus.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ365%22+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22)
+[`spatial.focus.id:"http://www.wikidata.org/entity/Q365"`](https://lobid.org/resources/search?q=spatial.focus.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ365%22)
 
+What's still missing is a hierarchical overview of the places to be browsed by users. To enable this, we created a SKOS (Simple Knowledge Organization System) classification with broader/narrower relations.
+
+### Create & present SKOS classification
+
+As NWBib editors did not want NWBib to directly rely on Wikidata's infrastructure and data, we early on decided to represent the classification in an intermediate SKOS file that we control. The NWBib web application would then rely on this file and not directly on Wikidata. As an additional requirement, it became clear that we would not be able to maintain 100% of the classification in Wikidata. Some parts of the classification were quite NWBib-specific and it wasn't feasible to include them in Wikidata. Also, we could not claim to have authority over the preferred names used in Wikidata so that we had to think about a solution when a label in Wikidata would differ from the label we wanted to used in NWBib.
+
+Here is the setup, we came up with:
+
+1. A SKOS turtle file covering the core spatial NWBib classification with (currently around 40) concepts not covered in Wikidata or where we need to use another label than Wikidata: [nwbib-spatial-conf.ttl](https://github.com/hbz/nwbib/blob/master/conf/nwbib-spatial-conf.ttl)
+2. The complete classification as SKOS file created from 1.) and Wikidata: [nwbib-spatial.ttl](https://github.com/hbz/lobid-vocabs/blob/master/nwbib/nwbib-spatial.ttl) which is the same file as you can download at [https://nwbib.de/spatial.ttl](https://nwbib.de/spatial.ttl)).
+
+The HTML classification that is rendered from the SKOS file can be viewed and browsed at [https://nwbib.de/spatial](https://nwbib.de/spatial). Here is a screenshot showing a part of the HTML classification:
+
+![Spatial NWBib classification](/images/nwbib-wikidata/classification-screenshot.png)
+
+You can directly link to each element of the classification using the concept's hash URI which is based on its Wikidata ID – e.g. https://nwbib.de/spatial#Q365. Displayed in parenthesis behind each label is the number of bibliographic resources in NWBib that refer to this place. This number is linked with a result view listing these resources.
 
 ### Update Wikidata with links to NWBib
 
-- Create Wikidata property for NWBib ID: [https://www.wikidata.org/wiki/Property:P6814](https://www.wikidata.org/wiki/Property:P6814)
-- Batch load NWBib IDs with QuickStatements: [https://github.com/hbz/nwbib/issues/469](https://github.com/hbz/nwbib/issues/469)
-- Add broader information to NWBib ID statements with qualifier `P4900`: [https://github.com/hbz/nwbib/issues/487](https://github.com/hbz/nwbib/issues/487)
+With the concept URIs resolving to the classification entry, the next step could be implemented: adding links from Wikidata to NWBib. Prerequistie is a Wikidata property that enables addition of respective statements to each place in Wikidata. We proposed such a property in the beginning of June 2019, see https://www.wikidata.org/wiki/Wikidata:Property_proposal/NWBib_ID. The Wikidata property [NWBib ID (P6814)](https://www.wikidata.org/wiki/Property:P6814) was created quickly one or two days later.
 
-![Wikidata entry with NWBib ID](https://slides.lobid.org/nwbib-wikidatacon/img/wd-example.png)
+We then batch loaded the NWBib IDs with QuickStatements, see [https://github.com/hbz/nwbib/issues/469](https://github.com/hbz/nwbib/issues/469). By now, we could get all relevant Wikidata entries by querying for all items that have a P6814 statement.
 
-### Proxy against vandalism and unwanted edits
+Until now, we were getting information about hierarchy (superordinated administrative entity) from [P131 (located in the administrative territorial entity)](https://www.wikidata.org/wiki/Property:P131) statements. As for some place multiple superordinated administrative entities were listed, we had problems to identify the one, we would use for creating our classification's hierarchy. That's where the Wikidata property [P4900 (broader concept)](https://www.wikidata.org/wiki/Property:P4900) comes handy. We used this to batch load "broader" links to other Wikidata entries with a qualifier to the P6814 statements, see the [corresponding issue](https://github.com/hbz/nwbib/issues/487) for implementation details. As a result, it looks like this in Wikidata, for example:
 
-As NWBib editors did not want NWBib to directly rely on Wikidata's infrastructure and data, we had to create an intermediate representation of the classification that is under our control. We decided to store the classification that we built from Wikidata in an intermediate SKOS (Simple Knowledge Organization System) file, which the NWBib web application would rely on.
+![NWBib ID entry in Wikidata example with P4900 qualifier](/images/nwbib-wikidata/P4900-example.png)
 
-1. Core classification with concepts not covered in Wikidata or where we need to use another label than Wikidata: [nwbib-spatial-conf.ttl](https://github.com/hbz/nwbib/blob/master/conf/nwbib-spatial-conf.ttl)
-2. Complete classification created from 1.) and Wikidata: [nwbib-spatial.ttl](https://github.com/hbz/lobid-vocabs/blob/master/nwbib/nwbib-spatial.ttl) (same as at [https://nwbib.de/spatial.ttl](https://nwbib.de/spatial.ttl))
+### Establish editorial process for updating the classification
 
-Updating the classification
-1. SPARQL Wikidata: [wikidata.sparql](https://github.com/hbz/nwbib/blob/master/conf/wikidata.sparql)
-2. Transform to SKOS (unfortunately, CONSTRUCT queries don't work): [SpatialToSkos.java](https://github.com/hbz/nwbib/blob/5f2b06cdb416430e58a7a4ddc874efec398e44ea/app/SpatialToSkos.java)
-3. Merge with `nwbib-spatial-conf.ttl`
+As noted, an up-to-date SKOS classification is created from
 
-In the beginning, we hoped to achieve 1.) & 2.) in one step by using a SPARQL `CONSTRUCT` query to directly extract the data from Wikidata in SKOS format, see [https://github.com/hbz/nwbib/wiki/Geo-Index-mit-SPARQL-CONSTRUCT-generieren](https://github.com/hbz/nwbib/wiki/Geo-Index-mit-SPARQL-CONSTRUCT-generieren) (German) & [https://github.com/hbz/lobid-vocabs/issues/85](https://github.com/hbz/lobid-vocabs/issues/85). Unfortunately, Wikidata does not support CONSTRUCT queries for such a large amount of data ([https://phabricator.wikimedia.org/T211178](https://phabricator.wikimedia.org/T211178)).
+1. the manually maintained SKOS config file [nwbib-spatial-conf.ttl](https://github.com/hbz/nwbib/blob/master/conf/nwbib-spatial-conf.ttl) which includes a) top-level concepts, b) hierarchical relationships that can't be recorded in Wikidata with `P4900` and c) concepts that for some reason have to be maintained outside Wikidata,
+2. all Wikidata items with [P6814 NWBib ID](https://www.wikidata.org/wiki/Property:P6814) statements including — if existent – the qualifier [P4900 (broader concept)](https://www.wikidata.org/wiki/Property:P4900).
 
-### Find out best process for updating classification including review
+Generally, statements from the config file (1.) overwrite those from Wikidata (2.). Technically, it works like this:
 
-The basic process for updating the classification is described above in the section *Updating the classification*. Finding the best process including review is a work in progress, for details (in German) see [https://github.com/hbz/nwbib/wiki/Aktualisierungsprozess-f%C3%BCr-die-NWBib-Raumsystematik](https://github.com/hbz/nwbib/wiki/Aktualisierungsprozess-f%C3%BCr-die-NWBib-Raumsystematik).
+1. Get relevant Wikidata data via SPARQL, see the [current query](https://github.com/hbz/nwbib/blob/master/conf/wikidata.sparql)
+2. Transform result to SKOS
+3. Merge result from 2.) with `nwbib-spatial-conf.ttl`, preferring the config file over the other in case of conflicts.
+
+As a sidenote: In the beginning, we hoped to combine 1.) & 2.) in one step by using a SPARQL `CONSTRUCT` query to directly extract the data from Wikidata in SKOS format, see [https://github.com/hbz/nwbib/wiki/Geo-Index-mit-SPARQL-CONSTRUCT-generieren](https://github.com/hbz/nwbib/wiki/Geo-Index-mit-SPARQL-CONSTRUCT-generieren) (German) & [https://github.com/hbz/lobid-vocabs/issues/85](https://github.com/hbz/lobid-vocabs/issues/85). Unfortunately, Wikidata does not support CONSTRUCT queries for such a large amount of data ([https://phabricator.wikimedia.org/T211178](https://phabricator.wikimedia.org/T211178)).
+
+Aside from the technical update process, we needed to establish an editorial process that includes a review step. After a few iterations, we arrived at this process:
+
+1. NWBib editor wants to changes an entry or decides to inlcude a new place by adding an [NWBib ID (P6814)](https://www.wikidata.org/wiki/Property:P6814) statement.
+2. NWBib editor triggers a new build of the classification in the test system by clicking a button "Update from Wikidata" and checks whether the desired change is achieved. (By now, the editor can already use the new entry in cataloging by copying from the test system the field content as described above in the "Cataloging" paragraph).
+4. NWBib editor contacts lobid team by email and requests rebuild of classification in production.
+5. lobid team updates classificatio in production and notifies about possible undesired changes coming in from Wikidata.
+
 
 ## Further resources
 
 - [Slides from WikidataCon 2019](https://slides.lobid.org/nwbib-wikidatacon/)
 - [Thread in SWIB20 Mattermost](https://gist.github.com/acka47/e24a091b27f4095cbafe3cf3803b0b9a)
 - [Wiki (German)](https://github.com/hbz/nwbib/wiki)
-- [Issues (German)](https://github.com/hbz/nwbib/issues?q=is%3Aissue+project%3Ahbz%2F3+)
+- [Issues (German)](https://github.com/hbz/nwbib/issues?q=is%3Aissue+project%3Ahbz%2F3)
