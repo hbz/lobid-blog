@@ -254,7 +254,7 @@ In general, statements from the config file (1.) overwrite those from Wikidata (
 2. transform result to SKOS
 3. merge result from 2.) with `nwbib-spatial-conf.ttl`, preferring the config file over the other in case of conflicts
 
-As a sidenote: In the beginning, we hoped to combine 1.) & 2.) in one step by using a SPARQL `CONSTRUCT` query to directly extract the data from Wikidata in SKOS format, see [https://github.com/hbz/nwbib/wiki/Geo-Index-mit-SPARQL-CONSTRUCT-generieren](https://github.com/hbz/nwbib/wiki/Geo-Index-mit-SPARQL-CONSTRUCT-generieren) (German) & [https://github.com/hbz/lobid-vocabs/issues/85](https://github.com/hbz/lobid-vocabs/issues/85). Unfortunately, Wikidata does not support CONSTRUCT queries for such a large amount of data, see the [respective issue](https://phabricator.wikimedia.org/T211178).
+As a sidenote: In the beginning, we hoped to combine 1.) & 2.) in one step by using a SPARQL `CONSTRUCT` query to directly extract the data from Wikidata in SKOS format. Unfortunately, Wikidata does not support CONSTRUCT queries for such a large amount of data, see the [respective issue](https://phabricator.wikimedia.org/T211178).
 
 With this technical update process, we established with a few iterations the editorial process that is described in the above paragraph "Updating the classification".
 
