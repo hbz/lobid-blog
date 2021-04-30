@@ -5,9 +5,9 @@ author: Adrian Pohl
 
 ## Background
 
-The North-Rhine Westphalian Bibliography (NWBib) is a regional bibliography that records literature about the German state of [North-Rhine Westphalia](https://en.wikipedia.org/wiki/North_Rhine-Westphalia) (NRW), its regions, places and people. As of now, NWBib comprises more than 440,000 resources.  In addition to monographs, NWBib collects articles, as well as other media like maps, DVDs, etc. The cataloging takes place in the hbz union catalog that currently runs on Aleph (and is currently in the process of being replaced by Alma). The public interface for end users is the bibliography's website at [https://nwbib.de](https://nwbib.de). At its core, nwbib.de is a web application built on the [lobid-resources API](https://lobid.org/resources/api). To offer the hbz union catalogue as Linked Open Usable Data (LOUD), the data is exported from Aleph and transformed to JSON-LD.
+The North-Rhine Westphalian Bibliography (NWBib) is a regional bibliography that records literature about the German state of [North-Rhine Westphalia](https://en.wikipedia.org/wiki/North_Rhine-Westphalia) (NRW), its regions, places and people. As of now, NWBib comprises around 440,000 resources.  In addition to monographs, NWBib collects articles, as well as other media like maps, DVDs, etc. The cataloging takes place in the hbz union catalog that currently runs on Aleph (and is currently in the process of being replaced by Alma). The public interface for end users is the bibliography's website at [https://nwbib.de](https://nwbib.de). At its core, nwbib.de is a web application built on the [lobid-resources API](https://lobid.org/resources/api). lobid-resources offers the hbz union catalogue as Linked Open Usable Data (LOUD) by exporting the data from Aleph and transforming it to JSON-LD.
 
-In 2019 and 2020 we carried out a project to upgrade spatial subject indexing in NWBib from using uncontrolled strings to using controlled values from a spatial classification that is created from Wikidata. This article gives an overview over what we have achieved and how.
+In 2019 and 2020 we carried out a project to upgrade spatial subject indexing in NWBib from uncontrolled strings to controlled values from a spatial classification that is created from Wikidata. This article gives an overview over what we have achieved and how.
 
 ## The result
 
@@ -23,7 +23,7 @@ For example, a click on the button as shown in the screenshot adds the following
 
 `Köln$$0https://nwbib.de/spatial#Q365`
 
-The resulting catalog data looks like this (an an XML-based export format):
+The resulting catalog data looks like this (in an XML-based export format):
 
 ```xml
 <datafield tag="700" ind1="n" ind2="1">
@@ -35,23 +35,21 @@ The resulting catalog data looks like this (an an XML-based export format):
 ### Updating the classification
 
 With this approach the following process for updating the classification could be implemented. It enables direct use of a newly added place in the cataloging process:
-1. NWBib editor decides to add or edit a place. They add a `P6814` statement to the respective Wikidata entry (which might have to be created from scratch for some places).
-2. Editor clicks a button in the test system to trigger a new build of the classification.
-3. Editor can now use the test classification for copying the entry into Aleph as described above.
-4. If everything is fine on test, editor notifies the Open Inftrastructure (OI) team via email to update the classification on production.
-5. OI team updates the classification in the production system and consults editors if possible undesired changes occured in Wikidata.
+1. NWBib editor decides to change an entry or to inlcude a new place by adding an [NWBib ID (P6814)](https://www.wikidata.org/wiki/Property:P6814) statement.
+2. NWBib editor triggers a new build of the classification in the test system by clicking a button "Update from Wikidata" and checks whether the desired change is achieved.
+3. Editor can now already use the test classification for copying the entry into Aleph as described above.
+4. If everything is fine on test, editor notifies the lobid team via email and requests a rebuild of the classification in production.
+5. lobid team updates the classification in the production system and notifies editors about possible undesired changes coming in from Wikidata.
 
 ### Assessment
 
-Both the people responsible for cataloging and the development team are very pleased with the results of the project and the achieved possibilities of maintaining and using a rather big spatial classification. In the rest of the text, we will outline the implementation and point out problems we ran into and decisions we had to make.
-
-## Division of technical and editorial NWBib work
-
-Before diving deeper into the actual project, a short explainer on how the technical and editorial work is divided between different people and institutions. NWBib editors are working at the University and State Libraries Düsseldorf and Münster while the whole underlying technical infrastructure (from cataloging to the web presence of NWBib) is managed by hbz which mostly means: the Open Infrastructure team (of which the author of this article is a member).
+Both the NWBib editors who are responsible for cataloging and the development team are very pleased with the results of the project and the achieved possibilities of maintaining and using a larger spatial classification. In the rest of the text, we will outline the implementation and point out problems we ran into and decisions we had to make.
 
 ## NWBib as part of hbz union catalogue
 
-NWBib editors use our Aleph union catalog for cataloguing, which means that NWBib records are also part of [lobid-resources](https://lobid.org/resources), a LOD-based web API for the union catalogue, at its core consiting of JSON-LD indexed in Elasticsearch. (See [all blog posts about lobid-resources](https://blog.lobid.org/tags/lobid-resources.)) Within lobid-resources, all NWBib titles are marked like this:
+Before diving deeper into the actual project, a short explainer on how the technical and editorial work is divided between different people and institutions. NWBib editors are working at the University and State Libraries Düsseldorf and Münster while the whole underlying technical infrastructure (from cataloging to the web presence of NWBib) is managed by hbz which mostly means: the Open Infrastructure team (of which the author of this article is a member).
+
+NWBib editors use the Aleph union catalog for cataloguing, which means that NWBib records are also part of [lobid-resources](https://lobid.org/resources), a LOD-based web API for the union catalogue, at its core consisting of JSON-LD indexed in Elasticsearch. (See [the blog posts about lobid-resources](https://blog.lobid.org/tags/lobid-resources.)) Within lobid-resources, all NWBib titles are marked like this:
 
 ```json
 {
@@ -63,13 +61,11 @@ NWBib editors use our Aleph union catalog for cataloguing, which means that NWBi
 }
 ```
 
-This information enables to easily query NWBib data via lobid-resources by attaching [`inCollection.id:"http://lobid.org/resources/HT014176012#!"`](https://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22) to a lobid-resources query.
-
-Basically, this is utilized to offer the web interface for NWBib at [https://nwbib.de](https://nwbib.de).
+This information enables to easily query NWBib data via lobid-resources by attaching [`inCollection.id:"http://lobid.org/resources/HT014176012#!"`](https://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22) to a lobid-resources query. This filter is utilized to offer the web interface for NWBib at [https://nwbib.de](https://nwbib.de).
 
 ## Spatial subject indexing without controlled values
 
-For years, subject indexing in NWBib has been done mainly by adding to a record the text strings of places the recources is about. It looked like this in the source data (see this [ZDB example](https://github.com/hbz/nwbib/wiki/Aktualisierung-der-NWBib-Systematik-Daten-in-der-ZDB#beispiel) to see how it looks in MARC21):
+For years, subject indexing in NWBib has been done mainly by adding to a record the text strings of places the recources is about. It looked like this in the source data (see this [example](https://github.com/hbz/nwbib/wiki/Aktualisierung-der-NWBib-Systematik-Daten-in-der-ZDB#beispiel) for a MARC21 version):
 
 ```xml
 <datafield tag="700" ind1="n" ind2="1">
@@ -84,7 +80,7 @@ For years, subject indexing in NWBib has been done mainly by adding to a record 
 
 The strings "Duisburg" and "Essen" refer to the cities in NRW with this name. Around three quarters of NWBib records (~300,000 records) contained one or more of these place name strings. In 2017, we had 8,800 distinct strings for places which referred mostly to administrative areas but also to monasteries, principalities, natural regions etc.
 
-## 1st phase: Enriching strings with geo coordinates
+## Enriching strings with geo coordinates
 
 For years (2014-2019), we have been using Wikidata to enrich NWBib with geo coordinates by matching those place strings to Wikidata items and pulling the geo coordinates from there. We chose a rather naive matching approach which resulted in poor or no matches for some resources. However, it was good enough to enable map-based filtering of results at nwbib.de.
 
@@ -119,26 +115,28 @@ We identified the following [requirements](https://github.com/hbz/nwbib/wiki/Neu
 
 ### Why Wikidata rather than GND?
 
-As the discussion happened in the German university library context, NWBib editors naturally tended to use the Integrated Authority File (GND) which is the main authority file in German-speaking countries, being used and maintained by hundreds of institutions and thousands of librarians. As NWBib titles already had been indexed with GND subjects (including spatial subjects) for some years, GND looked like the obvious candidate.
+As the discussion happened in the German university library context, NWBib editors naturally tended to use the Integrated Authority File (GND, see https://gnd.network) which is the main authority file in German-speaking countries, being used and maintained by hundreds of institutions and thousands of librarians. As NWBib titles already had been indexed with GND subjects for some years (including spatial subjects), GND looked like the obvious candidate.
 
-However, GND did not cover most of the requirements: only few hierarchical relations existed in the data. And with the changes during the move to RDA (16.2.2.7), more and more entries had been split into separate entries for an entity before and after its incorporation into a administrative superior entity, see e.g. these two GND entries for Wiesdorf: [4108828-1](https://lobid.org/gnd/4108828-1) & [4099576-8](https://lobid.org/gnd/4099576-8).
+However, GND did not cover most of the requirements. Only few hierarchical relations existed in the data, and with the changes during the move to RDA, more and more entries had been split into separate entries for an entity before and after its incorporation into a administrative superior entity, see e.g. these two GND entries for Wiesdorf: [4108828-1](https://lobid.org/gnd/4108828-1) & [4099576-8](https://lobid.org/gnd/4099576-8).
 
-The next candidate we looked at was Wikidata as we had already been using it for geodata enrichment. Wikidata already had good coverage of place entries, geo coordinates and hierarchical information. (We didn't really consider GeoNames. It at least has one disadvantage as it doesn't contain historical administrative entities.) As with the GND, Wikidata comes with a technical infrastructure for maintaining the authority data, the difference with Wikidata being that the editing community encompasses virtually anybody and not only catalogers. The implications are twofold:
+The next candidate we looked at was Wikidata as we had already experience with it with the already mentioned geodata enrichment. Wikidata already had good coverage of place entries, geo coordinates and hierarchical information. (We didn't really consider GeoNames. It at least has one disadvantage as it doesn't contain historical administrative entities.)
+
+As with the GND, Wikidata comes with a technical infrastructure for maintaining the authority data, the difference with Wikidata being that the editing community encompasses virtually anybody and not only catalogers. The implications are twofold:
 
 1. The bigger the community, the easier it is to keep the data up to date which means less work for NWBib editors.
 2. With anybody being able to edit the data, NWBib editors justifiably worried about unwanted changes and vandalism.
 
-Furthermore, while the free infrastructure of Wikidata is great to start working on a project, it might lead to problems in the long run if you solely rely on Wikimedia to keep the infrastructure running. We guaranteed NWBib editors that we'd develop a solution that mitigates 2.) as well as the lack of control over the infrastructure by adding some kind of buffer between Wikidata and the NWBib classification so that we could identify and fix unwanted changes before deploying them in NWBib.
+Furthermore, while the free infrastructure of Wikidata is great to start working on a project, it might lead to problems in the long run if you solely rely on Wikimedia to keep this infrastructure running. We guaranteed NWBib editors that we'd develop a solution that mitigates 2.) and would mitigate the lack of control over the infrastructure by adding some kind of buffer between Wikidata and the NWBib classification so that we could identify and fix unwanted changes before deploying them in NWBib.
 
 ## Implementation
 
-After laying out the background, the requirements, the goals and result of the project, the following sections cover the actual implementation. As this project had to be carried out alongside other projects and different maintenance duties by a team of three persons working part-time, the whole duration of the project covered more than two years. This fit quite well with the constant need for review and feedback cycles which sometimes took quite some time due to NWBib editors sitting in two organizations different from the hbz.
+After having layed out the background, the requirements, the goals and result of the project in the preceeding paragraphs, the following sections cover the actual implementation. As this project had to be carried out alongside other projects and in parallel to different maintenance duties by a team of three persons working part-time, the whole duration of the project covered more than two years. This fitted quite well with the constant need for review and feedback cycles which sometimes could take some time due to NWBib editors residing in two organizations different from the hbz.
 
 ### Match strings
 
-As said above, we already had been matching place strings with Wikidata items since 2014 in order to enrich NWBib data with geo coordinates. We had learned early on that using the Wikidata API is not sufficient for matching strings of places with Wikidata items. One reason being that different levels of administrative areas do have very similar names which led to systematic errors. So we created a custom Elasticsearch index from the query which was used in the matching process. As there was no single property for filtering all the places in North Rhine-Westphalia out of Wikidata and as we only wanted to get out those types of items we needed to match the strings with, we had to work with a SPARQL query that would be improved several times. See the evolution of this SPARQL query in [https://git.io/JOVS9](https://git.io/JOVS9) & [https://git.io/JOVS7](https://git.io/JOVS7).
+As said above, we already had been matching place strings with Wikidata items since 2014 in order to enrich NWBib data with geo coordinates. We had learned early on that using the Wikidata API is not sufficient for matching strings of places with Wikidata items. One reason being that different levels of administrative areas do have very similar names which led to systematic errors. So we created a custom Elasticsearch index from the query which was used in the matching process. As there was no single property for filtering all the places in North Rhine-Westphalia out of Wikidata and as we only wanted to get out those types of items we needed to match the strings with, we had to work with a SPARQL query that would be improved over several iterations, see the evolution of this SPARQL query in [https://git.io/JOVS9](https://git.io/JOVS9) & [https://git.io/JOVS7](https://git.io/JOVS7).
 
-For an optimal matching result, we indexed the German name and alternative names (`label`, `aliases`) as well the geo coordinates (`geo`) for the enrichment. As place strings often contained the name of the superior administrative body for disambiguation, we also added this name to the index (`locatedIn`). Here is a full example of the informationen from Wikidata we loaded into Elasticsearch:
+For an optimal matching result, we indexed the German name and alternative names (`label`, `aliases`) along with the geo coordinates (`geo`) for the enrichment. As place strings in NWBib data often contained the name of the superior administrative body for disambiguation, we also added this name to the index (`locatedIn`). Here is a full example of the informationen from Wikidata we loaded into Elasticsearch:
 
 ```json
 {
@@ -176,7 +174,7 @@ It then took quite some manual work in Wikidata (adding items and/or alternative
 
 Having reached the milestone of a 100% matching rate for all the place strings, we could move on to the next step: Updating NWBib data with information from Wikidata.
 
-We did this by including the information in a `spatial` JSON object (the JSON key being mapped to the property `http://purl.org/dc/terms/spatial`). In order to not be being susceptible to vandalism or other unwanted Wikidata edits, we refrained from directly using Wikidata URIs. Instead, we added SKOS concept URIs in the `nwbib.de` namespace we could then create a SKOS classification from (see below). The Wikidata entity URIs, the type information and geodata are then embedded in a `focus` (`http://xmlns.com/foaf/0.1/focus`) object. See as example the `spatial` object from the record [HT017710656](https://lobid.org/resources/HT017710656.json):
+We did this by including the information in a `spatial` JSON object (the JSON key being mapped to the RDF property `http://purl.org/dc/terms/spatial`). In order to not be being susceptible to vandalism or other unwanted Wikidata edits, we refrained from directly using Wikidata URIs. Instead, we added SKOS concept URIs in the `nwbib.de` namespace we could then create a SKOS classification from (see below). The Wikidata entity URIs, the type information and geodata are embedded in a `focus` (`http://xmlns.com/foaf/0.1/focus`) object. See as example the `spatial` object from the record [HT017710656](https://lobid.org/resources/HT017710656.json):
 
 ```json
 {
@@ -212,7 +210,7 @@ We did this by including the information in a `spatial` JSON object (the JSON ke
 }
 ```
 
-With this setup, it is now possible to query lobid for NWBib resources based on a place's QID, for example:
+With this setup, it becomes possible to query lobid for NWBib resources based on a place's QID, for example:
 
 [`spatial.focus.id:"http://www.wikidata.org/entity/Q365"`](https://lobid.org/resources/search?q=spatial.focus.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ365%22)
 
@@ -225,7 +223,7 @@ As NWBib editors did not want NWBib to directly rely on Wikidata's infrastructur
 Here is the setup, we came up with:
 
 1. A SKOS turtle file covering the core spatial NWBib classification with (currently around 40) concepts not covered in Wikidata or where we need to use another label than Wikidata: [nwbib-spatial-conf.ttl](https://github.com/hbz/nwbib/blob/master/conf/nwbib-spatial-conf.ttl)
-2. The complete classification as SKOS file created from 1.) and Wikidata: [nwbib-spatial.ttl](https://github.com/hbz/lobid-vocabs/blob/master/nwbib/nwbib-spatial.ttl) which is the same file as you can download at [https://nwbib.de/spatial.ttl](https://nwbib.de/spatial.ttl)).
+2. The complete classification as SKOS file created from 1.) and Wikidata: [nwbib-spatial.ttl](https://github.com/hbz/lobid-vocabs/blob/master/nwbib/nwbib-spatial.ttl) (which is the same file as you can download at [https://nwbib.de/spatial.ttl](https://nwbib.de/spatial.ttl)).
 
 The HTML classification that is rendered from the SKOS file can be viewed and browsed at [https://nwbib.de/spatial](https://nwbib.de/spatial). Here is a screenshot showing a part of the HTML classification:
 
@@ -235,36 +233,30 @@ You can directly link to each element of the classification using the concept's 
 
 ### Update Wikidata with links to NWBib
 
-With the concept URIs resolving to the classification entry, the next step could be implemented: adding links from Wikidata to NWBib. Prerequistie is a Wikidata property that enables addition of respective statements to each place in Wikidata. We proposed such a property in the beginning of June 2019, see https://www.wikidata.org/wiki/Wikidata:Property_proposal/NWBib_ID. The Wikidata property [NWBib ID (P6814)](https://www.wikidata.org/wiki/Property:P6814) was created quickly one or two days later.
+With the concept URIs resolving to the classification entry, the next step could be implemented: adding links from Wikidata to NWBib. Prerequistie is a Wikidata property that enables addition of respective statements to each place in Wikidata. We proposed such a property in the beginning of June 2019, see https://www.wikidata.org/wiki/Wikidata:Property_proposal/NWBib_ID. After getting a few affirmative votes, the Wikidata property [NWBib ID (P6814)](https://www.wikidata.org/wiki/Property:P6814) was created quickly one or two days later.
 
 We then batch loaded the NWBib IDs with QuickStatements, see [https://github.com/hbz/nwbib/issues/469](https://github.com/hbz/nwbib/issues/469). By now, we could get all relevant Wikidata entries by querying for all items that have a P6814 statement.
 
-Until now, we were getting information about hierarchy (superordinated administrative entity) from [P131 (located in the administrative territorial entity)](https://www.wikidata.org/wiki/Property:P131) statements. As for some place multiple superordinated administrative entities were listed, we had problems to identify the one, we would use for creating our classification's hierarchy. That's where the Wikidata property [P4900 (broader concept)](https://www.wikidata.org/wiki/Property:P4900) comes handy. We used this to batch load "broader" links to other Wikidata entries with a qualifier to the P6814 statements, see the [corresponding issue](https://github.com/hbz/nwbib/issues/487) for implementation details. As a result, it looks like this in Wikidata, for example:
+Until now, we were getting information about hierarchy (superordinated administrative entity) from [P131 (located in the administrative territorial entity)](https://www.wikidata.org/wiki/Property:P131) statements. As for some place multiple superordinated administrative entities were listed, we had problems to identify the one, we would use for creating our classification's hierarchy. That's where the Wikidata property [P4900 (broader concept)](https://www.wikidata.org/wiki/Property:P4900) came into play. We used this to batch load "broader" links to other Wikidata entries with a qualifier to the P6814 statements, see the [corresponding issue](https://github.com/hbz/nwbib/issues/487) for implementation details. The result looks like this in Wikidata:
 
 ![NWBib ID entry in Wikidata example with P4900 qualifier](/images/nwbib-wikidata/P4900-example.png)
 
 ### Establish editorial process for updating the classification
 
-As noted, an up-to-date SKOS classification is created from
+Having set up this whole infrastructure we had to think about an editorial process for maintaining the classification. As noted, an up-to-date SKOS classification is created from
 
 1. the manually maintained SKOS config file [nwbib-spatial-conf.ttl](https://github.com/hbz/nwbib/blob/master/conf/nwbib-spatial-conf.ttl) which includes a) top-level concepts, b) hierarchical relationships that can't be recorded in Wikidata with `P4900` and c) concepts that for some reason have to be maintained outside Wikidata,
 2. all Wikidata items with [P6814 NWBib ID](https://www.wikidata.org/wiki/Property:P6814) statements including — if existent – the qualifier [P4900 (broader concept)](https://www.wikidata.org/wiki/Property:P4900).
 
-Generally, statements from the config file (1.) overwrite those from Wikidata (2.). Technically, it works like this:
+In general, statements from the config file (1.) overwrite those from Wikidata (2.). Technically, it works like this:
 
-1. Get relevant Wikidata data via SPARQL, see the [current query](https://github.com/hbz/nwbib/blob/master/conf/wikidata.sparql)
-2. Transform result to SKOS
-3. Merge result from 2.) with `nwbib-spatial-conf.ttl`, preferring the config file over the other in case of conflicts.
+1. get relevant Wikidata data via SPARQL, see the [current query](https://github.com/hbz/nwbib/blob/master/conf/wikidata.sparql)
+2. transform result to SKOS
+3. merge result from 2.) with `nwbib-spatial-conf.ttl`, preferring the config file over the other in case of conflicts
 
-As a sidenote: In the beginning, we hoped to combine 1.) & 2.) in one step by using a SPARQL `CONSTRUCT` query to directly extract the data from Wikidata in SKOS format, see [https://github.com/hbz/nwbib/wiki/Geo-Index-mit-SPARQL-CONSTRUCT-generieren](https://github.com/hbz/nwbib/wiki/Geo-Index-mit-SPARQL-CONSTRUCT-generieren) (German) & [https://github.com/hbz/lobid-vocabs/issues/85](https://github.com/hbz/lobid-vocabs/issues/85). Unfortunately, Wikidata does not support CONSTRUCT queries for such a large amount of data ([https://phabricator.wikimedia.org/T211178](https://phabricator.wikimedia.org/T211178)).
+As a sidenote: In the beginning, we hoped to combine 1.) & 2.) in one step by using a SPARQL `CONSTRUCT` query to directly extract the data from Wikidata in SKOS format, see [https://github.com/hbz/nwbib/wiki/Geo-Index-mit-SPARQL-CONSTRUCT-generieren](https://github.com/hbz/nwbib/wiki/Geo-Index-mit-SPARQL-CONSTRUCT-generieren) (German) & [https://github.com/hbz/lobid-vocabs/issues/85](https://github.com/hbz/lobid-vocabs/issues/85). Unfortunately, Wikidata does not support CONSTRUCT queries for such a large amount of data, see the [respective issue](https://phabricator.wikimedia.org/T211178).
 
-Aside from the technical update process, we needed to establish an editorial process that includes a review step. After a few iterations, we arrived at this process:
-
-1. NWBib editor wants to changes an entry or decides to inlcude a new place by adding an [NWBib ID (P6814)](https://www.wikidata.org/wiki/Property:P6814) statement.
-2. NWBib editor triggers a new build of the classification in the test system by clicking a button "Update from Wikidata" and checks whether the desired change is achieved. (By now, the editor can already use the new entry in cataloging by copying from the test system the field content as described above in the "Cataloging" paragraph).
-4. NWBib editor contacts lobid team by email and requests rebuild of classification in production.
-5. lobid team updates classificatio in production and notifies about possible undesired changes coming in from Wikidata.
-
+With this technical update process, we established with a few iterations the editorial process that is described in the above paragraph "Updating the classification".
 
 ## Further resources
 
