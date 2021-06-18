@@ -7,6 +7,9 @@ tags: lobid-gnd
 
 In der letzten Woche fand die [GNDCon 2.0](https://wiki.dnb.de/display/GNDCON/GNDCon) statt. Die zweite Ausgabe der GNDCon wurde dezentral veranstaltet. Verschiedene Akteure übernahmen dabei die inhaltliche Umsetzung und kümmerten sich um das technische Hosting für eine "MiniCon". Wir haben gemeinsam mit Jakob Voß von der Verbundzentrale des GBV die [MiniCon "Wie verlinken wir unsere Daten mit der GND?"](https://wiki.dnb.de/x/qx0RD) angeboten.
 
+<img src="/images/gndcon2021-logos.png" alt="Die Logos von ColiConc, OpenRefine, lobid und GND">
+
+
 ## Reconciliation als Grundlage für die Verlinkung mit Normdaten
 
 Grundlage einer solchen Verlinkung eigener Daten ist ein Abgleich dieser Daten mit der GND. Dieser zugrunde liegende Prozess des Datenabgleichs wird auch als _Reconciliation_ bezeichnet. Adrian bestimmte in seinem [Einleitungsvortrag](https://pad.gwdg.de/p/gndcon2021-reconciliation-i) Reconciliation wie folgt:
