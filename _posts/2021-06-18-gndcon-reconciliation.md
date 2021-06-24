@@ -2,6 +2,7 @@
 layout: post
 title: "Reconciliation mit lobid, OpenRefine und Cocoda bei der GNDCon"
 author: Adrian Pohl, Fabian Steeg, Jakob Voß
+date: 2021-06-18
 tags: lobid-gnd
 ---
 
