@@ -4,6 +4,7 @@ title: "Presenting the SkoHub Editor"
 date: 2020-03-31
 author: Adrian Pohl, Felix Ostrowski
 tags: skohub
+canonical_url: 'https://blog.skohub.io/2020-03-31-skohub-editor/'
 ---
 
 In a [previous blog post](http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html) we presented a first SkoHub module: *SkoHub Vocabs*. Before talking about another module, first a short summary of the features SkoHub Vocabs offers. Basically, it provides an editorial workflow to publish a SKOS vocabulary on the web which can then be consumed by humans and applications. It builds on git-based online software development platforms (currently GitHub and GitLab are supported) where you maintain a SKOS vocabulary as a Turtle file. This allows you to use all the associated features such as branches and pull requests for a full-fledged review process. With every new commit in a branch, triggered by a webhook, SkoHub Vocabs will build a static site for the vocab – with HTML for human consumption and JSON-LD for consumption by applications.

@@ -4,6 +4,7 @@ title: "Presenting the SkoHub Vocabs Prototype"
 author: Adrian Pohl, Felix Ostrowski
 date: 2019-09-27
 tags: skohub
+canonical_url: 'https://blog.skohub.io/2019-09-27-skohub-vocabs/'
 ---
 
 We are happy to announce that the SkoHub prototype outlined in our post ["SkoHub: Enabling KOS-based content subscription"](http://blog.lobid.org/2019/05/17/skohub.html) is now finished. In a series of three post we will report on the outcome by walking through the different components and presenting their features.

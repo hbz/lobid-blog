@@ -4,6 +4,7 @@ title: "ActivityPub Conference 2020"
 author: Adrian Pohl, Felix Ostrowski
 date: 2020-10-09
 tags: skohub
+canonical_url: 'https://blog.skohub.io/2020-10-09-skohub-apconf/'
 ---
 
 From 2-5 October the [ActivityPub conference](https://conf.activitypub.rocks/) happened online where people using the ActivityPub protocol came together to discuss topics all around federated networks and the respective web standards. For presentations, a flipped classroom approach was chosen where talks would be uploaded before the conference and the live part would be Q&A sessions for each talk. On Sunday, there was an additional round of lightning talks and some birds of a feather (bof) sessions where  – quite similar to a barcamp session – people interested in a topic could propose a session and meet with likeminded people.
