@@ -1,3 +1,5 @@
 name: lobid.org
 markdown: kramdown
 
+plugins:
+ - jekyll-seo-tag

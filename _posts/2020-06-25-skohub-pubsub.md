@@ -3,6 +3,7 @@ layout: post
 title: "Presenting SkoHub PubSub"
 author: Adrian Pohl, Felix Ostrowski
 tags: skohub
+canonical_url: 'https://blog.skohub.io/2020-06-25-skohub-pubsub/'
 ---
 
 In the previous blog posts we have presented [SkoHub Vocabs](http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html) and [SkoHub Editor](http://blog.lobid.org/2020/03/31/skohub-editor.html). In the final post of this SkoHub introduction series we will take a deeper look at SkoHub PubSub, the part of SkoHub that brings the novel approach of KOS-based content subscription into the game.
