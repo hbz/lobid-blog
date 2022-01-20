@@ -1,4 +1,4 @@
-This repo contains the sources for the "Lobid slides page":http://slides.lobid.org
+This repo contains the sources for the "Lobid blog page":http://blog.lobid.org
 
 To set up the Jekyll-based blog locally, see "https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/":https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/
 
