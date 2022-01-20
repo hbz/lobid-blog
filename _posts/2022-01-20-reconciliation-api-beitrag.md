@@ -9,7 +9,7 @@ tags: lobid-gnd
 
 Bereits im Oktober 2021 wurde der Sammelband [Qualität in der Inhaltserschließung](https://doi.org/10.1515/9783110691597), herausgegeben von Michael Franke-Maier, Anna Kasprzik, Andreas Ledl und Hans Schürmann, veröffentlicht, in dem auch ein Beitrag aus dem lobid-Team mit dem Titel <a href="https://doi.org/10.1515/9783110691597-013">Ein Protokoll für den Datenabgleich im Web am Beispiel von OpenRefine und der Gemeinsamen Normdatei (GND)</a> enthalten ist.
 
-Wir bedanken uns bei den Herausgeber:innen für die gute Kommunikation und insgesamt gute Arbeit an dem Sammelband (<a href="https://www.uebertext.org/2014/03/sammelband-herausgeben-gelernt.html">ich weiß wovon ich spreche</a>). Das Ergebnis kann sich sehen lassen und ist – wie sich das gehört – Open Access zugänglich, was auch eine Bedingung von uns und anderen Autor:innen für einen Beitrag war. 
+Wir bedanken uns bei den Herausgeber:innen für die gute Kommunikation und insgesamt tolle Arbeit an dem Sammelband (<a href="https://www.uebertext.org/2014/03/sammelband-herausgeben-gelernt.html">ich weiß wovon ich spreche</a>). Das Ergebnis kann sich sehen lassen und ist – wie sich das gehört – Open Access zugänglich, was auch eine Bedingung von uns und anderen Autor:innen für einen Beitrag war.
 
 ## Zusammenfassung
 
