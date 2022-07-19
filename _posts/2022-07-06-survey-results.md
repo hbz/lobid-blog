@@ -1,16 +1,16 @@
 ---
 layout: post
 title: "Ergebnisse der Umfrage zur Nutzung der lobid-API"
-author: Felix Lohmeier
-date: 2022-07-06
+author: Felix Lohmeier, Adrian Pohl
+date: 2022-07-19
 tags: lobid-gnd lobid-resources lobid-organisations
 ---
 
-Im Frühjahr hatten wir [eine kleine Umfrage](https://blog.lobid.org/2022/02/03/umfrage.html) zur Nutzung der lobid-API durchgeführt. Wir haben uns sehr über die hohe Teilnahme (70 Personen) gefreut! So haben wir einen guten Überblick gewonnen, welche schönen Dienste und Projekte auf der lobid-API aufbauen. Die Ergebnisse der Umfrage und erste Erkenntnisse möchten wir hier nun gerne teilen.
+Im Frühjahr hatten wir [eine kleine Umfrage](https://blog.lobid.org/2022/02/03/umfrage.html) zur Nutzung der lobid-API durchgeführt. Wir haben uns sehr über die rege Teilnahme (70 Personen) gefreut! So haben wir einen guten Überblick gewonnen, welche schönen Dienste und Projekte auf der lobid-API aufbauen. Die Ergebnisse der Umfrage und erste Erkenntnisse möchten wir hier nun gerne teilen.
 
 Zur Einordnung:
 
-* Zeitraum: 03.02. bis 11.04.2022
+* Zeitraum der Umfrage: 03.02. bis 11.04.2022
 * Rückmeldungen: 70
 * Mehrfachnennungen waren möglich
 
@@ -34,7 +34,7 @@ Die lobid-API verfügt über einige Zusatzfunktionen die offenbar wenig genutzt 
 
 Wie erwartet, wird die Reconciliation API (z.B. via OpenRefine) oft genutzt. Hier haben wir die letzten Jahre viel an den Funktionen gearbeitet, [Tutorials](https://blog.lobid.org/2018/08/27/openrefine.html) erstellt und Workshops angeboten.
 
-Am meisten werden Live-Zugriffe auf Einzeldaten und die Suchfunktion genutzt. Der Abruf größerer Datenmengen (Bulk-Downloads) wird nur von einem kleineren Teil genutzt. In vielen Anwendungskontexten können Bulk-Downloads und anschließende lokale Verarbeitung effizienter als Einzelabrufe sein. Hier wollen wir prüfen, ob wir mit neuen Anleitungen eine ressourcenschonende Nutzung der lobid-API unterstützen können.
+Am meisten werden Live-Zugriffe auf Einzeldaten und die Suchfunktion genutzt. Der Abruf größerer Datenmengen (Bulk-Downloads) wird nur von einem kleineren Teil genutzt. In vielen Anwendungskontexten können Bulk-Downloads und anschließende lokale Verarbeitung effizienter als Einzelabrufe sein. Hier werden wir prüfen, ob wir mit neuen Anleitungen eine ressourcenschonendere Nutzung der lobid-API unterstützen können.
 
 ## Frage 4: Mit welcher Häufigkeit/Frequenz nutzen Sie lobid?
 
@@ -43,7 +43,7 @@ Am meisten werden Live-Zugriffe auf Einzeldaten und die Suchfunktion genutzt. De
 | Regelmäßig        | 58,44 % |
 | Zeitlich begrenzt | 41,56 % |
 
-Bei dieser Frage zeigt sich nochmal deutlich der Anteil von Forschungsprojekten.
+Bei dieser Frage zeigt sich nochmal deutlich der Anteil von (Forschungs-)projekten.
 
 ## Frage 5: Welche Tools nutzen Sie um lobid abzufragen?
 
@@ -53,7 +53,7 @@ Es ist schön zu sehen, mit welcher Vielfalt an Werkzeugen die lobid-API genutzt
 
 ## Frage 6: Wofür nutzen Sie lobid?
 
-Hier waren wir schlicht überwältigt von der vielfältigen Nutzung. Einige Teilnehmer\*innen der Umfrage haben sich die Mühe gemacht, ihre Anwendungsfälle detailliert zu beschreiben. Wir finden das sind viele inspirierende Beispiele, von denen andere profitieren können. Daher wollen wir gerne eine Sammlung von Anwendungsfällen aufbauen, in die sich dann alle auch selbst eintragen können. 
+Hier waren wir schlicht überwältigt von der vielfältigen Nutzung. Einige Teilnehmer\*innen der Umfrage haben sich die Mühe gemacht, ihre Anwendungsfälle detailliert zu beschreiben. Wir finden das sind viele inspirierende Beispiele, von denen andere profitieren können. Daher wollen wir in Zukunft gerne eine Sammlung von Anwendungsfällen aufbauen, in die sich dann alle auch selbst eintragen können.
 
 ## Frage 7: Erwähnen Sie lobid in irgendeiner Weise öffentlich als Datenquelle?
 
