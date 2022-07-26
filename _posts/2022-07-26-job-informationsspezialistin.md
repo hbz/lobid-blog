@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Wir suchen: Informationsspezialist*in (m/w/d)"
+title: "Wir suchen: Informationsspezialist*in"
 author: Adrian Pohl
 date: 2022-07-26
 tags: job
