@@ -8,6 +8,8 @@ tags: job
 
 <img style="float: right; width:150px !important;" src="https://lobid.org/images/hbz.png">
 
+<small>*Hinweis: Diese Stelle wurde ursprünglich zusammen mit einer zweiten hbz-Stelle [im zfm-Karriereportal](https://www.zfm-bonn.de/jobs/stellenangebote/stellenangebot/?job=projektkoordinator-in-w+m+d-hochschulbibliothekszentrum-des-landes-nordrhein-westfalen) ausgeschrieben. Für die Veröffentlichung hier im lobid-Blog haben wir die Ausschreibungen getrennt.*</small>
+
 Das Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen (hbz) gehört zum Geschäftsbereich des Ministeriums für Kultur und Wissenschaft NRW und hat seinen Sitz im Herzen von Köln. Unsere Mission ist die nachhaltige Informationsversorgung von Wissenschaft, Kultur und Hochschulen. Wir engagieren uns u. a. in den Bereichen Open Access, Open Source und Open Data. 
 
 Metadaten sind der Schlüssel um Daten aller Art, z.B. Literatur oder Forschungsdaten in der eigenen Hochschule, dem Forschungsumfeld oder auch im gesamten Internet zu finden und in ihren Kontext einordnen zu können.  Gefördert durch das Ministerium für Kultur und Wissenschaft NRW will das Hochschulbibliothekszentrum NRW mit dem Projekt metadaten.nrw die Etablierung einer leistungsfähigen webbasierten Metadateninfrastruktur erreichen.
