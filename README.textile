@@ -12,6 +12,7 @@ Quick setup:
 
 Start server locally when working on a draft:
 
+@bundle config set --local path ~/.gem@
 @jekyll serve --drafts --watch@
 
 Open "http://localhost:4000":http://localhost:4000
