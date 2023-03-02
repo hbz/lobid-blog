@@ -8,11 +8,10 @@ Quick setup:
 @sudo gem install bundler@
 @git clone https://github.com/hbz/lobid-blog.git@
 @cd lobid-blog@
-@bundle install@
+@bundle install --path ~/.gem@
 
 Start server locally when working on a draft:
 
-@bundle config set --local path ~/.gem@
 @jekyll serve --drafts --watch@
 
 Open "http://localhost:4000":http://localhost:4000
