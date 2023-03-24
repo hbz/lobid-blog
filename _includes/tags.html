@@ -10,7 +10,7 @@
 {% for temp_tag in sorted_temp_tags %}
   {% assign tag_items = temp_tag | split: '#' %}
   {% capture tag_name %}{{ tag_items[1] }}{% endcapture %}
-  <a href="{{ site.baseurl }}/tags/{{ tag_name }}"><code><nobr>{{ tag_name }}</nobr></code></a>
+  <a href="/tags/{{ tag_name }}"><code><nobr>{{ tag_name }}</nobr></code></a>
 {% endfor %}
 </small>
 </p>
