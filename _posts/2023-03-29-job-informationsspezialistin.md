@@ -6,10 +6,9 @@ date: 2023-03-29
 tags: job
 ---
 
-Wir schreiben eine [Stelle](https://blog.lobid.org/2022/07/26/job-informationsspezialistin.html) neu aus und freuen uns auf Bewerber\*innen für unsere kompetente und nette Gruppe bestehend aus drei Bibliothekar\*innen und fünf Entwickler\*innen!
-
 <img style="float: right; width:150px !important;" src="https://lobid.org/images/hbz.png">
 
+Wir schreiben eine [Stelle](https://blog.lobid.org/2022/07/26/job-informationsspezialistin.html) neu aus und freuen uns auf Bewerber\*innen für unsere kompetente und nette Gruppe bestehend aus drei Bibliothekar\*innen und fünf Entwickler\*innen!
 
 Metadaten sind der Schlüssel um Daten aller Art, z.B. Literatur oder Forschungsdaten in der eigenen Hochschule, dem Forschungsumfeld oder auch im gesamten Internet zu finden und in ihren Kontext einordnen zu können.  Gefördert durch das Ministerium für Kultur und Wissenschaft NRW will das Hochschulbibliothekszentrum NRW (hbz) mit dem Projekt metadaten.nrw die Etablierung einer leistungsfähigen webbasierten Metadateninfrastruktur erreichen.
  
