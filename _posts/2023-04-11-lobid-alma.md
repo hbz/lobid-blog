@@ -17,12 +17,12 @@ Wir sind zuversichtlich, dass der Umstieg für die meisten lobid-resources-Nutze
 
 Dementsprechend sind wir sehr zuversichtlich, dass auch alle anderen Anwendungen, die auf lobid-resources zugreifen mit relativ geringem Aufwand weiterlaufen können.
 
-## Ziel: Rückwärtskompatibilität mit minmalen Anpassungen
+## Ziel: Rückwärtskompatibilität mit minimalen Anpassungen
 
-Beim Umstieg auf Alma-basierte Daten haben wir uns also oberstes Ziel gesetzt, die lobid-resources-API möglichst rückwärtskompatibel zu machen, d.h. so wenig wie möglich Änderungen am Datenmodell und den API Calls vorzunehmen. Um ein paar Änderungen und die Korrektur ungünstiger vergangener Entscheidungen bei der Datenmodellierung sind wir aber nicht herumgekommen. Auch ist eine grundlegende Änderung, dass zukünftig Alma-basierte Identifikatoren für die Ressourcen-URIs genutzt werden. Desweiteren wurden Änderungen durch die veränderte Datenbasis (MARC statt MAB-orientiert) zustande.
+Beim Umstieg auf Alma-basierte Daten haben wir uns also oberstes Ziel gesetzt, die lobid-resources-API möglichst rückwärtskompatibel zu machen, d.h. so wenig wie möglich Änderungen am Datenmodell und den API Calls vorzunehmen. Um ein paar Änderungen und die Korrektur ungünstiger vergangener Entscheidungen bei der Datenmodellierung sind wir aber nicht herumgekommen. Auch ist eine grundlegende Änderung, dass zukünftig Alma-basierte Identifikatoren für die Ressourcen-URIs genutzt werden. Einige Anpassungen sind bedingt durch die neue Datenbasis (MARC statt MAB-orientiert).
 
 Hier eine Übersicht über die stattgefundenen Änderungen:
-- `id` (HTTP-URI zur Identifizierung der bibliographischen Ressourcen) wird jetzt nicht auf Basis der HBZ-ID konstruiert, sondern auf Basis der ALMA-MMS-ID des jewiligen Records. (siehe [#1693](https://github.com/hbz/lobid-resources/issues/1693) and [#1639](https://github.com/hbz/lobid-resources/issues/1639))
+- `id` (HTTP-URI zur Identifizierung der bibliographischen Ressourcen) wird jetzt nicht auf Basis der HBZ-ID konstruiert, sondern auf Basis der ALMA-MMS-ID des jeweiligen Records. (siehe [#1693](https://github.com/hbz/lobid-resources/issues/1693) and [#1639](https://github.com/hbz/lobid-resources/issues/1639))
 - Bei den Holding-Angaben werden nur noch teilweise die Institutionsbibliotheken explizit mithilfe einer ISIL angegeben, da durch die ALMA-Migration des Verbunds die Datenlage vereinfacht wurde. Nur noch Bibliotheken, die explizit Mappings für ihre "Sublibraries" bereitstellen, werden auch entsprechend verlinkt. (Siehe [#1652](https://github.com/hbz/lobid-resources/issues/1652))
 - zwei Elemente zur Verlinkung zu anderen Resourcen bzw. externen Materialien u.a. aufgrund unklarer Definition und fehlendem Mehrwert wurden gelöscht:
    - `hasVersion`
