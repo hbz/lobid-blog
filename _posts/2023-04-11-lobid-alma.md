@@ -30,7 +30,7 @@ Hier eine Übersicht über die stattgefundenen Änderungen:
 - `owl:sameAs` und `umbel:isLike` wurden als `sdo:sameAs` zusammen geführt. (siehe [#1400](https://github.com/hbz/lobid-resources/issues/1400))
 - `titleOfSubSeries` wurde gelöscht und die Werte werden an `title` angehangen
 - das Hilfsfeld `subjectAltLabels` wurde gelöscht, da die varianten Namen jetzt eindeutig einem konkreten Schlagworteintrag unter `subject` zugeordnet werden können
-- `publication.location` ist jetzt ein in Array
+- `publication.location` ist jetzt ein Array
 - einige nicht mehr benötigte NWBib-Felder bzw. fehlerhafte Felder wurden gelöscht:
   - `longitudeAndLatitude[].*`
   - `coverage[].*`
@@ -38,19 +38,16 @@ Hier eine Übersicht über die stattgefundenen Änderungen:
   - `spatial[].*.focus.geo[].*.lon`
   - `license[].*.note[].*`
 - Die Unterfelder `exampleOfWork.creatorOfWork` und `exampleOfWork.instrumentation[].*` wurden gelöscht, da die Datenb
-- Provenienzangaben in `describedBy` wurden umgestellt, da sich die Informationen auf den Eintrag im Verbundkatalog beziehen (`descibedBy.resultOf.object`). Zudem ist wobei `descibedBy.resultOf.object.modifiedBy` jetzt ein Array.
+- Provenienzangaben in `describedBy` wurden umgestellt, da sich die Informationen auf den Eintrag im Verbundkatalog beziehen (`describedBy.resultOf.object`). Zudem ist `describedBy.resultOf.object.modifiedBy` jetzt ein Array.
 - `corporateBodyForTitle[].*` ??
-- falsche/Überflüssige Felder in `contribution` wurden entfernt:
+- falsche/überflüssige Felder in `contribution` wurden entfernt:
   - `contribution[].*.agent.altLabel`
   - `contribution[].*.agent.label[].*`
   - `contribution[].*.agent.source.id`
-  - `contribution[].*.agent.source.label
+  - `contribution[].*.agent.source.label`
 - `natureOfContent[].*.gndIdentifier`, `natureOfContent[].*.source.id`, `natureOfContent[].*.source.label`, `natureOfContent[].*.type[].*`
 
 ## Bitte testet eure Anwendungen
 
 Um einen reibungslosten Umstieg Anfang Mai zu gewährleisten, bitten wir euch darum, in der zweiten Aprilhälfte alle eure Anwendungen zu testen, die gegen lobid-resources laufen.
-
-
-
 
