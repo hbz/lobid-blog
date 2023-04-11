@@ -28,26 +28,28 @@ Hier eine Übersicht über die stattgefundenen Änderungen:
    - `hasVersion`
    - `similar`
 - `owl:sameAs` und `umbel:isLike` wurden als `sdo:sameAs` zusammen geführt. (siehe [#1400](https://github.com/hbz/lobid-resources/issues/1400))
-- `titleOfSubSeries` wurde gelöscht und die Werte werden an `title` angehangen
-- das Hilfsfeld `subjectAltLabels` wurde gelöscht, da die varianten Namen jetzt eindeutig einem konkreten Schlagworteintrag unter `subject` zugeordnet werden können
-- `publication.location` ist jetzt ein Array
+- `titleOfSubSeries` wurde gelöscht und die Werte werden an `title` angehangen (Siehe [#1214](https://github.com/hbz/lobid-resources/issues/1215))
+- das Hilfsfeld `subjectAltLabels` wurde gelöscht, da die varianten Namen jetzt eindeutig einem konkreten Schlagworteintrag unter `subject` als `altLabel` zugeordnet werden können (Siehe: [#1505](https://github.com/hbz/lobid-resources/issues/1505))
+- `publication.location` and `publication.publishedBy` ist jetzt ein in Array (Siehe: [#1106](https://github.com/hbz/lobid-resources/issues/1098))
 - einige nicht mehr benötigte NWBib-Felder bzw. fehlerhafte Felder wurden gelöscht:
   - `longitudeAndLatitude[].*`
   - `coverage[].*`
   - `spatial[].*.focus.geo[].*.lat`
   - `spatial[].*.focus.geo[].*.lon`
   - `license[].*.note[].*`
-- Die Unterfelder `exampleOfWork.creatorOfWork` und `exampleOfWork.instrumentation[].*` wurden gelöscht, da die Datenb
-- Provenienzangaben in `describedBy` wurden umgestellt, da sich die Informationen auf den Eintrag im Verbundkatalog beziehen (`describedBy.resultOf.object`). Zudem ist `describedBy.resultOf.object.modifiedBy` jetzt ein Array.
-- `corporateBodyForTitle[].*` ??
-- falsche/überflüssige Felder in `contribution` wurden entfernt:
+- Die Unterfelder `exampleOfWork.creatorOfWork` und `exampleOfWork.instrumentation[].*` wurden gelöscht, da die Datenbasis nicht mehr existiert und die Informationen jetzt in dem `contribution`-Objekt gelistet ist (Siehe [#1500](https://github.com/hbz/lobid-resources/pull/1500))
+- Provenienzangaben in `describedBy` wurden umgestellt, da sich die Informationen auf den Eintrag im Verbundkatalog beziehen (`descibedBy.resultOf.object`). Zudem ist  `descibedBy.resultOf.object.modifiedBy` jetzt ein Array. (Siehe: [#1470](https://github.com/hbz/lobid-resources/issues/1470))
+- falsche/Überflüssige Felder in `contribution` wurden entfernt:
   - `contribution[].*.agent.altLabel`
   - `contribution[].*.agent.label[].*`
   - `contribution[].*.agent.source.id`
   - `contribution[].*.agent.source.label`
-- `natureOfContent[].*.gndIdentifier`, `natureOfContent[].*.source.id`, `natureOfContent[].*.source.label`, `natureOfContent[].*.type[].*`
+  - `corporateBodyForTitle[].*` 
+  - `natureOfContent[].*.gndIdentifier` 
+  - `natureOfContent[].*.source.id`
+  - `natureOfContent[].*.source.label`
+  - `natureOfContent[].*.type[].*`
 
 ## Bitte testet eure Anwendungen
 
 Um einen reibungslosten Umstieg Anfang Mai zu gewährleisten, bitten wir euch darum, in der zweiten Aprilhälfte alle eure Anwendungen zu testen, die gegen lobid-resources laufen.
-
