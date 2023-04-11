@@ -9,7 +9,7 @@ tags: lobid-resources
 
 Seit Ende 2019 arbeiten das hbz und die NRW-Verbundbibliotheken im [GO:AL-Projekt](https://www.hbz-nrw.de/projekte/goal-cbms) am Umstieg auf Alma als landesweit einheitliches cloudbasiertes Bibliotheksmanagementsystem. Im Rahmen von fünf Waves migrieren alle Verbundbibliotheken auf Alma. Mit der anstehende dritten Wave wird Aleph durch eine Community Zone in Alma als primäres Verbundsystem abgelöst, das sämtliche Verbunddaten samt Beständen vorhält. Im Zuge dessen wird auch [lobid-resources](https://lobid.org/resources) nicht mehr mit Aleph, sondern mit Alma-Daten gefüttert.
 
-Das lobid-Team arbeitet schon seit langer Zeit auf diesen Umstieg hin. Wir haben eine lobid-resources-Instanz auf Basis der Alma-Daten aufgesetzt und nach und nach verbessert. Das Ergebnis läuft momentan unter [https://alma.lobid.org/resources](https://alma.lobid.org/resources). Im Zuge dieser Migration haben wir die neu Fix-Sprache für die Datentransformation mit [Metafacture](https://metafacture.org) entwickelt und angewendet. Die recht komplexe Transformation von 24 Millionen Verbunddatensätzen bedeutete dabei den Lackmustest für Metafacture-Fix.
+Das lobid-Team arbeitet schon seit langer Zeit auf diesen Umstieg hin. Wir haben eine lobid-resources-Instanz auf Basis der Alma-Daten aufgesetzt und nach und nach verbessert. Das Ergebnis läuft momentan unter [https://alma.lobid.org/resources](https://alma.lobid.org/resources). Im Zuge dieser Migration haben wir die Fix-Sprache, die sich an Catmandu-Fix anlehnt, für die Datentransformation mit [Metafacture](https://metafacture.org) entwickelt und angewendet. Die recht komplexe Transformation von 24 Millionen Verbunddatensätzen bedeutete dabei den Lackmustest für Metafacture-Fix.
 
 ## Erste Tests waren erfolgreich
 
@@ -38,7 +38,7 @@ Hier eine Übersicht über die stattgefundenen Änderungen:
   - `spatial[].*.focus.geo[].*.lon`
   - `license[].*.note[].*`
 - Die Unterfelder `exampleOfWork.creatorOfWork` und `exampleOfWork.instrumentation[].*` wurden gelöscht, da die Datenbasis nicht mehr existiert und die Informationen jetzt in dem `contribution`-Objekt gelistet ist (Siehe [#1500](https://github.com/hbz/lobid-resources/pull/1500))
-- Provenienzangaben in `describedBy` wurden umgestellt, da sich die Informationen auf den Eintrag im Verbundkatalog beziehen (`descibedBy.resultOf.object`). Zudem ist  `descibedBy.resultOf.object.modifiedBy` jetzt ein Array. (Siehe: [#1470](https://github.com/hbz/lobid-resources/issues/1470))
+- Provenienzangaben in `describedBy` wurden umgestellt, da sich die Informationen auf den Eintrag im Verbundkatalog beziehen (`describedBy.resultOf.object`). Zudem ist  `describedBy.resultOf.object.modifiedBy` jetzt ein Array. (Siehe: [#1470](https://github.com/hbz/lobid-resources/issues/1470))
 - falsche/Überflüssige Felder in `contribution` wurden entfernt:
   - `contribution[].*.agent.altLabel`
   - `contribution[].*.agent.label[].*`
