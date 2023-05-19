@@ -38,7 +38,7 @@ Hier eine Übersicht über die stattgefundenen Änderungen:
   - `spatial[].*.focus.geo[].*.lon`
   - `license[].*.note[].*`
 - Die Unterfelder `exampleOfWork.creatorOfWork` und `exampleOfWork.instrumentation[].*` wurden gelöscht, da die Datenbasis nicht mehr existiert und die Informationen jetzt in dem `contribution`-Objekt gelistet ist (Siehe [#1500](https://github.com/hbz/lobid-resources/pull/1500))
-- Provenienzangaben in `describedBy` wurden umgestellt, da sich die Informationen auf den Eintrag im Verbundkatalog beziehen (`describedBy.resultOf.object`). Zudem ist  `describedBy.resultOf.object.modifiedBy` jetzt ein Array (siehe: [#1470](https://github.com/hbz/lobid-resources/issues/1470)) und in den Feldern `describedBy.object.dateCreated` und `describedBy.object.dateModified` wird das Datumsformat yyyy-mm-dd anstatt yyyymmdd genutzt.
+- Provenienzangaben in `describedBy` wurden umgestellt, da sich die Informationen auf den Eintrag im Verbundkatalog beziehen (`describedBy.resultOf.object`). Zudem ist  `describedBy.resultOf.object.modifiedBy` jetzt ein Array (siehe: [#1470](https://github.com/hbz/lobid-resources/issues/1470)) und in den Feldern `describedBy.resultOf.object.dateCreated` und `describedBy.resultOf.object.dateModified` wird das Datumsformat yyyy-mm-dd anstatt yyyymmdd genutzt.
 - falsche/Überflüssige Felder in `contribution` wurden entfernt:
   - `contribution[].*.agent.altLabel`
   - `contribution[].*.agent.label[].*`
