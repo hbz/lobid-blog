@@ -23,7 +23,7 @@ Zur Verstärkung suchen wir dafür zum nächstmöglichen Zeitpunkt eine*n
 * Kommunikation mit potentiellen Datenlieferanten
 * Aufsetzen von ETL-Prozessen
 * eigenverantwortliche Klassifikation, Auswahl, Anwendung und Anpassung existierender Serviceangebote der hbz-Gruppe
-* Metadateninfrastruktur für den Bereich Forschungsdatenmanagemet
+* Metadateninfrastruktur für den Bereich Forschungsdatenmanagement
 
 **Ihre Qualifikationen**
 
