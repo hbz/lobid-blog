@@ -14,7 +14,7 @@ Hintergrund war eine Anpassung der [Normdatenvorlage](https://de.wikipedia.org/w
 
 Christian Erlinger ([Mfchris84](https://de.wikipedia.org/wiki/Benutzer:Mfchris84)) brachte dann auch eine [Verlinkung zu lobid](https://de.wikipedia.org/wiki/Vorlage_Diskussion:Normdaten#lobid) ins Spiel und sparte nicht mit dem Lob:
 
-> \[lobid\] hat sich in den letzten Jahren mit allen drei Ressourcen-Typen (lobid-resources, lobid-orgs und lobid-gnd) als wertvoller Bestandteil bibliothekarischer Infrastruktur in Richtung linked open data entwickelt und von der Durchsuchbarkeit, Verfügbarkeit und Nachnutzbarkeit hat kein GND-Service im bibliothekarischen Alltag jenes Standing, welches lobdi \[sic\] geniesst. trust me :-)
+> \[lobid\] hat sich in den letzten Jahren mit allen drei Ressourcen-Typen (lobid-resources, lobid-orgs und lobid-gnd) als wertvoller Bestandteil bibliothekarischer Infrastruktur in Richtung linked open data entwickelt und von der Durchsuchbarkeit, Verfügbarkeit und Nachnutzbarkeit hat kein GND-Service im bibliothekarischen Alltag jenes Standing, welches lobid geniesst. trust me :-)
 [Quelle](https://de.wikipedia.org/wiki/Vorlage_Diskussion:Normdaten#c-Mfchris84-20230602210200-Aschmidt-20230602205500)
 
 Adrian [kommentierte](https://de.wikipedia.org/wiki/Vorlage_Diskussion:Normdaten#c-Acka47-20230605084500-Mfchris84-20230602214700) für das lobid-Team, um bestehende Bedenken an der dauerhaften Verfügbarkeit von lobid auszuräumen und erwähnte unsere langjährige Verbundenheit mit der Wikimedia-Community. 
