@@ -20,5 +20,5 @@ Für einen Überblick siehe den Meilenstein unter https://github.com/hbz/lobid-o
 
 Die Veränderungen sind ohne uns bekannte API-Breaks.
 
-Wir planen einen Wechsel auf dem produktiv System in 3 Wochen am 11.09.2023.
+Wir planen einen Wechsel auf dem Produktivsystem am 11.09.2023.
 Bis dahin kann unter http://test.lobid.org/organisations, die aktuelle Version getestet werden.
