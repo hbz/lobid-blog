@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Veröffentlichung der Richtlinien einer rücksichtsvollen lobid-Nutzung 
+title: Veröffentlichung von Richtlinien einer rücksichtsvollen lobid-Nutzung
 date: 2023-10-12
 author: Adrian Pohl & Sebastian Meyer
 tags: lobid-resources lobid-organisations lobid-gnd
@@ -18,21 +18,14 @@ Hier wird die Motivation für die Veröffentlichung der Richtlinien erläutert u
 
 2. **lobid als Datenquelle nennen**
 
-In diesem Abschnitt wird verdeutlicht, dass es, aufgrund der Nutzung der CC0-Lizenz, zwar nicht nötig ist lobid als Datenquelle zu nennen aber durchaus als gute Praxis erwünscht ist. Für die einfache Umsetzung wird der Text um HTML-Snippets für die leichte Umsetzung der Attrbibuierung ergänzt.
+In diesem Abschnitt wird verdeutlicht, dass es, aufgrund der Nutzung der CC0-Lizenz, zwar nicht nötig ist lobid als Datenquelle zu nennen aber durchaus als gute Praxis erwünscht ist. Für die einfache Umsetzung wird der Text um HTML-Snippets für die leichte Umsetzung der Attribuierung ergänzt.
 
 3. **Technische Hinweise zur lobid-Nutzung**
 
-Um die technische Umsetzung der in den Richtlinien beschriebenen Maßnahmen so niedrigschwellig wie möglich zu gestalten, werden in diesem Dokument Hinweise zur Implementierung gegeben und mit Kurzbeispielen illustriert. Auch diese Maßnahmen sind als Empfehlungen zu verstehen und werden seitens lobid nicht technisch erzwungen.
+Dieser Abschnitt nimmt am meistern Raum ein und richtet sich an implementierende Techniker:innen. Um die technische Umsetzung der in den Richtlinien beschriebenen Maßnahmen so niedrigschwellig wie möglich zu gestalten, werden Hinweise zur Implementierung gegeben und mit Kurzbeispielen illustriert. Auch diese Maßnahmen sind als Empfehlungen zu verstehen und werden seitens lobid nicht technisch erzwungen.
 
-Das Dokument richtet sich an implementierende Techniker:innen.
+4. **Informationen zur Gewährleistung**
 
-3. **Informationen zur Gewährleistung**
+Parallel zu den Nutzungsrichtlinien haben wir [Informationen zum Gewährleistungsausschluss](http://lobid.org/warranty/) publiziert, die hier verlinkt werden. Dies ist letztlich auch der einzige juristisch wirksame Text und wurde daher – analog zu Impressum und Datenschutzerklärung – unabhängig publiziert.
 
-   Dieser Absatz zum Gewährleistungsausschluss ist der einzige juristisch verbindliche Text und sollte daher analog zu Impressum und Datenschutzerklärung unabhängig von den vorgenannten Dokumenten publiziert werden.
-
-   Eine vorherige Prüfung durch eine:n Justiziar:in ist angeraten, da der Text von juristischen Laien verfasst wurde.
-
-4. **Empfehlungen zur Verbesserung des lobid-Angebots**
-
-   Die eingangs beschriebenen Ziele einer möglichst niedrigschwelligen, gleichberechtigten Nutzung der lobid-Schnittstellen können auch seitens des hbz als Anbieter der Dienste durch eine Reihe von Maßnahmen weiter unterstützt werden. Einige Verbesserungsvorschläge sind hier aufgeführt.
-
+Wir sind sehr froh, diese Richtlinien nun publiziert zu haben. So können wir bei entsprechenden Anfragen, die regelmäßig an uns gerichtet werden, einfach darauf verweisen. Wir sind gespannt, ob die Richtlinien ihren Zweck erfüllen und was die lobid-Nutzer:innen dazu sagen. Wir freuen uns über Rückmeldungen und konstruktive Kritik, wenn Dinge fehlen oder besser dargestellt werden können.
