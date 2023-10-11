@@ -18,11 +18,11 @@ Hier wird die Motivation für die Veröffentlichung der Richtlinien erläutert u
 
 2. **lobid als Datenquelle nennen**
 
-In diesem Abschnitt wird verdeutlicht, dass es, aufgrund der Nutzung der CC0-Lizenz, zwar nicht nötig ist lobid als Datenquelle zu nennen aber durchaus als gute Praxis erwünscht ist. Für die einfache Umsetzung wird der Text um HTML-Snippets für die leichte Umsetzung der Attribuierung ergänzt.
+In diesem Abschnitt wird verdeutlicht, dass es aufgrund der Nutzung der CC0-Lizenz zwar nicht nötig ist, lobid als Datenquelle zu nennen, aber durchaus als gute Praxis erwünscht ist. Für die einfache Umsetzung wird der Text um HTML-Snippets für die leichte Umsetzung der Attribuierung ergänzt.
 
 3. **Technische Hinweise zur lobid-Nutzung**
 
-Dieser Abschnitt nimmt am meistern Raum ein und richtet sich an implementierende Techniker:innen. Um die technische Umsetzung der in den Richtlinien beschriebenen Maßnahmen so niedrigschwellig wie möglich zu gestalten, werden Hinweise zur Implementierung gegeben und mit Kurzbeispielen illustriert. Auch diese Maßnahmen sind als Empfehlungen zu verstehen und werden seitens lobid nicht technisch erzwungen.
+Dieser Abschnitt nimmt am meisten Raum ein und richtet sich an implementierende Techniker:innen. Um die technische Umsetzung der in den Richtlinien beschriebenen Maßnahmen so niedrigschwellig wie möglich zu gestalten, werden Hinweise zur Implementierung gegeben und mit Kurzbeispielen illustriert. Auch diese Maßnahmen sind als Empfehlungen zu verstehen und werden seitens lobid nicht technisch erzwungen.
 
 4. **Informationen zur Gewährleistung**
 
