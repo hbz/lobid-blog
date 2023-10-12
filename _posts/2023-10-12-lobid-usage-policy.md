@@ -12,19 +12,19 @@ Diese Richtlinien sind das Ergebnis einer Beauftragung von [Open Culture Consult
 
 Die Richtlinien einer rücksichtsvollen lobid-Nutzung gliedern sich in vier Bereiche:
 
-1. **Einleitung/Willkommen**
+## 1. Einleitung/Willkommen
 
 Hier wird die Motivation für die Veröffentlichung der Richtlinien erläutert und darauf hingewiesen, dass es sich "nicht um verbindliche Vorschriften \[handelt\], sondern vielmehr um Anregungen, die ein faires Miteinander garantieren sollen".
 
-2. **lobid als Datenquelle nennen**
+## 2. lobid als Datenquelle nennen
 
 In diesem Abschnitt wird verdeutlicht, dass es aufgrund der Nutzung der CC0-Lizenz zwar nicht nötig ist, lobid als Datenquelle zu nennen, aber durchaus als gute Praxis erwünscht ist. Für die einfache Umsetzung wird der Text um HTML-Snippets für die leichte Umsetzung der Attribuierung ergänzt.
 
-3. **Technische Hinweise zur lobid-Nutzung**
+## 3. Technische Hinweise zur lobid-Nutzung
 
 Dieser Abschnitt nimmt am meisten Raum ein und richtet sich an implementierende Techniker:innen. Um die technische Umsetzung der in den Richtlinien beschriebenen Maßnahmen so niedrigschwellig wie möglich zu gestalten, werden Hinweise zur Implementierung gegeben und mit Kurzbeispielen illustriert. Auch diese Maßnahmen sind als Empfehlungen zu verstehen und werden seitens lobid nicht technisch erzwungen.
 
-4. **Informationen zur Gewährleistung**
+## 4. Informationen zur Gewährleistung
 
 Parallel zu den Nutzungsrichtlinien haben wir [Informationen zum Gewährleistungsausschluss](http://lobid.org/warranty/) publiziert, die hier verlinkt werden. Dies ist letztlich auch der einzige juristisch wirksame Text und wurde daher – analog zu Impressum und Datenschutzerklärung – unabhängig publiziert.
 
