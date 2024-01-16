@@ -7,7 +7,7 @@ layout: default
 	| <span>&#127991;</span>
 		{% for tag in page.tags %}
 		{% capture tag_name %}{{ tag }}{% endcapture %}
-		<a href="/tags/{{ tag_name }}"><code><nobr>{{ tag_name }}</nobr></code></a>&nbsp;
+		<a href="/tags/{{ tag_name }}"><code style="white-space: nowrap;">{{ tag_name }}</code></a>&nbsp;
 		{% endfor %}
 	</small>
 </p>
