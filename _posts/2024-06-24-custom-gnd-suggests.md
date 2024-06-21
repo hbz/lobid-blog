@@ -1,20 +1,20 @@
 ---
 layout: post
 title: "Customize your GND autosuggests"
-date: 2024-06-14
+date: 2024-06-24
 author: Adrian Pohl
 tags: lobid-gnd
 ---
 
-Recently, the current lookup options in lobid-gnd turned out to not be enough for a use case we were facing. We needed to associate date and place of a person's birth/death but couldn't. So we added this option for everyone to benefit from. Now, you can get auto-suggests for GND persons that include a good overview of birth/deatch dates and places, ocupations/professions and places of activity. They might for example look like this:
+Recently, the current lookup options in lobid-gnd turned out to not be enough for a use case we were facing. We needed to associate date and place of a person's birth/death but couldn't. So we added this option for everyone to benefit from. Now, you can get auto-suggests for GND persons that include a good overview of birth/death dates and places, occupations/professions and places of activity. They might for example look like this:
 
 ![Suggest list of different persons for query 'rowohlt' containing the named information with unicode icons fr birth and death](/images/20240624-custom-gnd-suggests/rpb-strapi-screenshot.png)
 
 ### How do I make lobid return a custom autosuggest format?
 
-We have documented the configuration of such a customized GND autosuggest string in the [API documentation](https://lobid.org/gnd/api#auto-complete)
+We have documented the configuration of such a customized GND autosuggest string in the [API documentation](https://lobid.org/gnd/api#auto-complete).
 
-For example, here is the query that returns autosuggestions like the above: [`rowohlt+AND+type:Person&format=json%3ApreferredName,*_dateOfBirth+_placeOfBirth,%E2%80%A0_dateOfDeath+_placeOfDeath,placeOfActivity,professionOrOccupation`](https://lobid.org/gnd/search?q=rowohlt+AND+type:Person&format=json%3ApreferredName,*_dateOfBirth+_placeOfBirth,%E2%80%A0_dateOfDeath+_placeOfDeath,placeOfActivity,professionOrOccupation)
+For example, here is the query that returns autosuggestions like the above: [`rowohlt+AND+type:Person&format=json:preferredName,*_dateOfBirth+_placeOfBirth,†_dateOfDeath+_placeOfDeath,placeOfActivity,professionOrOccupation`](https://lobid.org/gnd/search?q=rowohlt+AND+type:Person&format=json%3ApreferredName,*_dateOfBirth+_placeOfBirth,%E2%80%A0_dateOfDeath+_placeOfDeath,placeOfActivity,professionOrOccupation)
 
 The reponse to this query looks like this:
 
@@ -63,11 +63,11 @@ The reponse to this query looks like this:
 } ]
 ```
 
-Basically, as with autosuggest queries before, you have to configure the response payload by using the `format=json` parameter add a trailing colon and then the configuration bit which in our case is `preferredName,*_dateOfBirth+_placeOfBirth,†_dateOfDeath+_placeOfDeath,placeOfActivity,professionOrOccupation`.
+Basically, as with autosuggest queries before, you have to configure the response payload by using the `format=json` parameter, add a trailing colon and then the configuration bit which in our case is `preferredName,*_dateOfBirth+_placeOfBirth,†_dateOfDeath+_placeOfDeath,placeOfActivity,professionOrOccupation`.
 
-As usual, you have a comma-seperated list of all the field contents you want to be returned. The additional option is provided by allowing to use `_{field}` with the addition of custom characters like "†". I could also use "born in"/"died in" instead liek this: [`preferredName,born in_dateOfBirth+_placeOfBirth,died in_dateOfDeath+_placeOfDeath,placeOfActivity,professionOrOccupation`](https://lobid.org/gnd/search?q=rowohlt+AND+type:Person&format=json%3ApreferredName,born in_dateOfBirth+_placeOfBirth,died in_dateOfDeath+_placeOfDeath,placeOfActivity,professionOrOccupation)
+As usual, you have a comma-seperated list of all the field contents you want to be returned. The additional option is provided by allowing to use `_{field}` with the addition of custom characters like "†". I could also use "born in"/"died in" instead, like this: [`preferredName,born in_dateOfBirth,placeOfBirth,died in_dateOfDeath,placeOfDeath,placeOfActivity,professionOrOccupation`](https://lobid.org/gnd/search?q=rowohlt+AND+type:Person&format=json%3ApreferredName,born in_dateOfBirth,placeOfBirth,died in_dateOfDeath,placeOfDeath,placeOfActivity,professionOrOccupation)
 
 We hope that others will also benefit from this option. Let us know if you like it.
 
 
-*This feature was added in the context of a project where we are building a new editorial backend for the regional bibliography of Rhineland-Palatinate. ([RPB](https://rpb.lobid.org/)). For looking up GND IDs in the [Strapi](https://strapi.io/)-based editorial backend, we are relying on the lobid gnd API. We were happy to play back the needed improvements for the lookups into the main lobid-gnd service.*
+*This feature was added in the context of a project where we are building a new editorial backend for the regional bibliography and person database of Rhineland-Palatinate ([RPB](https://rpb.lbz-rlp.de/) &amp; [RPPD](https://rppd.lobid.org)). For looking up GND IDs in the [Strapi](https://strapi.io/)-based editorial backend, we are relying on the lobid-gnd API. We were happy to play back the needed improvements for the lookups into the lobid-gnd service.*
