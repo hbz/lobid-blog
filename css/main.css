@@ -64,6 +64,7 @@ code {
 	padding: 2px 4px;
 	background-color: #f5f5f5;
 	font-size: smaller;
+	word-wrap: break-word;
 }
 
 img {
