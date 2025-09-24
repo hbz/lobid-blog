@@ -1,85 +1,90 @@
 body {
-	font-family: 'Helvetica', 'Arial', 'Sans-Serif';
-	margin: 60px auto;
-	width: 70%;
-	min-width: 30em;
-	max-width: 39em;
+    font-family: "Helvetica", "Arial", "Sans-Serif";
+    margin: 60px auto;
+    width: 70%;
+    min-width: 30em;
+    max-width: 39em;
 }
 
-nav ul, footer ul {
-	padding: 0px;
-	list-style: none;
-	font-weight: bold;
+nav ul,
+footer ul {
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
 }
 
-nav ul li, footer ul li {
-	display: inline;
-	margin-right: 20px;
+nav ul li,
+footer ul li {
+    display: inline;
+    margin-right: 20px;
 }
 
 h1 {
-	font-size: 1.9em;
+    font-size: 1.9em;
 }
 
-p, li, td, th {
-	font-size: 1.3rem;
-	line-height: 1.4em;
-	color: #333;
-	padding: 5px;
+p,
+li,
+td,
+th {
+    font-size: 1.3rem;
+    line-height: 1.4em;
+    color: #333;
+    padding: 5px;
 }
 
 footer {
-	border-top: 1px solid #d5d5d5;
-	font-size: .8em;
+    border-top: 1px solid #d5d5d5;
+    font-size: 0.8em;
 }
 
 ul.posts {
-	margin: 20px auto 40px;
-	padding-left: 0px;
+    margin: 20px auto 40px;
+    padding-left: 0px;
 }
 
 ul.posts li {
-	list-style: none;
+    list-style: none;
 }
 
 pre {
-	font-size: 1.25em;
-	padding: 10px;
-	margin: 0 0 10px;
-	background-color: #f5f5f5;
-	border: 1px solid #ccc;
-	padding: 10px;
-	line-height: 1.25;
+    font-size: 1.25em;
+    padding: 10px;
+    margin: 0 0 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    padding: 10px;
+    line-height: 1.25;
 }
 
 pre code {
-	padding: 0;
-	font-size: inherit;
-	color: inherit;
-	white-space: pre-wrap;
-	word-wrap: break-word;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 code {
-	padding: 2px 4px;
-	background-color: #f5f5f5;
-	font-size: smaller;
-	word-wrap: break-word;
+    padding: 2px 4px;
+    background-color: #f5f5f5;
+    font-size: smaller;
+    word-wrap: break-word;
 }
 
 img {
-	max-width: 100%;
+    max-width: 100%;
 }
 
 .logo {
-	height: 1.5em;
-	width: auto;
-	vertical-align: bottom;
+    height: 1.5em;
+    width: auto;
+    vertical-align: bottom;
 }
 
 .alert-info {
-  padding: 20px;
-  background-color: #2196F3; /* Red */
-  color: white;
-  margin-bottom: 15px;
+    padding: 20px;
+    background-color: #2196f3; /* Red */
+    color: white;
+    margin-bottom: 15px;
 }
