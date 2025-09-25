@@ -6,8 +6,11 @@ author: Adrian Pohl, Phu Tu
 tags: lobid-gnd
 ---
 
+<div class="info-box">
+    <span class="icon">ⓘ</span>
+    <p>Für Rückmeldungen und Diskussion zu diesem Beitrag siehe den <a href="https://metadaten.community/t/...">Crosspost im metadaten.community-Forum</a>.</p>
+</div>
 
-ⓘ *Für Rückmeldungen und Diskussion siehe den [Crosspost im metadaten.community-Forum](https://metadaten.community/t/...).*
 
 
 [lobid-gnd](https://lobid.org/gnd) ist – neben anderen wie dem [GND Explorer](https://explore.gnd.network/), [OGND](http://swb.bsz-bw.de/DB=2.104/), [Eurospider](http://gnd.eurospider.com) oder dem [DNB-Katalog](https://katalog.dnb.de) – ein Dienst, der die Daten der Gemeinsamen Normdatei (GND) zur Recherche im Web bereitstellt. lobid-gnd-Daten sind nicht in einer Datenbank versteckt und können somit durch Webcrawler wie dem [Googlebot](https://de.wikipedia.org/wiki/Googlebot) gecrawlt und in Websuchmaschinen indexiert werden. Wenn nun Menschen ihren Namen in einer Web-Suchmaschine eingeben, kann es leicht vorkommen, dass sie auf ihren GND-Personendatensatz in lobid-gnd stoßen.

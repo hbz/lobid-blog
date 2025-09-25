@@ -47,6 +47,33 @@ ul.posts li {
     list-style: none;
 }
 
+.info-box {
+    background-color: #f0f8ff; /* Light blue background */
+    border: 1px solid #b0c4de; /* Light steel blue border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 15px; /* Reduced padding on top and bottom, same on sides */
+    margin: 20px 0; /* Margin around the box */
+    display: flex; /* Use flexbox to align items */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.info-box .icon {
+    font-size: 20px; /* Font size for the icon */
+    margin-right: 10px; /* Space between icon and text */
+    color: #00008b; /* Dark blue icon color */
+    display: inline-block; /* Ensure the icon is treated as an inline block */
+    vertical-align: top; /* Align the icon to the top */
+}
+
+.info-box p {
+    font-size: 16px; /* Font size for the paragraph inside the info box */
+    margin: 0; /* Remove default margin from the paragraph */
+    color: #00008b; /* Dark blue text color */
+    flex-grow: 1; /* Ensure text takes up remaining space */
+    margin-top: 0; /* Remove top margin from the paragraph */
+    margin-bottom: 0; /* Remove bottom margin from the paragraph */
+}
+
 pre {
     font-size: 1.25em;
     padding: 10px;
