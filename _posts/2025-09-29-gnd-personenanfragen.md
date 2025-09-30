@@ -8,7 +8,7 @@ tags: lobid-gnd
 
 <div class="info-box">
     <span class="icon">ⓘ</span>
-    <p>Für Rückmeldungen und Diskussion zu diesem Beitrag siehe den <a href="https://metadaten.community/t/...">Crosspost im metadaten.community-Forum</a>.</p>
+    <p>Für Rückmeldungen und Diskussion zu diesem Beitrag siehe den <a href="https://metadaten.community/t/gnd-personendaten-im-web-zum-umgang-mit-aenderungsanfragen/912">Crosspost im metadaten.community-Forum</a>.</p>
 </div>
 
 [lobid-gnd](https://lobid.org/gnd) ist – neben anderen wie dem [GND Explorer](https://explore.gnd.network/), [OGND](http://swb.bsz-bw.de/DB=2.104/), [Eurospider](http://gnd.eurospider.com) oder dem [DNB-Katalog](https://katalog.dnb.de) – ein Dienst, der die Daten der Gemeinsamen Normdatei (GND) zur Recherche im Web bereitstellt. lobid-gnd-Daten sind nicht in einer Datenbank versteckt und können somit durch Webcrawler wie dem [Googlebot](https://de.wikipedia.org/wiki/Googlebot) gecrawlt und in Websuchmaschinen indexiert werden. Wenn nun Menschen ihren Namen in einer Web-Suchmaschine eingeben, kann es leicht vorkommen, dass sie auf ihren GND-Personendatensatz in lobid-gnd stoßen.
@@ -27,6 +27,7 @@ Als Beispiel nehme wir mal Adrians GND-Eintrag: [https://lobid.org/gnd/14326723X
 Wenn ich dort hinkomme, dann steht dort der folgende Hinweis:
 
 ![Screenshot von https://lobid.org/gnd/14326723X](/images/2025-09-29-gnd-personenanfragen/14326723X.png)
+
 Unsere Hoffnung ist, dass Menschen, die über eine Internetsuchmaschine auf ihren GND-Eintrag kommen, diesen Hinweis sehen und anklicken. Nach dem Anklicken steht dort:
 
 > ⓘ Diese Seite zeigt einen Datensatz aus der [Gemeinsamen Normdatei](https://de.wikipedia.org/wiki/Gemeinsame_Normdatei) (GND) an. Die GND wird von Bibliotheken, Archiven und Museen gepflegt und dient der eindeutigen Identifizierung von Urheber:innen. Ein GND-Eintrag zu einer Person wird beispielsweise bei der Katalogisierung einer Publikation angelegt, um die Publikation korrekt und eindeutig der Person zuordnen zu können.
@@ -156,7 +157,7 @@ In einem anderen Fall wurde explizit ein Löschantrag nach DSGVO formuliert[^gnd
 > Thank you very much for your time and assistance. I look forward to your 
 > response.
 
-### Herausforderungen im Umgang mit Löschanfragen
+### Herausforderungen im Umgang mit Änderungsanfragen
 
 Die Änderungswünsche kamen im hbz bisher per E-Mail an, aber an verschiedenen Orten: 
 
@@ -166,7 +167,7 @@ Die Änderungswünsche kamen im hbz bisher per E-Mail an, aber an verschiedenen 
 An der Bearbeitung einer solchen Anfrage sind zudem mindestens zwei, teilweise drei oder sogar vier Parteien beteiligt. Auf jeden Fall involviert sind:
 
 - Das **lobid-Team**, da es den Dienst betreibt, an den sich die Änderungsanfrage richtet.
-- Die **GND-Redaktion** im hbz, die gewünschte Änderungen vornimmt, solange es sich nicht um Löschanfragen handelt.
+- Die **GND-Redaktion** im hbz, die gewünschte Änderungen vornimmt.
 
 Darüber hinaus können beteiligt sein:
 
@@ -187,7 +188,7 @@ Was passiert nun, wenn jemand an gnd-datenschutz@hbz-nrw.de schreibt?
 
 1. Es wird ein Ticket im hbz-internen [Zammad](https://zammad.org/)-System für Supportanfragen angelegt.
 2. Die hbz-GND-Agentur sowie das lobid-Team werden über das Ticket benachrichtigt.
-3. Die Kolleg:innen passen den entsprechenden Eintrag an und beauftragen ggf. die GND-Zentralredaktion der DNB zur Sperrung des Datensatzes (durch Vergabe des Katalogisierungslevels "z"[^z], das nur durch die GND-Zentralredaktion der vergeben werden kann, siehe Seite 12f der [GND-Redaktionsanleitung](https://wiki.dnb.de/display/ILTIS/Informationsseite+zur+GND?preview=/90411323/94831126/Redaktionsanleitung.pdf)).
+3. Die Kolleg:innen passen den entsprechenden Eintrag an und beauftragen ggf. die GND-Zentralredaktion der DNB zur Sperrung des Datensatzes (durch Vergabe des Katalogisierungslevels "z"[^z], das nur durch die GND-Zentralredaktion der DNB vergeben werden kann, siehe Seite 12f der [GND-Redaktionsanleitung](https://wiki.dnb.de/display/ILTIS/Informationsseite+zur+GND?preview=/90411323/94831126/Redaktionsanleitung.pdf)).
 4. Das lobid-Team als verantwortliche Partei für die Webseite [https://lobid.org/gnd](https://lobid.org/gnd) kann prüfen, ob alle Daten wie gewünscht aktualisiert sind und entsprechende Löschungen im Testsystem nachziehen.
 5. Ist alles erledigt, wird das Ticket geschlossen und wir haben gleichzeitig den Löschvorgang dokumentiert.
  
