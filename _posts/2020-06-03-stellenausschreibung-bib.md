@@ -57,13 +57,11 @@ Für weitere Rückfragen steht Ihnen Herr Pohl gerne zur Verfügung (Telefon 022
 **Verfahren**
 Ihre Bewerbung mit den üblichen Unterlagen richten Sie bitte mit dem Kennwort "20oiDEV" bis zum **21.06.2020** an das
 
-<p style="text-align:center;">
-    <b>
+<p style="text-align:center;font-weight:bold;">
 Hochschulbibliothekszentrum des Landes NRW<br />
 Personalservice<br />
 Postfach 27 04 51<br />
 50510 Köln
-    </b>
 </p>
 oder digital per E-Mail an: **bewerbung@hbz-nrw.de**.
 
