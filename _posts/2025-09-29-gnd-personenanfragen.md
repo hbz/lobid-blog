@@ -2,7 +2,7 @@
 layout: post
 title: "GND-Personendaten im Web: Zum Umgang mit Änderungsanfragen"
 date: 2025-09-29
-author: Adrian Pohl, Phu Tu
+author: Adrian Pohl, Phu Tu, Ramona Schwind
 tags: lobid-gnd
 ---
 
@@ -11,20 +11,18 @@ tags: lobid-gnd
     <p>Für Rückmeldungen und Diskussion zu diesem Beitrag siehe den <a href="https://metadaten.community/t/...">Crosspost im metadaten.community-Forum</a>.</p>
 </div>
 
-
-
 [lobid-gnd](https://lobid.org/gnd) ist – neben anderen wie dem [GND Explorer](https://explore.gnd.network/), [OGND](http://swb.bsz-bw.de/DB=2.104/), [Eurospider](http://gnd.eurospider.com) oder dem [DNB-Katalog](https://katalog.dnb.de) – ein Dienst, der die Daten der Gemeinsamen Normdatei (GND) zur Recherche im Web bereitstellt. lobid-gnd-Daten sind nicht in einer Datenbank versteckt und können somit durch Webcrawler wie dem [Googlebot](https://de.wikipedia.org/wiki/Googlebot) gecrawlt und in Websuchmaschinen indexiert werden. Wenn nun Menschen ihren Namen in einer Web-Suchmaschine eingeben, kann es leicht vorkommen, dass sie auf ihren GND-Personendatensatz in lobid-gnd stoßen.
 
 Einige sind dann überrascht, dass und welche Daten über sie im Web bereitgestellt werden. Zudem erschließt sich ihnen wahrscheinlich der Kontext nicht, weil das Konzept bibliothekarischer Normdaten nicht allgemein bekannt ist. Einige dieser Menschen sehen Fehler in den Daten oder wollen Informationen wie das Geburtsjahr nicht veröffentlicht sehen. Sie suchen schließlich auf der lobid-gnd-Seite nach einer Kontaktmöglichkeit und wenden sich an uns, häufig mit Bitte um Löschung von Daten. Normalerweise sind das weniger als zehn Anfragen pro Jahr, im Januar und Mitte des Jahres 2025 haben wir allerdings innerhalb kurzer Zeit mehrere solcher Anfragen bekommen.
 
-## Neu: in verständlicher Hinweis für lebende GND-Personen
+## Neu: Ein verständlicher Hinweis für lebende GND-Personen
 
 Aufgrund der vermehrten und gehäuften Anfragen, haben wir uns endlich daran gemacht, einen verständlichen Hinweis auf den lobid-Seiten zu ergänzen (siehe [lobid-gnd#409](https://github.com/hbz/lobid-gnd/issues/409) für die detaillierte Umsetzung). Er wird bei allen Personeneinträgen angezeigt, die
 
-1. ein Geburtsdatum haben, das nach 1940 liegt (Wir gehen davon aus, das Menschen über 85 sich nicht mehr sonderlich für ihren GND-Eintrag interessieren)
+1. ein Geburtsdatum haben, das nach 1940 liegt (Wir gehen davon aus, dass Menschen über 85 sich nicht mehr sonderlich für ihren GND-Eintrag interessieren)
 2. **kein** Todesdatum haben.
 
-Als Beispiel nehme ich mal meinen eigenen GND-Eintrag: [https://lobid.org/gnd/14326723X](https://lobid.org/gnd/14326723X)
+Als Beispiel nehme wir mal Adrians GND-Eintrag: [https://lobid.org/gnd/14326723X](https://lobid.org/gnd/14326723X)
 
 Wenn ich dort hinkomme, dann steht dort der folgende Hinweis:
 
@@ -37,7 +35,7 @@ Unsere Hoffnung ist, dass Menschen, die über eine Internetsuchmaschine auf ihre
 
 ## Häufige Anfragen, viele Beteiligte, kein klarer Prozess
 
-Die Notwendigkeit einer Hinweisbox haben wir gesehen, weil Anfragen bisher oft sehr umständlich bearbeitet wurden und wir einiges an Verbesserungspotenzial sahen. Im folgenden erläutern wir diesen Hintergrund im Detail.
+Die Notwendigkeit einer Hinweisbox haben wir gesehen, weil Anfragen bisher oft sehr umständlich bearbeitet wurden und wir einiges an Verbesserungspotenzial sahen. Im Folgenden erläutern wir diesen Hintergrund im Detail.
 
 ### Beispielanfragen mit einfacher Bitte um Anpassung/Löschung bestimmter Angaben
 
@@ -168,12 +166,12 @@ Die Änderungswünsche kamen im hbz bisher per E-Mail an, aber an verschiedenen 
 An der Bearbeitung einer solchen Anfrage sind zudem mindestens zwei, teilweise drei oder sogar vier Parteien beteiligt. Auf jeden Fall involviert sind:
 
 - Das **lobid-Team**, da es den Dienst betreibt, an den sich die Änderungsanfrage richtet.
-- Die **GND-Redaktion** im hbz, die die gewünschten Änderungen vornimmt.
+- Die **GND-Redaktion** im hbz, die gewünschte Änderungen vornimmt, solange es sich nicht um Löschanfragen handelt.
 
 Darüber hinaus können beteiligt sein:
 
 - Das **hbz-Marketing**, weil es sich um die Anfragen an  info-hbz@hbz-nrw.de kümmert.
-- Die **GND-Zentralredaktion** bei der Deutschen Nationalbibliothek (DNB), wenn – wie bei der obigen Anfrage nach DSGVO – ein GND-Personensatz nach Löschung der gewünschten Daten für eine spätere Bearbeitung gesperrt werden soll.
+- Die **GND-Zentralredaktion** bei der Deutschen Nationalbibliothek (DNB), wenn – wie bei der obigen Anfrage nach DSGVO – in einem GND-Personensatz Daten gelöscht und der Datensatz für eine spätere Bearbeitung gesperrt werden muss.
 
 Je mehr Parteien beteiligt sind und je unklarer ist, wer die Verantwortung trägt, wie der aktuelle Stand ist und was getan werden muss, desto zeitaufwändiger und langwieriger, je nach Rolle auch frustrierender kann die Kommunikation werden. Gerade bei DSGVO-Löschanträgen sind zeitliche Verzögerungen aber ggf. juristisch relevant, weshalb es wichtig ist, dass jemand Verantwortung übernimmt und sich darum kümmert, dass die nötigen Schritte umgesetzt werden.
 
@@ -187,12 +185,12 @@ Von der neu hinzugefügten Hinweisbox mit grundlegenden, allgemeinverständliche
 
 Was passiert nun, wenn jemand an gnd-datenschutz@hbz-nrw.de schreibt?
 
-1. Es wird ein Ticket im hbz-internen Zammad-System für Supportanfragen angelegt.
+1. Es wird ein Ticket im hbz-internen [Zammad](https://zammad.org/)-System für Supportanfragen angelegt.
 2. Die hbz-GND-Agentur sowie das lobid-Team werden über das Ticket benachrichtigt.
-3. Die Kolleg:innen passen den entsprechenden Eintrag an und/oder eskalieren je nach Bedarf zur GND-Zentralredaktion bei der DNB.
-4. Das lobid-Team als verantwortliche Partei für die Webseite https://lobid.org/gnd kann prüfen, ob alle Daten wie gewünscht aktualisiert sind und entsprechende Löschungen im Testsystem nachziehen.
+3. Die Kolleg:innen passen den entsprechenden Eintrag an und beauftragen ggf. die GND-Zentralredaktion der DNB zur Sperrung des Datensatzes (durch Vergabe des Katalogisierungslevels "z"[^z], das nur durch die GND-Zentralredaktion der vergeben werden kann, siehe Seite 12f der [GND-Redaktionsanleitung](https://wiki.dnb.de/display/ILTIS/Informationsseite+zur+GND?preview=/90411323/94831126/Redaktionsanleitung.pdf)).
+4. Das lobid-Team als verantwortliche Partei für die Webseite [https://lobid.org/gnd](https://lobid.org/gnd) kann prüfen, ob alle Daten wie gewünscht aktualisiert sind und entsprechende Löschungen im Testsystem nachziehen.
 5. Ist alles erledigt, wird das Ticket geschlossen und wir haben gleichzeitig den Löschvorgang dokumentiert.
-
+ 
 ## GND-Löschanfragen und die GND-Kooperative
 
 In den [FAQ](https://gnd.network/Webs/gnd/DE/UeberGND/FAQ/faq_node.html) auf gnd.network werden die DSGVO und Änderungswünsche behandelt, allerdings werden die kooperative Pflege in unterschiedlichen Institutionen und das dezentrale Anbieten der GND in unterschiedlichen Diensten nicht adressiert.
@@ -202,7 +200,9 @@ Wir waren bisher nicht beteiligt an einem Austausch über Änderungs- und Lösch
 Womöglich kann dieser Beitrag ja anderen als Anstoß zum Austausch dienen oder hilfreich sein. Uns interessieren folgende Fragen:
 
 - Wie gehen andere mit entsprechenden Anfragen um? 
-- Gibt es womöglich bereits eine Dokumentation, wie mit Löschanträgen innerhalb der gesamten GND-Kooperative umgegangen werden soll?
 - Im Kontext der Umsetzung fiel uns auf, dass es weder auf gnd.network noch im DNB-Wiki eine Erläuterung der GND für "Normalsterbliche" gibt, also für Menschen, die nicht regelmäßig mit Gedächtnisinstitutionen zu tun haben und mit dem Konzept "Normdaten" überhaupt noch nichts anfangen können (weshalb wir den Wikipedia-Eintrag verlinkt haben). Haben wir etwas übersehen? Falls das bisher echt fehlt, wäre so eine Infoseite für  Nicht-Bibliothekar:innen nicht sinnvoll?
 
+---
+
 [^gndsgvo]: Zum Thema GND und DSGVO siehe auch Lars Svenssons Blog-Beitrag ["Verantwortungsvoller Umgang mit sensiblen Daten bei zeitgenössischen Personen"](https://wiki.dnb.de/x/Gg7FEg).
+[^z]: Momentan gibt es [944 GND-Einträge mit dem Katalogisierungslevel "z"](https://lobid.org/gnd/search?q=describedBy.descriptionLevel.id%3A%22https%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fdescription-level%23z%22&from=200&size=100&format=html), davon sind [775 Personeneinträge](https://lobid.org/gnd/search?q=describedBy.descriptionLevel.id%3A%22https%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fdescription-level%23z%22&filter=%2B%28type%3APerson%29).
