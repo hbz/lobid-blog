@@ -2,7 +2,7 @@
 layout: post
 title: Veröffentlichung von Richtlinien einer rücksichtsvollen lobid-Nutzung
 date: 2023-10-12
-author: Adrian Pohl & Sebastian Meyer
+author: Adrian Pohl &amp; Sebastian Meyer
 tags: lobid-resources lobid-organisations lobid-gnd
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: Pflege und Verbesserung von lobid-organisations 
 date: 2023-09-01
-author: Tobias Bülte & Adrian Pohl
+author: Tobias Bülte &amp; Adrian Pohl
 tags: lobid-organisations
 ---
 
