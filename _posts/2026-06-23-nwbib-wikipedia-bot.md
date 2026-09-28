@@ -6,8 +6,6 @@ author: Adrian Pohl, Tobias Bülte
 tags: nwbib
 ---
 
-# Eine Regionalbibliographie in Wikipedia sichtbar machen
-
 Dieser Beitrag beschreibt, wie wir mithilfe eines Wikipedia Bots automatisiert mehr als 4300 Verlinkungen in Wikipedia-Artikeln über Ortschaften in Nordrhein-Westfalen ergänzt haben. Die ergänzten Links zeigen auf Listen von Einträgen über den jeweiligen Ort in der [Nordrhein-Westfälischen Bibliographie (NWBib)](https://nwbib.de).
 
 ## Vorarbeiten: Von Textstrings zum SKOS Vokabular auf Wikidata-Basis
