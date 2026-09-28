@@ -1,10 +1,15 @@
 ---
 layout: post
 title: "Modernisierung des Technologie-Stacks der lobid-gnd-Benutzeroberfläche"
-date: 2026-09-09
+date: 2026-09-28
 author: Adrian Pohl, Fabian Steeg
 tags: lobid-gnd
 ---
+
+<div class="info-box">
+    <span class="icon">ⓘ</span>
+    <p>Für Rückmeldungen und Diskussion zu diesem Beitrag siehe den <a href="https://metadaten.community/t/modernisierung-des-technologie-stacks-der-lobid-gnd-benutzeroberflaeche/1185">Crosspost im metadaten.community-Forum</a>.</p>
+</div>
 
 lobid-gnd erleichtert die Arbeit mit der Gemeinsamen Normdatei (GND) auf verschiedene Weisen: Es stellt neben einer Rechercheoberfläche zum Durchsuchen der GND auch eine eine [Integration in OpenRefine](https://lobid.org/gnd/reconcile), sowie eine [Web-API](https://lobid.org/gnd/api) bereit. Die aktuelle lobid-gnd-Version ging im [Juni 2018](https://blog.lobid.org/2018/07/11/lobid-gnd-launch.html) in den Produktionsbetrieb nach langer Arbeit und auf Basis eines [Konzepts](https://blog.lobid.org/2017/06/08/lobid-api-why-how.html), das im Kern auf [Linked Open Usable Data (LOUD)](https://linked.art/loud/) mit JSON-LD setzt.[^loud]
 
